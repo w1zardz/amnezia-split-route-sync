@@ -20,7 +20,7 @@ jobs:
       - name: Static checks and unit tests
         run: |
           python3 tools/privacy_scan.py
-          python3 -m py_compile macos/update_amnezia_routes.py tools/generate_routes.py tools/privacy_scan.py
+          python3 -m py_compile macos/update_amnezia_routes.py tools/generate_routes.py tools/generate_amnezia_full_import.py tools/privacy_scan.py
           python3 -m unittest discover -s tests -v
           bash -n macos/install.sh macos/uninstall.sh
           python3 -m json.tool config/route-policy.json >/dev/null
@@ -29,6 +29,7 @@ jobs:
         run: |
           cp tests/fixtures/custom-host-policy.json config/custom-host-policy.json
           python3 tools/generate_routes.py --dry-run
+          python3 tools/generate_amnezia_full_import.py --dry-run
 
   macos-helper:
     runs-on: macos-14
