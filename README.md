@@ -202,6 +202,70 @@ powershell -NoProfile -ExecutionPolicy Bypass -File windows\uninstall.ps1
 заменяет только те, которыми управлял сам. Снести всё и оставить только наш
 список: флаг `-ReplaceAll`.
 
+### Как обновиться до свежей сборки вручную
+
+Задача сама сходит за списком при входе в Windows и каждые 6 часов, так что
+обычно делать ничего не нужно. Ниже — что ввести, если новый список нужен прямо
+сейчас или после `git pull`.
+
+**Откройте PowerShell от имени администратора**: `Win` → наберите `powershell` →
+правой кнопкой на «Windows PowerShell» → **«Запуск от имени администратора»**.
+Без прав администратора задача не сможет перезапускать службу
+`AmneziaVPN-service`, и список применится только после ребута.
+
+Дальше — команды по порядку, каждая отдельной строкой. Путь к репозиторию
+поправьте под свой, если клонировали не в домашний каталог.
+
+Забрать свежую сборку и код:
+
+```powershell
+cd "$env:USERPROFILE\amnezia-split-route-sync"; git pull
+```
+
+Переустановить updater — обязательный шаг после `git pull`: задача запускает
+копию из `%LOCALAPPDATA%`, а не файл из репозитория, и без этого шага правки
+кода не подхватятся:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File windows\install.ps1
+```
+
+Применить список:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\AmneziaRouteSync\update-amnezia-routes.ps1"
+```
+
+Проверить, что применилось:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\AmneziaRouteSync\update-amnezia-routes.ps1" -Status
+```
+
+Что должно быть в выводе `-Status`:
+
+```
+Записей в Conf\ExceptSites: 1609
+routeMode: 2 (нужно 2)
+sitesSplitTunnelingEnabled: true (нужно true)
+Ключей-сетей: 621, ключей-доменов: 988
+Служба демона: AmneziaVPN-service = Running
+маршрут до gosuslugi.ru: префикс 213.59.252.0/22, шлюз 192.168.1.1, интерфейс Ethernet
+```
+
+Числа должны совпадать с таблицей в начале файла. Главная строка — последняя:
+маршрут до Госуслуг идёт через **домашний шлюз и обычный интерфейс**, а не через
+`AmneziaVPN / WireGuard Tunnel`. Значит раздельное туннелирование работает.
+
+`AmneziaVPN уже содержит актуальные 1609 записей` вместо `AmneziaVPN обновлена` —
+не ошибка: задача успела применить список сама сразу после `install.ps1`.
+
+**Если что-то пошло не так.** `Источник не ответил за 60 секунд` — сеть или
+GitHub не отвечают; updater делает три попытки сам, повторите запуск позже.
+Консоль ушла в `>>` и не реагирует — в команду улетела лишняя кавычка, нажмите
+`Ctrl+C`. `-ReplaceAll` нужен, только если хотите стереть свои ручные записи в
+Amnezia; при обычном обновлении он не нужен.
+
 ### Если автоматизация не нужна — импорт вручную
 
 1. Скачайте `amnezia-ru-direct.json` из [Releases](../../releases/latest).
