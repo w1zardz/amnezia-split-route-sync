@@ -60,6 +60,7 @@ jobs:
             --notes-file dist/RELEASE_NOTES.md \
             dist/amnezia-ru-direct.json \
             dist/amnezia-ru-direct-lite.json \
+            dist/amnezia-ru-direct-ip.json \
             dist/ru-direct-domains.txt \
             dist/ru-direct-ipv4.txt \
             dist/happ-ru-direct.json \
