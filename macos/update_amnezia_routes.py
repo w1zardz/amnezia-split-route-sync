@@ -204,8 +204,11 @@ def merge_except_sites(
     else:
         previous = set(previous_managed)
         merged = {key: value for key, value in current.items() if key not in previous}
+    # Amnezia дописывает в значение записи резолвнутые IP домена. Затирать их
+    # пустым списком нельзя: иначе каждый запуск видел бы «список изменился»
+    # и дёргал GUI с туннелем на ровном месте.
     for cidr in new_managed:
-        merged[cidr] = []
+        merged[cidr] = current.get(cidr, [])
     return merged
 
 

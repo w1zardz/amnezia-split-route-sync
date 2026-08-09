@@ -116,14 +116,52 @@ https://raw.githubusercontent.com/w1zardz/amnezia-split-route-sync/master/dist/a
 
 ---
 
-## Windows — импорт вручную (честно о том, почему)
+## Windows — полностью автоматически
 
-**Автоматизации для Windows в этом репозитории больше нет, и это осознанно.**
-Скрипт умеет записать маршруты в реестр AmneziaVPN, но клиент подхватывает их
-криво: часть маршрутов применяется только **после перезагрузки Windows**, а до
-неё split tunneling работает по старому списку и создаёт ощущение, что «список
-не работает». Плодить эту лотерею не будем — на Windows JSON импортируется через
-интерфейс, и он применяется сразу.
+Требования: Windows 10/11, AmneziaVPN 5.x, PowerShell 5.1 (встроенный) или 7.x.
+Установщик запускается **от имени администратора** — иначе задача не сможет
+перезапускать службу `AmneziaVPN-service`.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File windows\install.ps1
+```
+
+Installer прогоняет self-test и dry-run, копирует updater в
+`%LOCALAPPDATA%\AmneziaRouteSync` и регистрирует Scheduled Task: обновление при
+входе в Windows и **каждые 6 часов**. Updater скачивает опубликованный список,
+запоминает состояние подключения, закрывает AmneziaVPN, меняет ровно три
+значения реестра в `HKCU\Software\AmneziaVPN.ORG\AmneziaVPN\Conf`
+(`ExceptSites`, `routeMode`, `sitesSplitTunnelingEnabled`), проверяет запись и
+возвращает приложение с туннелем в прежнее состояние. `Servers.*`, конфиги и
+ключи не трогаются. Незавершённая транзакция журналируется и откатывается при
+следующем запуске.
+
+**Почему больше не нужна перезагрузка Windows.** Демон `AmneziaVPN-service` не
+разбирает туннель, когда GUI просто закрывают: маршруты старого списка остаются
+в таблице маршрутизации, и новый список «не работает» до ребута. Updater
+перезапускает службу сам и поднимает соединение через
+`AmneziaVPN.exe --connect <index>` — ровно то, что раньше делала перезагрузка.
+
+Лёгкий список вместо полного, свой источник, проверка без записи:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File windows\install.ps1 -Lite
+powershell -NoProfile -ExecutionPolicy Bypass -File windows\update-amnezia-routes.ps1 -Source .\dist\amnezia-ru-direct.json
+powershell -NoProfile -ExecutionPolicy Bypass -File windows\update-amnezia-routes.ps1 -DryRun
+```
+
+Проверка состояния и удаление:
+
+```powershell
+Get-Content "$env:LOCALAPPDATA\AmneziaRouteSync\status.json"
+powershell -NoProfile -ExecutionPolicy Bypass -File windows\uninstall.ps1
+```
+
+Ручные записи, добавленные в Amnezia самостоятельно, сохраняются — скрипт
+заменяет только те, которыми управлял сам. Снести всё и оставить только наш
+список: флаг `-ReplaceAll`.
+
+### Если автоматизация не нужна — импорт вручную
 
 1. Скачайте `amnezia-ru-direct.json` из [Releases](../../releases/latest).
 2. Откройте AmneziaVPN → **Настройки** → **Раздельное туннелирование сайтов**.
@@ -212,7 +250,7 @@ python3 macos/update_amnezia_routes.py --replace-all
 
 ## Linux
 
-Тот же ручной импорт, что и на Windows. Либо возьмите `ru-direct-ipv4.txt` и
+Ручной импорт через интерфейс Amnezia. Либо возьмите `ru-direct-ipv4.txt` и
 `ru-direct-domains.txt` и скормите их своему роутингу напрямую.
 
 ## Клиент не умеет split tunneling — правим AllowedIPs

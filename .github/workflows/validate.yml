@@ -41,6 +41,24 @@ jobs:
               || { echo "dist/${name} устарел — пересоберите tools/build_ru_direct.py"; exit 1; }
           done
 
+  windows-updater:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Parse scripts and run the updater self-test
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          foreach ($file in @('windows/update-amnezia-routes.ps1', 'windows/install.ps1', 'windows/uninstall.ps1')) {
+            $errors = $null
+            $tokens = $null
+            $null = [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path $file).Path, [ref]$tokens, [ref]$errors)
+            if ($errors) { $errors | ForEach-Object { Write-Error $_.Message }; exit 1 }
+          }
+          .\windows\update-amnezia-routes.ps1 -SelfTest -Source .\dist\amnezia-ru-direct.json
+          .\windows\update-amnezia-routes.ps1 -SelfTest -Source .\dist\amnezia-ru-direct-lite.json
+          .\windows\update-amnezia-routes.ps1 -SelfTest -Source .\dist\amnezia-ru-direct-ip.json
+
   macos-helper:
     runs-on: macos-14
     steps:
