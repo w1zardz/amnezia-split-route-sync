@@ -1,14 +1,18 @@
 from __future__ import annotations
 
 import importlib.util
+import hashlib
 import ipaddress
+import json
 import socket
+import sys
 import unittest
 from pathlib import Path
 from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
 
 
 def load_module(name: str, path: Path):
@@ -21,6 +25,9 @@ def load_module(name: str, path: Path):
 
 generator = load_module("route_generator", ROOT / "tools/generate_routes.py")
 mac_updater = load_module("mac_updater", ROOT / "macos/update_amnezia_routes.py")
+full_import = load_module(
+    "full_import_generator", ROOT / "tools/generate_amnezia_full_import.py"
+)
 
 
 class GeneratorPolicyTests(unittest.TestCase):
@@ -101,6 +108,29 @@ class MacMergeTests(unittest.TestCase):
         mac_updater.PROTECTED_IPS = {ipaddress.ip_address("84.201.130.1")}
         with self.assertRaises(mac_updater.UpdateError):
             mac_updater.load_policy(ROOT / "config/route-policy.json")
+
+
+class FullImportTests(unittest.TestCase):
+    def test_community_payload_is_validated_and_idn_is_normalized(self) -> None:
+        document = [
+            {"hostname": f"service-{index}.example.ru", "ip": ""}
+            for index in range(full_import.COMMUNITY_ENTRY_COUNT - 1)
+        ]
+        document.append({"hostname": "минздрав.рф", "ip": ""})
+        payload = json.dumps(document, ensure_ascii=False).encode("utf-8")
+        result = full_import.parse_community_payload(
+            payload, hashlib.sha256(payload).hexdigest()
+        )
+        self.assertIn("xn--80aeelexi0a.xn--p1ai", result)
+
+    def test_full_import_contains_domains_and_cidrs_without_endpoint(self) -> None:
+        entries = full_import.import_entries(
+            ["shop.example.ru", "private.example.com"], ["198.51.100.0/24"]
+        )
+        payload = generator.json_bytes(entries).decode("utf-8")
+        self.assertIn("shop.example.ru", payload)
+        self.assertIn("198.51.100.0/24", payload)
+        self.assertNotIn("192.0.2.10", payload)
 
 
 if __name__ == "__main__":
