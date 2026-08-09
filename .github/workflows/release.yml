@@ -63,5 +63,6 @@ jobs:
             dist/amnezia-ru-direct-ip.json \
             dist/ru-direct-domains.txt \
             dist/ru-direct-ipv4.txt \
+            dist/wg-allowed-ips.txt \
             dist/happ-ru-direct.json \
             dist/manifest.json
