@@ -1,14 +1,46 @@
-# AmneziaVPN / AmneziaWG Split Tunneling — RU Direct Route Sync
+# Amnezia VPN: раздельное туннелирование российских сайтов — RU Direct
 
-Автоматический **RU Direct split tunneling для AmneziaVPN и протокола
-AmneziaWG**: безопасное обновление IPv4-маршрутов российских сервисов на macOS
-и Windows, плюс генератор `ip-list.json` для iOS, Android и Linux. Yandex, Ozon,
-VK, Wildberries, банки и платёжные сервисы из списка идут напрямую, а остальной
-трафик продолжает идти через VPN.
+**База 858 российских доменов, автообновляемые маршруты и готовый JSON реальных
+IPv4 для AmneziaVPN и AmneziaWG.** Сбер, ВТБ, Госуслуги, Ozon, Wildberries,
+Яндекс, VK и Кинопоиск
+работают напрямую через обычное подключение, а остальной интернет продолжает
+идти через VPN.
 
-**English:** automatic Russian direct-routing exceptions for AmneziaVPN split
-tunneling. Safe route sync on macOS and Windows; portable Amnezia `ip-list.json`
-generation for iOS, Android and Linux.
+> **Коротко:** это настройка split tunneling Amnezia VPN для России без
+> постоянного выключения VPN. На macOS и Windows компактные RU Direct маршруты
+> обновляются автоматически; для iOS, Android и Linux создаётся переносимый
+> `ip-list.json`. Расширенный генератор объединяет проверенные CIDR с 858
+> community-доменами, заранее резолвит их и сохраняет только реальные IPv4
+> маршруты в один файл для импорта.
+
+**English:** automatic Russian-site split tunneling for AmneziaVPN and
+AmneziaWG. Safe route sync on macOS and Windows, plus portable Amnezia JSON
+imports for iOS, Android and Linux.
+
+## Зачем нужен RU Direct
+
+- Банки и Госуслуги видят обычный российский IP, а не зарубежный адрес VPN.
+- Ozon, Wildberries, Яндекс Маркет, Кинопоиск, VK Видео и RuTube работают с
+  локальной скоростью и без лишнего трафика через VPS.
+- VPN остаётся включённым для остального интернета.
+- Ручные исключения Amnezia сохраняются при автоматическом обновлении.
+- Endpoint собственного VPN защищён от случайного попадания в direct-маршрут.
+
+## Какие российские сайты входят в список
+
+| Категория | Примеры сервисов |
+|---|---|
+| Банки и платежи | Сбер, ВТБ, Альфа-Банк, Т-Банк, НСПК, платёжные шлюзы |
+| Государственные сервисы | Госуслуги, ФНС, Росреестр, региональные порталы |
+| Маркетплейсы | Ozon, Wildberries, Яндекс Маркет, Авито, Мегамаркет |
+| Яндекс и VK | Поиск, Карты, Диск, Go, Еда, Кинопоиск, VK, Mail.ru |
+| Медиа и видео | Кинопоиск, Иви, Okko, RuTube, российские СМИ |
+| Транспорт и связь | РЖД, Аэрофлот, S7, МТС, Билайн, МегаФон, Ростелеком |
+
+Быстрый старт: [macOS](#macos-полностью-автоматически) ·
+[Windows](#windows-полностью-автоматически) ·
+[iOS/Android/Linux](#ios-android-и-linux) ·
+[полный JSON на 858+ сайтов](#полный-json-858-российских-сайтов-кинопоиск-и-госуслуги)
 
 Проект не содержит VPN-конфигураций, адресов серверов, ключей, паролей, UUID,
 доменов владельца или готовых подключений. IP вашего VPN-сервера хранится только
@@ -137,6 +169,21 @@ Get-Content "$env:LOCALAPPDATA\AmneziaRouteSync\status.json"
 Автоматический rollback меняет только три routing-значения реестра и не
 перезаписывает `Servers.*`, подключения или другие настройки AmneziaVPN.
 
+### Windows: только создать JSON для ручного импорта
+
+Если не хотите автоматическую запись в Registry, используйте отдельный генератор.
+Он создаёт готовый файл в «Загрузках» и вообще не меняет AmneziaVPN, профили,
+Registry или Scheduled Tasks:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\windows\generate-full-import.ps1
+```
+
+Результат: `%USERPROFILE%\Downloads\Amnezia-RU-Direct.json`. Импортируйте его
+через режим «Адреса из списка не должны открываться через VPN» → `⋮` →
+«Заменить список с сайтами». Повторный запуск создаст свежий JSON; импорт на
+Windows остаётся ручным.
+
 ## iOS, Android и Linux
 
 Мобильная песочница не разрешает внешнему скрипту безопасно править настройки
@@ -178,7 +225,7 @@ py -3 .\tools\generate_routes.py --policy .\config\route-policy.json --config .\
 `amnezia-full-import.json`. Он объединяет три слоя в один файл:
 
 1. проверенные CIDR Yandex, Ozon, VK, Wildberries, банков, платежей и CDN;
-2. 858 доменов из community-списка
+2. текущие IPv4 для 858 доменов из community-списка
    [`kozlovartem20201/amnezia-vpn-russia`](https://github.com/kozlovartem20201/amnezia-vpn-russia),
    включая Кинопоиск, Госуслуги, маркетплейсы, банки, медиа и транспорт;
 3. проверенные `/32` текущих DNS-адресов из локального
@@ -196,7 +243,7 @@ python3 tools/generate_amnezia_full_import.py \
 Windows PowerShell:
 
 ```powershell
-py -3 .\tools\generate_amnezia_full_import.py --config .\config\custom-host-policy.json --output .\dist\amnezia-full-import.json
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\windows\generate-full-import.ps1
 ```
 
 Затем полностью закройте AmneziaVPN, снова откройте приложение, выберите режим
@@ -216,12 +263,12 @@ Community-список загружается непосредственно и�
 чего pinned commit меняется в коде. Лицензия на данные у автора не указана,
 поэтому сторонний JSON не копируется в этот репозиторий.
 
-Важно: по официальной документации Amnezia доменное имя при импорте резолвится
-в его текущий IPv4 только один раз и затем автоматически не обновляется. Поэтому
-полный JSON нужно заново сгенерировать и импортировать после обновления pinned
-списка или при проблеме с конкретным сервисом. Встроенные в этот же файл CIDR
-дают более устойчивое покрытие основных категорий, а автоматические installers
-продолжают обновлять компактный managed-набор каждые 6 часов.
+Генератор не полагается на обработку пустого поля `ip` внутри Amnezia: он сам
+резолвит каждый доступный домен, объединяет найденные IPv4 с проверенными CIDR и
+кладёт в итоговый JSON только IP-сети. Не отвечающие DNS устаревшие домены
+пропускаются, а при массовом DNS-сбое генерация завершается без замены последнего
+рабочего файла. Поэтому JSON нужно сгенерировать и импортировать повторно при
+проблеме с конкретным сервисом или после обновления списка.
 
 Локальные пользовательские hostnames сначала резолвятся генератором и проходят
 проверку `allowed_networks`; в JSON попадают только принятые `/32`. Это исключает

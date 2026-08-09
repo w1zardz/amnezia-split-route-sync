@@ -123,14 +123,39 @@ class FullImportTests(unittest.TestCase):
         )
         self.assertIn("xn--80aeelexi0a.xn--p1ai", result)
 
-    def test_full_import_contains_domains_and_cidrs_without_endpoint(self) -> None:
-        entries = full_import.import_entries(
-            ["shop.example.ru", "private.example.com"], ["198.51.100.0/24"]
-        )
+    def test_community_domains_are_resolved_to_ipv4_routes(self) -> None:
+        def resolver(hostname, *_args):
+            index = int(hostname.split("-", 1)[1].split(".", 1)[0])
+            return [(None, None, None, None, (f"8.{index // 250}.{index % 250 + 1}.1", 0))]
+
+        domains = [f"service-{index}.example.ru" for index in range(700)]
+        networks, resolved = full_import.resolve_community_ipv4(domains, resolver)
+        self.assertEqual(700, resolved)
+        self.assertEqual(700, len(networks))
+
+    def test_community_dns_rejects_one_ip_sinkhole(self) -> None:
+        domains = [f"service-{index}.example.ru" for index in range(700)]
+
+        def resolver(_hostname, *_args):
+            return [(None, None, None, None, ("8.8.8.8", 0))]
+
+        with self.assertRaises(full_import.ImportError):
+            full_import.resolve_community_ipv4(domains, resolver)
+
+    def test_full_import_contains_only_cidrs_without_endpoint_or_domains(self) -> None:
+        entries = full_import.import_entries(["198.51.100.0/24", "203.0.113.7/32"])
         payload = generator.json_bytes(entries).decode("utf-8")
-        self.assertIn("shop.example.ru", payload)
         self.assertIn("198.51.100.0/24", payload)
+        self.assertNotIn("example.ru", payload)
         self.assertNotIn("192.0.2.10", payload)
+
+    def test_full_import_rejects_protected_endpoint_from_community_dns(self) -> None:
+        with self.assertRaises(full_import.ImportError):
+            full_import.collapse_full_routes(
+                ["198.51.100.0/24"],
+                [ipaddress.ip_network("192.0.2.10/32")],
+                {ipaddress.ip_address("192.0.2.10")},
+            )
 
 
 if __name__ == "__main__":
