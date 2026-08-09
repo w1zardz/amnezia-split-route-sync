@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Обновляет список RU Direct в split tunneling AmneziaVPN на Windows.
 
