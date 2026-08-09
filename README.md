@@ -168,6 +168,13 @@ cat "${HOME}/Library/Application Support/AmneziaRouteSync/status.json"
 Ручные записи, добавленные в Amnezia самостоятельно, сохраняются — скрипт
 заменяет только те, которыми управлял сам.
 
+Если в Amnezia лежит старый сторонний список, он тоже считается «ручным» и
+переживёт обновление. Снести всё и оставить только наш список:
+
+```bash
+python3 macos/update_amnezia_routes.py --replace-all
+```
+
 ## iPhone, iPad и Android
 
 Мобильная песочница не даёт стороннему скрипту править настройки AmneziaVPN,
