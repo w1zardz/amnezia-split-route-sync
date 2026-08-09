@@ -9,12 +9,14 @@
   "lite_domains": 545,
   "lite_cidrs": 348,
   "lite_entries": 893,
+  "ip_entries": 501,
   "prefix_snapshot": 683,
   "personal_domains": 0,
   "personal_cidrs": 0,
   "sha256": {
     "amnezia-ru-direct.json": "bba78be97f1fca2e09cb76302cc1a319c9462fec830dfa54531b7a72f7a975e6",
     "amnezia-ru-direct-lite.json": "ab00f317412f17db56d8bf5df722f36f6b51f5aca9591fb4479c66e29ee9b9cd",
+    "amnezia-ru-direct-ip.json": "8c62f8115e5e426ea65d410deba9ff35f5b8e653de9cec2a863b16e7a5da5efb",
     "ru-direct-domains.txt": "bd2c20bc5ea72b0ac3bfd45901a411c44845ef5b435a1bb6c3b15546b3ef123a",
     "ru-direct-ipv4.txt": "19e1ee1aec371eef26f01d191a5237a839500b70170130ed18a5db38ba79fdae",
     "happ-ru-direct.json": "c37285f20cb0e751db1ddb6b3aa30f49d8a38534c31354253aa1c9429760ec35"

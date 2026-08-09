@@ -111,18 +111,26 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
     lines = [
         f"# RU Direct — сборка {counts['built']}",
         "",
-        "## 👉 Качай `amnezia-ru-direct.json`",
+        "## 👉 Какой файл качать",
         "",
-        "**Один и тот же файл для всех устройств: iPhone, iPad, Android, "
-        "Windows, macOS, Linux.** Отдельных версий под платформы нет — "
-        "AmneziaVPN везде читает один формат.",
+        "### 🪟 Windows и 🤖 Android — `amnezia-ru-direct.json`",
         "",
-        "Не знаешь, какой выбрать → бери `amnezia-ru-direct.json`. Это правильный ответ "
-        "для Windows, для macOS и для айфона.",
+        "**Для Windows и Android** — полный список: домены + сети.",
         "",
-        f"`amnezia-ru-direct-lite.json` — запасной вариант: {counts['lite_entries']} записей "
-        f"вместо {counts['entries']}, только самые популярные сервисы. Бери его, только если "
-        "на старом телефоне список тормозит интерфейс Amnezia.",
+        "### 🍏 iPhone, iPad, macOS и Linux — `amnezia-ru-direct-ip.json`",
+        "",
+        "У этих платформ Amnezia умеет раздельное туннелирование "
+        "[**только по IP-адресам**](https://docs.amnezia.org/ru/documentation/instructions/vpn-split-tunneling/) — "
+        "домены она молча игнорирует. Полный список там не сработает: "
+        f"из {counts['entries']} записей применятся только {counts['ip_entries']}, "
+        "и то не всегда. Поэтому для них собран отдельный файл — "
+        f"**{counts['ip_entries']} сетей IPv4, ни одного домена**.",
+        "",
+        "На Amnezia Free раздельное туннелирование по IP недоступно — нужен обычный AmneziaVPN.",
+        "",
+        f"`amnezia-ru-direct-lite.json` — запасной вариант для Windows и Android: "
+        f"{counts['lite_entries']} записей вместо {counts['entries']}, только самые популярные "
+        "сервисы. Бери его, если список тормозит интерфейс Amnezia.",
         "",
         "Остальные файлы для импорта в Amnezia **не нужны** — они для скриптов, Happ и роутеров.",
         "",
@@ -130,9 +138,13 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
         "",
         "AmneziaVPN → **Настройки → Раздельное туннелирование сайтов** → "
         "«Адреса из списка не должны открываться через VPN» → ⋮ → "
-        "**Заменить список с сайтами** → выбрать `amnezia-ru-direct.json` → переподключить VPN.",
+        "**Заменить список с сайтами** → выбрать JSON → **переподключить VPN**.",
         "",
-        "На iPhone файл сначала сохрани в «Файлы» (Safari → «Загрузить»), потом выбирай его в Amnezia.",
+        "На iPhone сначала сохрани файл в «Файлы» (Safari → «Загрузить»), потом выбирай его оттуда.",
+        "",
+        "Проверка: при включённом VPN открой [yandex.ru/internet](https://yandex.ru/internet) — "
+        "должен показать домашний российский IP. Сайты вне списка (2ip.ru и подобные "
+        "зарубежные) продолжат показывать IP сервера, так и задумано.",
         "",
         "---",
         "",
@@ -206,6 +218,9 @@ def main() -> int:
 
         full_entries = import_entries(full_domains + full_cidrs)
         lite_entries = import_entries(lite_domains + lite_cidrs)
+        # iOS/macOS/Linux-клиенты Amnezia принимают в split tunneling только IP-адреса,
+        # домены там молча игнорируются — им нужен список без единого имени хоста.
+        ip_entries = import_entries(full_cidrs)
         happ = {
             "DirectSites": [f"domain:{domain}" for domain in full_domains],
             "DirectIp": full_cidrs,
@@ -222,6 +237,7 @@ def main() -> int:
             "lite_domains": len(lite_domains),
             "lite_cidrs": len(lite_cidrs),
             "lite_entries": len(lite_entries),
+            "ip_entries": len(ip_entries),
             "prefix_snapshot": len(prefixes),
             "personal_domains": len(personal_domains),
             "personal_cidrs": len(personal_cidrs),
@@ -234,6 +250,7 @@ def main() -> int:
         outputs: dict[str, bytes] = {
             "amnezia-ru-direct.json": catalog.json_bytes(full_entries),
             "amnezia-ru-direct-lite.json": catalog.json_bytes(lite_entries),
+            "amnezia-ru-direct-ip.json": catalog.json_bytes(ip_entries),
             "ru-direct-domains.txt": ("\n".join(full_domains) + "\n").encode("utf-8"),
             "ru-direct-ipv4.txt": ("\n".join(full_cidrs) + "\n").encode("utf-8"),
             "happ-ru-direct.json": catalog.json_bytes(happ),
