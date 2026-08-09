@@ -11,6 +11,10 @@ on:
         description: "Обновить BGP-префиксы перед сборкой (DNS + Team Cymru + RIPEstat)"
         type: boolean
         default: true
+      import_external:
+        description: "Перепроверить внешние списки российских сетей"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -28,6 +32,12 @@ jobs:
         with:
           python-version: "3.12"
 
+      # Внешние списки перепроверяются до обновления префиксов: импорт сверяется
+      # с набором ASN из прошлого снапшота, а refresh уже подмешивает результат.
+      - name: Import external sources
+        if: github.event_name == 'schedule' || inputs.import_external
+        run: python3 tools/import_external.py
+
       - name: Refresh BGP prefixes
         if: github.event_name == 'schedule' || inputs.refresh_prefixes
         run: python3 tools/refresh_prefixes.py
@@ -41,11 +51,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- data/prefixes.json dist
+          git add -- data/prefixes.json data/external.json data/external-report.md dist
           if git diff --cached --quiet; then
             echo "изменений нет"
           else
-            git commit -m "RU Direct: обновление списков $(date -u +%Y-%m-%d)" -- data/prefixes.json dist
+            git commit -m "RU Direct: обновление списков $(date -u +%Y-%m-%d)" \
+              -- data/prefixes.json data/external.json data/external-report.md dist
             git push
           fi
 

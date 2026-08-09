@@ -7,7 +7,9 @@
      и реальный анонсируемый префикс для каждого IP;
   3. оставляем только RU-префиксы (плюс явный allow-list ASN), выкидывая
      глобальные CDN — иначе мимо VPN уехал бы весь Cloudflare;
-  4. по желанию разворачиваем целые ASN из config/asn-expand.json через RIPEstat.
+  4. по желанию разворачиваем целые ASN из config/asn-expand.json через RIPEstat;
+  5. подмешиваем data/external.json — сети из внешних списков, уже проверенные
+     по таблице IP→ASN в tools/import_external.py.
 
 Смысл: Amnezia резолвит импортированные домены один раз, а VK/Яндекс/WB крутят
 CDN — поэтому в список едут не /32 из локального DNS, а сети целиком.
@@ -19,9 +21,7 @@ import argparse
 import concurrent.futures
 import ipaddress
 import json
-import shutil
 import socket
-import subprocess
 import sys
 from datetime import date
 from pathlib import Path
@@ -37,33 +37,12 @@ CYMRU_CHUNK = 500
 RIPESTAT_URL = "https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS{asn}"
 MAX_RIPESTAT_BYTES = 4_194_304
 
-# Глобальные CDN/облака: их адреса не должны идти мимо VPN.
-DENY_ASN = {
-    13335,  # Cloudflare
-    15169, 396982, 19527,  # Google
-    16509, 14618, 8987,  # Amazon
-    8075, 8068, 8069,  # Microsoft
-    20940, 16625, 12222, 21342, 32787,  # Akamai
-    54113,  # Fastly
-    32934,  # Meta
-    2906,  # Netflix
-    13414,  # X/Twitter
-    36459,  # GitHub
-    14061,  # DigitalOcean
-    24940,  # Hetzner
-    16276,  # OVH
-    63949, 20473,  # Akamai/Linode, Vultr
-    60068, 9009,  # Datacamp/M247
-}
-# Российские anti-DDoS/скрабберы: юрлицо не в РФ, но за префиксами стоят RU-сайты.
-ALLOW_ASN = {
-    209671, 211112, 200449,  # Qrator Labs
-    59796,  # StormWall
-    57724, 262254,  # DDoS-Guard
-    208972,  # Servicepipe
-}
-MIN_PREFIXLEN = 12
-MAX_PREFIXLEN = 24
+# Политика по ASN и допустимая ширина сети общие с импортом внешних списков.
+DENY_ASN = catalog.DENY_ASN
+ALLOW_ASN = catalog.ALLOW_ASN
+MIN_PREFIXLEN = catalog.MIN_PREFIXLEN
+MAX_PREFIXLEN = catalog.MAX_PREFIXLEN
+is_russian = catalog.is_russian
 
 
 class RefreshError(RuntimeError):
@@ -133,42 +112,13 @@ def cymru_lookup(addresses: Iterable[str]) -> dict[str, tuple[int, str, str, str
     return mapping
 
 
-def is_russian(asn: int, country: str, as_name: str) -> bool:
-    """RU-принадлежность: страна IP, либо страна юрлица AS, либо RU anti-DDoS."""
-    if asn in ALLOW_ASN:
-        return True
-    if country == "RU":
-        return True
-    # Cymru отдаёт имя вида "OZON-BANK-AS - LLC OZON BANK, RU" — хвост это страна юрлица.
-    return as_name.rstrip().upper().endswith(", RU")
-
-
 def fetch_json(url: str) -> dict:
-    curl = shutil.which("curl")
-    if curl is None:
-        raise RefreshError("нужен curl")
     try:
-        process = subprocess.run(
-            [
-                curl, "--fail", "--silent", "--show-error", "--location",
-                "--proto", "=https", "--proto-redir", "=https", "--tlsv1.2",
-                "--max-filesize", str(MAX_RIPESTAT_BYTES),
-                "--connect-timeout", "10", "--max-time", "60",
-                "--retry", "2",
-                "--user-agent", "amnezia-split-route-sync/2.0",
-                url,
-            ],
-            check=False,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            timeout=70,
-        )
-    except (OSError, subprocess.TimeoutExpired) as exc:
-        raise RefreshError(f"запрос не удался: {url}") from exc
-    if process.returncode != 0:
-        raise RefreshError(f"HTTP-ошибка при запросе {url}: {process.stderr.decode()[:200]}")
+        payload = catalog.http_get(url, MAX_RIPESTAT_BYTES)
+    except catalog.CatalogError as exc:
+        raise RefreshError(str(exc)) from exc
     try:
-        return json.loads(process.stdout.decode("utf-8"))
+        return json.loads(payload.decode("utf-8"))
     except (UnicodeError, json.JSONDecodeError) as exc:
         raise RefreshError(f"ответ {url} не является JSON") from exc
 
@@ -191,6 +141,31 @@ def announced_prefixes(asn: int) -> list[str]:
         if MIN_PREFIXLEN <= network.prefixlen <= MAX_PREFIXLEN and network.is_global:
             prefixes.append(str(network))
     return sorted(set(prefixes))
+
+
+def load_external(path: Path) -> dict[str, dict]:
+    """Проверенные сети из внешних списков (см. tools/import_external.py)."""
+    if not path.exists():
+        return {}
+    try:
+        document = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise RefreshError(f"{path.name}: не читается ({exc})") from exc
+    if not isinstance(document, dict) or document.get("version") != 1:
+        raise RefreshError(f"{path.name}: ожидается объект с version=1")
+    entries = document.get("prefixes")
+    if not isinstance(entries, dict):
+        raise RefreshError(f"{path.name}: нет объекта prefixes")
+    result: dict[str, dict] = {}
+    for value, meta in entries.items():
+        network = ipaddress.ip_network(value, strict=True)
+        asn = meta.get("asn") if isinstance(meta, dict) else None
+        if not isinstance(asn, int) or asn in DENY_ASN:
+            raise RefreshError(f"{path.name}: {value} — недопустимый ASN {asn!r}")
+        if not (MIN_PREFIXLEN <= network.prefixlen <= MAX_PREFIXLEN) or not network.is_global:
+            raise RefreshError(f"{path.name}: {value} вне допустимого диапазона")
+        result[str(network)] = meta
+    return result
 
 
 def load_asn_expand() -> dict[int, str]:
@@ -216,7 +191,9 @@ def load_asn_expand() -> dict[int, str]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=catalog.PREFIXES_FILE)
+    parser.add_argument("--external", type=Path, default=catalog.EXTERNAL_FILE)
     parser.add_argument("--no-expand", action="store_true", help="без разворота ASN через RIPEstat")
+    parser.add_argument("--no-external", action="store_true", help="без сетей из внешних списков")
     parser.add_argument("--dry-run", action="store_true")
     arguments = parser.parse_args()
 
@@ -274,14 +251,33 @@ def main() -> int:
                 if entry.get("source") == "asn":
                     entry["asn"] = asn
 
+        external = {} if arguments.no_external else load_external(arguments.external)
+        added = 0
+        for value, meta in external.items():
+            if value in prefixes:
+                continue
+            prefixes[value] = {
+                "asn": meta.get("asn"),
+                "as_name": meta.get("as_name", ""),
+                "cc": meta.get("cc", "RU"),
+                "services": [],
+                "source": "external",
+                "sources": meta.get("sources", []),
+            }
+            added += 1
+        if external:
+            print(f"внешние списки: {len(external)} проверенных сетей, новых {added}")
+
         for entry in prefixes.values():
             entry["services"] = sorted(entry["services"])
 
         payload = {
             "version": 1,
             "updated": date.today().isoformat(),
-            "source": "Team Cymru bulk whois + RIPEstat announced-prefixes",
+            "source": "Team Cymru bulk whois + RIPEstat announced-prefixes"
+            + (" + внешние списки" if external else ""),
             "prefix_count": len(prefixes),
+            "external_count": len(external),
             "resolved_domains": len(resolved),
             "catalog_domains": len(domains),
             "prefixes": dict(

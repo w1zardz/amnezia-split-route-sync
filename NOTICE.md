@@ -11,7 +11,25 @@
   результат кэшируется в `data/prefixes.json`.
 - **RIPEstat Data API** (`stat.ripe.net`, announced-prefixes) — список
   префиксов, анонсируемых конкретной AS. Публичный API RIPE NCC.
+- **iptoasn.com** (`ip2asn-v4.tsv.gz`) — таблица IP → ASN и страна, производная
+  от публичных BGP-анонсов. Отдаётся в Public Domain; используется только как
+  справочник при проверке чужих списков, в репозиторий не копируется.
 - Публичный DNS — резолв доменов каталога.
+
+## Внешние списки сетей
+
+`tools/import_external.py` читает публичные списки российских сетей как
+кандидатов. Источники перечислены в
+[`config/external-sources.json`](config/external-sources.json), на момент
+написания это:
+
+- [`hxehex/russia-mobile-internet-whitelist`](https://github.com/hxehex/russia-mobile-internet-whitelist) — MIT
+- [`escapingworm/russia-whitelist`](https://github.com/escapingworm/russia-whitelist) — MIT
+
+Их файлы в репозиторий не копируются. В `data/external.json` попадает результат
+собственной проверки: около 2% исходных записей, приведённых к анонсируемым
+BGP-префиксам и сопоставленных с ASN сервисов каталога. Домены из этих
+источников в сборку не включаются вовсе.
 
 Фактические данные (номера AS, IP-префиксы, доменные имена) правовой охране
 авторским правом не подлежат; ASN и границы префиксов принадлежат их
