@@ -24,6 +24,7 @@ param(
     [switch]$ReplaceAll,
     [switch]$NoRestart,
     [switch]$SelfTest,
+    [switch]$Status,
     [switch]$RecoverOnly,
     [string]$StateDir
 )
@@ -1020,6 +1021,58 @@ if ($SelfTest) {
     if ($Source) {
         $list = ConvertFrom-ImportList (Get-SourceText $Source) $Source
         Write-Host "Список $Source принят: $($list.Domains.Count) доменов и $($list.Cidrs.Count) сетей IPv4"
+    }
+    exit 0
+}
+
+# --- диагностика ----------------------------------------------------------------
+
+if ($Status) {
+    $sites = Read-ExceptSites
+    $scalars = Read-RoutingScalars
+    $managed = @(Read-ManagedEntries)
+    Write-Host "Записей в Conf\ExceptSites: $($sites.Count)"
+    Write-Host "routeMode: $($scalars.mode) (нужно 2)"
+    Write-Host "sitesSplitTunnelingEnabled: $($scalars.enabled) (нужно true)"
+    Write-Host "Записей под управлением скрипта: $($managed.Count)"
+
+    foreach ($probe in @('gosuslugi.ru', 'esia.gosuslugi.ru', 'sberbank.ru')) {
+        $present = if ($sites.ContainsKey($probe)) { 'есть' } else { 'НЕТ' }
+        Write-Host "  $probe в списке: $present"
+    }
+
+    $daemon = Get-AmneziaService
+    $tunnel = Get-TunnelService
+    $daemonStatus = if ($null -eq $daemon) { 'не найдена' } else { "$($daemon.Name) = $($daemon.Status)" }
+    $tunnelStatus = if ($null -eq $tunnel) { 'не найдена' } else { "$($tunnel.Name) = $($tunnel.Status)" }
+    Write-Host "Служба демона: $daemonStatus"
+    Write-Host "Служба туннеля: $tunnelStatus"
+    Write-Host "GUI запущена: $(Test-GuiRunning); VPN-адаптер поднят: $(Test-VpnAdapterUp)"
+
+    foreach ($adapter in [Net.NetworkInformation.NetworkInterface]::GetAllNetworkInterfaces()) {
+        if ($adapter.OperationalStatus -eq [Net.NetworkInformation.OperationalStatus]::Up) {
+            Write-Host "  адаптер up: $($adapter.Name) / $($adapter.Description)"
+        }
+    }
+
+    try {
+        $address = ([Net.Dns]::GetHostAddresses('gosuslugi.ru') |
+            Where-Object { $_.AddressFamily -eq [Net.Sockets.AddressFamily]::InterNetwork } |
+            Select-Object -First 1).IPAddressToString
+        Write-Host "gosuslugi.ru резолвится в $address"
+        if (Get-Command Find-NetRoute -ErrorAction SilentlyContinue) {
+            $route = Find-NetRoute -RemoteIPAddress $address -ErrorAction Stop | Select-Object -First 1
+            Write-Host "маршрут до gosuslugi.ru: интерфейс $($route.InterfaceAlias), шлюз $($route.NextHop)"
+        }
+    } catch {
+        Write-Warning "не удалось проверить маршрут: $($_.Exception.Message)"
+    }
+
+    if (Test-Path -LiteralPath $StatusPath -PathType Leaf) {
+        Write-Host '--- status.json ---'
+        Get-Content -LiteralPath $StatusPath -Raw -Encoding UTF8 | Write-Host
+    } else {
+        Write-Host "status.json отсутствует: $StatusPath"
     }
     exit 0
 }
