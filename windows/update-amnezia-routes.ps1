@@ -1038,25 +1038,34 @@ if ($Status) {
     Write-Host "sitesSplitTunnelingEnabled: $($scalars.enabled) (нужно true)"
     Write-Host "Записей под управлением скрипта: $($managed.Count)"
 
-    foreach ($probe in @('gosuslugi.ru', 'esia.gosuslugi.ru', 'sberbank.ru', '213.59.252.0/22')) {
-        $present = if ($sites.ContainsKey($probe)) { 'есть' } else { 'НЕТ' }
-        $values = if ($sites.ContainsKey($probe)) { @($sites[$probe]) } else { @() }
-        $resolved = if ($values.Count -gt 0) { " (значения: $($values -join ', '))" } else { ' (значения пусты)' }
-        Write-Host "  $probe в списке: $present$resolved"
+    try {
+        foreach ($probe in @('gosuslugi.ru', 'esia.gosuslugi.ru', 'sberbank.ru', '213.59.252.0/22')) {
+            # Присваивание из if разворачивает пустой массив в $null, поэтому @() отдельно.
+            $values = @()
+            if ($sites.ContainsKey($probe)) { $values = @($sites[$probe]) }
+            $present = if ($sites.ContainsKey($probe)) { 'есть' } else { 'НЕТ' }
+            $resolved = if ($values.Count -gt 0) { " (значения: $($values -join ', '))" } else { ' (значения пусты)' }
+            Write-Host "  $probe в списке: $present$resolved"
+        }
+    } catch {
+        Write-Warning "не удалось проверить записи: $($_.Exception.Message)"
     }
 
-    $daemon = Get-AmneziaService
-    $tunnel = Get-TunnelService
-    $daemonStatus = if ($null -eq $daemon) { 'не найдена' } else { "$($daemon.Name) = $($daemon.Status)" }
-    $tunnelStatus = if ($null -eq $tunnel) { 'не найдена' } else { "$($tunnel.Name) = $($tunnel.Status)" }
-    Write-Host "Служба демона: $daemonStatus"
-    Write-Host "Служба туннеля: $tunnelStatus"
-    Write-Host "GUI запущена: $(Test-GuiRunning); VPN-адаптер поднят: $(Test-VpnAdapterUp)"
-
-    foreach ($adapter in [Net.NetworkInformation.NetworkInterface]::GetAllNetworkInterfaces()) {
-        if ($adapter.OperationalStatus -eq [Net.NetworkInformation.OperationalStatus]::Up) {
-            Write-Host "  адаптер up: $($adapter.Name) / $($adapter.Description)"
+    try {
+        $daemon = Get-AmneziaService
+        $tunnel = Get-TunnelService
+        $daemonStatus = if ($null -eq $daemon) { 'не найдена' } else { "$($daemon.Name) = $($daemon.Status)" }
+        $tunnelStatus = if ($null -eq $tunnel) { 'не найдена' } else { "$($tunnel.Name) = $($tunnel.Status)" }
+        Write-Host "Служба демона: $daemonStatus"
+        Write-Host "Служба туннеля: $tunnelStatus"
+        Write-Host "GUI запущена: $(Test-GuiRunning); VPN-адаптер поднят: $(Test-VpnAdapterUp)"
+        foreach ($adapter in [Net.NetworkInformation.NetworkInterface]::GetAllNetworkInterfaces()) {
+            if ($adapter.OperationalStatus -eq [Net.NetworkInformation.OperationalStatus]::Up) {
+                Write-Host "  адаптер up: $($adapter.Name) / $($adapter.Description)"
+            }
         }
+    } catch {
+        Write-Warning "не удалось опросить службы и адаптеры: $($_.Exception.Message)"
     }
 
     try {
@@ -1079,17 +1088,20 @@ if ($Status) {
         Write-Warning "не удалось проверить маршрут: $($_.Exception.Message)"
     }
 
-    if (Test-Path -LiteralPath $JournalPath -PathType Leaf) {
-        Write-Warning "Есть незавершённая транзакция: $JournalPath"
-        Get-Content -LiteralPath $JournalPath -Raw -Encoding UTF8 | Write-Host
-    }
-
-    $taskName = "Amnezia-Split-Route-Sync-$([Security.Principal.WindowsIdentity]::GetCurrent().User.Value)"
-    $taskInfo = Get-ScheduledTaskInfo -TaskName $taskName -ErrorAction SilentlyContinue
-    if ($null -ne $taskInfo) {
-        Write-Host "Задача: последний запуск $($taskInfo.LastRunTime), код $($taskInfo.LastTaskResult)"
-    } else {
-        Write-Host "Задача $taskName не зарегистрирована"
+    try {
+        if (Test-Path -LiteralPath $JournalPath -PathType Leaf) {
+            Write-Warning "Есть незавершённая транзакция: $JournalPath"
+            Get-Content -LiteralPath $JournalPath -Raw -Encoding UTF8 | Write-Host
+        }
+        $taskName = "Amnezia-Split-Route-Sync-$([Security.Principal.WindowsIdentity]::GetCurrent().User.Value)"
+        $taskInfo = Get-ScheduledTaskInfo -TaskName $taskName -ErrorAction SilentlyContinue
+        if ($null -ne $taskInfo) {
+            Write-Host "Задача: последний запуск $($taskInfo.LastRunTime), код $($taskInfo.LastTaskResult)"
+        } else {
+            Write-Host "Задача $taskName не зарегистрирована"
+        }
+    } catch {
+        Write-Warning "не удалось прочитать журнал и задачу: $($_.Exception.Message)"
     }
 
     if (Test-Path -LiteralPath $StatusPath -PathType Leaf) {
