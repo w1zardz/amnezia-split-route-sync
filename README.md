@@ -299,23 +299,37 @@ AmneziaWG-подключения, аккуратно закрывает AmneziaV
 прежнее состояние. Незавершённая транзакция журналируется и откатывается при
 следующем запуске. `Servers.*`, конфиги и ключи не трогаются.
 
-Лёгкий список вместо полного:
+**Боевой запуск идёт из установленной копии, а не из репозитория.** Настройки
+Amnezia меняет не сам Python-скрипт, а маленький Swift-хелпер
+`set-amnezia-routes`: он компилируется при установке и кладётся рядом со
+скриптом в `~/Library/Application Support/AmneziaRouteSync/`. В репозитории
+лежат только исходники, поэтому запуск оттуда обрывается на
+`ОШИБКА: не найден исполняемый helper`. Из репозитория работает `--dry-run`:
+он ничего не пишет и хелпер ему не нужен.
+
+Проверить список без единой записи в настройки — можно откуда угодно:
 
 ```bash
-python3 macos/update_amnezia_routes.py --lite
+python3 macos/update_amnezia_routes.py --dry-run
 ```
 
-Свой источник (например форк или локальный файл):
+Применить, лёгкий список вместо полного, свой источник:
 
 ```bash
-python3 macos/update_amnezia_routes.py --source ./dist/amnezia-ru-direct.json
-python3 macos/update_amnezia_routes.py --dry-run
+python3 "${HOME}/Library/Application Support/AmneziaRouteSync/update_amnezia_routes.py" --lite
+```
+
+```bash
+python3 "${HOME}/Library/Application Support/AmneziaRouteSync/update_amnezia_routes.py" --source ./dist/amnezia-ru-direct.json
 ```
 
 Проверка состояния:
 
 ```bash
 launchctl print "gui/${UID}/io.github.amnezia-route-sync"
+```
+
+```bash
 cat "${HOME}/Library/Application Support/AmneziaRouteSync/status.json"
 ```
 
@@ -326,8 +340,48 @@ cat "${HOME}/Library/Application Support/AmneziaRouteSync/status.json"
 переживёт обновление. Снести всё и оставить только наш список:
 
 ```bash
-python3 macos/update_amnezia_routes.py --replace-all
+python3 "${HOME}/Library/Application Support/AmneziaRouteSync/update_amnezia_routes.py" --replace-all
 ```
+
+### Как обновиться до свежей сборки вручную
+
+Агент сам ходит за списком каждые 6 часов, так что обычно делать ничего не
+нужно. Ниже — что ввести, если новый список нужен прямо сейчас или после
+`git pull`. Права администратора не нужны: агент работает от вашего пользователя.
+
+Забрать свежую сборку и код:
+
+```bash
+cd ~/amnezia-split-route-sync && git pull
+```
+
+Переустановить — обязательный шаг после `git pull`: агент запускает копию из
+`~/Library/Application Support/AmneziaRouteSync/`, а не файл из репозитория, и
+заодно пересобирается Swift-хелпер:
+
+```bash
+bash macos/install.sh
+```
+
+Применить список:
+
+```bash
+python3 "${HOME}/Library/Application Support/AmneziaRouteSync/update_amnezia_routes.py"
+```
+
+Проверить, что применилось:
+
+```bash
+python3 -c "import json,pathlib;d=json.loads((pathlib.Path.home()/'Library/Application Support/AmneziaRouteSync/status.json').read_text());print(d['entry_count'],'записей,',d['cidr_count'],'сетей,',d['domain_count'],'доменов')"
+```
+
+Числа должны совпадать с таблицей в начале файла. Убедиться, что маршрутизация
+живая: при включённом VPN откройте [yandex.ru/internet](https://yandex.ru/internet) —
+там должен быть ваш домашний российский IP, а на зарубежном сайте вроде
+`myip.com` — адрес VPN-сервера.
+
+`AmneziaVPN уже содержит актуальные записи` вместо `AmneziaVPN обновлена` — не
+ошибка: агент успел применить список сам.
 
 ## iPhone, iPad и Android
 
