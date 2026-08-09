@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "category": "telecom",
+  "title": "Операторы связи и интернет-провайдеры",
+  "services": [
+    {
+      "id": "mobile",
+      "title": "Мобильные операторы",
+      "tier": "core",
+      "domains": [
+        "beeline.ru",
+        "lk.megafon.ru",
+        "login.mts.ru",
+        "megafon.ru",
+        "mts.ru",
+        "skylink.ru",
+        "t2.ru",
+        "tele2.ru",
+        "volnamobile.ru",
+        "yota.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "isp",
+      "title": "Домашний интернет и ТВ",
+      "tier": "core",
+      "domains": [
+        "dom.ru",
+        "er-telecom.ru",
+        "mango-office.ru",
+        "mgts.ru",
+        "mtt.ru",
+        "netbynet.ru",
+        "novofon.ru",
+        "onlime.ru",
+        "rostelecom.ru",
+        "rt.ru",
+        "sipuni.com",
+        "tattelecom.ru",
+        "ttk.ru",
+        "ufanet.ru",
+        "wifire.ru",
+        "zadarma.com",
+        "zebra-telecom.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "telecom-extra",
+      "title": "Прочие операторы связи",
+      "tier": "extended",
+      "domains": [
+        "bio.rt.ru",
+        "cloud.rt.ru",
+        "domru.ru",
+        "mts-connect.ru",
+        "mts-link.ru",
+        "rosoboronexport.ru",
+        "udmurt.ru"
+      ],
+      "cidrs": []
+    }
+  ]
+}

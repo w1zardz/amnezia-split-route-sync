@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "category": "gaming",
+  "title": "Игры и игровые серверы",
+  "services": [
+    {
+      "id": "game-servers",
+      "title": "Российские игровые серверы (Minecraft, GTA RP) — вход по прямому IP",
+      "tier": "core",
+      "notes": "Игровые серверы держат anti-DDoS-фильтры и режут зарубежные адреса — трафик к ним идёт мимо VPN.",
+      "domains": [
+        "cdngrand.com",
+        "grnd.game",
+        "kmgo.su",
+        "kmine.ru",
+        "kripmine.ru",
+        "support.kripmine.ru"
+      ],
+      "cidrs": [
+        "38.244.136.0/24",
+        "46.174.49.0/24",
+        "80.66.82.0/24",
+        "87.251.65.0/24",
+        "185.169.132.0/24"
+      ]
+    },
+    {
+      "id": "game-ru",
+      "title": "Российские игровые площадки и лаунчеры",
+      "tier": "extended",
+      "domains": [
+        "4game.com",
+        "battlepass.ru",
+        "funpay.com",
+        "gamemag.ru",
+        "goha.ru",
+        "igromania.ru",
+        "kanobu.ru",
+        "playground.ru",
+        "stopgame.ru",
+        "vkplay.ru"
+      ],
+      "cidrs": []
+    }
+  ]
+}

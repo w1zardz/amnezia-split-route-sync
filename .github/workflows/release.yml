@@ -1,0 +1,66 @@
+name: release
+
+# Пересобирает списки и выкладывает их в GitHub Releases: тег вида ru-direct-2026-08-09
+# создаётся автоматически по расписанию, вручную — кнопкой Run workflow.
+on:
+  schedule:
+    - cron: "23 3 * * 1"
+  workflow_dispatch:
+    inputs:
+      refresh_prefixes:
+        description: "Обновить BGP-префиксы перед сборкой (DNS + Team Cymru + RIPEstat)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ru-direct-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh BGP prefixes
+        if: github.event_name == 'schedule' || inputs.refresh_prefixes
+        run: python3 tools/refresh_prefixes.py
+
+      - name: Build lists
+        run: |
+          python3 tools/catalog.py
+          python3 tools/build_ru_direct.py
+
+      - name: Commit updated snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- data/prefixes.json dist
+          if git diff --cached --quiet; then
+            echo "изменений нет"
+          else
+            git commit -m "RU Direct: обновление списков $(date -u +%Y-%m-%d)" -- data/prefixes.json dist
+            git push
+          fi
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="ru-direct-$(date -u +%Y-%m-%d)"
+          gh release delete "${TAG}" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "${TAG}" \
+            --title "RU Direct — ${TAG#ru-direct-}" \
+            --notes-file dist/RELEASE_NOTES.md \
+            dist/amnezia-ru-direct.json \
+            dist/amnezia-ru-direct-lite.json \
+            dist/ru-direct-domains.txt \
+            dist/ru-direct-ipv4.txt \
+            dist/happ-ru-direct.json \
+            dist/manifest.json

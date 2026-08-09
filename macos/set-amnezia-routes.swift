@@ -51,7 +51,7 @@ let state = loadState(arguments.statePath)
 guard let sites = state["sites"] as? [String: Any] else {
     fail("routing state does not contain sites")
 }
-guard sites.count <= 512 else {
+guard sites.count <= 4096 else {
     fail("refusing suspicious ExceptSites count: \(sites.count)")
 }
 guard let defaults = UserDefaults(suiteName: arguments.domain) else {

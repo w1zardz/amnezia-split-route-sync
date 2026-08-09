@@ -1,8 +1,7 @@
 # Security policy
 
 Не публикуйте в issue VPN-конфигурации, endpoint-адреса, ключи, пароли, UUID,
-дампы реестра, `plist` Preferences или содержимое
-`config/custom-host-policy.json`.
+`plist` Preferences или содержимое `config/protected-ips.json`.
 
 Для уязвимости используйте GitHub Private Vulnerability Reporting во вкладке
 **Security → Report a vulnerability**. В отчёте достаточно версии ОС,

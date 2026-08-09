@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "category": "delivery",
+  "title": "Доставка, еда и продукты",
+  "services": [
+    {
+      "id": "post",
+      "title": "Почта и курьерские службы",
+      "tier": "core",
+      "domains": [
+        "5post.ru",
+        "boxberry.ru",
+        "cdek.ru",
+        "dellin.ru",
+        "dostavista.ru",
+        "dpd.ru",
+        "emspost.ru",
+        "fivepost.ru",
+        "gdeposylka.ru",
+        "gtd.ru",
+        "logsis.ru",
+        "major-express.ru",
+        "pickpoint.ru",
+        "pochta.ru",
+        "postamat.ru",
+        "posylka.ru",
+        "russianpost.ru",
+        "sdek.ru",
+        "shiptor.ru",
+        "spsr.ru",
+        "track24.ru",
+        "trackitonline.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "food",
+      "title": "Продукты и еда",
+      "tier": "core",
+      "domains": [
+        "5ka.ru",
+        "auchan.ru",
+        "av.ru",
+        "bristol.ru",
+        "chizhik.ru",
+        "dixy.ru",
+        "dodopizza.ru",
+        "dominos.ru",
+        "globus.ru",
+        "krasnoeibeloe.ru",
+        "kuper.ru",
+        "lenta.com",
+        "magnit.ru",
+        "metro-cc.ru",
+        "miratorg.ru",
+        "okey.ru",
+        "okeydostavka.ru",
+        "perekrestok.ru",
+        "samokat.ru",
+        "sbermarket.ru",
+        "utkonos.ru",
+        "vkusnoitochka.ru",
+        "vkusvill.ru",
+        "vprok.ru",
+        "x5.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "delivery-extra",
+      "title": "Прочие службы доставки и ритейл",
+      "tier": "extended",
+      "domains": [
+        "burgerking.ru",
+        "delivery-club.ru",
+        "kfc.ru",
+        "magnit-market.ru",
+        "qdelivery.ru"
+      ],
+      "cidrs": []
+    }
+  ]
+}

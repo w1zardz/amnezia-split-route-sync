@@ -1,7 +1,0 @@
-{
-  "version": 1,
-  "protected_ips": [
-    "REPLACE_WITH_YOUR_VPN_SERVER_IP"
-  ],
-  "groups": []
-}

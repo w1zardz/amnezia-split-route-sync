@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "category": "vk",
+  "title": "VK и экосистема",
+  "services": [
+    {
+      "id": "vk",
+      "title": "ВКонтакте — сайт, вход, API",
+      "tier": "core",
+      "domains": [
+        "ads.vk.com",
+        "ads.vk.ru",
+        "api.vk.com",
+        "api.vk.ru",
+        "biz.vk.com",
+        "dev.vk.com",
+        "id.vk.com",
+        "id.vk.ru",
+        "login.vk.com",
+        "login.vk.ru",
+        "m.vk.com",
+        "m.vk.ru",
+        "oauth.vk.com",
+        "oauth.vk.ru",
+        "st.vk.com",
+        "static.vk.com",
+        "vk-portal.net",
+        "vk.cc",
+        "vk.com",
+        "vk.company",
+        "vk.link",
+        "vk.me",
+        "vk.ru",
+        "vkads.ru",
+        "vkcdn.ru",
+        "vkforms.ru",
+        "vkontakte.ru",
+        "www.vk.com",
+        "www.vk.ru"
+      ],
+      "cidrs": [
+        "87.240.128.0/18",
+        "93.186.224.0/20",
+        "95.142.192.0/20"
+      ]
+    },
+    {
+      "id": "vk-video",
+      "title": "VK Видео и VK Клипы — просмотр, загрузка, стримы",
+      "tier": "core",
+      "domains": [
+        "clips.vk.com",
+        "clips.vk.ru",
+        "live.vk.com",
+        "live.vk.ru",
+        "m.vkvideo.ru",
+        "psv1.userapi.com",
+        "psv4.userapi.com",
+        "pu.vk.com",
+        "rtmp.vkvideo.ru",
+        "stream.vkvideo.ru",
+        "streaming.vk.com",
+        "vk.video",
+        "vkuserlive.com",
+        "vkuserlive.net",
+        "vkuservideo.com",
+        "vkuservideo.net",
+        "vkvd.userapi.com",
+        "vkvideo.ru",
+        "www.vkvideo.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "vk-cdn",
+      "title": "VK CDN — фото, видеофайлы, аватары",
+      "tier": "core",
+      "domains": [
+        "imgsmail.ru",
+        "mail.ru",
+        "mradx.net",
+        "mycdn.me",
+        "okcdn.ru",
+        "sun1.userapi.com",
+        "sun2.userapi.com",
+        "sun6.userapi.com",
+        "sun9.userapi.com",
+        "userapi.com",
+        "vk-cdn.net",
+        "vkuseraudio.com",
+        "vkuseraudio.net",
+        "vkuseraudio.ru",
+        "vkuserphoto.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "vk-music",
+      "title": "VK Музыка и Boom",
+      "tier": "core",
+      "domains": [
+        "music.vk.com",
+        "music.vk.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "vk-play",
+      "title": "VK Play — игры и стримы",
+      "tier": "core",
+      "domains": [
+        "games.mail.ru",
+        "games.vk.com",
+        "play.vk.com",
+        "vkplay.live",
+        "vkplay.ru",
+        "vkplaycdn.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "vk-messenger",
+      "title": "VK Мессенджер",
+      "tier": "core",
+      "domains": [
+        "im.vk.com",
+        "vkmessenger.app",
+        "vkmessenger.com"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "max",
+      "title": "MAX — национальный мессенджер",
+      "tier": "core",
+      "domains": [
+        "max.ru",
+        "oneme.ru",
+        "web.max.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "sferum",
+      "title": "Сферум — школьная платформа VK",
+      "tier": "core",
+      "domains": [
+        "sferum.ru",
+        "web.sferum.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "mailru",
+      "title": "Mail.ru — почта, Облако, Портал",
+      "tier": "core",
+      "domains": [
+        "auth.mail.ru",
+        "cloud.mail.ru",
+        "e.mail.ru",
+        "my.mail.ru",
+        "news.mail.ru",
+        "octavius.mail.ru",
+        "portal.mail.ru",
+        "sportmail.ru",
+        "touch.mail.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "ok",
+      "title": "Одноклассники",
+      "tier": "core",
+      "domains": [
+        "api.ok.ru",
+        "connect.ok.ru",
+        "m.ok.ru",
+        "odnoklassniki.ru",
+        "ok.ru",
+        "www.ok.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "vk-extra",
+      "title": "Прочие сервисы VK и Mail.ru",
+      "tier": "extended",
+      "domains": [
+        "auto.mail.ru",
+        "deti.mail.ru",
+        "gorod.mail.ru",
+        "health.mail.ru",
+        "hi-tech.mail.ru",
+        "img.mail.ru",
+        "kino.mail.ru",
+        "lady.mail.ru",
+        "pogoda.mail.ru",
+        "torg.mail.ru",
+        "tv.mail.ru",
+        "vkteams.ru"
+      ],
+      "cidrs": []
+    }
+  ]
+}

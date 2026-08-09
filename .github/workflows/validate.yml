@@ -10,26 +10,36 @@ permissions:
   contents: read
 
 jobs:
-  python-and-shell:
+  catalog-and-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.12"
-      - name: Static checks and unit tests
+      - name: Static checks
         run: |
           python3 tools/privacy_scan.py
-          python3 -m py_compile macos/update_amnezia_routes.py tools/generate_routes.py tools/generate_amnezia_full_import.py tools/privacy_scan.py
-          python3 -m unittest discover -s tests -v
+          python3 -m py_compile \
+            macos/update_amnezia_routes.py \
+            tools/catalog.py \
+            tools/build_ru_direct.py \
+            tools/refresh_prefixes.py \
+            tools/privacy_scan.py
           bash -n macos/install.sh macos/uninstall.sh
-          python3 -m json.tool config/route-policy.json >/dev/null
-          python3 -m json.tool config/custom-host-policy.example.json >/dev/null
-      - name: Validate current upstream without writing
+          python3 -m json.tool config/asn-expand.json >/dev/null
+          python3 -m json.tool config/protected-ips.example.json >/dev/null
+      - name: Validate catalog and rebuild lists
         run: |
-          cp tests/fixtures/custom-host-policy.json config/custom-host-policy.json
-          python3 tools/generate_routes.py --dry-run
-          python3 tools/generate_amnezia_full_import.py --dry-run
+          python3 tools/catalog.py
+          python3 tools/build_ru_direct.py --output-dir "${RUNNER_TEMP}/dist"
+      - name: Committed dist must match the catalog
+        run: |
+          for name in amnezia-ru-direct.json amnezia-ru-direct-lite.json \
+                      ru-direct-domains.txt ru-direct-ipv4.txt happ-ru-direct.json; do
+            diff -q "dist/${name}" "${RUNNER_TEMP}/dist/${name}" \
+              || { echo "dist/${name} устарел — пересоберите tools/build_ru_direct.py"; exit 1; }
+          done
 
   macos-helper:
     runs-on: macos-14
@@ -39,45 +49,17 @@ jobs:
         run: |
           xcrun swiftc -warnings-as-errors -O macos/set-amnezia-routes.swift -o "${RUNNER_TEMP}/set-amnezia-routes"
           plutil -lint macos/io.github.amnezia-route-sync.plist.template
-
-  windows-powershell:
-    runs-on: windows-2022
-    steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
-        with:
-          python-version: "3.12"
-      - name: Parse PowerShell 5.1 scripts
-        shell: powershell
+      - name: Parse the published list the way the updater does
         run: |
-          $scripts = @(
-            '.\windows\install.ps1',
-            '.\windows\uninstall.ps1',
-            '.\windows\update-amnezia-routes.ps1',
-            '.\windows\generate-full-import.ps1'
+          python3 - <<'PY'
+          import importlib.util, pathlib
+          spec = importlib.util.spec_from_file_location(
+              "updater", pathlib.Path("macos/update_amnezia_routes.py")
           )
-          foreach ($script in $scripts) {
-            $tokens = $null
-            $errors = $null
-            [void][Management.Automation.Language.Parser]::ParseFile(
-              (Resolve-Path $script), [ref]$tokens, [ref]$errors
-            )
-            if ($errors.Count -gt 0) { throw "$script parse failed: $($errors | Out-String)" }
-          }
-      - name: Run Windows codec and validation self-tests
-        shell: powershell
-        run: |
-          Copy-Item .\config\route-policy.json .\windows\route-policy.json
-          Copy-Item .\tests\fixtures\custom-host-policy.json .\windows\custom-host-policy.json
-          powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\windows\update-amnezia-routes.ps1 -CodecSelfTest
-          powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\windows\update-amnezia-routes.ps1 -ValidationSelfTest
-      - name: Run the documented portable generator on Windows
-        shell: powershell
-        run: |
-          py -3 .\tools\generate_routes.py --policy .\config\route-policy.json --config .\tests\fixtures\custom-host-policy.json --output "$env:RUNNER_TEMP\ip-list.json"
-          Get-Content "$env:RUNNER_TEMP\ip-list.manifest.json" -Raw | ConvertFrom-Json | Out-Null
-          Copy-Item .\tests\fixtures\custom-host-policy.json .\config\custom-host-policy.json
-          powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\windows\generate-full-import.ps1 -OutputPath "$env:RUNNER_TEMP\Amnezia-RU-Direct.json"
-          $manifest = Get-Content "$env:RUNNER_TEMP\Amnezia-RU-Direct.manifest.json" -Raw | ConvertFrom-Json
-          if ($manifest.community_source_hostname_count -ne 858) { throw "unexpected community count" }
-          if ($manifest.community_resolved_hostname_count -lt 700) { throw "too few domains resolved" }
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          payload = pathlib.Path("dist/amnezia-ru-direct.json").read_bytes()
+          domains, networks = module.parse_import_list(payload, "dist")
+          collapsed = module.validate_and_collapse(networks)
+          print(f"{len(domains)} доменов, {len(collapsed)} сетей")
+          PY
