@@ -194,10 +194,16 @@ def validate_and_collapse(networks: Iterable[ipaddress.IPv4Network]) -> list[ipa
 
 
 def merge_except_sites(
-    current: dict[str, Any], previous_managed: Iterable[str], new_managed: Iterable[str]
+    current: dict[str, Any],
+    previous_managed: Iterable[str],
+    new_managed: Iterable[str],
+    replace_all: bool = False,
 ) -> dict[str, Any]:
-    previous = set(previous_managed)
-    merged = {key: value for key, value in current.items() if key not in previous}
+    if replace_all:
+        merged: dict[str, Any] = {}
+    else:
+        previous = set(previous_managed)
+        merged = {key: value for key, value in current.items() if key not in previous}
     for cidr in new_managed:
         merged[cidr] = []
     return merged
@@ -419,11 +425,12 @@ def apply_preferences(
     managed_path: Path,
     previous_managed: list[str],
     cidrs: list[str],
+    replace_all: bool = False,
 ) -> tuple[bool, int]:
     _, preferences = export_preferences()
     current_state = route_state(preferences)
     current_sites = current_state["sites"]
-    desired_sites = merge_except_sites(current_sites, previous_managed, cidrs)
+    desired_sites = merge_except_sites(current_sites, previous_managed, cidrs, replace_all)
     manual_count = len(desired_sites) - len(cidrs)
     desired_state = {
         "sites": desired_sites,
@@ -459,7 +466,9 @@ def apply_preferences(
         # После полного выхода приложение сбрасывает cached QSettings на диск.
         _, preferences = export_preferences()
         current_state = route_state(preferences)
-        desired_sites = merge_except_sites(current_state["sites"], previous_managed, cidrs)
+        desired_sites = merge_except_sites(
+            current_state["sites"], previous_managed, cidrs, replace_all
+        )
         desired_state = {
             "sites": desired_sites,
             "mode": ROUTE_MODE_VPN_ALL_EXCEPT_SITES,
@@ -613,6 +622,7 @@ def update(
     recover_only: bool = False,
     state_dir: Path = STATE_DIR,
     source: str = LIST_FULL,
+    replace_all: bool = False,
 ) -> int:
     if sys.platform != "darwin":
         raise UpdateError("скрипт предназначен только для macOS")
@@ -670,7 +680,7 @@ def update(
         )
         previous_managed = load_string_list(managed_path)
         changed, manual_count = apply_preferences(
-            helper_path, state_dir, managed_path, previous_managed, entries
+            helper_path, state_dir, managed_path, previous_managed, entries, replace_all
         )
 
         import_payload = [{"hostname": value, "ip": ""} for value in entries]
@@ -707,6 +717,11 @@ def main() -> int:
         "--source",
         help="URL или путь к JSON-списку (по умолчанию dist/amnezia-ru-direct.json из репозитория)",
     )
+    parser.add_argument(
+        "--replace-all",
+        action="store_true",
+        help="стереть все прежние записи Amnezia, включая ручные, и оставить только список",
+    )
     parser.add_argument("--recover-only", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--state-dir", type=Path, default=STATE_DIR, help=argparse.SUPPRESS)
     arguments = parser.parse_args()
@@ -717,6 +732,7 @@ def main() -> int:
             recover_only=arguments.recover_only,
             state_dir=arguments.state_dir,
             source=source,
+            replace_all=arguments.replace_all,
         )
     except UpdateError as exc:
         print(f"ОШИБКА: {exc}", file=sys.stderr)
