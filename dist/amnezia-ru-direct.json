@@ -192,6 +192,10 @@
     "ip": ""
   },
   {
+    "hostname": "api.grnd.game",
+    "ip": ""
+  },
+  {
     "hostname": "api.nomerogram.ru",
     "ip": ""
   },
@@ -441,6 +445,10 @@
   },
   {
     "hostname": "cdek.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn.grnd.game",
     "ip": ""
   },
   {
@@ -2724,7 +2732,183 @@
     "ip": ""
   },
   {
+    "hostname": "s1.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s10.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s11.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s12.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s13.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s14.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s15.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s16.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s17.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s18.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s19.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s2.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s20.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s21.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s22.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s23.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s24.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s25.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s26.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s27.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s28.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s29.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s3.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s30.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s31.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s32.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s33.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s34.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s35.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s36.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s37.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s38.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s39.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s4.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s40.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s41.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s5.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s50.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s51.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s52.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s6.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s7.grnd.game",
+    "ip": ""
+  },
+  {
     "hostname": "s7.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "s8.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s9.grnd.game",
     "ip": ""
   },
   {
@@ -3612,7 +3796,15 @@
     "ip": ""
   },
   {
+    "hostname": "www.grnd.game",
+    "ip": ""
+  },
+  {
     "hostname": "www.kinopoisk.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "www.kripmine.ru",
     "ip": ""
   },
   {
