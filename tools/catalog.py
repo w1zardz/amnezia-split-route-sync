@@ -6,12 +6,15 @@ from __future__ import annotations
 import ipaddress
 import json
 import re
+import shutil
+import subprocess
 from pathlib import Path
 from typing import Any, Iterable
 
 ROOT = Path(__file__).resolve().parent.parent
 SERVICES_DIR = ROOT / "data" / "services"
 PREFIXES_FILE = ROOT / "data" / "prefixes.json"
+EXTERNAL_FILE = ROOT / "data" / "external.json"
 
 TIERS = ("core", "extended")
 HOSTNAME = re.compile(
@@ -19,11 +22,78 @@ HOSTNAME = re.compile(
 )
 # Шире /12 не пускаем: такая сеть означала бы «пол-интернета мимо VPN».
 MIN_PREFIXLEN = 12
+MAX_PREFIXLEN = 24
 MAX_ADDRESSES = 40_000_000
+
+# Глобальные CDN/облака: их адреса не должны идти мимо VPN.
+DENY_ASN = {
+    13335,  # Cloudflare
+    15169, 396982, 19527,  # Google
+    16509, 14618, 8987,  # Amazon
+    8075, 8068, 8069,  # Microsoft
+    20940, 16625, 12222, 21342, 32787,  # Akamai
+    54113,  # Fastly
+    32934,  # Meta
+    2906,  # Netflix
+    13414,  # X/Twitter
+    36459,  # GitHub
+    14061,  # DigitalOcean
+    24940,  # Hetzner
+    16276,  # OVH
+    63949, 20473,  # Akamai/Linode, Vultr
+    60068, 9009,  # Datacamp/M247
+}
+# Российские anti-DDoS/скрабберы: юрлицо не в РФ, но за префиксами стоят RU-сайты.
+ALLOW_ASN = {
+    209671, 211112, 200449,  # Qrator Labs
+    59796,  # StormWall
+    57724, 262254,  # DDoS-Guard
+    208972,  # Servicepipe
+}
 
 
 class CatalogError(RuntimeError):
     pass
+
+
+def is_russian(asn: int, country: str, as_name: str) -> bool:
+    """RU-принадлежность: страна IP, либо страна юрлица AS, либо RU anti-DDoS."""
+    if asn in ALLOW_ASN:
+        return True
+    if country == "RU":
+        return True
+    # Cymru отдаёт имя вида "OZON-BANK-AS - LLC OZON BANK, RU" — хвост это страна юрлица.
+    return as_name.rstrip().upper().endswith(", RU")
+
+
+def http_get(url: str, max_bytes: int, timeout: int = 70) -> bytes:
+    """HTTPS-загрузка через curl: только https, с потолком по размеру и времени."""
+    curl = shutil.which("curl")
+    if curl is None:
+        raise CatalogError("нужен curl")
+    try:
+        process = subprocess.run(
+            [
+                curl, "--fail", "--silent", "--show-error", "--location",
+                "--proto", "=https", "--proto-redir", "=https", "--tlsv1.2",
+                "--max-filesize", str(max_bytes),
+                "--connect-timeout", "10", "--max-time", str(timeout - 10),
+                "--retry", "2",
+                "--user-agent", "amnezia-split-route-sync/2.0",
+                url,
+            ],
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=timeout,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise CatalogError(f"запрос не удался: {url}") from exc
+    if process.returncode != 0:
+        raise CatalogError(f"HTTP-ошибка при запросе {url}: {process.stderr.decode()[:200]}")
+    if len(process.stdout) > max_bytes:
+        raise CatalogError(f"ответ {url} больше лимита {max_bytes} байт")
+    return process.stdout
 
 
 class Service:

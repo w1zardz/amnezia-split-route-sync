@@ -25,9 +25,11 @@ jobs:
             tools/catalog.py \
             tools/build_ru_direct.py \
             tools/refresh_prefixes.py \
+            tools/import_external.py \
             tools/privacy_scan.py
           bash -n macos/install.sh macos/uninstall.sh
           python3 -m json.tool config/asn-expand.json >/dev/null
+          python3 -m json.tool config/external-sources.json >/dev/null
           python3 -m json.tool config/protected-ips.example.json >/dev/null
           python3 - <<'PY'
           import pathlib, sys
@@ -43,6 +45,13 @@ jobs:
       - name: Validate catalog and rebuild lists
         run: |
           python3 tools/catalog.py
+          python3 - <<'PY'
+          import pathlib, sys
+          sys.path.insert(0, "tools")
+          import catalog, refresh_prefixes
+          external = refresh_prefixes.load_external(catalog.EXTERNAL_FILE)
+          print(f"внешние списки: {len(external)} проверенных сетей")
+          PY
           python3 tools/build_ru_direct.py --output-dir "${RUNNER_TEMP}/dist"
       - name: Committed dist must match the catalog
         run: |

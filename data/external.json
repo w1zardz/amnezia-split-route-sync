@@ -1,0 +1,1752 @@
+{
+  "version": 1,
+  "updated": "2026-08-09",
+  "source": "внешние списки, проверенные по таблице IP→ASN",
+  "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
+  "prefix_count": 190,
+  "rejected_count": 30005,
+  "dropped_by_limit": 0,
+  "sources": {
+    "mobile-whitelist-cidr": {
+      "url": "https://raw.githubusercontent.com/hxehex/russia-mobile-internet-whitelist/main/cidrwhitelist.txt",
+      "parsed": 30228,
+      "accepted": 290
+    },
+    "mobile-whitelist-domains": {
+      "url": "https://raw.githubusercontent.com/hxehex/russia-mobile-internet-whitelist/main/whitelist.txt",
+      "parsed": 910,
+      "accepted": 0
+    },
+    "operator-whitelist-cidr": {
+      "url": "https://raw.githubusercontent.com/escapingworm/russia-whitelist/main/ru-whitelist-cidr.txt",
+      "parsed": 88,
+      "accepted": 21
+    }
+  },
+  "prefixes": {
+    "5.8.17.0/24": {
+      "asn": 8492,
+      "as_name": "OBIT-AS OBIT Ltd.",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.8.64.0/24": {
+      "asn": 44812,
+      "as_name": "IPSERVER-RU-NET Fiord",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.101.60.0/22": {
+      "asn": 8595,
+      "as_name": "WESTCALL-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.101.68.0/23": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.101.200.0/21": {
+      "asn": 8595,
+      "as_name": "WESTCALL-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.178.84.0/23": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.188.7.0/24": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.188.35.0/24": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.188.72.0/21": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.188.80.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.188.112.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.188.128.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.188.136.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.188.150.0/24": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.188.184.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.188.229.0/24": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "31.31.192.0/20": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "31.128.36.0/22": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "31.173.0.0/18": {
+      "asn": 25159,
+      "as_name": "SONICDUO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "31.173.64.0/19": {
+      "asn": 25159,
+      "as_name": "SONICDUO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "31.173.112.0/21": {
+      "asn": 29648,
+      "as_name": "COMLINE-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "31.184.212.0/23": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "37.9.36.0/22": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "37.140.192.0/21": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "37.220.160.0/22": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "37.220.165.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "37.220.166.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "45.9.40.0/22": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "46.17.200.0/21": {
+      "asn": 49675,
+      "as_name": "SKBKONTUR-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "46.149.164.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "46.235.184.0/21": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "46.243.142.0/23": {
+      "asn": 208677,
+      "as_name": "CLOUDRU-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "62.152.39.0/24": {
+      "asn": 3175,
+      "as_name": "CITYTELECOM-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "62.181.40.0/22": {
+      "asn": 24739,
+      "as_name": "SEVEREN-TELECOM St.Petersburg, Russia",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "62.181.52.0/24": {
+      "asn": 24739,
+      "as_name": "SEVEREN-TELECOM St.Petersburg, Russia",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "77.79.128.0/21": {
+      "asn": 24955,
+      "as_name": "UBN-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "77.79.144.0/21": {
+      "asn": 24955,
+      "as_name": "UBN-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "77.79.152.0/24": {
+      "asn": 24955,
+      "as_name": "UBN-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "77.79.160.0/23": {
+      "asn": 24955,
+      "as_name": "UBN-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "77.220.216.0/24": {
+      "asn": 207353,
+      "as_name": "RUFORM",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "78.41.104.0/21": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "79.137.186.0/23": {
+      "asn": 56631,
+      "as_name": "ONLANTA-NET",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "79.174.80.0/20": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "80.67.40.0/22": {
+      "asn": 57629,
+      "as_name": "IVI-",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "80.68.240.0/22": {
+      "asn": 20848,
+      "as_name": "ROSBUSINESSCONSULTING-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "80.247.32.0/22": {
+      "asn": 25292,
+      "as_name": "VGTRK-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "81.163.16.0/20": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "81.200.144.0/21": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "82.146.32.0/19": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "82.202.176.0/22": {
+      "asn": 56864,
+      "as_name": "WELLSERVER-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "82.202.180.0/22": {
+      "asn": 56864,
+      "as_name": "WELLSERVER-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "82.202.196.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "83.69.192.0/19": {
+      "asn": 29226,
+      "as_name": "MASTERTEL-AS Moscow, Russia",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "84.252.144.0/22": {
+      "asn": 35237,
+      "as_name": "SBERBANK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "85.26.144.0/20": {
+      "asn": 25159,
+      "as_name": "SONICDUO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "85.118.176.0/24": {
+      "asn": 35021,
+      "as_name": "E-STOCK-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "85.118.180.0/23": {
+      "asn": 35021,
+      "as_name": "E-STOCK-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "87.236.16.0/21": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "89.108.96.0/19": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "89.111.168.0/21": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "89.169.92.0/22": {
+      "asn": 48061,
+      "as_name": "UMA-TECH-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "89.253.192.0/18": {
+      "asn": 41535,
+      "as_name": "RUSONYX-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "91.207.58.0/23": {
+      "asn": 48061,
+      "as_name": "UMA-TECH-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "91.215.36.0/22": {
+      "asn": 49002,
+      "as_name": "RUSPOST",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "91.215.40.0/22": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "91.221.164.0/23": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "91.221.198.0/23": {
+      "asn": 197482,
+      "as_name": "DGIS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "91.236.48.0/22": {
+      "asn": 197482,
+      "as_name": "DGIS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "91.240.84.0/22": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "sources": [
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "92.39.128.0/21": {
+      "asn": 8595,
+      "as_name": "WESTCALL-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "92.223.4.0/23": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "92.223.6.0/24": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "92.223.14.0/24": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "92.223.43.0/24": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "92.223.64.0/23": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "92.223.80.0/24": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "92.223.91.0/24": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "92.223.103.0/24": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "93.93.88.0/22": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "93.93.92.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "93.186.224.0/20": {
+      "asn": 47541,
+      "as_name": "VKONTAKTE-SPB-AS vk.com",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "94.79.5.0/24": {
+      "asn": 8901,
+      "as_name": "Moscow Mayors Office",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "94.79.6.0/24": {
+      "asn": 8901,
+      "as_name": "Moscow Mayors Office",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "94.124.200.0/22": {
+      "asn": 47724,
+      "as_name": "HEADHUNTER-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "94.124.206.0/23": {
+      "asn": 47724,
+      "as_name": "HEADHUNTER-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "94.228.112.0/21": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "95.129.232.0/23": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "95.129.236.0/23": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "95.163.224.0/20": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "95.173.144.0/20": {
+      "asn": 43797,
+      "as_name": "RSNET2-AS RSNET2",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "95.181.176.0/21": {
+      "asn": 210756,
+      "as_name": "EDGECENTERLLC",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "95.214.60.0/22": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "109.71.8.0/21": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "109.73.201.0/24": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "109.238.90.0/23": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "109.248.222.0/24": {
+      "asn": 57494,
+      "as_name": "ADMAN-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "146.185.192.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "164.138.102.0/23": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "176.57.64.0/22": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "176.109.64.0/21": {
+      "asn": 209024,
+      "as_name": "MTS-CLOUD-A",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "178.176.0.0/19": {
+      "asn": 25159,
+      "as_name": "SONICDUO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "178.176.120.0/21": {
+      "asn": 29648,
+      "as_name": "COMLINE-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "178.248.232.0/21": {
+      "asn": 51115,
+      "as_name": "HLL-AS",
+      "cc": "RU",
+      "sources": [
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "178.250.240.0/21": {
+      "asn": 43362,
+      "as_name": "MAJORDOMO",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.9.228.0/22": {
+      "asn": 199599,
+      "as_name": "CIREX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.11.34.0/23": {
+      "asn": 39045,
+      "as_name": "GAZTELECOM-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.11.196.0/24": {
+      "asn": 29226,
+      "as_name": "MASTERTEL-AS Moscow, Russia",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.17.168.0/22": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.31.164.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.41.185.0/24": {
+      "asn": 48347,
+      "as_name": "MTW-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.66.84.0/22": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.71.64.0/22": {
+      "asn": 43298,
+      "as_name": "STORMNETWORKS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.71.96.0/22": {
+      "asn": 3267,
+      "as_name": "NIKS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.76.144.0/22": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.78.28.0/22": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.84.108.0/22": {
+      "asn": 43362,
+      "as_name": "MAJORDOMO",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.94.108.0/22": {
+      "asn": 51115,
+      "as_name": "HLL-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.129.100.0/22": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.141.124.0/22": {
+      "asn": 3267,
+      "as_name": "NIKS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.169.152.0/22": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.170.2.0/23": {
+      "asn": 41185,
+      "as_name": "NSPK-EC-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.170.204.0/23": {
+      "asn": 206955,
+      "as_name": "EVOTOR-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.173.0.0/22": {
+      "asn": 8901,
+      "as_name": "Moscow Mayors Office",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.177.216.0/22": {
+      "asn": 57494,
+      "as_name": "ADMAN-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.178.208.0/23": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.179.144.0/22": {
+      "asn": 24823,
+      "as_name": "VTB-BANK-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.189.195.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.200.240.0/22": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.225.32.0/22": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.233.186.0/23": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.247.185.0/24": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.248.100.0/22": {
+      "asn": 44812,
+      "as_name": "IPSERVER-RU-NET Fiord",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.253.32.0/22": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "188.94.168.0/23": {
+      "asn": 29648,
+      "as_name": "COMLINE-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "188.94.172.0/22": {
+      "asn": 29648,
+      "as_name": "COMLINE-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "188.120.224.0/20": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "193.0.214.0/23": {
+      "asn": 58097,
+      "as_name": "TAXCOM-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "193.200.72.0/22": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "193.232.148.0/22": {
+      "asn": 48061,
+      "as_name": "UMA-TECH-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.9.208.0/22": {
+      "asn": 207986,
+      "as_name": "OZON-BANK-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.54.14.0/23": {
+      "asn": 35237,
+      "as_name": "SBERBANK",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.67.78.0/23": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.67.84.0/22": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.67.88.0/22": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.67.96.0/21": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.67.112.0/20": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.85.32.0/20": {
+      "asn": 3267,
+      "as_name": "NIKS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.85.61.0/24": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.85.120.0/22": {
+      "asn": 5495,
+      "as_name": "ASN-SPBGU St.Petersburg, Russia",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.85.206.0/23": {
+      "asn": 57867,
+      "as_name": "REA-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.156.116.0/22": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.190.232.0/21": {
+      "asn": 3267,
+      "as_name": "NIKS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.190.240.0/23": {
+      "asn": 3267,
+      "as_name": "NIKS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.16.96.0/20": {
+      "asn": 25159,
+      "as_name": "SONICDUO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.16.112.0/20": {
+      "asn": 25159,
+      "as_name": "SONICDUO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.19.0.0/23": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.19.12.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.19.94.0/23": {
+      "asn": 51721,
+      "as_name": "UCB",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.19.164.0/22": {
+      "asn": 199599,
+      "as_name": "CIREX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.42.96.0/23": {
+      "asn": 44704,
+      "as_name": "X5-RETAIL-GROUP-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.128.157.0/24": {
+      "asn": 56631,
+      "as_name": "ONLANTA-NET",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.208.64.0/21": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.208.72.0/22": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.209.64.0/20": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.209.80.0/22": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.209.86.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.209.88.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.209.150.0/24": {
+      "asn": 49002,
+      "as_name": "RUSPOST",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.209.192.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.209.196.0/22": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "212.11.144.0/23": {
+      "asn": 8901,
+      "as_name": "Moscow Mayors Office",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "212.11.148.0/22": {
+      "asn": 8901,
+      "as_name": "Moscow Mayors Office",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "212.11.152.0/21": {
+      "asn": 8901,
+      "as_name": "Moscow Mayors Office",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "212.109.192.0/21": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "212.109.216.0/21": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "212.193.144.0/21": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "212.193.156.0/22": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "213.135.76.0/24": {
+      "asn": 24739,
+      "as_name": "SEVEREN-TELECOM St.Petersburg, Russia",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "213.189.204.0/23": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.12.96.0/21": {
+      "asn": 15632,
+      "as_name": "ALFA-BANK-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.12.104.0/23": {
+      "asn": 15632,
+      "as_name": "ALFA-BANK-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.25.144.0/20": {
+      "asn": 8905,
+      "as_name": "DIGIT1-AS Digit One Moscow Network",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.26.24.0/21": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.29.80.0/20": {
+      "asn": 25549,
+      "as_name": "AVANTEL-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.77.104.0/23": {
+      "asn": 199599,
+      "as_name": "CIREX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.114.0.0/20": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.115.80.0/21": {
+      "asn": 29648,
+      "as_name": "COMLINE-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.115.88.0/22": {
+      "asn": 29648,
+      "as_name": "COMLINE-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.115.92.0/23": {
+      "asn": 29648,
+      "as_name": "COMLINE-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.115.94.0/24": {
+      "asn": 29648,
+      "as_name": "COMLINE-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    }
+  }
+}

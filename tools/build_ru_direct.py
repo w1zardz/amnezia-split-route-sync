@@ -30,6 +30,10 @@ DIST = ROOT / "dist"
 # держим потолок, чтобы список оставался быстрым.
 MAX_ENTRIES = 4_000
 MIN_ENTRIES = 300
+# Столько же маршрутов принимают установленные апдейтеры Windows и macOS
+# ($MaximumRoutes / MAX_TOTAL_ROUTES). Список, который они отвергнут, нельзя
+# публиковать: у пользователя обновление просто перестанет применяться.
+MAX_ROUTES = 1_500
 
 
 class BuildError(RuntimeError):
@@ -88,8 +92,15 @@ def build(
     ]
     for value, meta in prefixes.items():
         owners = meta.get("services") or []
+        source = meta.get("source")
+        if source == "external":
+            # Сети из внешних списков углубляют покрытие, но в lite не идут:
+            # он существует ровно ради короткого списка для слабых устройств.
+            if "extended" in tiers:
+                networks.append(ipaddress.ip_network(value))
+            continue
         # Префиксы из разворота ASN не привязаны к конкретному сервису — они всегда в ядре.
-        if meta.get("source") == "asn" or not owners or any(owner in allowed_ids for owner in owners):
+        if source == "asn" or not owners or any(owner in allowed_ids for owner in owners):
             networks.append(ipaddress.ip_network(value))
     networks.extend(ipaddress.ip_network(value) for value in extra_cidrs)
     collapsed = [str(network) for network in catalog.collapse(networks)]
@@ -100,6 +111,11 @@ def guard(domains: list[str], cidrs: list[str], protected: Iterable[str], label:
     total = len(domains) + len(cidrs)
     if not MIN_ENTRIES <= total <= MAX_ENTRIES:
         raise BuildError(f"{label}: {total} записей вне допустимого диапазона")
+    if len(cidrs) > MAX_ROUTES:
+        raise BuildError(
+            f"{label}: {len(cidrs)} сетей — апдейтеры принимают не больше {MAX_ROUTES}. "
+            "Сузь внешние источники (tools/import_external.py --limit)"
+        )
     networks = [ipaddress.ip_network(value) for value in cidrs]
     for value in protected:
         address = ipaddress.ip_address(value)

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "comment": "Внешние списки как источник КАНДИДАТОВ, а не готовых данных. Чужой CIDR никогда не попадает в сборку напрямую: tools/import_external.py проверяет каждую сеть по таблице IP→ASN и принимает только те, что принадлежат ASN, уже известным по каталогу. Так мы добираем префиксы сервисов, которых не видно в DNS, и не тащим ни глобальные CDN, ни адресное пространство региональных провайдеров.",
+  "asn_table": {
+    "url": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
+    "note": "IP→ASN+страна, обновляется несколько раз в сутки, без ключей и лимитов"
+  },
+  "sources": [
+    {
+      "id": "mobile-whitelist-cidr",
+      "enabled": true,
+      "kind": "cidr",
+      "url": "https://raw.githubusercontent.com/hxehex/russia-mobile-internet-whitelist/main/cidrwhitelist.txt",
+      "note": "Сети, остающиеся доступными при отключении мобильного интернета — по определению российские сервисы. В сыром виде содержит и зарубежные адреса, поэтому фильтр обязателен."
+    },
+    {
+      "id": "mobile-whitelist-domains",
+      "enabled": true,
+      "kind": "domains",
+      "url": "https://raw.githubusercontent.com/hxehex/russia-mobile-internet-whitelist/main/whitelist.txt",
+      "note": "Домены из того же белого списка. В сборку не идут — попадают в отчёт как кандидаты для data/services."
+    },
+    {
+      "id": "operator-whitelist-cidr",
+      "enabled": true,
+      "kind": "cidr",
+      "url": "https://raw.githubusercontent.com/escapingworm/russia-whitelist/main/ru-whitelist-cidr.txt",
+      "note": "Агрегированные белые списки операторов связи."
+    }
+  ]
+}
