@@ -72,6 +72,7 @@ $JournalPath = Join-Path $StateDir '.registry-transaction.json'
 $BackupDir = Join-Path $StateDir 'backups'
 
 $RoutingValueNames = @('ExceptSites', 'routeMode', 'sitesSplitTunnelingEnabled')
+$DaemonStopped = $false
 
 Add-Type -AssemblyName System.Net.Http
 Add-Type -AssemblyName System.ServiceProcess
@@ -791,29 +792,50 @@ function Wait-ServiceStatus($Service, [ServiceProcess.ServiceControllerStatus]$S
     }
 }
 
+function Stop-ServiceHard($Service) {
+    $Service.Refresh()
+    if ($Service.Status -eq [ServiceProcess.ServiceControllerStatus]::Stopped) { return $true }
+    try {
+        Stop-Service -InputObject $Service -Force -ErrorAction Stop
+    } catch {
+        Write-Warning "SCM не остановил $($Service.Name): $($_.Exception.Message)"
+    }
+    if (Wait-ServiceStatus $Service ([ServiceProcess.ServiceControllerStatus]::Stopped) 20) { return $true }
+    # Служба может не объявлять SERVICE_ACCEPT_STOP — тогда гасим её процесс.
+    $servicePid = 0
+    try {
+        $instance = Get-CimInstance -ClassName Win32_Service -Filter "Name='$($Service.Name)'" -ErrorAction Stop
+        if ($null -ne $instance) { $servicePid = [int]$instance.ProcessId }
+    } catch {
+        Write-Warning "не удалось узнать PID службы $($Service.Name): $($_.Exception.Message)"
+    }
+    if ($servicePid -gt 0) {
+        Write-Host "Служба $($Service.Name) не приняла stop, снимаю процесс $servicePid"
+        Stop-Process -Id $servicePid -Force -ErrorAction SilentlyContinue
+    }
+    return (Wait-ServiceStatus $Service ([ServiceProcess.ServiceControllerStatus]::Stopped) 20)
+}
+
 function Stop-AmneziaTunnel {
     # Демон не разбирает туннель, когда GUI просто закрывают: маршруты прошлого
-    # списка остаются в таблице. Перезапуск службы делает то же, что и ребут.
-    $daemon = Get-AmneziaService
-    if ($null -ne $daemon) {
-        $daemon.Refresh()
-        if ($daemon.Status -ne [ServiceProcess.ServiceControllerStatus]::Stopped) {
-            Stop-Service -InputObject $daemon -Force -ErrorAction Stop
-            if (-not (Wait-ServiceStatus $daemon ([ServiceProcess.ServiceControllerStatus]::Stopped) 30)) {
-                throw "Служба $($daemon.Name) не остановилась за 30 секунд"
-            }
-        }
-    }
+    # списка остаются в таблице. Достаточно снять туннельную службу — вместе с
+    # адаптером уходят и её маршруты. Демон трогаем только если это не помогло.
     $tunnel = Get-TunnelService
     if ($null -ne $tunnel) {
-        $tunnel.Refresh()
-        if ($tunnel.Status -ne [ServiceProcess.ServiceControllerStatus]::Stopped) {
-            Stop-Service -InputObject $tunnel -Force -ErrorAction Stop
-            if (-not (Wait-ServiceStatus $tunnel ([ServiceProcess.ServiceControllerStatus]::Stopped) 30)) {
-                throw "Служба $($tunnel.Name) не остановилась за 30 секунд"
-            }
+        if (-not (Stop-ServiceHard $tunnel)) {
+            throw "Служба $($tunnel.Name) не остановилась"
         }
     }
+    $deadline = [DateTime]::UtcNow.AddSeconds(10)
+    while ([DateTime]::UtcNow -lt $deadline -and (Test-VpnAdapterUp)) { Start-Sleep -Milliseconds 500 }
+    if (-not (Test-VpnAdapterUp)) { return }
+
+    $daemon = Get-AmneziaService
+    if ($null -eq $daemon) { throw 'VPN-адаптер остался поднят, а служба демона не найдена' }
+    if (-not (Stop-ServiceHard $daemon)) {
+        throw "Служба $($daemon.Name) не остановилась"
+    }
+    $script:DaemonStopped = $true
 }
 
 function Start-AmneziaDaemon {
@@ -1047,6 +1069,11 @@ if ($Status) {
             $resolved = if ($values.Count -gt 0) { " (значения: $($values -join ', '))" } else { ' (значения пусты)' }
             Write-Host "  $probe в списке: $present$resolved"
         }
+        $networkKeys = @($sites.Keys | Where-Object { $_ -like '*/*' })
+        $domainKeys = @($sites.Keys | Where-Object { $_ -notlike '*/*' })
+        Write-Host "Ключей-сетей: $($networkKeys.Count), ключей-доменов: $($domainKeys.Count)"
+        Write-Host "Примеры сетей: $((@($networkKeys | Sort-Object | Select-Object -First 5)) -join ', ')"
+        Write-Host "Примеры доменов: $((@($domainKeys | Sort-Object | Select-Object -First 5)) -join ', ')"
     } catch {
         Write-Warning "не удалось проверить записи: $($_.Exception.Message)"
     }
