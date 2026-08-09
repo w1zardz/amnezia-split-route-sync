@@ -632,7 +632,9 @@ function Get-GuiProcesses {
     return @(Get-Process -Name $GuiProcessName -ErrorAction SilentlyContinue)
 }
 
-function Test-GuiRunning { return (Get-GuiProcesses).Count -gt 0 }
+# return @(...) разворачивает массив обратно в один объект, поэтому оборачиваем
+# результат на каждой стороне вызова: под Set-StrictMode .Count на Process падает.
+function Test-GuiRunning { return @(Get-GuiProcesses).Count -gt 0 }
 
 function Get-AmneziaService {
     $service = Get-Service -Name $DaemonServiceName -ErrorAction SilentlyContinue
@@ -763,7 +765,7 @@ function ConvertFrom-SessionDocument($Value) {
 }
 
 function Stop-AmneziaGui {
-    $processes = Get-GuiProcesses
+    $processes = @(Get-GuiProcesses)
     if ($processes.Count -eq 0) { return }
     foreach ($process in $processes) {
         try { [void]$process.CloseMainWindow() } catch { }
@@ -1066,6 +1068,19 @@ if ($Status) {
         }
     } catch {
         Write-Warning "не удалось проверить маршрут: $($_.Exception.Message)"
+    }
+
+    if (Test-Path -LiteralPath $JournalPath -PathType Leaf) {
+        Write-Warning "Есть незавершённая транзакция: $JournalPath"
+        Get-Content -LiteralPath $JournalPath -Raw -Encoding UTF8 | Write-Host
+    }
+
+    $taskName = "Amnezia-Split-Route-Sync-$([Security.Principal.WindowsIdentity]::GetCurrent().User.Value)"
+    $taskInfo = Get-ScheduledTaskInfo -TaskName $taskName -ErrorAction SilentlyContinue
+    if ($null -ne $taskInfo) {
+        Write-Host "Задача: последний запуск $($taskInfo.LastRunTime), код $($taskInfo.LastTaskResult)"
+    } else {
+        Write-Host "Задача $taskName не зарегистрирована"
     }
 
     if (Test-Path -LiteralPath $StatusPath -PathType Leaf) {
