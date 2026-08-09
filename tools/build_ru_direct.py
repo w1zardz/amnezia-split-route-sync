@@ -107,6 +107,44 @@ def guard(domains: list[str], cidrs: list[str], protected: Iterable[str], label:
             raise BuildError(f"{label}: список накрывает защищённый IP {value}")
 
 
+NON_ROUTABLE = (
+    "0.0.0.0/8",
+    "10.0.0.0/8",
+    "100.64.0.0/10",
+    "127.0.0.0/8",
+    "169.254.0.0/16",
+    "172.16.0.0/12",
+    "192.168.0.0/16",
+    "224.0.0.0/4",
+    "240.0.0.0/4",
+)
+
+
+def invert_networks(cidrs: list[str]) -> list[str]:
+    """0.0.0.0/0 минус российские сети и приватные диапазоны.
+
+    Результат кладётся в AllowedIPs конфига WireGuard/AmneziaWG: туннель просто
+    не забирает эти адреса, поэтому раздельное туннелирование работает даже там,
+    где клиент такой функции не даёт.
+    """
+    exclude = list(
+        ipaddress.collapse_addresses(
+            [ipaddress.ip_network(value) for value in cidrs]
+            + [ipaddress.ip_network(value) for value in NON_ROUTABLE]
+        )
+    )
+    remaining = [ipaddress.ip_network("0.0.0.0/0")]
+    for network in exclude:
+        following: list[ipaddress.IPv4Network] = []
+        for current in remaining:
+            if network.subnet_of(current):
+                following.extend(current.address_exclude(network))
+            elif not current.overlaps(network):
+                following.append(current)
+        remaining = following
+    return [str(network) for network in ipaddress.collapse_addresses(remaining)]
+
+
 def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> str:
     lines = [
         f"# RU Direct — сборка {counts['built']}",
@@ -127,6 +165,14 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
         f"**{counts['ip_entries']} сетей IPv4, ни одного домена**.",
         "",
         "На Amnezia Free раздельное туннелирование по IP недоступно — нужен обычный AmneziaVPN.",
+        "",
+        "### 🔧 Клиент не умеет split tunneling — `wg-allowed-ips.txt`",
+        "",
+        f"Готовая строка `AllowedIPs` из {counts['allowed_ips']} префиксов: весь IPv4 "
+        "минус российские сети и приватные диапазоны. Вставляется в секцию `[Peer]` "
+        "конфига WireGuard или AmneziaWG вместо `0.0.0.0/0`. Туннель просто не забирает "
+        "российские адреса — раздельное туннелирование работает на уровне конфига, "
+        "без всякой поддержки со стороны клиента.",
         "",
         f"`amnezia-ru-direct-lite.json` — запасной вариант для Windows и Android: "
         f"{counts['lite_entries']} записей вместо {counts['entries']}, только самые популярные "
@@ -221,6 +267,7 @@ def main() -> int:
         # iOS/macOS/Linux-клиенты Amnezia принимают в split tunneling только IP-адреса,
         # домены там молча игнорируются — им нужен список без единого имени хоста.
         ip_entries = import_entries(full_cidrs)
+        allowed_ips = invert_networks(full_cidrs)
         happ = {
             "DirectSites": [f"domain:{domain}" for domain in full_domains],
             "DirectIp": full_cidrs,
@@ -238,6 +285,7 @@ def main() -> int:
             "lite_cidrs": len(lite_cidrs),
             "lite_entries": len(lite_entries),
             "ip_entries": len(ip_entries),
+            "allowed_ips": len(allowed_ips),
             "prefix_snapshot": len(prefixes),
             "personal_domains": len(personal_domains),
             "personal_cidrs": len(personal_cidrs),
@@ -253,6 +301,7 @@ def main() -> int:
             "amnezia-ru-direct-ip.json": catalog.json_bytes(ip_entries),
             "ru-direct-domains.txt": ("\n".join(full_domains) + "\n").encode("utf-8"),
             "ru-direct-ipv4.txt": ("\n".join(full_cidrs) + "\n").encode("utf-8"),
+            "wg-allowed-ips.txt": ("AllowedIPs = " + ", ".join(allowed_ips) + "\n").encode("utf-8"),
             "happ-ru-direct.json": catalog.json_bytes(happ),
         }
         counts["sha256"] = {
