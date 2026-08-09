@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "category": "gov",
+  "title": "Госуслуги и государственные сервисы",
+  "services": [
+    {
+      "id": "gosuslugi",
+      "title": "Госуслуги (ЕПГУ, ЕСИА, Госключ)",
+      "tier": "core",
+      "domains": [
+        "dom.gosuslugi.ru",
+        "e-yakutia.ru",
+        "esia.gosuslugi.ru",
+        "goskey.ru",
+        "gosuslugi.gov.ru",
+        "gosuslugi.ru",
+        "gosuslugi.spb.ru",
+        "gu-st.ru",
+        "lk.gosuslugi.ru",
+        "partners.gosuslugi.ru",
+        "pgu.spb.ru",
+        "pos.gosuslugi.ru",
+        "uslugi.tatarstan.ru",
+        "www.gosuslugi.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "nalog",
+      "title": "ФНС — налоги, самозанятые, ЕГРЮЛ",
+      "tier": "core",
+      "domains": [
+        "egrul.nalog.ru",
+        "lkfl2.nalog.ru",
+        "lknpd.nalog.ru",
+        "lkul.nalog.ru",
+        "nalog.gov.ru",
+        "nalog.ru",
+        "npd.nalog.ru",
+        "ofd.nalog.ru",
+        "pb.nalog.ru",
+        "service.nalog.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "mos",
+      "title": "Портал mos.ru и московские сервисы",
+      "tier": "core",
+      "domains": [
+        "avtokod.mos.ru",
+        "avtokod.ru",
+        "emias.info",
+        "emias.mos.ru",
+        "mos.ru",
+        "my.mos.ru",
+        "school.mos.ru",
+        "transport.mos.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "gibdd",
+      "title": "ГИБДД, штрафы, автосервисы",
+      "tier": "core",
+      "domains": [
+        "avtocod.ru",
+        "eaisto.ru",
+        "gibdd.ru",
+        "gosuslugi.ru",
+        "shtrafy.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "gov-extra",
+      "title": "Прочие государственные порталы",
+      "tier": "extended",
+      "domains": [
+        "council.gov.ru",
+        "culture.gov.ru",
+        "customs.gov.ru",
+        "digital.gov.ru",
+        "duma.gov.ru",
+        "economy.gov.ru",
+        "emcmos.ru",
+        "epgu.gosuslugi.ru",
+        "es.pfrf.ru",
+        "fas.gov.ru",
+        "fsa.gov.ru",
+        "fso.gov.ru",
+        "fssp.gov.ru",
+        "kremlin.ru",
+        "lkfl.nalog.ru",
+        "mchs.gov.ru",
+        "minenergo.gov.ru",
+        "minfin.gov.ru",
+        "minjust.gov.ru",
+        "minobrnauki.gov.ru",
+        "minpromtorg.gov.ru",
+        "minsport.gov.ru",
+        "mintrans.gov.ru",
+        "mintrud.gov.ru",
+        "minzdrav.gov.ru",
+        "mnr.gov.ru",
+        "mvd.ru",
+        "obrnadzor.gov.ru",
+        "pfr.gov.ru",
+        "pfrf.ru",
+        "pgu.mos.ru",
+        "pravo.gov.ru",
+        "rkn.gov.ru",
+        "roscosmos.ru",
+        "rosminzdrav.ru",
+        "rosnedra.gov.ru",
+        "rospatent.gov.ru",
+        "rosreestr.gov.ru",
+        "rosreestr.ru",
+        "rosstat.gov.ru",
+        "rostransnadzor.gov.ru",
+        "rpn.gov.ru",
+        "sfr.gov.ru",
+        "torgi.gov.ru",
+        "zakupki.gov.ru",
+        "zdrav.mos.ru"
+      ],
+      "cidrs": []
+    }
+  ]
+}

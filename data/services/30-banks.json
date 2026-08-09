@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "category": "banks",
+  "title": "Банки, платежи и финансы",
+  "services": [
+    {
+      "id": "sber",
+      "title": "Сбербанк и СберСервисы",
+      "tier": "core",
+      "domains": [
+        "id.sber.ru",
+        "online.sberbank.ru",
+        "salutejazz.ru",
+        "sber.ru",
+        "sberbank-ast.ru",
+        "sberbank.com",
+        "sberbank.ru",
+        "sberdevices.ru",
+        "sbermegamarket.ru",
+        "sbrf.ru",
+        "www.sberbank.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "tbank",
+      "title": "Т-Банк (Тинькофф)",
+      "tier": "core",
+      "domains": [
+        "acdn.tinkoff.ru",
+        "business.tbank.ru",
+        "cdn.tbank.ru",
+        "id.tbank.ru",
+        "id.tinkoff.ru",
+        "tbank.ru",
+        "tinkoff.ru",
+        "www.tbank.ru",
+        "www.tinkoff.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "vtb",
+      "title": "ВТБ",
+      "tier": "core",
+      "domains": [
+        "online.vtb.ru",
+        "vtb.ru",
+        "vtb24.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "alfa",
+      "title": "Альфа-Банк",
+      "tier": "core",
+      "domains": [
+        "alfabank.com",
+        "alfabank.ru",
+        "click.alfabank.ru",
+        "online.alfabank.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "other-banks",
+      "title": "Прочие крупные банки",
+      "tier": "core",
+      "domains": [
+        "akbars.ru",
+        "bspb.ru",
+        "gazprombank.ru",
+        "gpb.ru",
+        "homecredit.ru",
+        "mkb.ru",
+        "open.ru",
+        "pochtabank.ru",
+        "psbank.ru",
+        "raiffeisen.ru",
+        "rencredit.ru",
+        "rnkb.ru",
+        "rosbank.ru",
+        "rshb.ru",
+        "sovcombank.ru",
+        "tochka.com",
+        "unicredit.ru",
+        "uralsib.ru",
+        "veb.ru"
+      ],
+      "cidrs": [
+        "91.215.88.0/22",
+        "193.232.80.0/20",
+        "194.54.14.0/23",
+        "194.186.146.0/24",
+        "194.186.207.0/24",
+        "213.24.127.0/24",
+        "213.247.232.0/22",
+        "217.12.96.0/20",
+        "217.196.110.0/24"
+      ]
+    },
+    {
+      "id": "payments",
+      "title": "Платёжные системы — Мир, СБП, ЮMoney",
+      "tier": "core",
+      "domains": [
+        "cbr.ru",
+        "mironline.ru",
+        "moex.com",
+        "money.yandex.ru",
+        "nspk.ru",
+        "privetmir.ru",
+        "qiwi.com",
+        "sbp.nspk.ru",
+        "spbexchange.ru",
+        "webmoney.ru",
+        "yoomoney.ru"
+      ],
+      "cidrs": [
+        "62.76.205.0/24",
+        "84.252.149.0/24",
+        "151.236.81.0/24",
+        "178.130.128.0/24",
+        "185.65.148.0/23",
+        "194.190.0.0/24",
+        "213.87.50.0/23"
+      ]
+    },
+    {
+      "id": "brokers",
+      "title": "Брокеры и инвестиции",
+      "tier": "core",
+      "domains": [
+        "bcs.ru",
+        "finam.ru",
+        "investfunds.ru",
+        "nsd.ru",
+        "open-broker.ru",
+        "spbex.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "banks-extra",
+      "title": "Прочие банки, страховые и финсервисы",
+      "tier": "extended",
+      "domains": [
+        "absolutbank.ru",
+        "alfa.bank",
+        "alfadirect.ru",
+        "alfastrah.ru",
+        "banki.ru",
+        "bankrot.fedresurs.ru",
+        "bcs-express.ru",
+        "citibank.ru",
+        "domrfbank.ru",
+        "eximbank.ru",
+        "expobank.ru",
+        "gazprombank.com",
+        "globexbank.ru",
+        "ingbank.ru",
+        "iss.moex.com",
+        "lockobank.ru",
+        "modulbank.ru",
+        "moex.ru",
+        "mts-bank.ru",
+        "mtsbank.ru",
+        "novikombank.ru",
+        "otpbank.ru",
+        "promsvyazbank.ru",
+        "qiwi.ru",
+        "rocketbank.ru",
+        "rshbins.ru",
+        "sber.zvuk.com",
+        "sberbank.online",
+        "sbercloud.ru",
+        "sberhealth.ru",
+        "sberinsurance.ru",
+        "sberleasing.ru",
+        "sbermobile.ru",
+        "sbertech.ru",
+        "sferabank.ru",
+        "tinkoff-mobile.ru",
+        "tinkoff.com",
+        "tinkoffinsurance.ru",
+        "vtb-capital.ru",
+        "vtbins.ru",
+        "vtbleasing.ru"
+      ],
+      "cidrs": []
+    }
+  ]
+}

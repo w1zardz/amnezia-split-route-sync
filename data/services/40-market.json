@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "category": "market",
+  "title": "Маркетплейсы, магазины и объявления",
+  "services": [
+    {
+      "id": "wildberries",
+      "title": "Wildberries",
+      "tier": "core",
+      "domains": [
+        "basket-01.wbbasket.ru",
+        "images.wbstatic.net",
+        "seller.wildberries.ru",
+        "static-basket-01.wbbasket.ru",
+        "suppliers.wildberries.ru",
+        "wb.ru",
+        "wbbasket.ru",
+        "wbstatic.net",
+        "wildberries.by",
+        "wildberries.ru",
+        "www.wildberries.ru"
+      ],
+      "cidrs": [
+        "85.198.76.0/22",
+        "91.230.107.0/24",
+        "176.101.88.0/24",
+        "185.62.200.0/23",
+        "185.138.252.0/22",
+        "194.1.214.0/24",
+        "213.184.154.0/24",
+        "213.184.155.0/24",
+        "213.184.156.0/22"
+      ]
+    },
+    {
+      "id": "ozon",
+      "title": "Ozon и Ozon Банк",
+      "tier": "core",
+      "domains": [
+        "api.ozon.ru",
+        "cdn1.ozone.ru",
+        "cdn2.ozone.ru",
+        "finance.ozon.ru",
+        "ir.ozone.ru",
+        "ozon.ru",
+        "ozon.travel",
+        "ozonbank.ru",
+        "ozone.ru",
+        "seller.ozon.ru",
+        "www.ozon.ru",
+        "xapi.ozon.ru"
+      ],
+      "cidrs": [
+        "31.31.205.0/24",
+        "31.130.140.0/22",
+        "46.226.122.0/24",
+        "81.177.128.0/19",
+        "85.158.185.0/24",
+        "91.212.64.0/24",
+        "91.223.93.0/24",
+        "185.73.192.0/22",
+        "185.135.80.0/22",
+        "194.9.208.0/22",
+        "195.34.20.0/23",
+        "195.58.48.0/23"
+      ]
+    },
+    {
+      "id": "avito",
+      "title": "Avito",
+      "tier": "core",
+      "domains": [
+        "api.avito.ru",
+        "autoteka.ru",
+        "avito.ru",
+        "avito.st",
+        "avito.tech",
+        "img.avito.st",
+        "m.avito.ru",
+        "static.avito.ru",
+        "www.avito.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "nomerogram",
+      "title": "Номерограм — проверка авто",
+      "tier": "core",
+      "domains": [
+        "api.nomerogram.ru",
+        "nomerogram.ru",
+        "www.nomerogram.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "shops",
+      "title": "Крупные ритейлеры и электроника",
+      "tier": "core",
+      "domains": [
+        "autodoc.ru",
+        "befree.ru",
+        "citilink.ru",
+        "detmir.ru",
+        "dns-shop.ru",
+        "eldorado.ru",
+        "emex.ru",
+        "exist.ru",
+        "fix-price.ru",
+        "gloria-jeans.ru",
+        "goldapple.ru",
+        "holodilnik.ru",
+        "iledebeaute.ru",
+        "kari.com",
+        "kazanexpress.ru",
+        "lamoda.ru",
+        "leroymerlin.ru",
+        "letu.ru",
+        "megamarket.ru",
+        "mvideo.ru",
+        "onlinetrade.ru",
+        "petrovich.ru",
+        "randewoo.ru",
+        "rendez-vous.ru",
+        "sportmaster.ru",
+        "svyaznoy.ru",
+        "technopark.ru",
+        "vseinstrumenti.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "classifieds",
+      "title": "Объявления, авто и недвижимость",
+      "tier": "core",
+      "domains": [
+        "am.ru",
+        "bibika.ru",
+        "carprice.ru",
+        "cian.ru",
+        "domclick.ru",
+        "domofond.ru",
+        "drom.ru",
+        "etagi.com",
+        "farpost.ru",
+        "irr.ru",
+        "kolesa.ru",
+        "m2.ru",
+        "mirkvartir.ru",
+        "move.ru",
+        "n1.ru",
+        "novostroy.su",
+        "youla.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "jobs",
+      "title": "Работа и фриланс",
+      "tier": "core",
+      "domains": [
+        "fl.ru",
+        "freelance.ru",
+        "headhunter.ru",
+        "hh.ru",
+        "kwork.ru",
+        "profi.ru",
+        "rabota.ru",
+        "superjob.ru",
+        "youdo.com",
+        "zarplata.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "market-extra",
+      "title": "Прочие магазины и сервисы объявлений",
+      "tier": "extended",
+      "domains": [
+        "ozon.com"
+      ],
+      "cidrs": []
+    }
+  ]
+}

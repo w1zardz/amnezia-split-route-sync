@@ -1,0 +1,22 @@
+{
+  "built": "2026-08-09",
+  "services": 60,
+  "core_services": 46,
+  "domains": 940,
+  "cidrs": 501,
+  "addresses": 1384704,
+  "entries": 1441,
+  "lite_domains": 497,
+  "lite_cidrs": 348,
+  "lite_entries": 845,
+  "prefix_snapshot": 683,
+  "personal_domains": 0,
+  "personal_cidrs": 0,
+  "sha256": {
+    "amnezia-ru-direct.json": "71e7a6f965050bf0582e96aac63b4db4d32b2d2dcafb0b64a65d92bae65dd7c3",
+    "amnezia-ru-direct-lite.json": "227315f2e1495d3e8cd2fe5754c900a9aa029736a4818220443d4d15da4d6370",
+    "ru-direct-domains.txt": "de97317ca119bf0ff8e6eb8831f8bb8195f39fc3a628760c76d1d67a2bfecd79",
+    "ru-direct-ipv4.txt": "19e1ee1aec371eef26f01d191a5237a839500b70170130ed18a5db38ba79fdae",
+    "happ-ru-direct.json": "6863395fb948ba2eb994ea04bfb1b925835e9d607c5a2fdee0784c18f9671dca"
+  }
+}

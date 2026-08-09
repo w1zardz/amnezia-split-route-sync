@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "category": "edu",
+  "title": "Образование",
+  "services": [
+    {
+      "id": "edu-extra",
+      "title": "Образовательные платформы и вузы",
+      "tier": "extended",
+      "domains": [
+        "100ballnik.com",
+        "codeby.school",
+        "edu.ru",
+        "foxford.ru",
+        "geekbrains.ru",
+        "infourok.ru",
+        "interneturok.ru",
+        "litres.ru",
+        "meduza.io",
+        "multiurok.ru",
+        "mybook.ru",
+        "netology.ru",
+        "openedu.ru",
+        "petersburgedu.ru",
+        "resh.edu.ru",
+        "reshu.ru",
+        "reshuege.ru",
+        "school.mosreg.ru",
+        "sdamgia.ru",
+        "sfedu.ru",
+        "skillbox.ru",
+        "stepik.org",
+        "uchi.ru",
+        "uchitelya.com",
+        "videouroki.net",
+        "yaklass.ru"
+      ],
+      "cidrs": []
+    }
+  ]
+}

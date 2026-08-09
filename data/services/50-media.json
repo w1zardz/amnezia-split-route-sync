@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "category": "media",
+  "title": "Онлайн-кинотеатры, ТВ и медиа",
+  "services": [
+    {
+      "id": "streaming",
+      "title": "Онлайн-кинотеатры",
+      "tier": "core",
+      "domains": [
+        "amediateka.ru",
+        "ivi.ru",
+        "kion.ru",
+        "megogo.ru",
+        "more.tv",
+        "okko.sport",
+        "okko.tv",
+        "premier.one",
+        "smotrim.ru",
+        "spbtv.com",
+        "start.ru",
+        "tvzavr.ru",
+        "wink.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "rutube",
+      "title": "RUTUBE",
+      "tier": "core",
+      "domains": [
+        "rutube.ru",
+        "rutubelist.ru",
+        "www.rutube.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "tv",
+      "title": "Федеральные телеканалы",
+      "tier": "core",
+      "domains": [
+        "1tv.ru",
+        "2x2tv.ru",
+        "360tv.ru",
+        "5-tv.ru",
+        "ctc.ru",
+        "matchtv.ru",
+        "muz-tv.ru",
+        "ntv.ru",
+        "ren.tv",
+        "russia-1.ru",
+        "russia-24.ru",
+        "tnt-online.ru",
+        "tvc.ru",
+        "tvzvezda.ru",
+        "vgtrk.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "news",
+      "title": "Новости и деловые СМИ",
+      "tier": "core",
+      "domains": [
+        "aif.ru",
+        "championat.com",
+        "dtf.ru",
+        "e1.ru",
+        "fontanka.ru",
+        "forbes.ru",
+        "gazeta.ru",
+        "habr.com",
+        "interfax.ru",
+        "iz.ru",
+        "kommersant.ru",
+        "kp.ru",
+        "lenta.ru",
+        "life.ru",
+        "mk.ru",
+        "ngs.ru",
+        "pikabu.ru",
+        "rbc.ru",
+        "rbk.ru",
+        "rg.ru",
+        "ria.ru",
+        "secretmag.ru",
+        "sport-express.ru",
+        "sportbox.ru",
+        "sports.ru",
+        "tass.ru",
+        "thebell.io",
+        "vc.ru",
+        "vedomosti.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "music",
+      "title": "Музыкальные сервисы",
+      "tier": "core",
+      "domains": [
+        "sber-zvuk.com",
+        "zvuk.com"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "media-extra",
+      "title": "Прочие медиа и развлечения",
+      "tier": "extended",
+      "domains": [
+        "film.ru",
+        "kino-teatr.ru",
+        "kinorium.com",
+        "lektorium.tv",
+        "nashekino.ru",
+        "nntv.ru",
+        "ntvplus.ru",
+        "radiomayak.ru",
+        "ruskino.ru",
+        "russia.tv",
+        "tricolor.tv",
+        "vgtrk.com"
+      ],
+      "cidrs": []
+    }
+  ]
+}

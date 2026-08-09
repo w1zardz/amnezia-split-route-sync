@@ -6,8 +6,8 @@ INSTALL_DIR="${HOME}/Library/Application Support/AmneziaRouteSync"
 LAUNCH_AGENT="${HOME}/Library/LaunchAgents/io.github.amnezia-route-sync.plist"
 UPDATE_SCRIPT="${INSTALL_DIR}/update_amnezia_routes.py"
 HELPER_BINARY="${INSTALL_DIR}/set-amnezia-routes"
-POLICY_FILE="${INSTALL_DIR}/route-policy.json"
-CUSTOM_HOST_POLICY_FILE="${INSTALL_DIR}/custom-host-policy.json"
+PROTECTED_IPS_SOURCE="${SCRIPT_DIR}/../config/protected-ips.json"
+PROTECTED_IPS_FILE="${INSTALL_DIR}/protected-ips.json"
 STDOUT_LOG="${INSTALL_DIR}/launchd.log"
 STDERR_LOG="${INSTALL_DIR}/launchd-error.log"
 PENDING_PATH="${INSTALL_DIR}/.route-transaction.json"
@@ -52,8 +52,7 @@ rollback() {
         if [[ "${rollback_failed}" -eq 0 ]]; then
             restore_file "${UPDATE_SCRIPT}" update_amnezia_routes.py || rollback_failed=1
             restore_file "${HELPER_BINARY}" set-amnezia-routes || rollback_failed=1
-            restore_file "${POLICY_FILE}" route-policy.json || rollback_failed=1
-            restore_file "${CUSTOM_HOST_POLICY_FILE}" custom-host-policy.json || rollback_failed=1
+            restore_file "${PROTECTED_IPS_FILE}" protected-ips.json || rollback_failed=1
             restore_file "${LAUNCH_AGENT}" launch-agent.plist || rollback_failed=1
         fi
         if [[ "${rollback_failed}" -eq 0 && "${WAS_LOADED}" -eq 1 && -f "${LAUNCH_AGENT}" ]]; then
@@ -97,8 +96,11 @@ fi
 
 # Полностью собираем и проверяем новую версию до изменения рабочей установки.
 install -m 700 "${SCRIPT_DIR}/update_amnezia_routes.py" "${STAGING_DIR}/update_amnezia_routes.py"
-install -m 600 "${SCRIPT_DIR}/../config/route-policy.json" "${STAGING_DIR}/route-policy.json"
-install -m 600 "${SCRIPT_DIR}/../config/custom-host-policy.json" "${STAGING_DIR}/custom-host-policy.json"
+# protected-ips.json необязателен: это личный список адресов, которые не должны
+# попасть в маршруты мимо VPN. В публичный репозиторий он не коммитится.
+if [[ -f "${PROTECTED_IPS_SOURCE}" ]]; then
+    install -m 600 "${PROTECTED_IPS_SOURCE}" "${STAGING_DIR}/protected-ips.json"
+fi
 xcrun swiftc -warnings-as-errors -O "${SCRIPT_DIR}/set-amnezia-routes.swift" \
     -o "${STAGING_DIR}/set-amnezia-routes"
 chmod 700 "${STAGING_DIR}/set-amnezia-routes"
@@ -122,9 +124,8 @@ mkdir -p "${INSTALL_DIR}" "$(dirname "${LAUNCH_AGENT}")"
 chmod 700 "${INSTALL_DIR}"
 [[ -f "${UPDATE_SCRIPT}" ]] && cp -p "${UPDATE_SCRIPT}" "${BACKUP_DIR}/update_amnezia_routes.py"
 [[ -f "${HELPER_BINARY}" ]] && cp -p "${HELPER_BINARY}" "${BACKUP_DIR}/set-amnezia-routes"
-[[ -f "${POLICY_FILE}" ]] && cp -p "${POLICY_FILE}" "${BACKUP_DIR}/route-policy.json"
-[[ -f "${CUSTOM_HOST_POLICY_FILE}" ]] \
-    && cp -p "${CUSTOM_HOST_POLICY_FILE}" "${BACKUP_DIR}/custom-host-policy.json"
+[[ -f "${PROTECTED_IPS_FILE}" ]] \
+    && cp -p "${PROTECTED_IPS_FILE}" "${BACKUP_DIR}/protected-ips.json"
 [[ -f "${LAUNCH_AGENT}" ]] && cp -p "${LAUNCH_AGENT}" "${BACKUP_DIR}/launch-agent.plist"
 if launchctl print "${SERVICE_TARGET}" >/dev/null 2>&1; then
     WAS_LOADED=1
@@ -148,8 +149,11 @@ if pgrep -f "${UPDATE_SCRIPT}" >/dev/null 2>&1; then
 fi
 install -m 700 "${STAGING_DIR}/update_amnezia_routes.py" "${UPDATE_SCRIPT}"
 install -m 700 "${STAGING_DIR}/set-amnezia-routes" "${HELPER_BINARY}"
-install -m 600 "${STAGING_DIR}/route-policy.json" "${POLICY_FILE}"
-install -m 600 "${STAGING_DIR}/custom-host-policy.json" "${CUSTOM_HOST_POLICY_FILE}"
+if [[ -f "${STAGING_DIR}/protected-ips.json" ]]; then
+    install -m 600 "${STAGING_DIR}/protected-ips.json" "${PROTECTED_IPS_FILE}"
+else
+    rm -f -- "${PROTECTED_IPS_FILE}"
+fi
 install -m 600 "${STAGING_DIR}/launch-agent.plist" "${LAUNCH_AGENT}"
 
 launchctl bootstrap "${GUI_DOMAIN}" "${LAUNCH_AGENT}"

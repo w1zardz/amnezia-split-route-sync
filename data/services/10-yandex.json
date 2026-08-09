@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "category": "yandex",
+  "title": "Яндекс",
+  "services": [
+    {
+      "id": "yandex",
+      "title": "Яндекс — Поиск, Почта, Диск, ID",
+      "tier": "core",
+      "domains": [
+        "afisha.yandex.ru",
+        "alice.yandex.ru",
+        "avatars.mds.yandex.net",
+        "bank.yandex.ru",
+        "disk.yandex.ru",
+        "dzen.ru",
+        "eda.yandex.ru",
+        "go.yandex",
+        "id.yandex.ru",
+        "lavka.yandex.ru",
+        "mail.yandex.ru",
+        "maps.yandex.ru",
+        "market.yandex.ru",
+        "passport.yandex.ru",
+        "pay.yandex.ru",
+        "plus.yandex.ru",
+        "practicum.yandex.ru",
+        "storage.yandexcloud.net",
+        "taxi.yandex.ru",
+        "translate.yandex.ru",
+        "travel.yandex.ru",
+        "ya.ru",
+        "yandex.com",
+        "yandex.net",
+        "yandex.ru",
+        "yandexcloud.net",
+        "yastatic.net"
+      ],
+      "cidrs": [
+        "5.45.192.0/18",
+        "5.255.192.0/18",
+        "37.9.64.0/18",
+        "77.88.0.0/18",
+        "84.201.128.0/18",
+        "87.250.224.0/19",
+        "93.158.128.0/18",
+        "95.108.128.0/17",
+        "130.193.32.0/19",
+        "141.8.128.0/18",
+        "178.154.128.0/17",
+        "185.32.187.0/24",
+        "213.180.192.0/19"
+      ]
+    },
+    {
+      "id": "kinopoisk",
+      "title": "Кинопоиск и Кинопоиск HD",
+      "tier": "core",
+      "domains": [
+        "avatars.mds.yandex.net",
+        "hd.kinopoisk.ru",
+        "kinopoisk.ru",
+        "st.kp.yandex.net",
+        "strm.yandex.net",
+        "strm.yandex.ru",
+        "www.kinopoisk.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "yandex-music",
+      "title": "Яндекс Музыка",
+      "tier": "core",
+      "domains": [
+        "music.yandex.net",
+        "music.yandex.ru",
+        "storage.mds.yandex.net"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "yandex-auto",
+      "title": "Авто.ру и Яндекс Драйв",
+      "tier": "core",
+      "domains": [
+        "auto.ru",
+        "avatars.mds.yandex.net",
+        "drive.yandex.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "yandex-extra",
+      "title": "Прочие сервисы Яндекса",
+      "tier": "extended",
+      "domains": [
+        "360.yandex.ru",
+        "beru.ru",
+        "browser.yandex.ru",
+        "cloud.yandex.ru",
+        "delivery.yandex.ru",
+        "education.yandex.ru",
+        "ege.yandex.ru",
+        "go.yandex.ru",
+        "health.yandex.ru",
+        "news.yandex.ru",
+        "pokupki.market.yandex.ru",
+        "realty.yandex.ru",
+        "transport.yandex.ru",
+        "weather.yandex.ru",
+        "yandex.cloud",
+        "zen.yandex.ru"
+      ],
+      "cidrs": []
+    }
+  ]
+}

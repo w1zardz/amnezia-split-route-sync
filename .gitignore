@@ -2,5 +2,4 @@
 __pycache__/
 *.py[cod]
 *.log
-dist/
-config/custom-host-policy.json
+config/protected-ips.json

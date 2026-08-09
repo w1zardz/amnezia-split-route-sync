@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "category": "health",
+  "title": "Медицина и аптеки",
+  "services": [
+    {
+      "id": "health-extra",
+      "title": "Медицинские сервисы и аптеки",
+      "tier": "extended",
+      "domains": [
+        "apteka.ru",
+        "docdoc.ru",
+        "eapteka.ru",
+        "gemotest.ru",
+        "gosapteka.ru",
+        "helix.ru",
+        "invitro.ru",
+        "medsi.ru",
+        "menshealth.ru",
+        "napopravku.ru",
+        "rigla.ru",
+        "zdravcity.ru"
+      ],
+      "cidrs": []
+    }
+  ]
+}

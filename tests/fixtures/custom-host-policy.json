@@ -1,7 +1,0 @@
-{
-  "version": 1,
-  "protected_ips": [
-    "192.0.2.10"
-  ],
-  "groups": []
-}

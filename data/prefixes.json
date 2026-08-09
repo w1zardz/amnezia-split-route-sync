@@ -1,0 +1,5819 @@
+{
+  "version": 1,
+  "updated": "2026-08-09",
+  "source": "Team Cymru bulk whois + RIPEstat announced-prefixes",
+  "prefix_count": 683,
+  "resolved_domains": 882,
+  "catalog_domains": 925,
+  "prefixes": {
+    "5.8.69.0/24": {
+      "asn": 210756,
+      "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
+      "cc": "RU",
+      "services": [
+        "food"
+      ],
+      "source": "dns"
+    },
+    "5.45.192.0/18": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "post",
+        "yandex"
+      ],
+      "source": "dns"
+    },
+    "5.45.202.0/24": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "5.45.205.0/24": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "5.45.215.0/24": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "5.61.16.0/21": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "ok",
+        "yandex"
+      ],
+      "source": "dns"
+    },
+    "5.61.232.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "5.101.40.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "5.181.60.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "5.181.61.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "5.188.56.0/22": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "5.188.140.0/22": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "5.252.32.0/24": {
+      "asn": 59796,
+      "as_name": "STORMWALL-AS - StormWall s.r.o., SK",
+      "cc": "SK",
+      "services": [
+        "news"
+      ],
+      "source": "dns"
+    },
+    "5.255.192.0/18": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "5.255.197.0/24": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "5.255.255.0/24": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "yandex"
+      ],
+      "source": "dns"
+    },
+    "31.31.196.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "31.31.197.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "streaming"
+      ],
+      "source": "dns"
+    },
+    "31.31.199.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "31.31.205.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "misc-extra",
+        "mos"
+      ],
+      "source": "dns"
+    },
+    "31.44.8.0/21": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "31.44.9.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "31.130.140.0/22": {
+      "asn": 207986,
+      "as_name": "Ozon Банк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "31.130.143.0/24": {
+      "asn": 207986,
+      "as_name": "OZON-BANK-AS - LLC OZON BANK, RU",
+      "cc": "RU",
+      "services": [
+        "ozon"
+      ],
+      "source": "dns"
+    },
+    "31.130.149.0/24": {
+      "asn": 9123,
+      "as_name": "TimeWeb-AS - JSC _TIMEWEB_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "31.177.104.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "31.186.102.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "37.9.64.0/18": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "37.9.64.0/24": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "yandex"
+      ],
+      "source": "dns"
+    },
+    "37.9.87.0/24": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "37.9.112.0/24": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "yandex"
+      ],
+      "source": "dns"
+    },
+    "37.18.92.0/23": {
+      "asn": 34849,
+      "as_name": "RUDN-AS - Federal State Institution of Higher Professional Education _Peoples Friendship University of Russia_, RU",
+      "cc": "NL",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "37.130.193.0/24": {
+      "asn": 34545,
+      "as_name": "MTSLink - Webinar Tehnologii OOO, RU",
+      "cc": "RU",
+      "services": [
+        "telecom-extra"
+      ],
+      "source": "dns"
+    },
+    "37.139.32.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "37.139.38.0/24": {
+      "asn": 216236,
+      "as_name": "Novofon-AS - NOVOFON-OS LLC, RU",
+      "cc": "RU",
+      "services": [
+        "isp"
+      ],
+      "source": "dns"
+    },
+    "37.139.40.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "37.140.128.0/18": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "37.140.192.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "37.220.161.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "avia",
+        "brokers",
+        "delivery-extra",
+        "mobile"
+      ],
+      "source": "dns"
+    },
+    "37.220.162.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "health-extra"
+      ],
+      "source": "dns"
+    },
+    "37.220.163.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "mobile",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "37.230.168.0/23": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "37.230.172.0/22": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "37.230.209.0/24": {
+      "asn": 204159,
+      "as_name": "ADK-AS - Autodoc Ltd., RU",
+      "cc": "NL",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "45.67.58.0/24": {
+      "asn": 198610,
+      "as_name": "BEGET-AS - Beget LLC, RU",
+      "cc": "RU",
+      "services": [
+        "post"
+      ],
+      "source": "dns"
+    },
+    "45.84.128.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "45.136.20.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "45.155.105.0/24": {
+      "asn": 208178,
+      "as_name": "NLR - Federal State Institution _National Library of Russia (NLR)_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "46.17.203.0/24": {
+      "asn": 49675,
+      "as_name": "SKBKONTUR-AS - SKB Kontur Production JSC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "46.17.206.0/24": {
+      "asn": 49675,
+      "as_name": "SKBKONTUR-AS - SKB Kontur Production JSC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "46.21.244.0/22": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "46.28.16.0/24": {
+      "asn": 51309,
+      "as_name": "Interfax - Joint Stock Company Interfax, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "46.28.18.0/24": {
+      "asn": 51309,
+      "as_name": "Interfax - Joint Stock Company Interfax, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "46.29.118.0/23": {
+      "asn": 199669,
+      "as_name": "ATLEX-AS - Okay-Telecom Ltd., RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "46.61.128.0/17": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "46.148.228.0/23": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "46.148.232.0/23": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "vk-extra"
+      ],
+      "source": "dns"
+    },
+    "46.174.142.0/23": {
+      "asn": 211112,
+      "as_name": "qrator-fz - Qrator Technologies FZ-LLC, AE",
+      "cc": "AE",
+      "services": [
+        "booking"
+      ],
+      "source": "dns"
+    },
+    "46.226.122.0/24": {
+      "asn": 44386,
+      "as_name": "Ozon — Internet Solutions",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "46.235.185.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "gosuslugi",
+        "health-extra"
+      ],
+      "source": "dns"
+    },
+    "46.235.188.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "gosuslugi",
+        "nalog",
+        "shops",
+        "streaming"
+      ],
+      "source": "dns"
+    },
+    "46.243.177.0/24": {
+      "asn": 203725,
+      "as_name": "iac-spb-as - ST. PETERSBURG STATE PUBLIC INSTITUTION _ST. PETERSBURG INFORMATION AND ANALYTICAL CENTER_, RU",
+      "cc": "NL",
+      "services": [
+        "edu-extra"
+      ],
+      "source": "dns"
+    },
+    "46.243.209.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "46.243.210.0/23": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "51.250.0.0/17": {
+      "asn": 200350,
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "51.250.48.0/24": {
+      "asn": 200350,
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
+      "cc": "RU",
+      "services": [
+        "avia"
+      ],
+      "source": "dns"
+    },
+    "51.250.50.0/23": {
+      "asn": 200350,
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
+      "cc": "RU",
+      "services": [
+        "edu-extra"
+      ],
+      "source": "dns"
+    },
+    "51.250.54.0/23": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "51.250.112.0/21": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "51.250.120.0/22": {
+      "asn": 200350,
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
+      "cc": "RU",
+      "services": [
+        "booking",
+        "classifieds",
+        "misc-extra",
+        "urban"
+      ],
+      "source": "dns"
+    },
+    "51.250.126.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "62.33.0.0/16": {
+      "asn": 20485,
+      "as_name": "TRANSTELECOM - Joint Stock Company TransTeleCom, RU",
+      "cc": "RU",
+      "services": [
+        "isp"
+      ],
+      "source": "dns"
+    },
+    "62.84.112.0/20": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "62.109.8.0/21": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT - JSC IOT, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "62.109.16.0/21": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT - JSC IOT, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "62.148.128.0/20": {
+      "asn": 15468,
+      "as_name": "IDDQD-AS - IDDQD-AS, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "62.217.160.0/20": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "77.88.0.0/18": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "yandex",
+        "yandex-extra"
+      ],
+      "source": "dns"
+    },
+    "77.88.8.0/24": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "77.88.44.0/24": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "yandex"
+      ],
+      "source": "dns"
+    },
+    "77.88.55.0/24": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "yandex"
+      ],
+      "source": "dns"
+    },
+    "77.95.128.0/21": {
+      "asn": 43226,
+      "as_name": "SAFEDATA - Data Storage Center JSC, RU",
+      "cc": "RU",
+      "services": [
+        "booking"
+      ],
+      "source": "dns"
+    },
+    "77.105.159.0/24": {
+      "asn": 208349,
+      "as_name": "O2CLOUDRU - O2 Cloud LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "77.222.40.0/23": {
+      "asn": 44112,
+      "as_name": "SWEB-AS - SpaceWeb Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "cloud-extra"
+      ],
+      "source": "dns"
+    },
+    "77.244.222.0/24": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "78.40.217.0/24": {
+      "asn": 9123,
+      "as_name": "TimeWeb-AS - JSC _TIMEWEB_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "78.41.110.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "mobile",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "78.108.80.0/24": {
+      "asn": 43362,
+      "as_name": "MAJORDOMO - Hosting Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "vk-play"
+      ],
+      "source": "dns"
+    },
+    "78.155.198.0/24": {
+      "asn": 51115,
+      "as_name": "HLL-AS - HLL LLC, RU",
+      "cc": "RU",
+      "services": [
+        "booking",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "79.137.139.0/24": {
+      "asn": 47541,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "79.137.157.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "79.137.164.0/24": {
+      "asn": 47541,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "79.137.174.0/23": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "79.137.180.0/24": {
+      "asn": 47541,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "79.137.183.0/24": {
+      "asn": 47541,
+      "as_name": "VKONTAKTE-SPB-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "sferum"
+      ],
+      "source": "dns"
+    },
+    "79.137.186.0/24": {
+      "asn": 56631,
+      "as_name": "ONLANTA-NET - Onlanta Ltd., RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "79.137.240.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "79.143.28.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "80.67.40.0/24": {
+      "asn": 57629,
+      "as_name": "IVI",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "80.67.41.0/24": {
+      "asn": 57629,
+      "as_name": "IVI",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "80.67.42.0/24": {
+      "asn": 57629,
+      "as_name": "IVI",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "80.67.43.0/24": {
+      "asn": 57629,
+      "as_name": "IVI-RU - LLC IVI.RU, RU",
+      "cc": "RU",
+      "services": [
+        "streaming"
+      ],
+      "source": "dns"
+    },
+    "80.68.253.0/24": {
+      "asn": 20848,
+      "as_name": "ROSBUSINESSCONSULTING-AS - ROSBUSINESSCONSULTING JSC, RU",
+      "cc": "RU",
+      "services": [
+        "news"
+      ],
+      "source": "dns"
+    },
+    "80.247.32.0/24": {
+      "asn": 25292,
+      "as_name": "VGTRK-AS - Federal State Unitary Enterprise _The Russian Television and Radio Broadcasting Company_, RU",
+      "cc": "RU",
+      "services": [
+        "media-extra"
+      ],
+      "source": "dns"
+    },
+    "80.247.40.0/24": {
+      "asn": 25292,
+      "as_name": "VGTRK-AS - Federal State Unitary Enterprise _The Russian Television and Radio Broadcasting Company_, RU",
+      "cc": "RU",
+      "services": [
+        "media-extra"
+      ],
+      "source": "dns"
+    },
+    "80.250.169.0/24": {
+      "asn": 3267,
+      "as_name": "IDDQD-AS - IDDQD-AS, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "81.19.64.0/19": {
+      "asn": 24638,
+      "as_name": "RAMBLER-TELECOM-AS - Rambler Internet Holding LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra",
+        "news"
+      ],
+      "source": "dns"
+    },
+    "81.22.46.0/24": {
+      "asn": 212136,
+      "as_name": "NUBES - NUBES LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "81.26.176.0/20": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "81.30.199.0/24": {
+      "asn": 24955,
+      "as_name": "UBN-AS - JSC _Ufanet_, RU",
+      "cc": "RU",
+      "services": [
+        "isp"
+      ],
+      "source": "dns"
+    },
+    "81.161.98.0/23": {
+      "asn": 51115,
+      "as_name": "HLL-AS - HLL LLC, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "81.177.122.0/24": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "81.177.160.0/20": {
+      "asn": 8342,
+      "as_name": "RTCOMM-AS - JSC RTComm.RU, RU",
+      "cc": "RU",
+      "services": [
+        "classifieds"
+      ],
+      "source": "dns"
+    },
+    "81.177.220.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "82.97.243.0/24": {
+      "asn": 9123,
+      "as_name": "TimeWeb-AS - JSC _TIMEWEB_, RU",
+      "cc": "AU",
+      "services": [
+        "tv"
+      ],
+      "source": "dns"
+    },
+    "82.146.54.0/23": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT - JSC IOT, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "82.147.65.0/24": {
+      "asn": 204738,
+      "as_name": "AS-ETAGI - OOO _Etazhi-Zapadnaya Sibir_, RU",
+      "cc": "RU",
+      "services": [
+        "classifieds"
+      ],
+      "source": "dns"
+    },
+    "82.202.162.0/23": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT - JSC IOT, RU",
+      "cc": "RU",
+      "services": [
+        "booking"
+      ],
+      "source": "dns"
+    },
+    "82.202.170.0/23": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT - JSC IOT, RU",
+      "cc": "RU",
+      "services": [
+        "avia"
+      ],
+      "source": "dns"
+    },
+    "82.202.189.0/24": {
+      "asn": 209030,
+      "as_name": "KL-KDP - Kaspersky Lab AO, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra",
+        "mos"
+      ],
+      "source": "dns"
+    },
+    "82.202.190.0/24": {
+      "asn": 209030,
+      "as_name": "KL-KDP - Kaspersky Lab AO, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "edu-extra",
+        "misc-extra",
+        "other-banks",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "82.202.191.0/24": {
+      "asn": 209030,
+      "as_name": "KL-KDP - Kaspersky Lab AO, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "82.202.213.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "82.202.230.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "media-extra"
+      ],
+      "source": "dns"
+    },
+    "82.202.255.0/24": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "82.204.128.0/17": {
+      "asn": 8359,
+      "as_name": "MTS - MTS PJSC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "83.166.232.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "83.166.248.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "83.169.194.0/24": {
+      "asn": 31133,
+      "as_name": "MF-MGSM-AS - PJSC MegaFon, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "83.217.216.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "83.222.28.0/22": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "yandex"
+      ],
+      "source": "dns"
+    },
+    "83.242.98.0/24": {
+      "asn": 201498,
+      "as_name": "MXMANAGEMENT-AS - _MX Management_ Ltd., RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "84.23.52.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "84.38.188.0/23": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "84.42.0.0/17": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "84.201.128.0/18": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "84.201.184.0/22": {
+      "asn": 200350,
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "84.201.188.0/23": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "84.237.48.0/21": {
+      "asn": 3335,
+      "as_name": "NSU-AS - Federal State Educational Institution of Higher Professional Education _Novosibirsk State University, National Research_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "84.252.128.0/20": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "84.252.144.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "84.252.145.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "84.252.146.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "84.252.147.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "84.252.149.0/24": {
+      "asn": 35237,
+      "as_name": "Sberbank - Sberbank of Russia PJSC, RU",
+      "cc": "RU",
+      "services": [
+        "sber"
+      ],
+      "source": "dns"
+    },
+    "84.252.150.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "84.252.151.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "84.252.152.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "84.252.160.0/19": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "85.118.181.0/24": {
+      "asn": 35021,
+      "as_name": "E-STOCK-AS - MB Information Protection LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "brokers",
+        "payments"
+      ],
+      "source": "dns"
+    },
+    "85.119.149.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "cloud-extra"
+      ],
+      "source": "dns"
+    },
+    "85.142.19.0/24": {
+      "asn": 3267,
+      "as_name": "IDDQD-AS - IDDQD-AS, RU",
+      "cc": "RU",
+      "services": [
+        "edu-extra"
+      ],
+      "source": "dns"
+    },
+    "85.142.115.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "85.143.112.0/22": {
+      "asn": 3267,
+      "as_name": "IDDQD-AS - IDDQD-AS, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "85.158.185.0/24": {
+      "asn": 207986,
+      "as_name": "Ozon Банк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "85.192.32.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "85.193.70.0/23": {
+      "asn": 48399,
+      "as_name": "AS-LINXDATACENTER - Svyaz VSD LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra",
+        "news"
+      ],
+      "source": "dns"
+    },
+    "85.198.76.0/22": {
+      "asn": 57073,
+      "as_name": "Wildberries",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "85.198.76.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "85.198.77.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
+      "cc": "RU",
+      "services": [
+        "wildberries"
+      ],
+      "source": "dns"
+    },
+    "85.198.78.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "85.198.79.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
+      "cc": "RU",
+      "services": [
+        "wildberries"
+      ],
+      "source": "dns"
+    },
+    "85.209.149.0/24": {
+      "asn": 208677,
+      "as_name": "CLOUDRU-AS - _Cloud Technologies_ LLC trading as Cloud.ru, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "85.233.75.0/24": {
+      "asn": 34887,
+      "as_name": "CIRT-AS - Information Technology Center of the Republic of Tatarstan GUP, RU",
+      "cc": "RU",
+      "services": [
+        "gosuslugi"
+      ],
+      "source": "dns"
+    },
+    "86.109.210.0/24": {
+      "asn": 29648,
+      "as_name": "COMLINE-AS - PJSC MegaFon, RU",
+      "cc": "RU",
+      "services": [
+        "telecom-extra"
+      ],
+      "source": "dns"
+    },
+    "87.226.128.0/17": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "isp",
+        "misc-extra",
+        "telecom-extra"
+      ],
+      "source": "dns"
+    },
+    "87.236.16.0/24": {
+      "asn": 198610,
+      "as_name": "BEGET-AS - Beget LLC, RU",
+      "cc": "RU",
+      "services": [
+        "isp"
+      ],
+      "source": "dns"
+    },
+    "87.239.104.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "87.240.128.0/18": {
+      "asn": 47541,
+      "as_name": "VKONTAKTE-SPB-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "vk",
+        "vk-cdn",
+        "vk-messenger",
+        "vk-play",
+        "vk-video"
+      ],
+      "source": "dns"
+    },
+    "87.240.166.0/24": {
+      "asn": 47542,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "87.240.167.0/24": {
+      "asn": 47542,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "87.242.112.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "87.249.32.0/24": {
+      "asn": 24739,
+      "as_name": "SEVEREN-TELECOM - JSC _Severen-Telecom_, RU",
+      "cc": "RU",
+      "services": [
+        "classifieds"
+      ],
+      "source": "dns"
+    },
+    "87.250.224.0/19": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "delivery-extra",
+        "kinopoisk",
+        "yandex",
+        "yandex-extra"
+      ],
+      "source": "dns"
+    },
+    "87.250.247.0/24": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "kinopoisk",
+        "yandex",
+        "yandex-auto"
+      ],
+      "source": "dns"
+    },
+    "87.250.255.0/24": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "88.212.192.0/20": {
+      "asn": 39134,
+      "as_name": "UNITEDNET - EDINAYA SET LIMITED LIABILITY COMPANY, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "89.20.149.0/24": {
+      "asn": 12714,
+      "as_name": "MEGAFON-AS - PJSC MegaFon, RU",
+      "cc": "RU",
+      "services": [
+        "isp"
+      ],
+      "source": "dns"
+    },
+    "89.22.168.0/22": {
+      "asn": 209024,
+      "as_name": "MTS-CLOUD-A - MTS PJSC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "89.104.80.0/21": {
+      "asn": 48287,
+      "as_name": "RU-CENTER - JSC _RU-CENTER_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "89.104.112.0/23": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.108.122.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "89.108.124.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "89.169.128.0/18": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.175.0.0/16": {
+      "asn": 8359,
+      "as_name": "MTS - MTS PJSC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra"
+      ],
+      "source": "dns"
+    },
+    "89.208.84.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.208.196.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.208.208.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.208.216.0/23": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.208.218.0/23": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.208.220.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.208.226.0/24": {
+      "asn": 12695,
+      "as_name": "DINET-AS - LLC Digital Network, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra",
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "89.208.228.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.221.228.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.221.232.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.221.235.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.221.236.0/22": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "mailru",
+        "vk",
+        "vk-cdn",
+        "vk-extra",
+        "vk-play"
+      ],
+      "source": "dns"
+    },
+    "89.232.188.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.232.189.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "89.248.230.0/24": {
+      "asn": 207353,
+      "as_name": "Ruform - Ruform LLC, RU",
+      "cc": "RU",
+      "services": [
+        "rutube"
+      ],
+      "source": "dns"
+    },
+    "89.253.240.0/21": {
+      "asn": 41535,
+      "as_name": "RUSONYX-AS - LLC _ASTRA CLOUD_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "90.156.148.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "90.156.151.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "90.156.201.0/24": {
+      "asn": 25532,
+      "as_name": "MASTERHOST-AS - LLC _MASTERHOST_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "90.156.212.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "90.156.216.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "90.156.232.0/21": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "vk-cdn",
+        "vk-extra"
+      ],
+      "source": "dns"
+    },
+    "90.156.244.0/24": {
+      "asn": 215070,
+      "as_name": "AS_WILDBERRIES_BY - LLC Wildberries, RU",
+      "cc": "RU",
+      "services": [
+        "wildberries"
+      ],
+      "source": "dns"
+    },
+    "90.156.247.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.109.200.0/21": {
+      "asn": 199669,
+      "as_name": "ATLEX-AS - Okay-Telecom Ltd., RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.142.135.0/24": {
+      "asn": 41706,
+      "as_name": "ROSNEFT-AS - PJSC NK Rosneft, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.194.226.0/23": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.194.226.0/24": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.194.227.0/24": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.197.176.0/22": {
+      "asn": 5589,
+      "as_name": "OPEN-FC-1-AS - JSC _BM-Bank_, RU",
+      "cc": "RU",
+      "services": [
+        "brokers"
+      ],
+      "source": "dns"
+    },
+    "91.199.80.0/24": {
+      "asn": 34485,
+      "as_name": "SVYAZNOY-CHAIN-AS - Svyaznoy Chain LLC, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "91.201.237.0/24": {
+      "asn": 43634,
+      "as_name": "RCITSAKHA-AS - State budgetary institution of Sakha Respublic (Yakutiya) Respublicanskiy Centr infokommunikatsionnykh tekhnologiy, RU",
+      "cc": "RU",
+      "services": [
+        "gosuslugi"
+      ],
+      "source": "dns"
+    },
+    "91.205.183.0/24": {
+      "asn": 51811,
+      "as_name": "LOKOBANK-AS - LOKOBANK-AS, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra"
+      ],
+      "source": "dns"
+    },
+    "91.206.100.0/23": {
+      "asn": 44704,
+      "as_name": "X5-RETAIL-GROUP-AS - Perekrestok-2000 LLC, RU",
+      "cc": "RU",
+      "services": [
+        "food"
+      ],
+      "source": "dns"
+    },
+    "91.206.127.0/24": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE - SERVICEPIPE LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "brokers",
+        "jobs",
+        "misc-extra",
+        "post",
+        "sber",
+        "shops",
+        "tv"
+      ],
+      "source": "dns"
+    },
+    "91.212.64.0/24": {
+      "asn": 44386,
+      "as_name": "Ozon — Internet Solutions",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.213.144.0/24": {
+      "asn": 208981,
+      "as_name": "DPC24 - Data Center LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.215.36.0/24": {
+      "asn": 49002,
+      "as_name": "RUSPOST - JSC _Russian Post_, RU",
+      "cc": "RU",
+      "services": [
+        "post"
+      ],
+      "source": "dns"
+    },
+    "91.215.42.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD - DDOS-GUARD LTD, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra",
+        "tv"
+      ],
+      "source": "dns"
+    },
+    "91.215.43.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD - DDOS-GUARD LTD, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.217.194.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.218.132.0/22": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.218.132.0/23": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.218.132.0/24": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.218.133.0/24": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.218.134.0/23": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.218.134.0/24": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.218.135.0/24": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.218.244.0/24": {
+      "asn": 50867,
+      "as_name": "ORG-LVA15-AS - HOSTKEY B.V., NL",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.219.224.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.221.109.0/24": {
+      "asn": 59557,
+      "as_name": "ASSTATUSTELECOM - Status Telecom Ltd., RU",
+      "cc": "RU",
+      "services": [
+        "post"
+      ],
+      "source": "dns"
+    },
+    "91.221.164.0/24": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE - SERVICEPIPE LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "food",
+        "misc-extra",
+        "music"
+      ],
+      "source": "dns"
+    },
+    "91.221.165.0/24": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE - SERVICEPIPE LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "news"
+      ],
+      "source": "dns"
+    },
+    "91.222.128.0/23": {
+      "asn": 197467,
+      "as_name": "SSAU-AS - Samara University named after Korolev, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.222.130.0/23": {
+      "asn": 197467,
+      "as_name": "SSAU-AS - Samara University named after Korolev, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.223.93.0/24": {
+      "asn": 44386,
+      "as_name": "Ozon — Internet Solutions",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.226.31.0/24": {
+      "asn": 49981,
+      "as_name": "WorldStream - WorldStream B.V., NL",
+      "cc": "RU",
+      "services": [
+        "banks-extra"
+      ],
+      "source": "dns"
+    },
+    "91.230.107.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.231.132.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.231.132.0/24": {
+      "asn": 47541,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.231.133.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.231.134.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.232.6.0/23": {
+      "asn": 60343,
+      "as_name": "ROSCAP-AS - Joint Stock Company _Bank DOM.RF_, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra"
+      ],
+      "source": "dns"
+    },
+    "91.232.93.0/24": {
+      "asn": 208981,
+      "as_name": "DPC24 - Data Center LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.232.132.0/22": {
+      "asn": 57487,
+      "as_name": "MIXTELECOM-AS - Advanced Solutions LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.232.230.0/24": {
+      "asn": 57570,
+      "as_name": "QIWIW-AS - QIWI JSC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "payments"
+      ],
+      "source": "dns"
+    },
+    "91.233.216.0/22": {
+      "asn": 57629,
+      "as_name": "IVI",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.233.216.0/24": {
+      "asn": 57629,
+      "as_name": "IVI",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.233.217.0/24": {
+      "asn": 57629,
+      "as_name": "IVI",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.233.218.0/24": {
+      "asn": 57629,
+      "as_name": "IVI",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.233.219.0/24": {
+      "asn": 57629,
+      "as_name": "IVI",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "91.236.49.0/24": {
+      "asn": 197482,
+      "as_name": "DGIS - DoubleGIS LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.236.51.0/24": {
+      "asn": 197482,
+      "as_name": "DGIS - DoubleGIS LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.242.32.0/21": {
+      "asn": 56864,
+      "as_name": "WELLSERVER-AS - Xeon LLC, RU",
+      "cc": "RU",
+      "services": [
+        "post"
+      ],
+      "source": "dns"
+    },
+    "92.38.217.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "92.53.96.0/24": {
+      "asn": 9123,
+      "as_name": "TimeWeb-AS - JSC _TIMEWEB_, RU",
+      "cc": "RU",
+      "services": [
+        "telecom-extra",
+        "urban"
+      ],
+      "source": "dns"
+    },
+    "92.255.1.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "92.255.3.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "92.255.13.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "92.255.15.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "92.255.112.0/20": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "93.77.160.0/19": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "93.77.168.0/22": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "93.88.176.0/20": {
+      "asn": 5468,
+      "as_name": "UrFU - UrFU, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "93.91.0.0/20": {
+      "asn": 31430,
+      "as_name": "TEL-NET-AS - OOO Suntel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "93.92.113.0/24": {
+      "asn": 202273,
+      "as_name": "MKB-AS - Credit bank of Moscow PJSC, RU",
+      "cc": "AE",
+      "services": [
+        "other-banks"
+      ],
+      "source": "dns"
+    },
+    "93.93.88.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "93.93.91.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "93.95.100.0/22": {
+      "asn": 48347,
+      "as_name": "MTW-AS - MTW-AS, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "93.158.128.0/18": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "yandex",
+        "yandex-extra"
+      ],
+      "source": "dns"
+    },
+    "93.158.171.0/24": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "93.186.224.0/21": {
+      "asn": 47541,
+      "as_name": "VKONTAKTE-SPB-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "vk",
+        "vk-play",
+        "vk-video"
+      ],
+      "source": "dns"
+    },
+    "93.186.232.0/21": {
+      "asn": 47541,
+      "as_name": "VKONTAKTE-SPB-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "vk",
+        "vk-messenger"
+      ],
+      "source": "dns"
+    },
+    "93.189.47.0/24": {
+      "asn": 41853,
+      "as_name": "NTCOM-AS - Limited Liability Company NTCOM, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "94.25.0.0/17": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "94.26.238.0/23": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "94.26.249.0/24": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "streaming"
+      ],
+      "source": "dns"
+    },
+    "94.79.51.0/24": {
+      "asn": 8901,
+      "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
+      "cc": "RU",
+      "services": [
+        "mos"
+      ],
+      "source": "dns"
+    },
+    "94.100.176.0/20": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "mailru",
+        "vk-extra"
+      ],
+      "source": "dns"
+    },
+    "94.124.200.0/24": {
+      "asn": 47724,
+      "as_name": "HEADHUNTER-AS - Limited Liability Company HeadHunter, RU",
+      "cc": "RU",
+      "services": [
+        "jobs"
+      ],
+      "source": "dns"
+    },
+    "94.139.244.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "94.139.244.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.108.128.0/17": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.129.232.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD - DDOS-GUARD LTD, RU",
+      "cc": "RU",
+      "services": [
+        "classifieds",
+        "media-extra",
+        "misc-extra",
+        "news",
+        "shops",
+        "tv"
+      ],
+      "source": "dns"
+    },
+    "95.129.236.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD - DDOS-GUARD LTD, RU",
+      "cc": "RU",
+      "services": [
+        "edu-extra",
+        "misc-extra",
+        "news",
+        "post"
+      ],
+      "source": "dns"
+    },
+    "95.129.237.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD - DDOS-GUARD LTD, RU",
+      "cc": "RU",
+      "services": [
+        "edu-extra",
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "95.142.192.0/20": {
+      "asn": 47541,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.142.192.0/21": {
+      "asn": 47541,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.142.201.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.142.202.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.142.203.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.142.204.0/23": {
+      "asn": 47542,
+      "as_name": "VKONTAKTE-MSK-CDN-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "vk-cdn"
+      ],
+      "source": "dns"
+    },
+    "95.142.206.0/24": {
+      "asn": 60476,
+      "as_name": "MYCOM-AS - Digital Transformation Plus LLC, RU",
+      "cc": "RU",
+      "services": [
+        "vk-cdn"
+      ],
+      "source": "dns"
+    },
+    "95.142.207.0/24": {
+      "asn": 47542,
+      "as_name": "VK — VKONTAKTE-MSK-CDN",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.161.180.0/22": {
+      "asn": 8492,
+      "as_name": "OBIT-AS - _OBIT_ Ltd., RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "95.163.32.0/19": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "classifieds",
+        "mailru",
+        "ok",
+        "vk-extra",
+        "vk-music",
+        "vk-play"
+      ],
+      "source": "dns"
+    },
+    "95.163.133.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.163.180.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.163.208.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.163.216.0/22": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "yandex"
+      ],
+      "source": "dns"
+    },
+    "95.163.227.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "95.163.244.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "misc-extra",
+        "post"
+      ],
+      "source": "dns"
+    },
+    "95.163.248.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.167.0.0/16": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra",
+        "misc-extra",
+        "telecom-extra"
+      ],
+      "source": "dns"
+    },
+    "95.170.128.0/22": {
+      "asn": 25549,
+      "as_name": "AVANTEL-AS - JSC Avantel, RU",
+      "cc": "RU",
+      "services": [
+        "classifieds"
+      ],
+      "source": "dns"
+    },
+    "95.173.128.0/21": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.128.0/22": {
+      "asn": 8291,
+      "as_name": "RSNET-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "95.173.132.0/22": {
+      "asn": 8291,
+      "as_name": "RSNET-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "95.173.136.0/23": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.136.0/24": {
+      "asn": 8291,
+      "as_name": "RSNET-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra",
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "95.173.137.0/24": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.138.0/24": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.140.0/24": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.141.0/24": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.142.0/24": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.143.0/24": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.144.0/22": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.144.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.145.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.146.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "95.173.147.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "95.173.148.0/22": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.148.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.149.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.150.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.151.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "95.173.152.0/22": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.152.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.153.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.154.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.155.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.156.0/22": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.156.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "95.173.157.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "95.173.158.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.173.159.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.181.177.0/24": {
+      "asn": 210756,
+      "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
+      "cc": "RU",
+      "services": [
+        "food"
+      ],
+      "source": "dns"
+    },
+    "95.181.181.0/24": {
+      "asn": 210756,
+      "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
+      "cc": "RU",
+      "services": [
+        "classifieds",
+        "gov-extra",
+        "misc-extra",
+        "news",
+        "sber",
+        "tv"
+      ],
+      "source": "dns"
+    },
+    "95.181.182.0/24": {
+      "asn": 210756,
+      "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
+      "cc": "RU",
+      "services": [
+        "avito"
+      ],
+      "source": "dns"
+    },
+    "95.213.0.0/17": {
+      "asn": 47541,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.213.0.0/18": {
+      "asn": 47541,
+      "as_name": "VKONTAKTE-SPB-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "vk",
+        "vk-messenger"
+      ],
+      "source": "dns"
+    },
+    "95.213.44.0/24": {
+      "asn": 47542,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.213.45.0/24": {
+      "asn": 47542,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "95.213.136.0/23": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "95.213.216.0/23": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "post"
+      ],
+      "source": "dns"
+    },
+    "95.213.229.0/24": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "media-extra"
+      ],
+      "source": "dns"
+    },
+    "95.213.232.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "103.76.52.0/22": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "109.95.80.0/21": {
+      "asn": 50241,
+      "as_name": "UNITTEL-AS - Unittel Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "109.120.180.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "109.120.188.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "109.172.74.0/24": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "109.172.112.0/23": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT - JSC IOT, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "109.207.0.0/20": {
+      "asn": 196747,
+      "as_name": "Электронное правительство (Госуслуги)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "109.207.1.0/24": {
+      "asn": 196747,
+      "as_name": "Electronic-government - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "gosuslugi",
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "109.207.2.0/24": {
+      "asn": 196747,
+      "as_name": "Электронное правительство (Госуслуги)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "109.207.8.0/24": {
+      "asn": 196747,
+      "as_name": "Электронное правительство (Госуслуги)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "109.207.9.0/24": {
+      "asn": 196747,
+      "as_name": "Electronic-government - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "gosuslugi"
+      ],
+      "source": "dns"
+    },
+    "109.207.10.0/23": {
+      "asn": 196747,
+      "as_name": "Электронное правительство (Госуслуги)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "109.234.11.0/24": {
+      "asn": 39045,
+      "as_name": "Gaztelecom-AS - Gazprom telecom LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "109.234.158.0/24": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "109.235.165.0/24": {
+      "asn": 43247,
+      "as_name": "YooMoney-AS - _YooMoney_ NBCO LLC, RU",
+      "cc": "RU",
+      "services": [
+        "payments"
+      ],
+      "source": "dns"
+    },
+    "109.238.88.0/24": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE - SERVICEPIPE LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "brokers",
+        "edu-extra",
+        "food",
+        "gibdd",
+        "health-extra",
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "109.238.90.0/24": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE - SERVICEPIPE LLC, RU",
+      "cc": "RU",
+      "services": [
+        "edu-extra",
+        "food",
+        "health-extra",
+        "other-banks",
+        "rutube",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "111.88.144.0/20": {
+      "asn": 200350,
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "111.88.240.0/20": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "128.140.168.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "128.140.170.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "128.140.173.0/24": {
+      "asn": 47542,
+      "as_name": "VK — VKONTAKTE-MSK-CDN",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "130.49.224.0/19": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "130.193.32.0/19": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "130.193.62.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "138.16.192.0/20": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "138.16.240.0/20": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "138.124.112.0/24": {
+      "asn": 210644,
+      "as_name": "AEZA-AS - AEZA GROUP LLC, RU",
+      "cc": "CH",
+      "services": [
+        "banks-extra"
+      ],
+      "source": "dns"
+    },
+    "141.8.128.0/18": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "146.185.208.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "146.185.240.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "153.51.96.0/19": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "153.51.96.0/23": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "155.212.191.0/24": {
+      "asn": 198610,
+      "as_name": "BEGET-AS - Beget LLC, RU",
+      "cc": "RU",
+      "services": [
+        "health-extra"
+      ],
+      "source": "dns"
+    },
+    "155.212.192.0/20": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "max"
+      ],
+      "source": "dns"
+    },
+    "155.212.234.0/24": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE - SERVICEPIPE LLC, RU",
+      "cc": "RU",
+      "services": [
+        "avia",
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "155.212.235.0/24": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE - SERVICEPIPE LLC, RU",
+      "cc": "RU",
+      "services": [
+        "jobs",
+        "tv"
+      ],
+      "source": "dns"
+    },
+    "158.160.0.0/16": {
+      "asn": 200350,
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
+      "cc": "RU",
+      "services": [
+        "news"
+      ],
+      "source": "dns"
+    },
+    "161.104.44.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "161.104.104.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.99.14.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "176.101.88.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.101.90.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.112.168.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.114.120.0/21": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.114.120.0/22": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.114.120.0/23": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.114.120.0/24": {
+      "asn": 201012,
+      "as_name": "Avito_LLC - KEH eCommerce LLC, RU",
+      "cc": "RU",
+      "services": [
+        "avito",
+        "classifieds"
+      ],
+      "source": "dns"
+    },
+    "176.114.121.0/24": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.114.122.0/23": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.114.122.0/24": {
+      "asn": 201012,
+      "as_name": "Avito_LLC - KEH eCommerce LLC, RU",
+      "cc": "RU",
+      "services": [
+        "avito",
+        "classifieds"
+      ],
+      "source": "dns"
+    },
+    "176.114.123.0/24": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.114.124.0/22": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.114.124.0/23": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.114.124.0/24": {
+      "asn": 201012,
+      "as_name": "Avito_LLC - KEH eCommerce LLC, RU",
+      "cc": "RU",
+      "services": [
+        "avito",
+        "classifieds"
+      ],
+      "source": "dns"
+    },
+    "176.114.125.0/24": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "176.211.0.0/16": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "176.211.106.0/24": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "178.22.88.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.130.128.0/23": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.130.128.0/24": {
+      "asn": 43399,
+      "as_name": "TCS-AS - _TBANK_ JSC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "tbank"
+      ],
+      "source": "dns"
+    },
+    "178.130.129.0/24": {
+      "asn": 43399,
+      "as_name": "TCS-AS - _TBANK_ JSC, RU",
+      "cc": "RU",
+      "services": [
+        "other-banks"
+      ],
+      "source": "dns"
+    },
+    "178.154.128.0/19": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.154.131.0/24": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.154.160.0/19": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.154.192.0/19": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.154.224.0/19": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.154.243.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.154.244.0/24": {
+      "asn": 200350,
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "178.154.245.0/24": {
+      "asn": 200350,
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "178.170.192.0/22": {
+      "asn": 208677,
+      "as_name": "CLOUDRU-AS - _Cloud Technologies_ LLC trading as Cloud.ru, RU",
+      "cc": "RU",
+      "services": [
+        "music"
+      ],
+      "source": "dns"
+    },
+    "178.177.0.0/18": {
+      "asn": 25159,
+      "as_name": "SONICDUO-AS - PJSC MegaFon, RU",
+      "cc": "RU",
+      "services": [
+        "mobile"
+      ],
+      "source": "dns"
+    },
+    "178.178.127.0/24": {
+      "asn": 31133,
+      "as_name": "MF-MGSM-AS - PJSC MegaFon, RU",
+      "cc": "RU",
+      "services": [
+        "mos"
+      ],
+      "source": "dns"
+    },
+    "178.210.92.0/24": {
+      "asn": 48287,
+      "as_name": "RU-CENTER - JSC _RU-CENTER_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "178.213.240.0/24": {
+      "asn": 3325,
+      "as_name": "KFU - Kazan Federal University, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "178.237.16.0/20": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.237.16.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.237.17.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.237.18.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.237.19.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.237.21.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.237.22.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.237.24.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.237.28.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "178.248.232.0/23": {
+      "asn": 51115,
+      "as_name": "HLL-AS - HLL LLC, RU",
+      "cc": "RU",
+      "services": [
+        "classifieds",
+        "delivery-extra",
+        "edu-extra",
+        "food",
+        "jobs",
+        "misc-extra",
+        "news",
+        "other-banks",
+        "rutube",
+        "shops",
+        "tv"
+      ],
+      "source": "dns"
+    },
+    "178.248.234.0/23": {
+      "asn": 51115,
+      "as_name": "HLL-AS - HLL LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "booking",
+        "classifieds",
+        "edu-extra",
+        "misc-extra",
+        "shops",
+        "streaming"
+      ],
+      "source": "dns"
+    },
+    "178.248.236.0/23": {
+      "asn": 51115,
+      "as_name": "HLL-AS - HLL LLC, RU",
+      "cc": "RU",
+      "services": [
+        "avia",
+        "booking",
+        "cloud-extra",
+        "health-extra",
+        "isp",
+        "news",
+        "sber"
+      ],
+      "source": "dns"
+    },
+    "178.248.238.0/23": {
+      "asn": 51115,
+      "as_name": "HLL-AS - HLL LLC, RU",
+      "cc": "RU",
+      "services": [
+        "avia",
+        "edu-extra",
+        "food",
+        "gov-extra",
+        "health-extra",
+        "media-extra",
+        "misc-extra",
+        "mobile",
+        "news",
+        "other-banks",
+        "post"
+      ],
+      "source": "dns"
+    },
+    "185.5.136.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.6.47.0/24": {
+      "asn": 51464,
+      "as_name": "IBANK2RU - MITIGATOR CLOUD LLC, RU",
+      "cc": "RU",
+      "services": [
+        "gibdd",
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "185.11.197.0/24": {
+      "asn": 205324,
+      "as_name": "HYPERGLOBUS-AS - LLC Hyperglobus, RU",
+      "cc": "RU",
+      "services": [
+        "food"
+      ],
+      "source": "dns"
+    },
+    "185.11.199.0/24": {
+      "asn": 205567,
+      "as_name": "GEMOTEST-AS - Gemotest Laboratory LLC, RU",
+      "cc": "RU",
+      "services": [
+        "health-extra"
+      ],
+      "source": "dns"
+    },
+    "185.12.152.0/24": {
+      "asn": 61293,
+      "as_name": "RU1C-as - JSC _1C GROUP_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.15.39.0/24": {
+      "asn": 203451,
+      "as_name": "K-Telecom-Network - K-telekom LLC, RU",
+      "cc": "RU",
+      "services": [
+        "mobile"
+      ],
+      "source": "dns"
+    },
+    "185.16.148.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.16.244.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.16.244.0/23": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.16.246.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.16.247.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.22.155.0/24": {
+      "asn": 51659,
+      "as_name": "ASBAXET - LLC Baxet, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.32.187.0/24": {
+      "asn": 13238,
+      "as_name": "Яндекс — YANDEX LLC",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.32.248.0/22": {
+      "asn": 47541,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.32.249.0/24": {
+      "asn": 28709,
+      "as_name": "VKONTAKTE-REGIONAL-CDN - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "vk-cdn"
+      ],
+      "source": "dns"
+    },
+    "185.32.251.0/24": {
+      "asn": 28709,
+      "as_name": "VK — региональный CDN (раздача видео)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.37.63.0/24": {
+      "asn": 12555,
+      "as_name": "IMAQLIQ - Data-center IMAQLIQ Ltd., RU",
+      "cc": "RU",
+      "services": [
+        "travel-extra"
+      ],
+      "source": "dns"
+    },
+    "185.50.24.0/24": {
+      "asn": 198610,
+      "as_name": "BEGET-AS - Beget LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.62.200.0/23": {
+      "asn": 57073,
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
+      "cc": "RU",
+      "services": [
+        "wildberries"
+      ],
+      "source": "dns"
+    },
+    "185.62.202.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
+      "cc": "RU",
+      "services": [
+        "wildberries"
+      ],
+      "source": "dns"
+    },
+    "185.65.148.0/23": {
+      "asn": 51115,
+      "as_name": "HLL-AS - HLL LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "booking",
+        "classifieds",
+        "cloud-extra",
+        "edu-extra",
+        "food",
+        "misc-extra",
+        "news",
+        "nomerogram",
+        "shops",
+        "streaming",
+        "tv"
+      ],
+      "source": "dns"
+    },
+    "185.65.150.0/23": {
+      "asn": 51115,
+      "as_name": "HLL-AS - HLL LLC, RU",
+      "cc": "RU",
+      "services": [
+        "tv"
+      ],
+      "source": "dns"
+    },
+    "185.71.64.0/24": {
+      "asn": 43298,
+      "as_name": "StormNetworks - Storm Networks LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "brokers",
+        "food",
+        "misc-extra",
+        "news",
+        "payments",
+        "travel-extra"
+      ],
+      "source": "dns"
+    },
+    "185.71.67.0/24": {
+      "asn": 43298,
+      "as_name": "StormNetworks - Storm Networks LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "classifieds",
+        "cloud-extra",
+        "jobs",
+        "media-extra",
+        "misc-extra",
+        "other-banks",
+        "post",
+        "rzd",
+        "shops",
+        "tv"
+      ],
+      "source": "dns"
+    },
+    "185.71.78.0/24": {
+      "asn": 43247,
+      "as_name": "YooMoney-AS - _YooMoney_ NBCO LLC, RU",
+      "cc": "RU",
+      "services": [
+        "payments"
+      ],
+      "source": "dns"
+    },
+    "185.72.228.0/22": {
+      "asn": 20848,
+      "as_name": "ROSBUSINESSCONSULTING-AS - ROSBUSINESSCONSULTING JSC, RU",
+      "cc": "RU",
+      "services": [
+        "news"
+      ],
+      "source": "dns"
+    },
+    "185.73.192.0/22": {
+      "asn": 44386,
+      "as_name": "Ozon — Internet Solutions",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.73.192.0/24": {
+      "asn": 44386,
+      "as_name": "Ozon — Internet Solutions",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.73.193.0/24": {
+      "asn": 44386,
+      "as_name": "OZON-AS - LLC Internet Solutions, RU",
+      "cc": "RU",
+      "services": [
+        "market-extra",
+        "ozon"
+      ],
+      "source": "dns"
+    },
+    "185.73.194.0/24": {
+      "asn": 44386,
+      "as_name": "OZON-AS - LLC Internet Solutions, RU",
+      "cc": "RU",
+      "services": [
+        "market-extra",
+        "ozon"
+      ],
+      "source": "dns"
+    },
+    "185.73.195.0/24": {
+      "asn": 44386,
+      "as_name": "OZON-AS - LLC Internet Solutions, RU",
+      "cc": "RU",
+      "services": [
+        "ozon"
+      ],
+      "source": "dns"
+    },
+    "185.79.118.0/24": {
+      "asn": 59673,
+      "as_name": "EETP - EETP, JSC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.86.144.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.89.12.0/24": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.89.14.0/23": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.89.14.0/24": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.89.15.0/24": {
+      "asn": 201012,
+      "as_name": "Avito — KEH eCommerce",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.100.104.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.104.208.0/22": {
+      "asn": 209671,
+      "as_name": "QRATOR-SW - Qrator Labs CZ s.r.o., CZ",
+      "cc": "CZ",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.129.100.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD - DDOS-GUARD LTD, RU",
+      "cc": "RU",
+      "services": [
+        "tv",
+        "urban"
+      ],
+      "source": "dns"
+    },
+    "185.129.102.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD - DDOS-GUARD LTD, RU",
+      "cc": "RU",
+      "services": [
+        "jobs"
+      ],
+      "source": "dns"
+    },
+    "185.129.103.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD - DDOS-GUARD LTD, RU",
+      "cc": "RU",
+      "services": [
+        "health-extra",
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.130.112.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.131.68.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.131.68.0/23": {
+      "asn": 47541,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.135.80.0/22": {
+      "asn": 57494,
+      "as_name": "ADMAN-AS - Adman LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.138.252.0/22": {
+      "asn": 57073,
+      "as_name": "Wildberries",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.138.252.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
+      "cc": "RU",
+      "services": [
+        "wildberries"
+      ],
+      "source": "dns"
+    },
+    "185.138.253.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
+      "cc": "RU",
+      "services": [
+        "wildberries"
+      ],
+      "source": "dns"
+    },
+    "185.138.255.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
+      "cc": "RU",
+      "services": [
+        "wildberries"
+      ],
+      "source": "dns"
+    },
+    "185.157.96.0/23": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.157.96.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.157.97.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.157.99.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.158.112.0/23": {
+      "asn": 44812,
+      "as_name": "IPSERVER-RU-NET - IP Server LLC, RU",
+      "cc": "RU",
+      "services": [
+        "food"
+      ],
+      "source": "dns"
+    },
+    "185.163.159.0/24": {
+      "asn": 207104,
+      "as_name": "BIZONE-AS - _BiZone_ LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.165.123.0/24": {
+      "asn": 60922,
+      "as_name": "AS_KKM_IT - Variti+ LLC, RU",
+      "cc": "RU",
+      "services": [
+        "avito",
+        "misc-extra",
+        "other-banks"
+      ],
+      "source": "dns"
+    },
+    "185.169.155.0/24": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE - SERVICEPIPE LLC, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "misc-extra",
+        "post",
+        "shops",
+        "streaming"
+      ],
+      "source": "dns"
+    },
+    "185.170.3.0/24": {
+      "asn": 41185,
+      "as_name": "NSPK-EC-AS - National system of payment cards Joint-stock Society, RU",
+      "cc": "RU",
+      "services": [
+        "payments"
+      ],
+      "source": "dns"
+    },
+    "185.170.207.0/24": {
+      "asn": 206955,
+      "as_name": "EVOTOR-AS - EVOTOR LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.173.80.0/24": {
+      "asn": 51748,
+      "as_name": "SOGAZ-AS - JSC INSURANCE COMPANY OF GAZ INDUSTRY SOGAZ, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra",
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.178.208.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD - DDOS-GUARD LTD, RU",
+      "cc": "RU",
+      "services": [
+        "edu-extra",
+        "health-extra",
+        "jobs",
+        "misc-extra",
+        "news",
+        "payments",
+        "tv"
+      ],
+      "source": "dns"
+    },
+    "185.178.210.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD - DDOS-GUARD LTD, RU",
+      "cc": "RU",
+      "services": [
+        "news"
+      ],
+      "source": "dns"
+    },
+    "185.179.36.0/24": {
+      "asn": 57573,
+      "as_name": "greenatom - JSC _Greenatom_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.179.144.0/24": {
+      "asn": 24823,
+      "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
+      "cc": "RU",
+      "services": [
+        "vtb"
+      ],
+      "source": "dns"
+    },
+    "185.179.226.0/24": {
+      "asn": 43740,
+      "as_name": "ZTK-AS - Secure Telecommunication LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.180.200.0/22": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "vk-cdn",
+        "yandex"
+      ],
+      "source": "dns"
+    },
+    "185.183.174.0/23": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.183.174.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "185.183.175.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.186.186.0/24": {
+      "asn": 60580,
+      "as_name": "PII - _PROFI.RU_ LLC, RU",
+      "cc": "RU",
+      "services": [
+        "jobs"
+      ],
+      "source": "dns"
+    },
+    "185.187.63.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.191.32.0/24": {
+      "asn": 207104,
+      "as_name": "BIZONE-AS - _BiZone_ LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.200.242.0/24": {
+      "asn": 9123,
+      "as_name": "TimeWeb-AS - JSC _TIMEWEB_, RU",
+      "cc": "RU",
+      "services": [
+        "isp"
+      ],
+      "source": "dns"
+    },
+    "185.206.164.0/22": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.215.4.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD - DDOS-GUARD LTD, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "185.226.52.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.241.192.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "185.243.86.0/24": {
+      "asn": 60283,
+      "as_name": "START-AS - Start.Ru LLC, RU",
+      "cc": "RU",
+      "services": [
+        "streaming"
+      ],
+      "source": "dns"
+    },
+    "185.253.34.0/23": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT - JSC IOT, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "188.93.56.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "188.162.48.0/20": {
+      "asn": 31133,
+      "as_name": "MF-MGSM-AS - PJSC MegaFon, RU",
+      "cc": "RU",
+      "services": [
+        "mobile"
+      ],
+      "source": "dns"
+    },
+    "188.170.66.0/24": {
+      "asn": 31213,
+      "as_name": "MF-NWGSM-AS - PJSC MegaFon, RU",
+      "cc": "RU",
+      "services": [
+        "mobile"
+      ],
+      "source": "dns"
+    },
+    "188.186.156.0/23": {
+      "asn": 31483,
+      "as_name": "ERTELECOM-DC-AS - JSC _ER-Telecom Holding_, RU",
+      "cc": "RU",
+      "services": [
+        "telecom-extra"
+      ],
+      "source": "dns"
+    },
+    "188.225.41.0/24": {
+      "asn": 9123,
+      "as_name": "TimeWeb-AS - JSC _TIMEWEB_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "188.246.160.0/24": {
+      "asn": 8595,
+      "as_name": "WESTCALL-AS - OOO WestCall Ltd., RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "192.162.240.0/21": {
+      "asn": 16262,
+      "as_name": "DATACHEAP-LLC-AS - Datacheap LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "192.188.189.0/24": {
+      "asn": 5467,
+      "as_name": "MIPT - Non state educational institution _Educational Scientific and Experimental Center of Moscow Institute of Physics and Technology_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "193.0.214.0/24": {
+      "asn": 58097,
+      "as_name": "TAXCOM-AS - OOO Taxcom, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "193.16.209.0/24": {
+      "asn": 30831,
+      "as_name": "MMK-AS - LLC MMK-Informservice, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "193.17.93.0/24": {
+      "asn": 210756,
+      "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
+      "cc": "RU",
+      "services": [
+        "tbank"
+      ],
+      "source": "dns"
+    },
+    "193.24.8.0/24": {
+      "asn": 39678,
+      "as_name": "ALLUPNET-AS - OOO ALL UP NET, RU",
+      "cc": "RU",
+      "services": [
+        "avia"
+      ],
+      "source": "dns"
+    },
+    "193.26.19.0/24": {
+      "asn": 61306,
+      "as_name": "LITRES-AS - LLC _LitRes_, RU",
+      "cc": "RU",
+      "services": [
+        "edu-extra"
+      ],
+      "source": "dns"
+    },
+    "193.28.44.0/24": {
+      "asn": 31174,
+      "as_name": "RBRU-AS - AO RAIFFEISENBANK, RU",
+      "cc": "RU",
+      "services": [
+        "other-banks"
+      ],
+      "source": "dns"
+    },
+    "193.32.60.0/22": {
+      "asn": 8484,
+      "as_name": "NCLOUDTECH-AS - Novye oblachnye technologii LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "193.32.216.0/22": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "193.32.216.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "193.37.157.0/24": {
+      "asn": 42024,
+      "as_name": "CRYPTOPRO-AS - CryptoPro LTD, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "193.104.207.0/24": {
+      "asn": 42974,
+      "as_name": "NET-SBERBANK-AST - JSC Sberbank-AST, RU",
+      "cc": "RU",
+      "services": [
+        "sber"
+      ],
+      "source": "dns"
+    },
+    "193.162.30.0/24": {
+      "asn": 212575,
+      "as_name": "IITRUST-AS - InfoTeCS Internet Trust JSC, RU",
+      "cc": "RU",
+      "services": [
+        "gosuslugi"
+      ],
+      "source": "dns"
+    },
+    "193.164.146.0/24": {
+      "asn": 41551,
+      "as_name": "VTB-AS - VTB Bank (Public Joint-Stock Company), RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra"
+      ],
+      "source": "dns"
+    },
+    "193.200.10.0/24": {
+      "asn": 42231,
+      "as_name": "PRSBM-AS - PJSC Promsvyazbank, RU",
+      "cc": "RU",
+      "services": [
+        "other-banks"
+      ],
+      "source": "dns"
+    },
+    "193.203.40.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "193.227.98.0/24": {
+      "asn": 200662,
+      "as_name": "BETAVOIP - LLC _Beta Voip_, RU",
+      "cc": "RU",
+      "services": [
+        "isp"
+      ],
+      "source": "dns"
+    },
+    "193.232.108.0/24": {
+      "asn": 44704,
+      "as_name": "X5-RETAIL-GROUP-AS - Perekrestok-2000 LLC, RU",
+      "cc": "RU",
+      "services": [
+        "post"
+      ],
+      "source": "dns"
+    },
+    "193.233.63.0/24": {
+      "asn": 42745,
+      "as_name": "SAFEVALUE-AS - Safe Value Limited, SC",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "193.233.64.0/21": {
+      "asn": 20549,
+      "as_name": "FREE-MPEI - State Educational Enterprise of Higher Professional Education Moscow Power Engineering Institute (Technical University), RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "194.0.219.0/24": {
+      "asn": 199148,
+      "as_name": "MINZDRAV-RF-AS - MINZDRAV-RF-AS, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "194.1.214.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
+      "cc": "RU",
+      "services": [
+        "wildberries"
+      ],
+      "source": "dns"
+    },
+    "194.9.208.0/24": {
+      "asn": 207986,
+      "as_name": "Ozon Банк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.9.209.0/24": {
+      "asn": 207986,
+      "as_name": "Ozon Банк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.9.210.0/24": {
+      "asn": 207986,
+      "as_name": "Ozon Банк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.9.211.0/24": {
+      "asn": 207986,
+      "as_name": "OZON-BANK-AS - LLC OZON BANK, RU",
+      "cc": "ES",
+      "services": [
+        "ozon"
+      ],
+      "source": "dns"
+    },
+    "194.54.14.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.54.15.0/24": {
+      "asn": 35237,
+      "as_name": "Сбербанк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.54.176.0/22": {
+      "asn": 3267,
+      "as_name": "IDDQD-AS - IDDQD-AS, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "194.58.112.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "delivery-extra"
+      ],
+      "source": "dns"
+    },
+    "194.67.71.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "delivery-extra",
+        "food"
+      ],
+      "source": "dns"
+    },
+    "194.67.72.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "cloud-extra"
+      ],
+      "source": "dns"
+    },
+    "194.85.207.0/24": {
+      "asn": 57867,
+      "as_name": "REA-AS - Federal State Budgetary Educational Institution of Higher Education _G.V. Plekhanov Russian University of Economics_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "194.105.131.0/24": {
+      "asn": 44014,
+      "as_name": "VMI-AS - OOO NPO VMI, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "194.107.17.0/24": {
+      "asn": 43307,
+      "as_name": "ALTLINUX-AS - LLC Basalt Svobodnoe Programnoe Obespechenie, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "194.113.236.0/23": {
+      "asn": 60490,
+      "as_name": "MTS-CLOUD - MTS PJSC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "194.149.70.0/23": {
+      "asn": 3267,
+      "as_name": "IDDQD-AS - IDDQD-AS, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "194.186.63.0/24": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.190.0.0/24": {
+      "asn": 201706,
+      "as_name": "AS-SERVICEPIPE - SERVICEPIPE LLC, RU",
+      "cc": "RU",
+      "services": [
+        "avia",
+        "banks-extra",
+        "booking",
+        "food",
+        "isp",
+        "misc-extra",
+        "payments"
+      ],
+      "source": "dns"
+    },
+    "194.190.9.0/24": {
+      "asn": 52184,
+      "as_name": "GIVC - GIVC, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "194.190.12.0/24": {
+      "asn": 41615,
+      "as_name": "RSHB - JSC Russian Agricultural Bank, RU",
+      "cc": "RU",
+      "services": [
+        "other-banks"
+      ],
+      "source": "dns"
+    },
+    "194.190.76.0/23": {
+      "asn": 48061,
+      "as_name": "UMA-TECH-AS - Limited Liability Company GPM Digital Technologies, RU",
+      "cc": "RU",
+      "services": [
+        "streaming"
+      ],
+      "source": "dns"
+    },
+    "194.190.139.0/24": {
+      "asn": 57352,
+      "as_name": "ROSSIYA-SEGODNYA - Federal State Unitary Enterprise Rossiya Segodnya International Information Agency, RU",
+      "cc": "RU",
+      "services": [
+        "news"
+      ],
+      "source": "dns"
+    },
+    "194.226.26.0/24": {
+      "asn": 62422,
+      "as_name": "FAS - Federal Antimonopoly Service, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "194.226.80.0/21": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.226.88.0/22": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.226.88.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.226.89.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "194.226.90.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.226.91.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2-AS - The Federal Guard Service of the Russian Federation, RU",
+      "cc": "RU",
+      "services": [
+        "avia",
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "194.226.92.0/22": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.226.92.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.226.93.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.226.94.0/24": {
+      "asn": 43797,
+      "as_name": "RSNET2 — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.226.116.0/22": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.226.116.0/23": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.226.118.0/23": {
+      "asn": 8291,
+      "as_name": "RSNET — государственные информсистемы",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "194.247.51.0/24": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "195.3.180.0/24": {
+      "asn": 215259,
+      "as_name": "EVOTOROFD-AS - Evotor OFD LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "195.14.106.0/24": {
+      "asn": 51360,
+      "as_name": "CEB-AS - CREDIT EUROPE BANK JSC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "195.19.32.0/20": {
+      "asn": 6868,
+      "as_name": "BMSTU-AS - Federal State Autonomous Educational Institution of Higher Education _Bauman Moscow State Technical University_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "195.19.94.0/24": {
+      "asn": 51721,
+      "as_name": "UCB - UniCredit Bank JSC, RU",
+      "cc": "RU",
+      "services": [
+        "other-banks"
+      ],
+      "source": "dns"
+    },
+    "195.19.220.0/24": {
+      "asn": 44310,
+      "as_name": "SMH-AS - INTERNET TECHNOLOGIES LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra",
+        "news"
+      ],
+      "source": "dns"
+    },
+    "195.34.20.0/23": {
+      "asn": 44386,
+      "as_name": "Ozon — Internet Solutions",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "195.66.78.0/24": {
+      "asn": 39266,
+      "as_name": "RESO-AS - Insurance Joint-stock company _RESO-GARANTIA_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "195.70.192.0/19": {
+      "asn": 5495,
+      "as_name": "ASN-SPBGU - Saint Petersburg State University, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "195.74.82.0/24": {
+      "asn": 41892,
+      "as_name": "RSL-AS - Federal State Budget Institution _Russian State Library_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "195.88.224.0/24": {
+      "asn": 49179,
+      "as_name": "TEND-AS - Tendence LLC, RU",
+      "cc": "RU",
+      "services": [
+        "classifieds"
+      ],
+      "source": "dns"
+    },
+    "195.128.64.0/19": {
+      "asn": 8470,
+      "as_name": "MAcomnet - JSC Macomnet, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "195.133.242.0/24": {
+      "asn": 29226,
+      "as_name": "MASTERTEL-AS - JSC Mastertel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "195.161.52.0/23": {
+      "asn": 199922,
+      "as_name": "PFR-AS - PENSION AND SOCIAL INSURANCE FUND OF THE RUSSIAN FEDERATION, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "195.166.180.0/24": {
+      "asn": 8568,
+      "as_name": "MMT-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "isp"
+      ],
+      "source": "dns"
+    },
+    "195.178.108.0/23": {
+      "asn": 39415,
+      "as_name": "MGTSUASIT-AS - PJSC Moscow city telephone network, RU",
+      "cc": "RU",
+      "services": [
+        "isp"
+      ],
+      "source": "dns"
+    },
+    "195.208.65.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "195.208.66.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "avia",
+        "food",
+        "gov-extra",
+        "nalog",
+        "news"
+      ],
+      "source": "dns"
+    },
+    "195.208.244.0/22": {
+      "asn": 5480,
+      "as_name": "R61NET - State Educational institution for High professional education _Southern Federal University_, RU",
+      "cc": "RU",
+      "services": [
+        "edu-extra"
+      ],
+      "source": "dns"
+    },
+    "195.209.32.0/19": {
+      "asn": 12722,
+      "as_name": "RECONN - RECONN LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "195.209.81.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "health-extra",
+        "misc-extra",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "195.209.82.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "avia",
+        "brokers",
+        "health-extra",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "195.209.86.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "brokers"
+      ],
+      "source": "dns"
+    },
+    "195.209.87.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "brokers"
+      ],
+      "source": "dns"
+    },
+    "195.209.88.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "brokers",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "195.209.90.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "brokers",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "195.209.208.0/20": {
+      "asn": 29226,
+      "as_name": "MASTERTEL-AS - JSC Mastertel, RU",
+      "cc": "RU",
+      "services": [
+        "classifieds"
+      ],
+      "source": "dns"
+    },
+    "195.211.20.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "195.218.190.0/23": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "195.222.160.0/20": {
+      "asn": 3216,
+      "as_name": "SOVAM-AS - PJSC _Vimpelcom_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "195.226.222.0/24": {
+      "asn": 44310,
+      "as_name": "SMH-AS - INTERNET TECHNOLOGIES LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "195.242.82.0/24": {
+      "asn": 24823,
+      "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
+      "cc": "RU",
+      "services": [
+        "other-banks",
+        "vtb"
+      ],
+      "source": "dns"
+    },
+    "195.242.83.0/24": {
+      "asn": 24823,
+      "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
+      "cc": "RU",
+      "services": [
+        "other-banks",
+        "vtb"
+      ],
+      "source": "dns"
+    },
+    "195.245.206.0/24": {
+      "asn": 15707,
+      "as_name": "INGOSSTRAKH-AS - Open Joint Stock Company INGOSSTRAKH Insurance Company, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "195.246.218.0/24": {
+      "asn": 51293,
+      "as_name": "OCEANTELECOM-NET - OceanTelecom LLC., RU",
+      "cc": "RU",
+      "services": [
+        "post"
+      ],
+      "source": "dns"
+    },
+    "212.11.151.0/24": {
+      "asn": 8901,
+      "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
+      "cc": "RU",
+      "services": [
+        "mos"
+      ],
+      "source": "dns"
+    },
+    "212.11.154.0/23": {
+      "asn": 8901,
+      "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "212.45.30.0/24": {
+      "asn": 8901,
+      "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
+      "cc": "RU",
+      "services": [
+        "mos"
+      ],
+      "source": "dns"
+    },
+    "212.74.248.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "212.83.0.0/19": {
+      "asn": 9039,
+      "as_name": "IIAT-AS - Institute of information & analytical technologies IIAT, Limited, RU",
+      "cc": "RU",
+      "services": [
+        "telecom-extra"
+      ],
+      "source": "dns"
+    },
+    "212.109.214.0/23": {
+      "asn": 8359,
+      "as_name": "MTS - MTS PJSC, RU",
+      "cc": "RU",
+      "services": [
+        "health-extra"
+      ],
+      "source": "dns"
+    },
+    "212.111.84.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "212.164.136.0/21": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra",
+        "misc-extra",
+        "post",
+        "rzd"
+      ],
+      "source": "dns"
+    },
+    "212.192.64.0/21": {
+      "asn": 8684,
+      "as_name": "PSU-AS - Federal State Autonomous Educational Institution of Higher Education _Perm State National Research University_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "212.192.128.0/21": {
+      "asn": 8663,
+      "as_name": "KUBANNET - Federal State Budgetary Educational Institution of Higher Education _Kuban State University_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "212.192.156.0/24": {
+      "asn": 61280,
+      "as_name": "CMU_GRCHC - FGUP _GRCHC_, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "212.193.69.0/24": {
+      "asn": 5468,
+      "as_name": "UrFU - UrFU, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "212.193.152.0/23": {
+      "asn": 204878,
+      "as_name": "CCT-M9P1 - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "avia",
+        "delivery-extra",
+        "gosuslugi",
+        "mobile",
+        "nalog",
+        "shops",
+        "streaming"
+      ],
+      "source": "dns"
+    },
+    "212.193.155.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "avia",
+        "health-extra",
+        "misc-extra",
+        "nalog",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "212.193.156.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "gosuslugi",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "212.193.157.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "delivery-extra",
+        "gosuslugi",
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "212.233.72.0/21": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "KZ",
+      "services": [
+        "post"
+      ],
+      "source": "dns"
+    },
+    "212.233.80.0/22": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "212.233.80.0/24": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "212.233.81.0/24": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "212.233.82.0/23": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "212.233.82.0/24": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "212.233.83.0/24": {
+      "asn": 43399,
+      "as_name": "Т-Банк (TCS)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "212.233.88.0/21": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "212.233.96.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "212.233.120.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "213.24.64.0/24": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra",
+        "nalog"
+      ],
+      "source": "dns"
+    },
+    "213.33.128.0/17": {
+      "asn": 3216,
+      "as_name": "SOVAM-AS - PJSC _Vimpelcom_, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "213.59.235.0/24": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "gosuslugi"
+      ],
+      "source": "dns"
+    },
+    "213.59.252.0/22": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "gibdd",
+        "gosuslugi",
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "213.130.80.0/21": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "213.165.192.0/19": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "213.165.196.0/22": {
+      "asn": 200350,
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
+      "cc": "RU",
+      "services": [
+        "yandex"
+      ],
+      "source": "dns"
+    },
+    "213.165.200.0/21": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "213.167.32.0/19": {
+      "asn": 8905,
+      "as_name": "DIGIT1-AS - Digit One LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "213.172.3.0/24": {
+      "asn": 24913,
+      "as_name": "BANKSPB - Bank Saint Petersburg PJSC, RU",
+      "cc": "RU",
+      "services": [
+        "other-banks"
+      ],
+      "source": "dns"
+    },
+    "213.180.192.0/19": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "yandex",
+        "yandex-auto",
+        "yandex-extra",
+        "yandex-music"
+      ],
+      "source": "dns"
+    },
+    "213.180.199.0/24": {
+      "asn": 13238,
+      "as_name": "YANDEX - YANDEX LLC, RU",
+      "cc": "RU",
+      "services": [
+        "kinopoisk"
+      ],
+      "source": "dns"
+    },
+    "213.184.155.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
+      "cc": "RU",
+      "services": [
+        "wildberries"
+      ],
+      "source": "dns"
+    },
+    "213.184.156.0/22": {
+      "asn": 57073,
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
+      "cc": "RU",
+      "services": [
+        "wildberries"
+      ],
+      "source": "dns"
+    },
+    "213.184.156.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "213.219.212.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "217.12.96.0/24": {
+      "asn": 15632,
+      "as_name": "Alfa-Bank-AS - JSC _Alfa-Bank_, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra"
+      ],
+      "source": "dns"
+    },
+    "217.12.98.0/24": {
+      "asn": 15632,
+      "as_name": "Alfa-Bank-AS - JSC _Alfa-Bank_, RU",
+      "cc": "RU",
+      "services": [
+        "alfa"
+      ],
+      "source": "dns"
+    },
+    "217.12.104.0/24": {
+      "asn": 15632,
+      "as_name": "Alfa-Bank-AS - JSC _Alfa-Bank_, RU",
+      "cc": "RU",
+      "services": [
+        "alfa",
+        "banks-extra"
+      ],
+      "source": "dns"
+    },
+    "217.14.48.0/20": {
+      "asn": 24823,
+      "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
+      "cc": "RU",
+      "services": [
+        "vtb"
+      ],
+      "source": "dns"
+    },
+    "217.16.16.0/20": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "217.20.144.0/20": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "ok",
+        "vk-cdn"
+      ],
+      "source": "dns"
+    },
+    "217.23.177.0/24": {
+      "asn": 28840,
+      "as_name": "TATTELECOM-AS - PJSC _TATTELECOM_, RU",
+      "cc": "RU",
+      "services": [
+        "isp"
+      ],
+      "source": "dns"
+    },
+    "217.28.224.0/20": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "217.65.3.0/24": {
+      "asn": 3175,
+      "as_name": "CITYTELECOM-MSK - Citytelecom LLC, RU",
+      "cc": "RU",
+      "services": [
+        "edu-extra"
+      ],
+      "source": "dns"
+    },
+    "217.69.128.0/20": {
+      "asn": 47764,
+      "as_name": "VK-AS - LLC VK, RU",
+      "cc": "RU",
+      "services": [
+        "mailru"
+      ],
+      "source": "dns"
+    },
+    "217.69.132.0/24": {
+      "asn": 47541,
+      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "217.71.128.0/20": {
+      "asn": 29147,
+      "as_name": "NSTU-AS - State Educational Enterprise of Higher Professional Education Novosibirsk State Technical University, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "217.74.40.0/22": {
+      "asn": 20919,
+      "as_name": "DF - DataFort LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "217.77.104.0/24": {
+      "asn": 199599,
+      "as_name": "CIREX - Telecom-Birzha, LLC, RU",
+      "cc": "RU",
+      "services": [
+        "gov-extra"
+      ],
+      "source": "dns"
+    },
+    "217.107.64.0/18": {
+      "asn": 12389,
+      "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
+      "cc": "RU",
+      "services": [
+        "gosuslugi"
+      ],
+      "source": "dns"
+    },
+    "217.118.87.0/24": {
+      "asn": 16345,
+      "as_name": "BEE-AS - PJSC _Vimpelcom_, RU",
+      "cc": "RU",
+      "services": [
+        "mobile"
+      ],
+      "source": "dns"
+    },
+    "217.174.188.0/22": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "217.175.24.0/24": {
+      "asn": 33936,
+      "as_name": "SCAT7-AS - Joint stock company _Severstal-infocom_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "217.195.86.0/24": {
+      "asn": 24913,
+      "as_name": "BANKSPB - Bank Saint Petersburg PJSC, RU",
+      "cc": "RU",
+      "services": [
+        "other-banks"
+      ],
+      "source": "dns"
+    },
+    "217.198.15.0/24": {
+      "asn": 201757,
+      "as_name": "AKBARS - Joint-Stock Commercial Bank Ak Bars (OJSC), RU",
+      "cc": "RU",
+      "services": [
+        "other-banks"
+      ],
+      "source": "dns"
+    },
+    "217.198.92.0/24": {
+      "asn": 20919,
+      "as_name": "DF - DataFort LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "217.198.168.0/21": {
+      "asn": 200350,
+      "as_name": "Яндекс — Yandex.Cloud",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    }
+  }
+}

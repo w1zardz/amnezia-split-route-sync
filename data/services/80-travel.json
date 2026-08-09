@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "category": "travel",
+  "title": "Транспорт и путешествия",
+  "services": [
+    {
+      "id": "rzd",
+      "title": "РЖД",
+      "tier": "core",
+      "domains": [
+        "pass.rzd.ru",
+        "rzd-bonus.ru",
+        "rzd.ru",
+        "ticket.rzd.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "avia",
+      "title": "Авиакомпании",
+      "tier": "core",
+      "domains": [
+        "aeroflot.ru",
+        "azimuth.aero",
+        "favt.ru",
+        "iraero.ru",
+        "nordwindairlines.ru",
+        "pobeda.aero",
+        "redwings.aero",
+        "rossiya-airlines.com",
+        "s7.ru",
+        "smartavia.com",
+        "uralairlines.ru",
+        "utair.ru",
+        "yakutia.aero"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "booking",
+      "title": "Билеты и отели",
+      "tier": "core",
+      "domains": [
+        "101hotels.com",
+        "anywayanyday.com",
+        "aviasales.ru",
+        "biletix.ru",
+        "bronevik.com",
+        "hotellook.ru",
+        "hotels.ru",
+        "kupibilet.ru",
+        "level.travel",
+        "onetwotrip.com",
+        "ostrovok.ru",
+        "sutochno.ru",
+        "tutu.ru"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "urban",
+      "title": "Городской транспорт и шеринг",
+      "tier": "core",
+      "domains": [
+        "citymobil.ru",
+        "maxim-service.ru",
+        "urent.ru",
+        "whoosh.bike"
+      ],
+      "cidrs": []
+    },
+    {
+      "id": "travel-extra",
+      "title": "Прочие транспортные сервисы",
+      "tier": "extended",
+      "domains": [
+        "gorzdrav.org",
+        "rzd-partner.ru"
+      ],
+      "cidrs": []
+    }
+  ]
+}

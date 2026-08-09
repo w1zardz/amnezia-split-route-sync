@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
-"""Обновляет RU Direct CIDR в split tunneling AmneziaVPN на macOS."""
+"""Обновляет список RU Direct в split tunneling AmneziaVPN на macOS.
+
+Источник — список, который собирает этот же репозиторий (tools/build_ru_direct.py)
+и публикует в dist/ и в GitHub Releases. Скрипт скачивает его, проверяет и
+записывает в Preferences AmneziaVPN через helper, аккуратно останавливая и
+возвращая GUI с туннелем. Незавершённая запись восстанавливается из журнала.
+"""
 
 from __future__ import annotations
 
 import argparse
-import concurrent.futures
 import fcntl
 import hashlib
 import ipaddress
@@ -25,28 +30,25 @@ APP_BUNDLE = Path("/Applications/AmneziaVPN.app")
 APP_INFO_PLIST = APP_BUNDLE / "Contents/Info.plist"
 SUPPORTED_APP_MAJOR = 5
 PROTECTED_IPS: set[ipaddress.IPv4Address] = set()
-RAW_BASE = "https://raw.githubusercontent.com/GrimbirdUsers/ru-routing-dat/main/data-geoip"
-SOURCES = {
-    "ru-yandex": 10,
-    "ru-ozon": 8,
-    "ru-vk": 3,
-    "ru-wildberries": 5,
-    "ru-banks": 5,
-    "ru-payments": 3,
-    "ru-cdn": 1,
-}
-MIN_PREFIX_LENGTH = 16
+LIST_BASE = "https://raw.githubusercontent.com/w1zardz/amnezia-split-route-sync/master/dist"
+LIST_FULL = f"{LIST_BASE}/amnezia-ru-direct.json"
+LIST_LITE = f"{LIST_BASE}/amnezia-ru-direct-lite.json"
+MAX_LIST_BYTES = 4_194_304
+# Шире /12 не пускаем: такая сеть означала бы «пол-интернета мимо VPN».
+MIN_PREFIX_LENGTH = 12
 MIN_TOTAL_ROUTES = 40
-MAX_TOTAL_ROUTES = 256
-MAX_TOTAL_ADDRESSES = 1_000_000
+MAX_TOTAL_ROUTES = 1_500
+MAX_TOTAL_ADDRESSES = 40_000_000
+MIN_TOTAL_ENTRIES = 300
+MAX_TOTAL_ENTRIES = 4_000
 STATE_DIR = Path.home() / "Library/Application Support/AmneziaRouteSync"
 PREFS_ROUTE_KEY = "Conf.ExceptSites"
 PREFS_MODE_KEY = "Conf.routeMode"
 PREFS_ENABLED_KEY = "Conf.sitesSplitTunnelingEnabled"
 ROUTE_MODE_VPN_ALL_EXCEPT_SITES = 2
-POLICY_FILENAME = "route-policy.json"
-CUSTOM_HOST_POLICY_FILENAME = "custom-host-policy.json"
+PROTECTED_IPS_FILENAME = "protected-ips.json"
 PENDING_FILENAME = ".route-transaction.json"
+HOSTNAME_CHARACTERS = frozenset("abcdefghijklmnopqrstuvwxyz0123456789-.")
 AMNEZIA_GUI_PROCESS = "AmneziaVPN"
 AMNEZIA_TUNNEL_PROCESS = "amneziawg-go"
 
@@ -59,7 +61,7 @@ class SessionChanged(UpdateError):
     pass
 
 
-def fetch_text(url: str) -> str:
+def fetch_bytes(url: str) -> bytes:
     process = subprocess.run(
         [
             "/usr/bin/curl",
@@ -73,13 +75,15 @@ def fetch_text(url: str) -> str:
             "=https",
             "--tlsv1.2",
             "--max-filesize",
-            "1048576",
+            str(MAX_LIST_BYTES),
             "--connect-timeout",
             "10",
             "--max-time",
             "30",
+            "--retry",
+            "2",
             "--user-agent",
-            "Amnezia-Split-Route-Sync/1.0",
+            "Amnezia-Split-Route-Sync/2.0",
             url,
         ],
         check=False,
@@ -89,246 +93,87 @@ def fetch_text(url: str) -> str:
     if process.returncode != 0:
         message = process.stderr.decode(errors="replace").strip()
         raise UpdateError(f"не удалось скачать {url}: {message}")
-    if len(process.stdout) > 1_048_576:
-        raise UpdateError(f"{url}: ответ превышает 1 MiB")
-    try:
-        return process.stdout.decode("utf-8")
-    except UnicodeError as exc:
-        raise UpdateError(f"{url}: ответ не является UTF-8") from exc
+    if len(process.stdout) > MAX_LIST_BYTES:
+        raise UpdateError(f"{url}: ответ превышает {MAX_LIST_BYTES} байт")
+    return process.stdout
 
 
-def parse_source(name: str, text: str, minimum_count: int) -> list[ipaddress.IPv4Network]:
-    networks: list[ipaddress.IPv4Network] = []
-    for line_number, raw_line in enumerate(text.splitlines(), start=1):
-        value = raw_line.split("#", 1)[0].strip()
-        if not value:
-            continue
-        try:
-            network = ipaddress.ip_network(value, strict=True)
-        except ValueError as exc:
-            raise UpdateError(f"{name}:{line_number}: некорректная сеть") from exc
-        if network.version == 6:
-            continue
-        if network.prefixlen < MIN_PREFIX_LENGTH:
-            raise UpdateError(f"{name}: слишком широкая сеть")
-        networks.append(network)
-
-    if len(networks) < minimum_count:
-        raise UpdateError(f"{name}: получено только {len(networks)} IPv4 CIDR, ожидалось >= {minimum_count}")
-    return networks
-
-
-def load_policy(path: Path) -> dict[str, list[ipaddress.IPv4Network]]:
-    try:
-        document = json.loads(path.read_text(encoding="utf-8"))
-        raw_sources = document["sources"]
-    except (OSError, KeyError, json.JSONDecodeError, TypeError) as exc:
-        raise UpdateError(f"не удалось прочитать trusted policy {path}: {exc}") from exc
-    if (
-        not isinstance(raw_sources, dict)
-        or document.get("version") != 1
-        or set(raw_sources) != set(SOURCES)
-    ):
-        raise UpdateError("trusted policy имеет неизвестную версию или набор источников")
-
-    policy: dict[str, list[ipaddress.IPv4Network]] = {}
-    for name, raw_networks in raw_sources.items():
-        if not isinstance(raw_networks, list) or not raw_networks:
-            raise UpdateError(f"trusted policy для {name} пуста")
-        try:
-            networks = [ipaddress.ip_network(value, strict=True) for value in raw_networks]
-        except (TypeError, ValueError) as exc:
-            raise UpdateError(f"trusted policy для {name} содержит неверный CIDR") from exc
-        if any(
-            network.version != 4 or network.prefixlen < MIN_PREFIX_LENGTH
-            for network in networks
-        ):
-            raise UpdateError(f"trusted policy для {name} содержит недопустимо широкую сеть")
-        if any(ip in network for network in networks for ip in PROTECTED_IPS):
-            raise UpdateError(f"trusted policy для {name} содержит protected IP")
-        policy[name] = networks
-    return policy
-
-
-def load_custom_host_policy(path: Path) -> list[dict[str, Any]]:
+def load_protected_ips(path: Path) -> None:
+    """Адреса, которые никогда не должны уехать мимо VPN (например, свой сервер)."""
     global PROTECTED_IPS
+    if not path.exists():
+        PROTECTED_IPS = set()
+        return
     try:
         document = json.loads(path.read_text(encoding="utf-8"))
-        raw_groups = document["groups"]
-        raw_protected_ips = document["protected_ips"]
-    except (OSError, KeyError, json.JSONDecodeError, TypeError) as exc:
-        raise UpdateError(f"не удалось прочитать custom host policy {path}: {exc}") from exc
-    if (
-        document.get("version") != 1
-        or not isinstance(raw_groups, list)
-        or not isinstance(raw_protected_ips, list)
-        or not raw_protected_ips
-    ):
-        raise UpdateError("custom host policy должен содержать version=1, groups и protected_ips")
+    except (OSError, json.JSONDecodeError) as exc:
+        raise UpdateError(f"не удалось прочитать {path}: {exc}") from exc
+    values = document.get("protected_ips") if isinstance(document, dict) else document
+    if not isinstance(values, list):
+        raise UpdateError(f"{path}: ожидается список protected_ips")
     try:
-        protected_ips = {ipaddress.ip_address(value) for value in raw_protected_ips}
+        addresses = {ipaddress.ip_address(value) for value in values}
     except (TypeError, ValueError) as exc:
-        raise UpdateError("custom host policy содержит неверный protected IP") from exc
-    if any(ip.version != 4 for ip in protected_ips):
-        raise UpdateError("protected_ips поддерживает только IPv4")
-    PROTECTED_IPS = protected_ips
-
-    policy: list[dict[str, Any]] = []
-    seen_hosts: set[str] = set()
-    for raw_group in raw_groups:
-        if not isinstance(raw_group, dict):
-            raise UpdateError("custom host policy содержит неверную группу")
-        name = raw_group.get("name")
-        hosts = raw_group.get("hosts")
-        raw_networks = raw_group.get("allowed_networks")
-        optional_hosts = raw_group.get("optional_hosts")
-        minimum_unique_ipv4 = raw_group.get("minimum_unique_ipv4")
-        if (
-            not isinstance(name, str)
-            or not name
-            or not isinstance(hosts, list)
-            or not hosts
-            or not isinstance(raw_networks, list)
-            or not raw_networks
-            or not isinstance(optional_hosts, list)
-            or not isinstance(minimum_unique_ipv4, int)
-            or minimum_unique_ipv4 < 1
-        ):
-            raise UpdateError(f"custom host policy group {name!r} имеет неверный формат")
-        normalized_hosts: list[str] = []
-        for host in hosts:
-            if (
-                not isinstance(host, str)
-                or host != host.lower()
-                or host.startswith(".")
-                or host.endswith(".")
-                or any(character not in "abcdefghijklmnopqrstuvwxyz0123456789-." for character in host)
-            ):
-                raise UpdateError(f"custom host policy содержит неверный hostname {host!r}")
-            if host in seen_hosts:
-                raise UpdateError(f"custom host policy повторяет hostname {host}")
-            seen_hosts.add(host)
-            normalized_hosts.append(host)
-        if (
-            any(not isinstance(host, str) for host in optional_hosts)
-            or len(set(optional_hosts)) != len(optional_hosts)
-            or not set(optional_hosts).issubset(normalized_hosts)
-        ):
-            raise UpdateError(f"custom host policy group {name} имеет неверные optional_hosts")
-        try:
-            allowed_networks = [
-                ipaddress.ip_network(value, strict=True) for value in raw_networks
-            ]
-        except (TypeError, ValueError) as exc:
-            raise UpdateError(f"custom host policy group {name} содержит неверный CIDR") from exc
-        if any(
-            network.version != 4 or network.prefixlen < MIN_PREFIX_LENGTH
-            for network in allowed_networks
-        ):
-            raise UpdateError(f"custom host policy group {name} содержит широкую сеть")
-        if any(ip in network for network in allowed_networks for ip in PROTECTED_IPS):
-            raise UpdateError(f"custom host policy group {name} содержит protected IP")
-        policy.append(
-            {
-                "name": name,
-                "hosts": normalized_hosts,
-                "optional_hosts": set(optional_hosts),
-                "allowed_networks": allowed_networks,
-                "minimum_unique_ipv4": minimum_unique_ipv4,
-            }
-        )
-    return policy
+        raise UpdateError(f"{path}: неверный IP в protected_ips") from exc
+    if any(address.version != 4 for address in addresses):
+        raise UpdateError(f"{path}: protected_ips поддерживает только IPv4")
+    PROTECTED_IPS = addresses
 
 
-def _resolve_ipv4_host(host: str) -> list[ipaddress.IPv4Address]:
+def valid_hostname(value: str) -> bool:
+    if not value or len(value) > 253 or "." not in value:
+        return False
+    if value != value.lower() or value.startswith((".", "-")) or value.endswith((".", "-")):
+        return False
+    if not set(value) <= HOSTNAME_CHARACTERS:
+        return False
+    return all(0 < len(label) <= 63 for label in value.split("."))
+
+
+def parse_import_list(payload: bytes, source: str) -> tuple[list[str], list[ipaddress.IPv4Network]]:
+    """Формат импорта Amnezia: [{"hostname": "<домен или CIDR>", "ip": ""}]."""
     try:
-        process = subprocess.run(
-            ["/usr/bin/dig", "+short", "+time=2", "+tries=1", "A", host],
-            check=False,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-            timeout=5,
-        )
-    except subprocess.TimeoutExpired as exc:
-        raise UpdateError(f"DNS lookup {host} не завершился за 5 секунд") from exc
-    if process.returncode != 0:
-        raise UpdateError(
-            f"DNS lookup {host} завершился с ошибкой: {process.stderr.strip()}"
-        )
-    addresses: set[ipaddress.IPv4Address] = set()
-    for value in process.stdout.splitlines():
-        try:
-            address = ipaddress.ip_address(value.strip())
-        except ValueError:
-            continue  # dig также может напечатать промежуточный CNAME.
-        if address.version == 4:
-            addresses.add(address)
-    return sorted(addresses)
-
-
-def resolve_ipv4_hosts(
-    hosts: Iterable[str],
-) -> dict[str, list[ipaddress.IPv4Address]]:
-    host_list = list(hosts)
-    with concurrent.futures.ThreadPoolExecutor(max_workers=12) as executor:
-        futures = {host: executor.submit(_resolve_ipv4_host, host) for host in host_list}
-        return {host: futures[host].result() for host in host_list}
-
-
-def resolve_custom_routes(
-    policy: Iterable[dict[str, Any]],
-    resolver: Any = resolve_ipv4_hosts,
-) -> tuple[list[ipaddress.IPv4Network], dict[str, int]]:
+        document = json.loads(payload.decode("utf-8"))
+    except (UnicodeError, json.JSONDecodeError) as exc:
+        raise UpdateError(f"{source}: список не является валидным JSON") from exc
+    if not isinstance(document, list) or not document:
+        raise UpdateError(f"{source}: ожидается непустой массив записей")
+    domains: list[str] = []
     networks: list[ipaddress.IPv4Network] = []
-    group_counts: dict[str, int] = {}
-    for group in policy:
-        raw_answers = resolver(group["hosts"])
-        if not isinstance(raw_answers, dict) or set(raw_answers) != set(group["hosts"]):
-            raise UpdateError(f"{group['name']}: DNS resolver вернул неполный ответ")
-        addresses: list[ipaddress.IPv4Address] = []
-        for host in group["hosts"]:
+    seen: set[str] = set()
+    for index, entry in enumerate(document):
+        if not isinstance(entry, dict):
+            raise UpdateError(f"{source}: запись {index} не является объектом")
+        value = entry.get("hostname")
+        if not isinstance(value, str) or not value.strip():
+            raise UpdateError(f"{source}: запись {index} без hostname")
+        value = value.strip().lower().rstrip(".")
+        if value in seen:
+            continue
+        seen.add(value)
+        if "/" in value or value.replace(".", "").isdigit():
             try:
-                host_addresses = [ipaddress.ip_address(str(value)) for value in raw_answers[host]]
-            except (TypeError, ValueError) as exc:
-                raise UpdateError(
-                    f"{group['name']}: DNS resolver вернул неверный IP для {host}"
-                ) from exc
-            if not host_addresses and host not in group["optional_hosts"]:
-                raise UpdateError(f"{group['name']}: обязательный hostname {host} не дал IPv4")
-            for address in host_addresses:
-                if address.version != 4 or not any(
-                    address in envelope for envelope in group["allowed_networks"]
-                ):
-                    raise UpdateError(
-                        f"{group['name']}: DNS {host} вернул адрес вне allowlist; "
-                        "обновление отклонено без изменения AmneziaVPN"
-                    )
-            addresses.extend(host_addresses)
-        unique_addresses = sorted(set(addresses))
-        if len(unique_addresses) < group["minimum_unique_ipv4"]:
-            raise UpdateError(
-                f"{group['name']}: DNS вернул только {len(unique_addresses)} уникальных IPv4, "
-                f"ожидалось >= {group['minimum_unique_ipv4']}"
-            )
-        for address in unique_addresses:
-            networks.append(ipaddress.ip_network(f"{address}/32"))
-        group_counts[group["name"]] = len(unique_addresses)
-    return networks, group_counts
-
-
-def validate_source_policy(
-    name: str,
-    networks: Iterable[ipaddress.IPv4Network],
-    allowed_networks: Iterable[ipaddress.IPv4Network],
-) -> None:
-    allowed = list(allowed_networks)
-    for network in networks:
-        if not any(network.subnet_of(envelope) for envelope in allowed):
-            raise UpdateError(
-                f"{name}: новая сеть вне проверенного allowlist; "
-                "обновление отклонено без изменения AmneziaVPN"
-            )
+                network = ipaddress.ip_network(value, strict=True)
+            except ValueError as exc:
+                raise UpdateError(f"{source}: некорректная сеть {value!r}") from exc
+            if network.version != 4:
+                raise UpdateError(f"{source}: поддерживается только IPv4, получено {value!r}")
+            if network.prefixlen < MIN_PREFIX_LENGTH:
+                raise UpdateError(f"{source}: слишком широкая сеть {value}")
+            if not network.is_global:
+                raise UpdateError(f"{source}: сеть {value} не является публичной")
+            networks.append(network)
+            continue
+        if not valid_hostname(value):
+            raise UpdateError(f"{source}: некорректный домен {value!r}")
+        domains.append(value)
+    total = len(domains) + len(networks)
+    if not MIN_TOTAL_ENTRIES <= total <= MAX_TOTAL_ENTRIES:
+        raise UpdateError(
+            f"{source}: {total} записей вне допустимого диапазона "
+            f"{MIN_TOTAL_ENTRIES}..{MAX_TOTAL_ENTRIES}"
+        )
+    return sorted(set(domains)), networks
 
 
 def validate_and_collapse(networks: Iterable[ipaddress.IPv4Network]) -> list[ipaddress.IPv4Network]:
@@ -748,27 +593,26 @@ def recover_pending_transaction(helper_path: Path, state_dir: Path, managed_path
             pending_path.unlink(missing_ok=True)
 
 
-def download_routes(
-    policy: dict[str, list[ipaddress.IPv4Network]],
-    custom_host_policy: Iterable[dict[str, Any]],
-) -> tuple[list[str], dict[str, int]]:
-    all_networks: list[ipaddress.IPv4Network] = []
-    source_counts: dict[str, int] = {}
-    for name, minimum_count in SOURCES.items():
-        url = f"{RAW_BASE}/{name}.txt"
-        parsed = parse_source(name, fetch_text(url), minimum_count)
-        validate_source_policy(name, parsed, policy[name])
-        source_counts[name] = len(parsed)
-        all_networks.extend(parsed)
-    custom_networks, custom_counts = resolve_custom_routes(custom_host_policy)
-    all_networks.extend(custom_networks)
-    source_counts.update(custom_counts)
-    networks = validate_and_collapse(all_networks)
-    return [str(network) for network in networks], source_counts
+def download_list(source: str) -> tuple[list[str], list[str]]:
+    """Возвращает (домены, сети) из локального файла или по HTTPS."""
+    if source.startswith("https://"):
+        payload = fetch_bytes(source)
+    else:
+        path = Path(source).expanduser()
+        try:
+            payload = path.read_bytes()
+        except OSError as exc:
+            raise UpdateError(f"не удалось прочитать {path}: {exc}") from exc
+    domains, networks = parse_import_list(payload, source)
+    collapsed = validate_and_collapse(networks)
+    return domains, [str(network) for network in collapsed]
 
 
 def update(
-    dry_run: bool = False, recover_only: bool = False, state_dir: Path = STATE_DIR
+    dry_run: bool = False,
+    recover_only: bool = False,
+    state_dir: Path = STATE_DIR,
+    source: str = LIST_FULL,
 ) -> int:
     if sys.platform != "darwin":
         raise UpdateError("скрипт предназначен только для macOS")
@@ -791,17 +635,12 @@ def update(
         print("Recovery завершён; незавершённых routing-транзакций нет")
         return 0
     app_version = verify_app_version()
-    custom_host_policy = load_custom_host_policy(
-        Path(__file__).with_name(CUSTOM_HOST_POLICY_FILENAME)
-    )
-    policy_path = Path(__file__).with_name(POLICY_FILENAME)
-    policy = load_policy(policy_path)
+    load_protected_ips(Path(__file__).with_name(PROTECTED_IPS_FILENAME))
 
     if dry_run:
-        cidrs, _ = download_routes(policy, custom_host_policy)
+        domains, cidrs = download_list(source)
         print(
-            f"Проверено {len(cidrs)} уникальных IPv4 CIDR из "
-            f"{len(SOURCES)} RU-источников и пользовательских DNS "
+            f"Проверено {len(domains)} доменов и {len(cidrs)} сетей IPv4 "
             f"для AmneziaVPN {app_version}"
         )
         return 0
@@ -823,49 +662,61 @@ def update(
         managed_path = state_dir / "managed-cidrs.json"
         # Recovery не зависит от сети: сначала обязательно вернуть VPN/session.
         recover_pending_transaction(helper_path, state_dir, managed_path)
-        cidrs, source_counts = download_routes(policy, custom_host_policy)
+        domains, cidrs = download_list(source)
+        entries = domains + cidrs
         print(
-            f"Проверено {len(cidrs)} уникальных IPv4 CIDR из "
-            f"{len(SOURCES)} RU-источников и пользовательских DNS "
+            f"Проверено {len(domains)} доменов и {len(cidrs)} сетей IPv4 "
             f"для AmneziaVPN {app_version}"
         )
         previous_managed = load_string_list(managed_path)
         changed, manual_count = apply_preferences(
-            helper_path, state_dir, managed_path, previous_managed, cidrs
+            helper_path, state_dir, managed_path, previous_managed, entries
         )
 
-        import_payload = [{"hostname": cidr, "ip": ""} for cidr in cidrs]
+        import_payload = [{"hostname": value, "ip": ""} for value in entries]
         atomic_write(state_dir / "amnezia-split-routes.json", json_bytes(import_payload))
         status = {
             "changed": changed,
+            "source": source,
+            "domain_count": len(domains),
             "cidr_count": len(cidrs),
+            "entry_count": len(entries),
             "manual_entries_preserved": manual_count,
-            "source_counts": source_counts,
             "updated_at": datetime.now(timezone.utc).isoformat(),
         }
         atomic_write(state_dir / "status.json", json_bytes(status))
 
     if changed:
         print(
-            f"AmneziaVPN обновлена: {len(cidrs)} CIDR, сохранено ручных записей: {manual_count}. "
+            f"AmneziaVPN обновлена: {len(entries)} записей, "
+            f"сохранено ручных записей: {manual_count}. "
             "GUI и AmneziaWG безопасно перезапущены."
         )
     else:
-        print(f"AmneziaVPN уже содержит актуальные {len(cidrs)} CIDR")
+        print(f"AmneziaVPN уже содержит актуальные {len(entries)} записей")
     return 0
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run", action="store_true", help="скачать и проверить без записи")
+    parser.add_argument(
+        "--lite", action="store_true", help="только ядро списка вместо полного"
+    )
+    parser.add_argument(
+        "--source",
+        help="URL или путь к JSON-списку (по умолчанию dist/amnezia-ru-direct.json из репозитория)",
+    )
     parser.add_argument("--recover-only", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--state-dir", type=Path, default=STATE_DIR, help=argparse.SUPPRESS)
     arguments = parser.parse_args()
+    source = arguments.source or (LIST_LITE if arguments.lite else LIST_FULL)
     try:
         return update(
             dry_run=arguments.dry_run,
             recover_only=arguments.recover_only,
             state_dir=arguments.state_dir,
+            source=source,
         )
     except UpdateError as exc:
         print(f"ОШИБКА: {exc}", file=sys.stderr)

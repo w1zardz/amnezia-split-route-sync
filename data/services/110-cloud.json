@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "category": "cloud",
+  "title": "Хостинг, облака и IT-инфраструктура РФ",
+  "services": [
+    {
+      "id": "cloud-extra",
+      "title": "Российский хостинг и облака",
+      "tier": "extended",
+      "domains": [
+        "beget.com",
+        "onclinic.ru",
+        "reg.ru",
+        "selectel.ru",
+        "sm-clinic.ru",
+        "timeweb.com",
+        "timeweb.ru"
+      ],
+      "cidrs": [
+        "212.193.155.0/24"
+      ]
+    }
+  ]
+}
