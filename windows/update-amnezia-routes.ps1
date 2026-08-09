@@ -389,6 +389,13 @@ function Get-HttpsText([string]$Url) {
         if ($total -eq 0) { throw "Источник пуст: $Url" }
         $utf8 = [Text.UTF8Encoding]::new($false, $true)
         return $utf8.GetString($memory.ToArray())
+    } catch [Threading.Tasks.TaskCanceledException] {
+        # HttpClient переводит собственный таймаут именно в это исключение, а
+        # необработанным оно вылезает в консоль как «Отменена задача» без единого
+        # намёка на причину.
+        throw "Источник не ответил за 60 секунд: $Url"
+    } catch [OperationCanceledException] {
+        throw "Источник не ответил за 60 секунд: $Url"
     } finally {
         if ($null -ne $stream) { $stream.Dispose() }
         if ($null -ne $memory) { $memory.Dispose() }
@@ -401,7 +408,17 @@ function Get-HttpsText([string]$Url) {
 
 function Get-SourceText([string]$SourceValue) {
     if ($SourceValue.StartsWith('https://', [StringComparison]::OrdinalIgnoreCase)) {
-        return (Get-HttpsText $SourceValue)
+        # Задача по расписанию просыпается вместе с сетью, а список тянется из-за
+        # рубежа: одна заминка не должна отменять весь запуск на шесть часов.
+        $attempt = 0
+        while ($true) {
+            $attempt++
+            try { return (Get-HttpsText $SourceValue) } catch {
+                if ($attempt -ge 3) { throw }
+                Write-Host "Загрузка не удалась ($($_.Exception.Message)), попытка $attempt из 3"
+                Start-Sleep -Seconds (5 * $attempt)
+            }
+        }
     }
     if (-not (Test-Path -LiteralPath $SourceValue -PathType Leaf)) { throw "Не найден файл списка: $SourceValue" }
     $info = Get-Item -LiteralPath $SourceValue
