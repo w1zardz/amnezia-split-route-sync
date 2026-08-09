@@ -29,6 +29,17 @@ jobs:
           bash -n macos/install.sh macos/uninstall.sh
           python3 -m json.tool config/asn-expand.json >/dev/null
           python3 -m json.tool config/protected-ips.example.json >/dev/null
+          python3 - <<'PY'
+          import pathlib, sys
+          missing = [
+              str(path)
+              for path in sorted(pathlib.Path("windows").glob("*.ps1"))
+              if not path.read_bytes().startswith(b"\xef\xbb\xbf")
+          ]
+          if missing:
+              print("нет UTF-8 BOM, Windows PowerShell 5.1 прочитает как ANSI: " + ", ".join(missing))
+              sys.exit(1)
+          PY
       - name: Validate catalog and rebuild lists
         run: |
           python3 tools/catalog.py

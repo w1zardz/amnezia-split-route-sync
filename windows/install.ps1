@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Ставит автообновление списка RU Direct для AmneziaVPN на Windows.
 
