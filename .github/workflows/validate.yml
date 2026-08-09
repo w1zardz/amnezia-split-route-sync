@@ -53,7 +53,8 @@ jobs:
           $scripts = @(
             '.\windows\install.ps1',
             '.\windows\uninstall.ps1',
-            '.\windows\update-amnezia-routes.ps1'
+            '.\windows\update-amnezia-routes.ps1',
+            '.\windows\generate-full-import.ps1'
           )
           foreach ($script in $scripts) {
             $tokens = $null
@@ -75,3 +76,8 @@ jobs:
         run: |
           py -3 .\tools\generate_routes.py --policy .\config\route-policy.json --config .\tests\fixtures\custom-host-policy.json --output "$env:RUNNER_TEMP\ip-list.json"
           Get-Content "$env:RUNNER_TEMP\ip-list.manifest.json" -Raw | ConvertFrom-Json | Out-Null
+          Copy-Item .\tests\fixtures\custom-host-policy.json .\config\custom-host-policy.json
+          powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\windows\generate-full-import.ps1 -OutputPath "$env:RUNNER_TEMP\Amnezia-RU-Direct.json"
+          $manifest = Get-Content "$env:RUNNER_TEMP\Amnezia-RU-Direct.manifest.json" -Raw | ConvertFrom-Json
+          if ($manifest.community_source_hostname_count -ne 858) { throw "unexpected community count" }
+          if ($manifest.community_resolved_hostname_count -lt 700) { throw "too few domains resolved" }
