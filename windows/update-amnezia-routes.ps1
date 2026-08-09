@@ -1038,9 +1038,11 @@ if ($Status) {
     Write-Host "sitesSplitTunnelingEnabled: $($scalars.enabled) (нужно true)"
     Write-Host "Записей под управлением скрипта: $($managed.Count)"
 
-    foreach ($probe in @('gosuslugi.ru', 'esia.gosuslugi.ru', 'sberbank.ru')) {
+    foreach ($probe in @('gosuslugi.ru', 'esia.gosuslugi.ru', 'sberbank.ru', '213.59.252.0/22')) {
         $present = if ($sites.ContainsKey($probe)) { 'есть' } else { 'НЕТ' }
-        Write-Host "  $probe в списке: $present"
+        $values = if ($sites.ContainsKey($probe)) { @($sites[$probe]) } else { @() }
+        $resolved = if ($values.Count -gt 0) { " (значения: $($values -join ', '))" } else { ' (значения пусты)' }
+        Write-Host "  $probe в списке: $present$resolved"
     }
 
     $daemon = Get-AmneziaService
@@ -1063,8 +1065,15 @@ if ($Status) {
             Select-Object -First 1).IPAddressToString
         Write-Host "gosuslugi.ru резолвится в $address"
         if (Get-Command Find-NetRoute -ErrorAction SilentlyContinue) {
-            $route = Find-NetRoute -RemoteIPAddress $address -ErrorAction Stop | Select-Object -First 1
-            Write-Host "маршрут до gosuslugi.ru: интерфейс $($route.InterfaceAlias), шлюз $($route.NextHop)"
+            # Find-NetRoute отдаёт пару объектов: NetIPAddress и NetRoute. NextHop
+            # есть только у второго, поэтому фильтруем по свойству, а не по позиции.
+            $route = @(Find-NetRoute -RemoteIPAddress $address -ErrorAction Stop |
+                Where-Object { $_.PSObject.Properties.Name -contains 'NextHop' }) |
+                Select-Object -First 1
+            if ($null -ne $route) {
+                $alias = (Get-NetAdapter -InterfaceIndex $route.InterfaceIndex -ErrorAction SilentlyContinue).Name
+                Write-Host "маршрут до gosuslugi.ru: префикс $($route.DestinationPrefix), шлюз $($route.NextHop), интерфейс $alias (index $($route.InterfaceIndex))"
+            }
         }
     } catch {
         Write-Warning "не удалось проверить маршрут: $($_.Exception.Message)"
