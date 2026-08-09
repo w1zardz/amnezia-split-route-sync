@@ -192,7 +192,15 @@
     "ip": ""
   },
   {
+    "hostname": "api.cdngrand.com",
+    "ip": ""
+  },
+  {
     "hostname": "api.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "api.grnd.gg",
     "ip": ""
   },
   {
@@ -448,7 +456,15 @@
     "ip": ""
   },
   {
+    "hostname": "cdn.cdngrand.com",
+    "ip": ""
+  },
+  {
     "hostname": "cdn.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "cdn.grnd.gg",
     "ip": ""
   },
   {
@@ -1132,6 +1148,10 @@
     "ip": ""
   },
   {
+    "hostname": "grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "group-ib.ru",
     "ip": ""
   },
@@ -1253,6 +1273,10 @@
   },
   {
     "hostname": "img.avito.st",
+    "ip": ""
+  },
+  {
+    "hostname": "img.cdngrand.com",
     "ip": ""
   },
   {
@@ -2736,7 +2760,15 @@
     "ip": ""
   },
   {
+    "hostname": "s1.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s10.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s10.grnd.gg",
     "ip": ""
   },
   {
@@ -2744,7 +2776,15 @@
     "ip": ""
   },
   {
+    "hostname": "s11.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s12.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s12.grnd.gg",
     "ip": ""
   },
   {
@@ -2752,7 +2792,15 @@
     "ip": ""
   },
   {
+    "hostname": "s13.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s14.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s14.grnd.gg",
     "ip": ""
   },
   {
@@ -2760,7 +2808,15 @@
     "ip": ""
   },
   {
+    "hostname": "s15.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s16.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s16.grnd.gg",
     "ip": ""
   },
   {
@@ -2768,7 +2824,15 @@
     "ip": ""
   },
   {
+    "hostname": "s17.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s18.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s18.grnd.gg",
     "ip": ""
   },
   {
@@ -2776,7 +2840,15 @@
     "ip": ""
   },
   {
+    "hostname": "s19.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s2.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s2.grnd.gg",
     "ip": ""
   },
   {
@@ -2784,7 +2856,15 @@
     "ip": ""
   },
   {
+    "hostname": "s20.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s21.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s21.grnd.gg",
     "ip": ""
   },
   {
@@ -2792,7 +2872,15 @@
     "ip": ""
   },
   {
+    "hostname": "s22.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s23.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s23.grnd.gg",
     "ip": ""
   },
   {
@@ -2800,7 +2888,15 @@
     "ip": ""
   },
   {
+    "hostname": "s24.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s25.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s25.grnd.gg",
     "ip": ""
   },
   {
@@ -2808,7 +2904,15 @@
     "ip": ""
   },
   {
+    "hostname": "s26.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s27.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s27.grnd.gg",
     "ip": ""
   },
   {
@@ -2816,7 +2920,15 @@
     "ip": ""
   },
   {
+    "hostname": "s28.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s29.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s29.grnd.gg",
     "ip": ""
   },
   {
@@ -2824,7 +2936,15 @@
     "ip": ""
   },
   {
+    "hostname": "s3.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s30.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s30.grnd.gg",
     "ip": ""
   },
   {
@@ -2832,7 +2952,15 @@
     "ip": ""
   },
   {
+    "hostname": "s31.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s32.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s32.grnd.gg",
     "ip": ""
   },
   {
@@ -2840,7 +2968,15 @@
     "ip": ""
   },
   {
+    "hostname": "s33.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s34.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s34.grnd.gg",
     "ip": ""
   },
   {
@@ -2848,7 +2984,15 @@
     "ip": ""
   },
   {
+    "hostname": "s35.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s36.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s36.grnd.gg",
     "ip": ""
   },
   {
@@ -2856,7 +3000,15 @@
     "ip": ""
   },
   {
+    "hostname": "s37.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s38.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s38.grnd.gg",
     "ip": ""
   },
   {
@@ -2864,7 +3016,15 @@
     "ip": ""
   },
   {
+    "hostname": "s39.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s4.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s4.grnd.gg",
     "ip": ""
   },
   {
@@ -2872,7 +3032,15 @@
     "ip": ""
   },
   {
+    "hostname": "s40.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s41.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s41.grnd.gg",
     "ip": ""
   },
   {
@@ -2880,7 +3048,15 @@
     "ip": ""
   },
   {
+    "hostname": "s5.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s50.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s50.grnd.gg",
     "ip": ""
   },
   {
@@ -2888,7 +3064,15 @@
     "ip": ""
   },
   {
+    "hostname": "s51.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s52.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s52.grnd.gg",
     "ip": ""
   },
   {
@@ -2896,7 +3080,15 @@
     "ip": ""
   },
   {
+    "hostname": "s6.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s7.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s7.grnd.gg",
     "ip": ""
   },
   {
@@ -2908,7 +3100,15 @@
     "ip": ""
   },
   {
+    "hostname": "s8.grnd.gg",
+    "ip": ""
+  },
+  {
     "hostname": "s9.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "s9.grnd.gg",
     "ip": ""
   },
   {
@@ -3201,6 +3401,10 @@
   },
   {
     "hostname": "static.avito.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "static.cdngrand.com",
     "ip": ""
   },
   {
@@ -3792,11 +3996,19 @@
     "ip": ""
   },
   {
+    "hostname": "www.cdngrand.com",
+    "ip": ""
+  },
+  {
     "hostname": "www.gosuslugi.ru",
     "ip": ""
   },
   {
     "hostname": "www.grnd.game",
+    "ip": ""
+  },
+  {
+    "hostname": "www.grnd.gg",
     "ip": ""
   },
   {

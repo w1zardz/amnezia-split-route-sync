@@ -1,6 +1,6 @@
 # Список российских сайтов и IP для Amnezia VPN — RU Direct
 
-**Готовый JSON для раздельного туннелирования AmneziaVPN: 988 доменов и 621 сеть
+**Готовый JSON для раздельного туннелирования AmneziaVPN: 1041 домен и 621 сеть
 IPv4.** Госуслуги, Сбер, Т-Банк, ВТБ, Ozon, Wildberries, Avito, Яндекс,
 Кинопоиск, VK, VK Видео, VK Клипы, Номерограм, РЖД, МТС и ещё 60 категорий
 российских сервисов открываются напрямую с домашнего IP, а весь остальной
@@ -24,7 +24,7 @@ IPv4.** Госуслуги, Сбер, Т-Банк, ВТБ, Ozon, Wildberries, Av
 > списка не должны открываться через VPN» → `⋮` → «Заменить список с сайтами».
 
 **English:** curated Russian split-tunneling list for AmneziaVPN / AmneziaWG —
-988 domains and 621 IPv4 prefixes in the native Amnezia import format, plus a
+1041 domains and 621 IPv4 prefixes in the native Amnezia import format, plus a
 Happ routing profile. Ready-to-import JSON for Windows, macOS, Linux, Android
 and iOS.
 
@@ -34,13 +34,13 @@ and iOS.
 
 | Файл | Размер | Кому |
 |---|---|---|
-| **`amnezia-ru-direct.json`** | ~85 КБ | Windows и Android: 1609 записей, домены + сети |
+| **`amnezia-ru-direct.json`** | ~88 КБ | Windows и Android: 1662 записи, домены + сети |
 | **`amnezia-ru-direct-ip.json`** | ~34 КБ | iOS, macOS, Linux: 621 сеть IPv4, без доменов |
-| `amnezia-ru-direct-lite.json` | ~48 КБ | только ядро (893 записи) для слабых устройств |
-| `ru-direct-domains.txt` | 988 строк | домены построчно — для своих скриптов, AdGuard, Xray |
+| `amnezia-ru-direct-lite.json` | ~50 КБ | только ядро (946 записей) для слабых устройств |
+| `ru-direct-domains.txt` | 1041 строка | домены построчно — для своих скриптов, AdGuard, Xray |
 | `ru-direct-ipv4.txt` | 621 строка | CIDR построчно |
 | `wg-allowed-ips.txt` | ~66 КБ | готовая строка `AllowedIPs` для конфига WireGuard/AmneziaWG |
-| `happ-ru-direct.json` | ~39 КБ | фрагмент профиля маршрутизации для Happ (`DirectSites` / `DirectIp`) |
+| `happ-ru-direct.json` | ~40 КБ | фрагмент профиля маршрутизации для Happ (`DirectSites` / `DirectIp`) |
 | `manifest.json` | — | счётчики и SHA-256 всех файлов |
 
 Свежая сборка всегда лежит в [Releases](../../releases/latest) и в каталоге
@@ -245,10 +245,10 @@ powershell -NoProfile -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\AmneziaRo
 Что должно быть в выводе `-Status`:
 
 ```
-Записей в Conf\ExceptSites: 1609
+Записей в Conf\ExceptSites: 1662
 routeMode: 2 (нужно 2)
 sitesSplitTunnelingEnabled: true (нужно true)
-Ключей-сетей: 621, ключей-доменов: 988
+Ключей-сетей: 621, ключей-доменов: 1041
 Служба демона: AmneziaVPN-service = Running
 маршрут до gosuslugi.ru: префикс 213.59.252.0/22, шлюз 192.168.1.1, интерфейс Ethernet
 ```
@@ -257,7 +257,7 @@ sitesSplitTunnelingEnabled: true (нужно true)
 маршрут до Госуслуг идёт через **домашний шлюз и обычный интерфейс**, а не через
 `AmneziaVPN / WireGuard Tunnel`. Значит раздельное туннелирование работает.
 
-`AmneziaVPN уже содержит актуальные 1609 записей` вместо `AmneziaVPN обновлена` —
+`AmneziaVPN уже содержит актуальные 1662 записи` вместо `AmneziaVPN обновлена` —
 не ошибка: задача успела применить список сама сразу после `install.ps1`.
 
 **Если что-то пошло не так.** `Источник не ответил за 60 секунд` — сеть или
@@ -549,8 +549,8 @@ python3 tools/build_ru_direct.py --personal ~/private-services.json --output-dir
 
 ### Список тормозит Amnezia?
 
-Полный — 1609 записей, на современных устройствах незаметно. Если интерфейс
-подлагивает, берите lite (893 записи): внешний слой сетей в него не входит
+Полный — 1662 записи, на современных устройствах незаметно. Если интерфейс
+подлагивает, берите lite (946 записей): внешний слой сетей в него не входит
 специально.
 
 ### Чем это отличается от готовых списков на 5000 доменов?
