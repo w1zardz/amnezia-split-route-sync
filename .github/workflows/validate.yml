@@ -35,7 +35,7 @@ jobs:
           python3 tools/build_ru_direct.py --output-dir "${RUNNER_TEMP}/dist"
       - name: Committed dist must match the catalog
         run: |
-          for name in amnezia-ru-direct.json amnezia-ru-direct-lite.json \
+          for name in amnezia-ru-direct.json amnezia-ru-direct-lite.json amnezia-ru-direct-ip.json \
                       ru-direct-domains.txt ru-direct-ipv4.txt happ-ru-direct.json; do
             diff -q "dist/${name}" "${RUNNER_TEMP}/dist/${name}" \
               || { echo "dist/${name} устарел — пересоберите tools/build_ru_direct.py"; exit 1; }
