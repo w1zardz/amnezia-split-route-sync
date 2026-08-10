@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-09",
+  "updated": "2026-08-10",
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
   "prefix_count": 190,

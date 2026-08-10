@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "updated": "2026-08-09",
+  "updated": "2026-08-10",
   "source": "Team Cymru bulk whois + RIPEstat announced-prefixes + внешние списки",
-  "prefix_count": 873,
+  "prefix_count": 878,
   "external_count": 190,
-  "resolved_domains": 882,
-  "catalog_domains": 925,
+  "resolved_domains": 996,
+  "catalog_domains": 1041,
   "prefixes": {
     "5.8.17.0/24": {
       "asn": 8492,
@@ -784,6 +784,15 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "46.174.48.0/21": {
+      "asn": 197309,
+      "as_name": "RSMedia-AS - RS-Media LLC, RU",
+      "cc": "RU",
+      "services": [
+        "game-servers"
+      ],
+      "source": "dns"
+    },
     "46.174.142.0/23": {
       "asn": 211112,
       "as_name": "qrator-fz - Qrator Technologies FZ-LLC, AE",
@@ -871,6 +880,7 @@
       "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
       "cc": "RU",
       "services": [
+        "game-ru",
         "misc-extra"
       ],
       "source": "dns"
@@ -1265,6 +1275,15 @@
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ]
+    },
+    "80.66.82.0/24": {
+      "asn": 206980,
+      "as_name": "antiddosAS - AntiDDoS Solutions LLC, US",
+      "cc": "RU",
+      "services": [
+        "game-servers"
+      ],
+      "source": "dns"
     },
     "80.67.40.0/22": {
       "asn": 57629,
@@ -2080,6 +2099,15 @@
       "services": [],
       "source": "asn"
     },
+    "87.251.65.0/24": {
+      "asn": 206980,
+      "as_name": "antiddosAS - AntiDDoS Solutions LLC, US",
+      "cc": "RU",
+      "services": [
+        "game-servers"
+      ],
+      "source": "dns"
+    },
     "88.212.192.0/20": {
       "asn": 39134,
       "as_name": "UNITEDNET - EDINAYA SET LIMITED LIABILITY COMPANY, RU",
@@ -2717,6 +2745,15 @@
       ],
       "source": "dns"
     },
+    "91.227.52.0/23": {
+      "asn": 56806,
+      "as_name": "ascom4s - JSC Computing Forces, RU",
+      "cc": "RU",
+      "services": [
+        "payments"
+      ],
+      "source": "dns"
+    },
     "91.230.107.0/24": {
       "asn": 57073,
       "as_name": "Wildberries",
@@ -3219,8 +3256,7 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru",
-        "vk-extra"
+        "mailru"
       ],
       "source": "dns"
     },
@@ -3324,6 +3360,7 @@
       "cc": "RU",
       "services": [
         "edu-extra",
+        "game-ru",
         "misc-extra",
         "news",
         "post"
@@ -3415,6 +3452,7 @@
       "cc": "RU",
       "services": [
         "classifieds",
+        "game-ru",
         "mailru",
         "ok",
         "vk-extra",
@@ -3477,9 +3515,7 @@
       "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
       "cc": "RU",
       "services": [
-        "banks-extra",
-        "misc-extra",
-        "post"
+        "banks-extra"
       ],
       "source": "dns"
     },
@@ -3788,15 +3824,6 @@
       ],
       "source": "dns"
     },
-    "95.181.182.0/24": {
-      "asn": 210756,
-      "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
-      "cc": "RU",
-      "services": [
-        "avito"
-      ],
-      "source": "dns"
-    },
     "95.213.0.0/17": {
       "asn": 47541,
       "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
@@ -3960,17 +3987,21 @@
     },
     "109.207.2.0/24": {
       "asn": 196747,
-      "as_name": "Электронное правительство (Госуслуги)",
+      "as_name": "Electronic-government - PJSC Rostelecom, RU",
       "cc": "RU",
-      "services": [],
-      "source": "asn"
+      "services": [
+        "gosuslugi"
+      ],
+      "source": "dns"
     },
     "109.207.8.0/24": {
       "asn": 196747,
-      "as_name": "Электронное правительство (Госуслуги)",
+      "as_name": "Electronic-government - PJSC Rostelecom, RU",
       "cc": "RU",
-      "services": [],
-      "source": "asn"
+      "services": [
+        "gosuslugi"
+      ],
+      "source": "dns"
     },
     "109.207.9.0/24": {
       "asn": 196747,
@@ -5030,6 +5061,7 @@
         "banks-extra",
         "classifieds",
         "cloud-extra",
+        "game-ru",
         "jobs",
         "media-extra",
         "misc-extra",
@@ -5208,6 +5240,7 @@
       "as_name": "QRATOR-SW - Qrator Labs CZ s.r.o., CZ",
       "cc": "CZ",
       "services": [
+        "game-ru",
         "misc-extra"
       ],
       "source": "dns"
@@ -5770,6 +5803,15 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "188.127.224.0/20": {
+      "asn": 56694,
+      "as_name": "SmartApe - LLC Smart Ape, RU",
+      "cc": "RU",
+      "services": [
+        "payments"
+      ],
+      "source": "dns"
+    },
     "188.162.48.0/20": {
       "asn": 31133,
       "as_name": "MF-MGSM-AS - PJSC MegaFon, RU",
@@ -6125,16 +6167,6 @@
       "cc": "RU",
       "services": [
         "delivery-extra"
-      ],
-      "source": "dns"
-    },
-    "194.67.71.0/24": {
-      "asn": 197695,
-      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
-      "cc": "RU",
-      "services": [
-        "delivery-extra",
-        "food"
       ],
       "source": "dns"
     },
@@ -6605,6 +6637,15 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "195.42.160.0/19": {
+      "asn": 8515,
+      "as_name": "DATAFORCE-AS - CJSC _DataForce IP_, RU",
+      "cc": "RU",
+      "services": [
+        "game-ru"
+      ],
+      "source": "dns"
+    },
     "195.66.78.0/24": {
       "asn": 39266,
       "as_name": "RESO-AS - Insurance Joint-stock company _RESO-GARANTIA_, RU",
@@ -7017,6 +7058,15 @@
       ],
       "source": "dns"
     },
+    "212.42.32.0/19": {
+      "asn": 50313,
+      "as_name": "TESLATEL-AS - TESLATEL LLC, RU",
+      "cc": "RU",
+      "services": [
+        "game-ru"
+      ],
+      "source": "dns"
+    },
     "212.45.30.0/24": {
       "asn": 8901,
       "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
@@ -7148,7 +7198,6 @@
         "gosuslugi",
         "mobile",
         "nalog",
-        "shops",
         "streaming"
       ],
       "source": "dns"
@@ -7564,7 +7613,8 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru"
+        "mailru",
+        "vk-extra"
       ],
       "source": "dns"
     },
