@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "updated": "2026-08-10",
+  "updated": "2026-08-17",
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
-  "prefix_count": 190,
+  "prefix_count": 191,
   "rejected_count": 30005,
   "dropped_by_limit": 0,
   "sources": {
@@ -1621,7 +1621,7 @@
       ],
       "source": "external"
     },
-    "212.193.156.0/22": {
+    "212.193.156.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
@@ -1661,6 +1661,15 @@
     "217.12.104.0/23": {
       "asn": 15632,
       "as_name": "ALFA-BANK-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.21.53.0/24": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
