@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated": "2026-08-17",
+  "updated": "2026-08-24",
   "source": "Team Cymru bulk whois + RIPEstat announced-prefixes + внешние списки",
-  "prefix_count": 875,
-  "external_count": 191,
-  "resolved_domains": 985,
+  "prefix_count": 876,
+  "external_count": 192,
+  "resolved_domains": 999,
   "catalog_domains": 1041,
   "prefixes": {
     "5.8.17.0/24": {
@@ -72,8 +72,7 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "ok",
-        "yandex"
+        "ok"
       ],
       "source": "dns"
     },
@@ -583,19 +582,7 @@
       "cc": "RU",
       "services": [
         "avia",
-        "brokers",
-        "delivery-extra",
         "mobile"
-      ],
-      "source": "dns"
-    },
-    "37.220.162.0/24": {
-      "asn": 34879,
-      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
-      "cc": "RU",
-      "services": [
-        "health-extra",
-        "misc-extra"
       ],
       "source": "dns"
     },
@@ -835,7 +822,8 @@
       "cc": "RU",
       "services": [
         "gosuslugi",
-        "nalog"
+        "nalog",
+        "shops"
       ],
       "source": "dns"
     },
@@ -853,6 +841,7 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
+        "nalog",
         "shops",
         "streaming"
       ],
@@ -1382,15 +1371,6 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "80.247.32.0/24": {
-      "asn": 25292,
-      "as_name": "VGTRK-AS - Federal State Unitary Enterprise _The Russian Television and Radio Broadcasting Company_, RU",
-      "cc": "RU",
-      "services": [
-        "media-extra"
-      ],
-      "source": "dns"
-    },
     "80.247.40.0/24": {
       "asn": 25292,
       "as_name": "VGTRK-AS - Federal State Unitary Enterprise _The Russian Television and Radio Broadcasting Company_, RU",
@@ -1697,12 +1677,10 @@
     },
     "83.222.28.0/22": {
       "asn": 47764,
-      "as_name": "VK-AS - LLC VK, RU",
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
       "cc": "RU",
-      "services": [
-        "yandex"
-      ],
-      "source": "dns"
+      "services": [],
+      "source": "asn"
     },
     "83.242.98.0/24": {
       "asn": 201498,
@@ -1886,15 +1864,6 @@
       ],
       "source": "dns"
     },
-    "85.119.149.0/24": {
-      "asn": 50340,
-      "as_name": "SELECTEL-MSK - JSC Selectel, RU",
-      "cc": "RU",
-      "services": [
-        "cloud-extra"
-      ],
-      "source": "dns"
-    },
     "85.142.19.0/24": {
       "asn": 3267,
       "as_name": "IDDQD-AS - IDDQD-AS, RU",
@@ -2062,14 +2031,14 @@
     },
     "87.240.166.0/24": {
       "asn": 47542,
-      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "as_name": "VK — региональный CDN (раздача видео)",
       "cc": "RU",
       "services": [],
       "source": "asn"
     },
     "87.240.167.0/24": {
       "asn": 47542,
-      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "as_name": "VK — региональный CDN (раздача видео)",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -3112,7 +3081,7 @@
       ],
       "source": "dns"
     },
-    "93.93.88.0/22": {
+    "93.93.88.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
@@ -3222,6 +3191,15 @@
       "cc": "RU",
       "services": [
         "streaming"
+      ],
+      "source": "dns"
+    },
+    "94.26.255.0/24": {
+      "asn": 49505,
+      "as_name": "SELECTEL - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "cloud-extra"
       ],
       "source": "dns"
     },
@@ -3519,7 +3497,9 @@
       "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
       "cc": "RU",
       "services": [
-        "banks-extra"
+        "banks-extra",
+        "misc-extra",
+        "post"
       ],
       "source": "dns"
     },
@@ -3856,14 +3836,14 @@
     },
     "95.213.44.0/24": {
       "asn": 47542,
-      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "as_name": "VK — региональный CDN (раздача видео)",
       "cc": "RU",
       "services": [],
       "source": "asn"
     },
     "95.213.45.0/24": {
       "asn": 47542,
-      "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
+      "as_name": "VK — региональный CDN (раздача видео)",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -4000,10 +3980,12 @@
     },
     "109.207.2.0/24": {
       "asn": 196747,
-      "as_name": "Электронное правительство (Госуслуги)",
+      "as_name": "Electronic-government - PJSC Rostelecom, RU",
       "cc": "RU",
-      "services": [],
-      "source": "asn"
+      "services": [
+        "gosuslugi"
+      ],
+      "source": "dns"
     },
     "109.207.8.0/24": {
       "asn": 196747,
@@ -5022,6 +5004,7 @@
       "as_name": "HLL-AS - HLL LLC, RU",
       "cc": "RU",
       "services": [
+        "media-extra",
         "tv"
       ],
       "source": "dns"
@@ -5593,8 +5576,7 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "vk-cdn",
-        "yandex"
+        "vk-cdn"
       ],
       "source": "dns"
     },
@@ -5719,8 +5701,8 @@
       "source": "asn"
     },
     "185.243.86.0/24": {
-      "asn": 60283,
-      "as_name": "START-AS - Start.Ru LLC, RU",
+      "asn": 213075,
+      "as_name": "STARTRU-AS - Start.Ru LLC, RU",
       "cc": "RU",
       "services": [
         "streaming"
@@ -6364,6 +6346,16 @@
       ],
       "source": "dns"
     },
+    "194.190.76.0/23": {
+      "asn": 48061,
+      "as_name": "UMA-TECH-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
     "194.190.139.0/24": {
       "asn": 57352,
       "as_name": "ROSSIYA-SEGODNYA - Federal State Unitary Enterprise Rossiya Segodnya International Information Agency, RU",
@@ -6563,6 +6555,15 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "195.19.32.0/20": {
+      "asn": 6868,
+      "as_name": "BMSTU-AS - Federal State Autonomous Educational Institution of Higher Education _Bauman Moscow State Technical University_, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
     "195.19.94.0/23": {
       "asn": 51721,
       "as_name": "UCB",
@@ -6591,6 +6592,16 @@
       "sources": [
         "mobile-whitelist-cidr"
       ]
+    },
+    "195.19.220.0/24": {
+      "asn": 44310,
+      "as_name": "SMH-AS - INTERNET TECHNOLOGIES LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra",
+        "news"
+      ],
+      "source": "dns"
     },
     "195.34.20.0/23": {
       "asn": 44386,
@@ -6925,6 +6936,15 @@
       ],
       "source": "dns"
     },
+    "195.226.222.0/24": {
+      "asn": 44310,
+      "as_name": "SMH-AS - INTERNET TECHNOLOGIES LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
+    },
     "195.242.82.0/24": {
       "asn": 24823,
       "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
@@ -6982,15 +7002,6 @@
       "sources": [
         "mobile-whitelist-cidr"
       ]
-    },
-    "212.11.151.0/24": {
-      "asn": 8901,
-      "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
-      "cc": "RU",
-      "services": [
-        "mos"
-      ],
-      "source": "dns"
     },
     "212.11.152.0/21": {
       "asn": 8901,
@@ -7170,7 +7181,6 @@
       "cc": "RU",
       "services": [
         "avia",
-        "nalog",
         "shops"
       ],
       "source": "dns"
@@ -7201,7 +7211,6 @@
       "cc": "RU",
       "services": [
         "delivery-extra",
-        "gosuslugi",
         "shops"
       ],
       "source": "dns"

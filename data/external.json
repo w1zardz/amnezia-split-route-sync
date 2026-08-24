@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "updated": "2026-08-17",
+  "updated": "2026-08-24",
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
-  "prefix_count": 191,
-  "rejected_count": 30005,
+  "prefix_count": 192,
+  "rejected_count": 30004,
   "dropped_by_limit": 0,
   "sources": {
     "mobile-whitelist-cidr": {
       "url": "https://raw.githubusercontent.com/hxehex/russia-mobile-internet-whitelist/main/cidrwhitelist.txt",
       "parsed": 30228,
-      "accepted": 290
+      "accepted": 291
     },
     "mobile-whitelist-domains": {
       "url": "https://raw.githubusercontent.com/hxehex/russia-mobile-internet-whitelist/main/whitelist.txt",
@@ -733,7 +733,7 @@
       ],
       "source": "external"
     },
-    "93.93.88.0/22": {
+    "93.93.88.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
@@ -1388,6 +1388,15 @@
     "194.156.116.0/22": {
       "asn": 198610,
       "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "194.190.76.0/23": {
+      "asn": 48061,
+      "as_name": "UMA-TECH-AS",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
