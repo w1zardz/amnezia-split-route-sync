@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated": "2026-08-24",
+  "updated": "2026-08-31",
   "source": "Team Cymru bulk whois + RIPEstat announced-prefixes + внешние списки",
   "prefix_count": 876,
   "external_count": 192,
-  "resolved_domains": 999,
+  "resolved_domains": 1000,
   "catalog_domains": 1041,
   "prefixes": {
     "5.8.17.0/24": {
@@ -109,6 +109,15 @@
       "sources": [
         "mobile-whitelist-cidr"
       ]
+    },
+    "5.101.153.0/24": {
+      "asn": 198610,
+      "as_name": "BEGET-AS - Beget LLC, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
     },
     "5.101.200.0/21": {
       "asn": 8595,
@@ -382,6 +391,13 @@
       "services": [],
       "source": "asn"
     },
+    "31.130.142.0/24": {
+      "asn": 207986,
+      "as_name": "Ozon Банк",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
     "31.130.143.0/24": {
       "asn": 207986,
       "as_name": "OZON-BANK-AS - LLC OZON BANK, RU",
@@ -582,7 +598,19 @@
       "cc": "RU",
       "services": [
         "avia",
+        "brokers",
+        "delivery-extra",
         "mobile"
+      ],
+      "source": "dns"
+    },
+    "37.220.162.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "health-extra",
+        "misc-extra"
       ],
       "source": "dns"
     },
@@ -591,7 +619,9 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "mobile"
+        "avia",
+        "mobile",
+        "shops"
       ],
       "source": "dns"
     },
@@ -782,7 +812,7 @@
     },
     "46.174.48.0/21": {
       "asn": 197309,
-      "as_name": "RSMedia-AS - RS-Media LLC, RU",
+      "as_name": "RS-Media-ru - RS-Media LLC, RU",
       "cc": "RU",
       "services": [
         "game-servers"
@@ -832,7 +862,8 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "gosuslugi"
+        "gosuslugi",
+        "shops"
       ],
       "source": "dns"
     },
@@ -1126,16 +1157,6 @@
       ],
       "source": "dns"
     },
-    "77.220.216.0/24": {
-      "asn": 207353,
-      "as_name": "RUFORM",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "77.222.40.0/23": {
       "asn": 44112,
       "as_name": "SWEB-AS - SpaceWeb Ltd, RU",
@@ -1163,15 +1184,24 @@
       ],
       "source": "dns"
     },
-    "78.41.104.0/21": {
+    "78.41.104.0/22": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "services": [],
       "source": "external",
       "sources": [
-        "mobile-whitelist-cidr",
-        "operator-whitelist-cidr"
+        "mobile-whitelist-cidr"
+      ]
+    },
+    "78.41.108.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
       ]
     },
     "78.41.110.0/23": {
@@ -1179,8 +1209,7 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "mobile",
-        "shops"
+        "mobile"
       ],
       "source": "dns"
     },
@@ -1256,15 +1285,6 @@
       "sources": [
         "mobile-whitelist-cidr"
       ]
-    },
-    "79.137.186.0/24": {
-      "asn": 56631,
-      "as_name": "ONLANTA-NET - Onlanta Ltd., RU",
-      "cc": "RU",
-      "services": [
-        "misc-extra"
-      ],
-      "source": "dns"
     },
     "79.137.240.0/21": {
       "asn": 47764,
@@ -2082,13 +2102,6 @@
       ],
       "source": "dns"
     },
-    "87.250.255.0/24": {
-      "asn": 13238,
-      "as_name": "Яндекс — YANDEX LLC",
-      "cc": "RU",
-      "services": [],
-      "source": "asn"
-    },
     "87.251.65.0/24": {
       "asn": 206980,
       "as_name": "antiddosAS - AntiDDoS Solutions LLC, US",
@@ -2354,15 +2367,6 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
-    },
-    "90.156.201.0/24": {
-      "asn": 25532,
-      "as_name": "MASTERHOST-AS - LLC _MASTERHOST_, RU",
-      "cc": "RU",
-      "services": [
-        "misc-extra"
-      ],
-      "source": "dns"
     },
     "90.156.212.0/22": {
       "asn": 47764,
@@ -3083,13 +3087,21 @@
     },
     "93.93.88.0/23": {
       "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
+    "93.93.91.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
     },
     "93.93.92.0/23": {
       "asn": 34879,
@@ -3808,15 +3820,6 @@
       ],
       "source": "dns"
     },
-    "95.181.182.0/24": {
-      "asn": 210756,
-      "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
-      "cc": "RU",
-      "services": [
-        "avito"
-      ],
-      "source": "dns"
-    },
     "95.213.0.0/17": {
       "asn": 47541,
       "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
@@ -3980,12 +3983,10 @@
     },
     "109.207.2.0/24": {
       "asn": 196747,
-      "as_name": "Electronic-government - PJSC Rostelecom, RU",
+      "as_name": "Электронное правительство (Госуслуги)",
       "cc": "RU",
-      "services": [
-        "gosuslugi"
-      ],
-      "source": "dns"
+      "services": [],
+      "source": "asn"
     },
     "109.207.8.0/24": {
       "asn": 196747,
@@ -4255,6 +4256,7 @@
       "cc": "RU",
       "services": [
         "jobs",
+        "streaming",
         "tv"
       ],
       "source": "dns"
@@ -5309,19 +5311,19 @@
     },
     "185.138.252.0/22": {
       "asn": 57073,
-      "as_name": "Wildberries",
-      "cc": "RU",
-      "services": [],
-      "source": "asn"
-    },
-    "185.138.252.0/24": {
-      "asn": 57073,
       "as_name": "Wildberries-AS - LLC Wildberries, RU",
       "cc": "RU",
       "services": [
         "wildberries"
       ],
       "source": "dns"
+    },
+    "185.138.252.0/24": {
+      "asn": 57073,
+      "as_name": "Wildberries",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
     },
     "185.138.253.0/24": {
       "asn": 57073,
@@ -5553,7 +5555,7 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "185.179.144.0/24": {
+    "185.179.146.0/24": {
       "asn": 24823,
       "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
       "cc": "RU",
@@ -6497,15 +6499,6 @@
       "services": [],
       "source": "asn"
     },
-    "195.3.180.0/24": {
-      "asn": 215259,
-      "as_name": "EVOTOROFD-AS - Evotor OFD LLC, RU",
-      "cc": "RU",
-      "services": [
-        "misc-extra"
-      ],
-      "source": "dns"
-    },
     "195.14.106.0/24": {
       "asn": 51360,
       "as_name": "CEB-AS - CREDIT EUROPE BANK JSC, RU",
@@ -6676,13 +6669,12 @@
     },
     "195.128.157.0/24": {
       "asn": 56631,
-      "as_name": "ONLANTA-NET",
+      "as_name": "ONLANTA-NET - Onlanta Ltd., RU",
       "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
     },
     "195.133.242.0/24": {
       "asn": 29226,
@@ -6729,6 +6721,15 @@
       "sources": [
         "mobile-whitelist-cidr"
       ]
+    },
+    "195.208.65.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
     },
     "195.208.66.0/24": {
       "asn": 34879,
@@ -6781,6 +6782,16 @@
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ]
+    },
+    "195.209.66.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "avia",
+        "shops"
+      ],
+      "source": "dns"
     },
     "195.209.80.0/22": {
       "asn": 34879,
@@ -7152,15 +7163,6 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "212.193.146.0/23": {
-      "asn": 34879,
-      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
-      "cc": "RU",
-      "services": [
-        "shops"
-      ],
-      "source": "dns"
-    },
     "212.193.152.0/23": {
       "asn": 204878,
       "as_name": "CCT-M9P1 - OOO _Sovremennye setevye tekhnologii_, RU",
@@ -7171,6 +7173,7 @@
         "gosuslugi",
         "mobile",
         "nalog",
+        "shops",
         "streaming"
       ],
       "source": "dns"
@@ -7180,7 +7183,7 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "avia",
+        "nalog",
         "shops"
       ],
       "source": "dns"
@@ -7201,6 +7204,7 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
+        "delivery-extra",
         "gosuslugi"
       ],
       "source": "dns"
@@ -7211,7 +7215,9 @@
       "cc": "RU",
       "services": [
         "delivery-extra",
-        "shops"
+        "gosuslugi",
+        "shops",
+        "streaming"
       ],
       "source": "dns"
     },
