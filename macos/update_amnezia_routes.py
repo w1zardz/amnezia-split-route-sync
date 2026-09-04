@@ -2,7 +2,10 @@
 """Обновляет список RU Direct в split tunneling AmneziaVPN на macOS.
 
 Источник — список, который собирает этот же репозиторий (tools/build_ru_direct.py)
-и публикует в dist/ и в GitHub Releases. Скрипт скачивает его, проверяет и
+и публикует в dist/ и в GitHub Releases. По умолчанию берётся сборка без доменов
+(amnezia-ru-direct-ip.json): macOS-клиент маршрутизирует только IP, домены он
+молча игнорирует, поэтому из любого источника они отбрасываются, если не задан
+--with-domains. Скрипт скачивает список, проверяет и
 записывает в Preferences AmneziaVPN через helper, аккуратно останавливая и
 возвращая GUI с туннелем. Незавершённая запись восстанавливается из журнала.
 """
@@ -31,7 +34,10 @@ APP_INFO_PLIST = APP_BUNDLE / "Contents/Info.plist"
 SUPPORTED_APP_MAJOR = 5
 PROTECTED_IPS: set[ipaddress.IPv4Address] = set()
 LIST_BASE = "https://raw.githubusercontent.com/w1zardz/amnezia-split-route-sync/master/dist"
-LIST_FULL = f"{LIST_BASE}/amnezia-ru-direct.json"
+# AmneziaVPN на macOS маршрутизирует split tunneling только по IP-адресам,
+# домены в Conf.ExceptSites она молча игнорирует. Поэтому по умолчанию качаем
+# сборку без доменов, а из любого другого источника домены отбрасываем.
+LIST_FULL = f"{LIST_BASE}/amnezia-ru-direct-ip.json"
 LIST_LITE = f"{LIST_BASE}/amnezia-ru-direct-lite.json"
 MAX_LIST_BYTES = 4_194_304
 # Шире /12 не пускаем: такая сеть означала бы «пол-интернета мимо VPN».
@@ -626,6 +632,7 @@ def update(
     state_dir: Path = STATE_DIR,
     source: str = LIST_FULL,
     replace_all: bool = False,
+    with_domains: bool = False,
 ) -> int:
     if sys.platform != "darwin":
         raise UpdateError("скрипт предназначен только для macOS")
@@ -656,6 +663,8 @@ def update(
             f"Проверено {len(domains)} доменов и {len(cidrs)} сетей IPv4 "
             f"для AmneziaVPN {app_version}"
         )
+        if domains and not with_domains:
+            print(f"Домены ({len(domains)}) в macOS не применяются: Amnezia маршрутизирует только IP")
         return 0
 
     state_dir.mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -676,10 +685,16 @@ def update(
         # Recovery не зависит от сети: сначала обязательно вернуть VPN/session.
         recover_pending_transaction(helper_path, state_dir, managed_path)
         domains, cidrs = download_list(source)
+        skipped_domains = 0
+        if not with_domains:
+            # Мёртвый груз для macOS-клиента: только раздувает список и UI.
+            skipped_domains = len(domains)
+            domains = []
         entries = domains + cidrs
         print(
             f"Проверено {len(domains)} доменов и {len(cidrs)} сетей IPv4 "
             f"для AmneziaVPN {app_version}"
+            + (f", пропущено доменов: {skipped_domains}" if skipped_domains else "")
         )
         previous_managed = load_string_list(managed_path)
         changed, manual_count = apply_preferences(
@@ -692,6 +707,7 @@ def update(
             "changed": changed,
             "source": source,
             "domain_count": len(domains),
+            "domains_skipped": skipped_domains,
             "cidr_count": len(cidrs),
             "entry_count": len(entries),
             "manual_entries_preserved": manual_count,
@@ -718,12 +734,17 @@ def main() -> int:
     )
     parser.add_argument(
         "--source",
-        help="URL или путь к JSON-списку (по умолчанию dist/amnezia-ru-direct.json из репозитория)",
+        help="URL или путь к JSON-списку (по умолчанию dist/amnezia-ru-direct-ip.json из репозитория)",
     )
     parser.add_argument(
         "--replace-all",
         action="store_true",
         help="стереть все прежние записи Amnezia, включая ручные, и оставить только список",
+    )
+    parser.add_argument(
+        "--with-domains",
+        action="store_true",
+        help="записывать и домены из списка (macOS-клиент Amnezia их игнорирует)",
     )
     parser.add_argument("--recover-only", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--state-dir", type=Path, default=STATE_DIR, help=argparse.SUPPRESS)
@@ -736,6 +757,7 @@ def main() -> int:
             state_dir=arguments.state_dir,
             source=source,
             replace_all=arguments.replace_all,
+            with_domains=arguments.with_domains,
         )
     except UpdateError as exc:
         print(f"ОШИБКА: {exc}", file=sys.stderr)

@@ -118,7 +118,8 @@ PATH_STATE_JSON="$(/usr/bin/python3 -c \
 plutil -replace KeepAlive.PathState -json "${PATH_STATE_JSON}" \
     "${STAGING_DIR}/launch-agent.plist"
 plutil -lint "${STAGING_DIR}/launch-agent.plist" >/dev/null
-"${STAGING_DIR}/update_amnezia_routes.py" --dry-run
+# Тем же интерпретатором, что и LaunchAgent, а не первым python3 из PATH.
+/usr/bin/python3 "${STAGING_DIR}/update_amnezia_routes.py" --dry-run
 
 mkdir -p "${INSTALL_DIR}" "$(dirname "${LAUNCH_AGENT}")"
 chmod 700 "${INSTALL_DIR}"
