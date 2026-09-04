@@ -172,7 +172,11 @@ fi
 for _ in {1..720}; do
     AGENT_STATE="$(launchctl print "${SERVICE_TARGET}" 2>/dev/null || true)"
     AGENT_RUNS="$(awk '/runs =/{print $3; exit}' <<<"${AGENT_STATE}")"
-    if [[ "${AGENT_RUNS:-0}" -ge 1 ]] && ! grep -q 'state = running' <<<"${AGENT_STATE}"; then
+    # launchd между spawn и стартом процесса показывает runs = 1 без state = running
+    # и «last exit code = (never exited)» — это ещё не завершение.
+    if [[ "${AGENT_RUNS:-0}" -ge 1 ]] && ! grep -q 'state = running' <<<"${AGENT_STATE}" \
+        && grep -q 'last exit code = ' <<<"${AGENT_STATE}" \
+        && ! grep -q 'never exited' <<<"${AGENT_STATE}"; then
         break
     fi
     sleep 0.5
