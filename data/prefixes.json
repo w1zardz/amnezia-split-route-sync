@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated": "2026-08-31",
+  "updated": "2026-09-07",
   "source": "Team Cymru bulk whois + RIPEstat announced-prefixes + внешние списки",
   "prefix_count": 876,
-  "external_count": 192,
-  "resolved_domains": 1000,
+  "external_count": 191,
+  "resolved_domains": 996,
   "catalog_domains": 1041,
   "prefixes": {
     "5.8.17.0/24": {
@@ -620,8 +620,7 @@
       "cc": "RU",
       "services": [
         "avia",
-        "mobile",
-        "shops"
+        "mobile"
       ],
       "source": "dns"
     },
@@ -862,8 +861,7 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "gosuslugi",
-        "shops"
+        "gosuslugi"
       ],
       "source": "dns"
     },
@@ -970,7 +968,6 @@
       "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
       "cc": "RU",
       "services": [
-        "booking",
         "classifieds",
         "misc-extra",
         "urban"
@@ -979,10 +976,12 @@
     },
     "51.250.126.0/24": {
       "asn": 200350,
-      "as_name": "Яндекс — Yandex.Cloud",
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
       "cc": "RU",
-      "services": [],
-      "source": "asn"
+      "services": [
+        "yandex-auto"
+      ],
+      "source": "dns"
     },
     "62.33.0.0/16": {
       "asn": 20485,
@@ -1184,24 +1183,15 @@
       ],
       "source": "dns"
     },
-    "78.41.104.0/22": {
+    "78.41.104.0/21": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "services": [],
       "source": "external",
       "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "78.41.108.0/24": {
-      "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
       ]
     },
     "78.41.110.0/23": {
@@ -1884,6 +1874,15 @@
       ],
       "source": "dns"
     },
+    "85.119.149.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK - JSC Selectel, RU",
+      "cc": "RU",
+      "services": [
+        "cloud-extra"
+      ],
+      "source": "dns"
+    },
     "85.142.19.0/24": {
       "asn": 3267,
       "as_name": "IDDQD-AS - IDDQD-AS, RU",
@@ -1987,15 +1986,6 @@
       "cc": "RU",
       "services": [
         "gosuslugi"
-      ],
-      "source": "dns"
-    },
-    "86.109.210.0/24": {
-      "asn": 29648,
-      "as_name": "COMLINE-AS - PJSC MegaFon, RU",
-      "cc": "RU",
-      "services": [
-        "telecom-extra"
       ],
       "source": "dns"
     },
@@ -2204,10 +2194,12 @@
     },
     "89.169.128.0/18": {
       "asn": 200350,
-      "as_name": "Яндекс — Yandex.Cloud",
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
       "cc": "RU",
-      "services": [],
-      "source": "asn"
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
     },
     "89.175.0.0/16": {
       "asn": 8359,
@@ -2401,13 +2393,6 @@
       ],
       "source": "dns"
     },
-    "90.156.247.0/24": {
-      "asn": 57073,
-      "as_name": "Wildberries",
-      "cc": "RU",
-      "services": [],
-      "source": "asn"
-    },
     "91.109.200.0/21": {
       "asn": 199669,
       "as_name": "ATLEX-AS - Okay-Telecom Ltd., RU",
@@ -2531,6 +2516,15 @@
       "cc": "RU",
       "services": [
         "misc-extra"
+      ],
+      "source": "dns"
+    },
+    "91.214.119.0/24": {
+      "asn": 47122,
+      "as_name": "CYBERFIRST-AS - CYBERFIRST LLC, RU",
+      "cc": "SC",
+      "services": [
+        "news"
       ],
       "source": "dns"
     },
@@ -3206,15 +3200,6 @@
       ],
       "source": "dns"
     },
-    "94.26.255.0/24": {
-      "asn": 49505,
-      "as_name": "SELECTEL - JSC Selectel, RU",
-      "cc": "RU",
-      "services": [
-        "cloud-extra"
-      ],
-      "source": "dns"
-    },
     "94.79.5.0/24": {
       "asn": 8901,
       "as_name": "Moscow Mayors Office",
@@ -3249,8 +3234,7 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru",
-        "vk-extra"
+        "mailru"
       ],
       "source": "dns"
     },
@@ -3820,6 +3804,15 @@
       ],
       "source": "dns"
     },
+    "95.181.182.0/24": {
+      "asn": 210756,
+      "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
+      "cc": "RU",
+      "services": [
+        "avito"
+      ],
+      "source": "dns"
+    },
     "95.213.0.0/17": {
       "asn": 47541,
       "as_name": "VK — VKONTAKTE-SPB (сайт, видео, клипы)",
@@ -4089,12 +4082,10 @@
     },
     "111.88.144.0/20": {
       "asn": 200350,
-      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
+      "as_name": "Яндекс — Yandex.Cloud",
       "cc": "RU",
-      "services": [
-        "misc-extra"
-      ],
-      "source": "dns"
+      "services": [],
+      "source": "asn"
     },
     "111.88.240.0/20": {
       "asn": 200350,
@@ -4266,6 +4257,7 @@
       "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
       "cc": "RU",
       "services": [
+        "booking",
         "news"
       ],
       "source": "dns"
@@ -4708,6 +4700,7 @@
         "classifieds",
         "edu-extra",
         "misc-extra",
+        "news",
         "shops",
         "streaming"
       ],
@@ -4876,7 +4869,17 @@
       "services": [],
       "source": "asn"
     },
-    "185.17.168.0/22": {
+    "185.17.168.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
+    "185.17.170.0/24": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
@@ -5555,7 +5558,7 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "185.179.146.0/24": {
+    "185.179.144.0/24": {
       "asn": 24823,
       "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
       "cc": "RU",
@@ -6772,7 +6775,7 @@
       ],
       "source": "dns"
     },
-    "195.209.64.0/20": {
+    "195.209.64.0/21": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
@@ -6792,6 +6795,16 @@
         "shops"
       ],
       "source": "dns"
+    },
+    "195.209.74.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
     },
     "195.209.80.0/22": {
       "asn": 34879,
@@ -7173,7 +7186,6 @@
         "gosuslugi",
         "mobile",
         "nalog",
-        "shops",
         "streaming"
       ],
       "source": "dns"
@@ -7183,6 +7195,7 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
+        "health-extra",
         "nalog",
         "shops"
       ],
@@ -7463,15 +7476,6 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "217.12.96.0/24": {
-      "asn": 15632,
-      "as_name": "Alfa-Bank-AS - JSC _Alfa-Bank_, RU",
-      "cc": "RU",
-      "services": [
-        "banks-extra"
-      ],
-      "source": "dns"
-    },
     "217.12.98.0/24": {
       "asn": 15632,
       "as_name": "Alfa-Bank-AS - JSC _Alfa-Bank_, RU",
@@ -7597,7 +7601,8 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru"
+        "mailru",
+        "vk-extra"
       ],
       "source": "dns"
     },

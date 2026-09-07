@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated": "2026-08-31",
+  "updated": "2026-09-07",
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
-  "prefix_count": 192,
-  "rejected_count": 30008,
+  "prefix_count": 191,
+  "rejected_count": 30007,
   "dropped_by_limit": 0,
   "sources": {
     "mobile-whitelist-cidr": {
@@ -20,7 +20,7 @@
     "operator-whitelist-cidr": {
       "url": "https://raw.githubusercontent.com/escapingworm/russia-whitelist/main/ru-whitelist-cidr.txt",
       "parsed": 88,
-      "accepted": 20
+      "accepted": 21
     }
   },
   "prefixes": {
@@ -377,21 +377,13 @@
       ],
       "source": "external"
     },
-    "78.41.104.0/22": {
+    "78.41.104.0/21": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "78.41.108.0/24": {
-      "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
       ],
       "source": "external"
     },
@@ -732,15 +724,6 @@
       ],
       "source": "external"
     },
-    "93.93.88.0/23": {
-      "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "93.93.92.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
@@ -996,7 +979,16 @@
       ],
       "source": "external"
     },
-    "185.17.168.0/22": {
+    "185.17.168.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.17.170.0/24": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
@@ -1483,15 +1475,6 @@
       ],
       "source": "external"
     },
-    "195.128.157.0/24": {
-      "asn": 56631,
-      "as_name": "ONLANTA-NET",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "195.208.64.0/21": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
@@ -1510,13 +1493,22 @@
       ],
       "source": "external"
     },
-    "195.209.64.0/20": {
+    "195.209.64.0/21": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "195.209.74.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
       ],
       "source": "external"
     },
