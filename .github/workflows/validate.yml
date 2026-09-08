@@ -69,19 +69,26 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Parse scripts and run the updater self-test
-        shell: ${{ matrix.shell }}
+        shell: pwsh
+        env:
+          TEST_SHELL: ${{ matrix.shell }}
         run: |
           $ErrorActionPreference = 'Stop'
-          foreach ($file in (Get-ChildItem windows/*.ps1)) {
-            $errors = $null
-            $tokens = $null
-            $null = [System.Management.Automation.Language.Parser]::ParseFile($file.FullName, [ref]$tokens, [ref]$errors)
-            if ($errors) { $errors | ForEach-Object { Write-Error $_.Message }; exit 1 }
+          & $env:TEST_SHELL -NoProfile -NonInteractive -Command {
+            foreach ($file in (Get-ChildItem windows/*.ps1)) {
+              $errors = $null
+              $tokens = $null
+              $null = [System.Management.Automation.Language.Parser]::ParseFile($file.FullName, [ref]$tokens, [ref]$errors)
+              if ($errors) { $errors | ForEach-Object { Write-Error $_.Message }; exit 1 }
+            }
           }
-          .\windows\update-amnezia-routes.ps1 -SelfTest -Source .\dist\amnezia-ru-direct.json
-          .\windows\update-amnezia-routes.ps1 -SelfTest -Source .\dist\amnezia-ru-direct-lite.json
-          .\windows\update-amnezia-routes.ps1 -SelfTest -Source .\dist\amnezia-ru-direct-ip.json
-          .\windows\test-updater.ps1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          foreach ($name in @('amnezia-ru-direct.json', 'amnezia-ru-direct-lite.json', 'amnezia-ru-direct-ip.json')) {
+            & $env:TEST_SHELL -NoProfile -NonInteractive -ExecutionPolicy Bypass -File .\windows\update-amnezia-routes.ps1 -SelfTest -Source ".\dist\$name"
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+          & $env:TEST_SHELL -NoProfile -NonInteractive -ExecutionPolicy Bypass -File .\windows\test-updater.ps1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
   macos-helper:
     runs-on: macos-14
