@@ -26,6 +26,8 @@ param(
     [switch]$SelfTest,
     [switch]$Status,
     [switch]$RecoverOnly,
+    [ValidateRange(-1, 10000)]
+    [int]$ServerIndex = -1,
     [string]$StateDir
 )
 
@@ -49,6 +51,7 @@ $ListFull = "$ListBase/amnezia-ru-direct.json"
 $ListLite = "$ListBase/amnezia-ru-direct-lite.json"
 
 $RegistryConfSubKey = 'Software\AmneziaVPN.ORG\AmneziaVPN\Conf'
+$RegistryServersSubKey = 'Software\AmneziaVPN.ORG\AmneziaVPN\Servers'
 $GuiProcessName = 'AmneziaVPN'
 $DaemonServiceName = 'AmneziaVPN-service'
 $TunnelServiceName = 'AmneziaWGTunnel$AmneziaVPN'
@@ -70,9 +73,9 @@ $StatusPath = Join-Path $StateDir 'status.json'
 $ImportPath = Join-Path $StateDir 'amnezia-split-routes.json'
 $JournalPath = Join-Path $StateDir '.registry-transaction.json'
 $BackupDir = Join-Path $StateDir 'backups'
+$DnsCachePath = Join-Path $StateDir 'dns-cache.json'
 
 $RoutingValueNames = @('ExceptSites', 'routeMode', 'sitesSplitTunnelingEnabled')
-$DaemonStopped = $false
 
 Add-Type -AssemblyName System.Net.Http
 Add-Type -AssemblyName System.ServiceProcess
@@ -221,7 +224,8 @@ function Write-JsonAtomic([string]$Path, $Value) {
     try {
         $json = $Value | ConvertTo-Json -Depth 12
         [IO.File]::WriteAllText($temporary, $json + [Environment]::NewLine, (New-Object Text.UTF8Encoding($false)))
-        Move-Item -LiteralPath $temporary -Destination $Path -Force
+        if ([IO.File]::Exists($Path)) { [IO.File]::Replace($temporary, $Path, [NullString]::Value) }
+        else { [IO.File]::Move($temporary, $Path) }
     } finally {
         Remove-Item -LiteralPath $temporary -Force -ErrorAction SilentlyContinue
     }
@@ -233,7 +237,8 @@ function Write-TextAtomic([string]$Path, [string]$Text) {
     $temporary = "$Path.tmp.$PID"
     try {
         [IO.File]::WriteAllText($temporary, $Text, (New-Object Text.UTF8Encoding($false)))
-        Move-Item -LiteralPath $temporary -Destination $Path -Force
+        if ([IO.File]::Exists($Path)) { [IO.File]::Replace($temporary, $Path, [NullString]::Value) }
+        else { [IO.File]::Move($temporary, $Path) }
     } finally {
         Remove-Item -LiteralPath $temporary -Force -ErrorAction SilentlyContinue
     }
@@ -302,16 +307,16 @@ $ReservedRanges = @(
     '172.16.0.0/12', '192.0.0.0/24', '192.0.2.0/24', '192.88.99.0/24', '192.168.0.0/16',
     '198.18.0.0/15', '198.51.100.0/24', '203.0.113.0/24', '224.0.0.0/4', '240.0.0.0/4'
 )
+$ReservedIntervals = @($ReservedRanges | ForEach-Object {
+    $cidr = ConvertTo-Cidr $_
+    [pscustomobject]@{ Start = $cidr.Network; End = $cidr.Network + $cidr.Count - 1 }
+})
 
 function Test-CidrGlobal($Cidr) {
     $start = [uint64]$Cidr.Network
     $end = [uint64]($Cidr.Network + $Cidr.Count - 1)
-    foreach ($value in $ReservedRanges) {
-        $parts = $value.Split('/')
-        $reservedNetwork = ConvertTo-IPv4Number $parts[0]
-        $reservedCount = [uint64]1 -shl (32 - [int]$parts[1])
-        $reservedEnd = $reservedNetwork + $reservedCount - 1
-        if ($start -le $reservedEnd -and $reservedNetwork -le $end) { return $false }
+    foreach ($range in $ReservedIntervals) {
+        if ($start -le $range.End -and $range.Start -le $end) { return $false }
     }
     return $true
 }
@@ -352,6 +357,7 @@ function Test-Hostname([string]$Value) {
     if ($Value -notmatch '^[a-z0-9.-]+$') { return $false }
     foreach ($label in $Value.Split('.')) {
         if ($label.Length -lt 1 -or $label.Length -gt 63) { return $false }
+        if ($label.StartsWith('-') -or $label.EndsWith('-')) { return $false }
     }
     return $true
 }
@@ -479,6 +485,80 @@ function ConvertFrom-ImportList([string]$Text, [string]$SourceName) {
     }
 }
 
+# --- DNS для Windows -----------------------------------------------------------
+
+# AmneziaWG использует IP из значений ExceptSites; сам ключ-домен не резолвит.
+# DNS выполняется до остановки VPN, максимум 24 незавершённых запроса и 45 секунд
+# на весь список. При сбое сохраняются прежние публичные IPv4 этого домена.
+function Start-DomainLookup([string]$Hostname) {
+    return ,([Net.Dns]::GetHostAddressesAsync($Hostname))
+}
+
+function Get-PublicIPv4Values($Values) {
+    foreach ($value in @($Values)) {
+        $address = $null
+        if ([Net.IPAddress]::TryParse([string]$value, [ref]$address) -and
+            $address.AddressFamily -eq [Net.Sockets.AddressFamily]::InterNetwork) {
+            $canonical = $address.ToString()
+            if (Test-CidrGlobal (ConvertTo-Cidr $canonical)) { $canonical }
+        }
+    }
+}
+
+function Resolve-ManagedDomains([string[]]$Domains, [int]$TimeoutSeconds = 45, [int]$Concurrency = 24) {
+    $addresses = @{}
+    if ($Domains.Count -eq 0) {
+        return [pscustomobject]@{ Addresses = $addresses; Cached = $false
+            Cache = [ordered]@{ version = 1; updated_at = [DateTime]::UtcNow.ToString('o'); domains = @(); addresses = @{} } }
+    }
+    $cached = $null
+    try { $cached = Read-JsonFile $DnsCachePath } catch { Write-Warning 'Кэш DNS повреждён; обновляю его.' }
+    if ($null -ne $cached) {
+        try {
+            if ($cached.version -ne 1) { throw 'Unknown DNS cache version' }
+            # PowerShell 7.5+ автоматически превращает ISO-время из JSON в DateTime.
+            $updated = if ($cached.updated_at -is [DateTime]) { $cached.updated_at }
+                       else { [DateTime]::Parse([string]$cached.updated_at, [Globalization.CultureInfo]::InvariantCulture, [Globalization.DateTimeStyles]::RoundtripKind) }
+            $age = [DateTime]::UtcNow - $updated.ToUniversalTime()
+            $known = @($cached.domains)
+            if ($age.TotalHours -ge 0 -and $age.TotalHours -lt 4 -and
+                (@(Compare-Object @($Domains | Sort-Object) @($known | Sort-Object))).Count -eq 0) {
+                foreach ($entry in $cached.addresses.PSObject.Properties) {
+                    $ips = @(Get-PublicIPv4Values $entry.Value | Sort-Object -Unique)
+                    if ($ips.Count -gt 0) { $addresses[$entry.Name] = $ips }
+                }
+                return [pscustomobject]@{ Addresses = $addresses; Cache = $cached; Cached = $true }
+            }
+        } catch { Write-Warning 'Кэш DNS несовместим; обновляю его.' }
+    }
+
+    $pending = @{}
+    $next = 0
+    $timer = [Diagnostics.Stopwatch]::StartNew()
+    while (($next -lt $Domains.Count -or $pending.Count -gt 0) -and $timer.Elapsed.TotalSeconds -lt $TimeoutSeconds) {
+        while ($next -lt $Domains.Count -and $pending.Count -lt $Concurrency) {
+            $domain = $Domains[$next++]
+            try { $pending[$domain] = Start-DomainLookup $domain } catch { }
+        }
+        foreach ($domain in @($pending.Keys)) {
+            $lookup = $pending[$domain]
+            if (-not $lookup.IsCompleted) { continue }
+            try {
+                $ips = @(Get-PublicIPv4Values ($lookup.GetAwaiter().GetResult()) | Sort-Object -Unique)
+                if ($ips.Count -gt 0) { $addresses[$domain] = $ips }
+            } catch { }
+            $pending.Remove($domain)
+        }
+        if ($pending.Count -gt 0) { Start-Sleep -Milliseconds 25 }
+    }
+    $failed = $Domains.Count - $addresses.Count
+    # Кэш содержит только свежие ответы. Fallback берётся из реестра отдельно,
+    # чтобы не выдавать старые IP за результат успешного DNS-обновления.
+    $cache = [ordered]@{ version = 1; updated_at = [DateTime]::UtcNow.ToString('o'); domains = @($Domains); addresses = $addresses.Clone() }
+    if ($failed -gt 0) { Write-Warning "DNS: для $failed из $($Domains.Count) доменов нет свежего публичного IPv4; сохранены прежние IP, если они были." }
+    return [pscustomobject]@{ Addresses = $addresses; Cache = $cache; Cached = $false }
+}
+
 # --- реестр -------------------------------------------------------------------
 
 function Read-ExceptSites {
@@ -496,13 +576,14 @@ function Read-ExceptSites {
 }
 
 function Read-RoutingScalars {
-    $result = [ordered]@{ mode = $null; enabled = $null }
+    $result = [ordered]@{ mode = $null; enabled = $null; apps_enabled = $null }
     $key = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey($RegistryConfSubKey, $false)
     if ($null -eq $key) { return $result }
     try {
         $names = @($key.GetValueNames())
         if ($names -contains 'routeMode') { $result.mode = [string]$key.GetValue('routeMode') }
         if ($names -contains 'sitesSplitTunnelingEnabled') { $result.enabled = [string]$key.GetValue('sitesSplitTunnelingEnabled') }
+        if ($names -contains 'appsSplitTunnelingEnabled') { $result.apps_enabled = [string]$key.GetValue('appsSplitTunnelingEnabled') }
     } finally { $key.Dispose() }
     return $result
 }
@@ -560,10 +641,10 @@ function Restore-RoutingRegistrySnapshot($Snapshot) {
             if (-not [bool]$item.present) { continue }
             $kind = [Microsoft.Win32.RegistryValueKind][Enum]::Parse([Microsoft.Win32.RegistryValueKind], [string]$item.kind, $false)
             $value = switch ($kind) {
-                ([Microsoft.Win32.RegistryValueKind]::Binary) { [Convert]::FromBase64String([string]$item.value); break }
+                ([Microsoft.Win32.RegistryValueKind]::Binary) { ,([Convert]::FromBase64String([string]$item.value)); break }
                 ([Microsoft.Win32.RegistryValueKind]::DWord) { [uint32]::Parse([string]$item.value); break }
                 ([Microsoft.Win32.RegistryValueKind]::QWord) { [uint64]::Parse([string]$item.value); break }
-                ([Microsoft.Win32.RegistryValueKind]::MultiString) { [string[]]@($item.value); break }
+                ([Microsoft.Win32.RegistryValueKind]::MultiString) { ,([string[]]@($item.value)); break }
                 ([Microsoft.Win32.RegistryValueKind]::String) { [string]$item.value; break }
                 ([Microsoft.Win32.RegistryValueKind]::ExpandString) { [string]$item.value; break }
                 default { throw "Неподдерживаемый Registry type $kind для $name" }
@@ -607,7 +688,7 @@ function Assert-RoutingRegistry($Sites) {
     } finally { $key.Dispose() }
 }
 
-function Get-DesiredSites($Current, [string[]]$PreviousManaged, [string[]]$Entries) {
+function Get-DesiredSites($Current, [string[]]$PreviousManaged, [string[]]$Entries, $DomainAddresses = @{}) {
     $desired = @{}
     if (-not $ReplaceAll) {
         $previous = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
@@ -620,7 +701,11 @@ function Get-DesiredSites($Current, [string[]]$PreviousManaged, [string[]]$Entri
     # пустым списком нельзя: иначе каждый запуск видел бы «список изменился»
     # и дёргал GUI с туннелем на ровном месте.
     foreach ($entry in @($Entries)) {
-        if ($Current.ContainsKey($entry)) { $desired[$entry] = @($Current[$entry]) }
+        if ($DomainAddresses.ContainsKey($entry)) { $desired[$entry] = @($DomainAddresses[$entry]) }
+        elseif ((Test-Hostname $entry) -and $Current.ContainsKey($entry)) {
+            $desired[$entry] = @(Get-PublicIPv4Values $Current[$entry] | Sort-Object -Unique)
+        }
+        elseif ($Current.ContainsKey($entry)) { $desired[$entry] = @($Current[$entry]) }
         else { $desired[$entry] = @() }
     }
     if ($desired.Count -gt $MaxRegistryEntries) {
@@ -647,7 +732,8 @@ function Test-Elevated {
 }
 
 function Get-GuiProcesses {
-    return @(Get-Process -Name $GuiProcessName -ErrorAction SilentlyContinue)
+    $currentSessionId = [Diagnostics.Process]::GetCurrentProcess().SessionId
+    return @(Get-Process -Name $GuiProcessName -ErrorAction SilentlyContinue | Where-Object { $_.SessionId -eq $currentSessionId })
 }
 
 # return @(...) разворачивает массив обратно в один объект, поэтому оборачиваем
@@ -679,21 +765,44 @@ function Test-TunnelServiceRunning {
             $tunnel.Status -eq [ServiceProcess.ServiceControllerStatus]::StartPending)
 }
 
+function Test-AmneziaAdapter($Adapter) {
+    return ($Adapter.OperationalStatus -eq [Net.NetworkInformation.OperationalStatus]::Up -and
+            "$($Adapter.Name) $($Adapter.Description)" -match '(?i)amnezia')
+}
+
 function Test-VpnAdapterUp {
-    # AmneziaWG поднимает Wintun-адаптер, OpenVPN — TAP-Windows. Лишний
-    # false positive безвреден (перезапустим службу зря), false negative —
-    # это ровно тот баг, из-за которого раньше требовалась перезагрузка.
     foreach ($adapter in [Net.NetworkInformation.NetworkInterface]::GetAllNetworkInterfaces()) {
-        if ($adapter.OperationalStatus -ne [Net.NetworkInformation.OperationalStatus]::Up) { continue }
-        $text = "$($adapter.Name) $($adapter.Description)"
-        if ($text -match '(?i)amnezia|wintun|wireguard|tap-windows') { return $true }
+        if (Test-AmneziaAdapter $adapter) { return $true }
+    }
+    return $false
+}
+
+function Test-AmneziaUserspaceTunnel {
+    # OpenVPN/Xray могут использовать TAP/Wintun без имени Amnezia. Проверяем
+    # путь процесса, а не общий тип адаптера, который бывает у другого VPN.
+    $processes = @(Get-Process -Name 'openvpn', 'xray', 'ss-local' -ErrorAction SilentlyContinue)
+    if ($processes.Count -eq 0) { return $false }
+    $directory = (Split-Path -Parent (Get-AmneziaExePath)).TrimEnd('\') + '\'
+    foreach ($process in $processes) {
+        try {
+            if ($process.Path -and $process.Path.StartsWith($directory, [StringComparison]::OrdinalIgnoreCase)) { return $true }
+        } catch { }
     }
     return $false
 }
 
 function Test-TunnelRunning {
     if (Test-TunnelServiceRunning) { return $true }
-    return (Test-VpnAdapterUp)
+    return ((Test-VpnAdapterUp) -or (Test-AmneziaUserspaceTunnel))
+}
+
+function Test-TunnelReady {
+    $tunnel = Get-TunnelService
+    if ($null -ne $tunnel) {
+        $tunnel.Refresh()
+        return ($tunnel.Status -eq [ServiceProcess.ServiceControllerStatus]::Running -and (Test-VpnAdapterUp))
+    }
+    return ((Test-VpnAdapterUp) -or (Test-AmneziaUserspaceTunnel))
 }
 
 function Get-AmneziaExePath {
@@ -736,19 +845,23 @@ function Assert-AmneziaVersion([string]$ExePath) {
 function Get-AmneziaSession {
     $key = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey($RegistryConfSubKey, $false)
     $autoConnect = $false
-    $serverIndex = 0
+    $selectedIndex = $ServerIndex
     try {
         if ($null -ne $key) {
             $names = @($key.GetValueNames())
             if ($names -contains 'autoConnect') { $autoConnect = ([string]$key.GetValue('autoConnect') -ceq 'true') }
         }
     } finally { if ($null -ne $key) { $key.Dispose() } }
-    $serversKey = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Software\AmneziaVPN.ORG\AmneziaVPN\Servers', $false)
+    $serversKey = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey($RegistryServersSubKey, $false)
     try {
-        if ($null -ne $serversKey -and (@($serversKey.GetValueNames()) -contains 'defaultServerIndex')) {
+        # В 5.0.1.5 defaultServerIndex может остаться от старой версии, а выбор
+        # хранится в defaultServerId. Зашифрованный serversList не читаем.
+        if ($selectedIndex -lt 0 -and $null -ne $serversKey -and
+            -not $serversKey.GetValue('defaultServerId') -and
+            (@($serversKey.GetValueNames()) -contains 'defaultServerIndex')) {
             $raw = $serversKey.GetValue('defaultServerIndex')
             $parsed = 0
-            if ([int]::TryParse([string]$raw, [ref]$parsed)) { $serverIndex = $parsed }
+            if ([int]::TryParse([string]$raw, [ref]$parsed) -and $parsed -ge 0) { $selectedIndex = $parsed }
         }
     } finally { if ($null -ne $serversKey) { $serversKey.Dispose() } }
 
@@ -756,7 +869,7 @@ function Get-AmneziaSession {
         GuiRunning  = (Test-GuiRunning)
         Connected   = (Test-TunnelRunning)
         AutoConnect = $autoConnect
-        ServerIndex = $serverIndex
+        ServerIndex = $selectedIndex
     }
 }
 
@@ -813,7 +926,9 @@ function Stop-ServiceHard($Service) {
     $Service.Refresh()
     if ($Service.Status -eq [ServiceProcess.ServiceControllerStatus]::Stopped) { return $true }
     try {
-        Stop-Service -InputObject $Service -Force -ErrorAction Stop
+        # Stop-Service сам может ждать бесконечно; ServiceController.Stop только
+        # отправляет запрос, а ожидание ниже ограничено нашим таймаутом.
+        $Service.Stop()
     } catch {
         Write-Warning "SCM не остановил $($Service.Name): $($_.Exception.Message)"
     }
@@ -844,15 +959,17 @@ function Stop-AmneziaTunnel {
         }
     }
     $deadline = [DateTime]::UtcNow.AddSeconds(10)
-    while ([DateTime]::UtcNow -lt $deadline -and (Test-VpnAdapterUp)) { Start-Sleep -Milliseconds 500 }
-    if (-not (Test-VpnAdapterUp)) { return }
+    while ([DateTime]::UtcNow -lt $deadline -and (Test-TunnelRunning)) { Start-Sleep -Milliseconds 500 }
+    if (-not (Test-TunnelRunning)) { return }
 
     $daemon = Get-AmneziaService
     if ($null -eq $daemon) { throw 'VPN-адаптер остался поднят, а служба демона не найдена' }
     if (-not (Stop-ServiceHard $daemon)) {
         throw "Служба $($daemon.Name) не остановилась"
     }
-    $script:DaemonStopped = $true
+    $deadline = [DateTime]::UtcNow.AddSeconds(10)
+    while ([DateTime]::UtcNow -lt $deadline -and (Test-TunnelRunning)) { Start-Sleep -Milliseconds 500 }
+    if (Test-TunnelRunning) { throw 'Туннель Amnezia остался активен после остановки службы; список не применён.' }
 }
 
 function Start-AmneziaDaemon {
@@ -868,31 +985,32 @@ function Start-AmneziaDaemon {
 
 function Restore-AmneziaSession($Session, [string]$ExePath) {
     if ($Session.Connected) { Start-AmneziaDaemon }
-    if (-not $Session.GuiRunning) { return }
-    if (Test-GuiRunning) { return }
+    if (-not $Session.GuiRunning -and -not $Session.Connected) { return }
     if (-not $ExePath) {
-        Write-Warning 'Не найден AmneziaVPN.exe: приложение придётся запустить вручную.'
-        return
+        throw 'Не найден AmneziaVPN.exe: journal сохранён для повторного восстановления.'
     }
     $arguments = @()
     if ($Session.Connected -and -not $Session.AutoConnect) {
+        if ($Session.ServerIndex -lt 0) { throw 'Неизвестен индекс сервера для восстановления VPN.' }
         $arguments = @('--connect', [string]$Session.ServerIndex)
     } elseif ($Session.Connected) {
         $arguments = @('--autostart')
     }
-    if ($arguments.Count -gt 0) {
-        Start-Process -FilePath $ExePath -ArgumentList $arguments | Out-Null
-    } else {
-        Start-Process -FilePath $ExePath | Out-Null
+    if (-not (Test-GuiRunning)) {
+        if ($arguments.Count -gt 0) {
+            Start-Process -FilePath $ExePath -ArgumentList $arguments -WindowStyle Hidden | Out-Null
+        } else {
+            Start-Process -FilePath $ExePath -WindowStyle Hidden | Out-Null
+        }
     }
     $deadline = [DateTime]::UtcNow.AddSeconds(20)
     while ([DateTime]::UtcNow -lt $deadline -and -not (Test-GuiRunning)) { Start-Sleep -Milliseconds 250 }
     if (-not (Test-GuiRunning)) { throw 'настройки записаны, но процесс AmneziaVPN не появился' }
     if (-not $Session.Connected) { return }
     $deadline = [DateTime]::UtcNow.AddSeconds(60)
-    while ([DateTime]::UtcNow -lt $deadline -and -not (Test-TunnelRunning)) { Start-Sleep -Milliseconds 500 }
-    if (-not (Test-TunnelRunning)) {
-        Write-Warning 'Настройки записаны, но туннель не поднялся за 60 секунд — нажмите «Подключиться» в AmneziaVPN.'
+    while ([DateTime]::UtcNow -lt $deadline -and -not (Test-TunnelReady)) { Start-Sleep -Milliseconds 500 }
+    if (-not (Test-TunnelReady)) {
+        throw 'Туннель не поднялся за 60 секунд; journal сохранён. Подключите AmneziaVPN и повторите обновление.'
     }
 }
 
@@ -912,7 +1030,7 @@ function Restore-PendingTransaction([string]$ExePath) {
     $session = ConvertFrom-SessionDocument $journal.session
     $phase = [string]$journal.phase
 
-    if ($phase -eq 'stopping') {
+    if ($phase -eq 'stopping' -or $phase -eq 'restoring') {
         Restore-AmneziaSession $session $ExePath
         Remove-Item -LiteralPath $JournalPath -Force
         Write-Host 'Восстановлена AmneziaVPN после прерванной подготовки.'
@@ -923,25 +1041,25 @@ function Restore-PendingTransaction([string]$ExePath) {
     if (-not (Test-Path -LiteralPath $backupPath -PathType Leaf)) {
         throw "Registry journal указывает на отсутствующий backup: $backupPath"
     }
+    if ($session.Connected -and -not (Test-Elevated)) {
+        throw 'Для восстановления подключённой Amnezia нужны права администратора; journal сохранён.'
+    }
     Stop-AmneziaGui
     if ($session.Connected) {
-        if (Test-Elevated) {
-            Stop-AmneziaTunnel
-        } else {
-            Write-Warning 'Нет прав администратора: туннель не перезапущен, старые маршруты доживут до переподключения VPN.'
-        }
+        Stop-AmneziaTunnel
     }
     Restore-RoutingRegistrySnapshot (Read-JsonFile $backupPath)
     Write-JsonAtomic $ManagedPath @($journal.previous_managed | ForEach-Object { [string]$_ })
-    Remove-Item -LiteralPath $JournalPath -Force
+    Write-JsonAtomic $JournalPath ([ordered]@{ version = 1; phase = 'restoring'; session = (ConvertTo-SessionDocument $session) })
     Restore-AmneziaSession $session $ExePath
+    Remove-Item -LiteralPath $JournalPath -Force
     Write-Host 'Откачена незавершённая routing-транзакция.'
 }
 
-function Invoke-RoutingTransaction([string[]]$Entries, [string]$ExePath) {
+function Invoke-RoutingTransaction([string[]]$Entries, [string]$ExePath, $DomainAddresses = @{}) {
     $current = Read-ExceptSites
     $previousManaged = @(Read-ManagedEntries)
-    $desired = Get-DesiredSites $current $previousManaged $Entries
+    $desired = Get-DesiredSites $current $previousManaged $Entries $DomainAddresses
     $scalars = Read-RoutingScalars
     $manualCount = $desired.Count - @($Entries).Count
 
@@ -954,6 +1072,17 @@ function Invoke-RoutingTransaction([string[]]$Entries, [string]$ExePath) {
     }
 
     $session = Get-AmneziaSession
+    $currentSessionId = [Diagnostics.Process]::GetCurrentProcess().SessionId
+    if (@(Get-Process -Name $GuiProcessName -ErrorAction SilentlyContinue |
+            Where-Object { $_.SessionId -ne $currentSessionId }).Count -gt 0) {
+        throw 'AmneziaVPN запущена в другой сессии Windows. Обновление отложено, чтобы не прервать чужое подключение.'
+    }
+    if ($session.Connected -and -not $session.AutoConnect -and $session.ServerIndex -lt 0) {
+        throw 'Amnezia хранит выбранный сервер по ID: включите автоподключение или задайте -ServerIndex (с нуля), чтобы восстановить тот же VPN. Настройки не изменены.'
+    }
+    if ($session.GuiRunning -and -not $session.Connected -and $session.AutoConnect) {
+        throw 'VPN отключён при включённом автоподключении. Закройте AmneziaVPN или подключитесь перед обновлением, чтобы перезапуск не изменил состояние подключения.'
+    }
     if ($NoRestart) {
         if ($session.GuiRunning -or $session.Connected) {
             throw 'Указан -NoRestart, но AmneziaVPN запущена: закройте её и отключите VPN, иначе запись затрётся.'
@@ -981,7 +1110,7 @@ function Invoke-RoutingTransaction([string[]]$Entries, [string]$ExePath) {
 
         # После выхода GUI кэш QSettings уже на диске — перечитываем факт.
         $current = Read-ExceptSites
-        $desired = Get-DesiredSites $current $previousManaged $Entries
+        $desired = Get-DesiredSites $current $previousManaged $Entries $DomainAddresses
         $manualCount = $desired.Count - @($Entries).Count
 
         $backupPath = Join-Path $BackupDir ("routing-{0}.json" -f (Get-Date -Format 'yyyyMMdd-HHmmss-fff'))
@@ -1011,6 +1140,9 @@ function Invoke-RoutingTransaction([string[]]$Entries, [string]$ExePath) {
             throw
         }
     } finally {
+        if ($resolved) {
+            Write-JsonAtomic $JournalPath ([ordered]@{ version = 1; phase = 'restoring'; session = (ConvertTo-SessionDocument $session) })
+        }
         if ($stopAttempted) {
             Restore-AmneziaSession $session $ExePath
         }
@@ -1075,13 +1207,17 @@ if ($Status) {
     Write-Host "Записей в Conf\ExceptSites: $($sites.Count)"
     Write-Host "routeMode: $($scalars.mode) (нужно 2)"
     Write-Host "sitesSplitTunnelingEnabled: $($scalars.enabled) (нужно true)"
+    Write-Host "appsSplitTunnelingEnabled: $($scalars.apps_enabled)"
+    if ($scalars.apps_enabled -ceq 'true') {
+        Write-Host 'Исключения приложений включены: для этих приложений действуют отдельные правила обхода VPN.'
+    }
     Write-Host "Записей под управлением скрипта: $($managed.Count)"
 
     try {
         foreach ($probe in @('gosuslugi.ru', 'esia.gosuslugi.ru', 'sberbank.ru', '213.59.252.0/22')) {
             # Присваивание из if разворачивает пустой массив в $null, поэтому @() отдельно.
             $values = @()
-            if ($sites.ContainsKey($probe)) { $values = @($sites[$probe]) }
+            if ($sites.ContainsKey($probe)) { $values = @($sites[$probe] | Where-Object { $_ }) }
             $present = if ($sites.ContainsKey($probe)) { 'есть' } else { 'НЕТ' }
             $resolved = if ($values.Count -gt 0) { " (значения: $($values -join ', '))" } else { ' (значения пусты)' }
             Write-Host "  $probe в списке: $present$resolved"
@@ -1089,6 +1225,11 @@ if ($Status) {
         $networkKeys = @($sites.Keys | Where-Object { $_ -like '*/*' })
         $domainKeys = @($sites.Keys | Where-Object { $_ -notlike '*/*' })
         Write-Host "Ключей-сетей: $($networkKeys.Count), ключей-доменов: $($domainKeys.Count)"
+        $resolvedDomains = @($domainKeys | Where-Object { @(Get-PublicIPv4Values $sites[$_]).Count -gt 0 }).Count
+        Write-Host "Доменов с сохранёнными публичными IPv4: $resolvedDomains из $($domainKeys.Count)"
+        if ($resolvedDomains -lt $domainKeys.Count) {
+            Write-Warning 'Домены без IP не создают маршруты в AmneziaWG; их могут покрывать готовые сети CIDR.'
+        }
         Write-Host "Примеры сетей: $((@($networkKeys | Sort-Object | Select-Object -First 5)) -join ', ')"
         Write-Host "Примеры доменов: $((@($domainKeys | Sort-Object | Select-Object -First 5)) -join ', ')"
     } catch {
@@ -1103,6 +1244,7 @@ if ($Status) {
         Write-Host "Служба демона: $daemonStatus"
         Write-Host "Служба туннеля: $tunnelStatus"
         Write-Host "GUI запущена: $(Test-GuiRunning); VPN-адаптер поднят: $(Test-VpnAdapterUp)"
+        if (-not (Test-TunnelRunning)) { Write-Warning 'VPN не подключён: прямой маршрут сам по себе не подтверждает работу split tunneling.' }
         foreach ($adapter in [Net.NetworkInformation.NetworkInterface]::GetAllNetworkInterfaces()) {
             if ($adapter.OperationalStatus -eq [Net.NetworkInformation.OperationalStatus]::Up) {
                 Write-Host "  адаптер up: $($adapter.Name) / $($adapter.Description)"
@@ -1208,7 +1350,10 @@ try {
 
     if ($DryRun) { exit 0 }
 
-    $result = Invoke-RoutingTransaction $entries $exePath
+    $dns = Resolve-ManagedDomains $list.Domains
+    Write-Host "DNS: $($dns.Addresses.Count) из $($list.Domains.Count) доменов с публичными IPv4; кэш: $($dns.Cached)"
+    $result = Invoke-RoutingTransaction $entries $exePath $dns.Addresses
+    Write-JsonAtomic $DnsCachePath $dns.Cache
 
     Write-TextAtomic $ImportPath $text
     Write-JsonAtomic $StatusPath ([ordered]@{
@@ -1219,12 +1364,13 @@ try {
         entry_count              = $entries.Count
         manual_entries_preserved = [int]$result.ManualCount
         app_version              = $appVersion
+        dns_resolved_count       = $dns.Addresses.Count
         updated_at               = [DateTime]::UtcNow.ToString('o')
     })
 
     if ($result.Changed) {
         Write-Host ("AmneziaVPN обновлена: $($entries.Count) записей, сохранено ручных записей: $($result.ManualCount). " +
-                    'GUI и туннель перезапущены — перезагрузка Windows не нужна.')
+                    'Настройки проверены; исходное состояние подключения восстановлено.')
     } else {
         Write-Host "AmneziaVPN уже содержит актуальные $($entries.Count) записей."
     }

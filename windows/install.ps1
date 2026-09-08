@@ -16,6 +16,8 @@
 param(
     [switch]$Lite,
     [switch]$ReplaceAll,
+    [ValidateRange(-1, 10000)]
+    [int]$ServerIndex = -1,
     [string]$Source
 )
 
@@ -44,10 +46,17 @@ $TaskName = "Amnezia-Split-Route-Sync-$CurrentSid"
 $PowerShellExe = "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe"
 if (-not (Test-Path -LiteralPath $PowerShellExe -PathType Leaf)) { throw "Не найден $PowerShellExe" }
 
+if ($Source) {
+    if ($Source -match '["\r\n]') { throw 'Источник не должен содержать кавычки или переносы строк.' }
+    if (-not $Source.StartsWith('https://', [StringComparison]::OrdinalIgnoreCase)) {
+        $Source = (Resolve-Path -LiteralPath $Source -ErrorAction Stop).ProviderPath
+    }
+}
 $updaterArguments = New-Object 'System.Collections.Generic.List[string]'
 if ($Lite) { [void]$updaterArguments.Add('-Lite') }
 if ($ReplaceAll) { [void]$updaterArguments.Add('-ReplaceAll') }
 if ($Source) { [void]$updaterArguments.Add("-Source `"$Source`"") }
+if ($ServerIndex -ge 0) { [void]$updaterArguments.Add("-ServerIndex $ServerIndex") }
 $updaterArgumentText = ($updaterArguments -join ' ')
 
 $stagingDir = Join-Path $env:TEMP ("amnezia-route-stage-{0}" -f [Guid]::NewGuid().ToString('N'))
@@ -79,7 +88,7 @@ try {
     $scriptExisted = Test-Path -LiteralPath $InstalledScript -PathType Leaf
     if ($scriptExisted) { Copy-Item -LiteralPath $InstalledScript -Destination (Join-Path $backupDir 'update-amnezia-routes.ps1') -Force }
 
-    $oldTasks = @(Get-ScheduledTask -ErrorAction SilentlyContinue | Where-Object { $_.TaskName -ceq $TaskName })
+    $oldTasks = @(Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue)
     if ($oldTasks.Count -gt 1) { throw 'Task Scheduler вернул несколько задач с одним именем.' }
     if ($oldTasks.Count -eq 1) {
         $taskWasPresent = $true
@@ -89,11 +98,12 @@ try {
     $mutationStarted = $true
     $temporaryTarget = Join-Path $InstallDir ".update-amnezia-routes.ps1.new.$PID"
     Copy-Item -LiteralPath $stagedScript -Destination $temporaryTarget -Force
-    Move-Item -LiteralPath $temporaryTarget -Destination $InstalledScript -Force
+    if ([IO.File]::Exists($InstalledScript)) { [IO.File]::Replace($temporaryTarget, $InstalledScript, [NullString]::Value) }
+    else { [IO.File]::Move($temporaryTarget, $InstalledScript) }
 
-    $taskArgumentText = "-NoProfile -ExecutionPolicy Bypass -File `"$InstalledScript`""
+    $taskArgumentText = "-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File `"$InstalledScript`""
     if ($updaterArgumentText) { $taskArgumentText = "$taskArgumentText $updaterArgumentText" }
-    $action = New-ScheduledTaskAction -Execute $PowerShellExe -Argument $taskArgumentText
+    $action = New-ScheduledTaskAction -Execute $PowerShellExe -Argument $taskArgumentText -WorkingDirectory $InstallDir
     $user = $identity.Name
     $triggers = @(
         (New-ScheduledTaskTrigger -AtLogOn -User $user),
@@ -102,13 +112,14 @@ try {
     )
     $taskPrincipal = New-ScheduledTaskPrincipal -UserId $user -LogonType Interactive -RunLevel Highest
     $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries `
-        -StartWhenAvailable -RunOnlyIfNetworkAvailable -MultipleInstances IgnoreNew `
+        -StartWhenAvailable -MultipleInstances IgnoreNew `
+        -RestartCount 3 -RestartInterval (New-TimeSpan -Minutes 5) `
         -ExecutionTimeLimit (New-TimeSpan -Minutes 30)
     $task = New-ScheduledTask -Action $action -Trigger $triggers -Principal $taskPrincipal -Settings $settings `
         -Description 'Amnezia Route Sync: обновление списка RU Direct в split tunneling AmneziaVPN'
     Register-ScheduledTask -TaskName $TaskName -InputObject $task -Force | Out-Null
 
-    $registeredTasks = @(Get-ScheduledTask -ErrorAction Stop | Where-Object { $_.TaskName -ceq $TaskName })
+    $registeredTasks = @(Get-ScheduledTask -TaskName $TaskName -ErrorAction Stop)
     if ($registeredTasks.Count -ne 1) { throw 'Task Scheduler не сохранил задачу.' }
 
     $installComplete = $true
@@ -122,7 +133,7 @@ try {
 } catch {
     if ($mutationStarted -and -not $installComplete) {
         try {
-            $rollbackTasks = @(Get-ScheduledTask -ErrorAction SilentlyContinue | Where-Object { $_.TaskName -ceq $TaskName })
+            $rollbackTasks = @(Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue)
             if ($rollbackTasks.Count -ge 1) { Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction Stop }
             if ($taskWasPresent -and $oldTaskXml) {
                 Register-ScheduledTask -TaskName $TaskName -Xml $oldTaskXml -Force | Out-Null
