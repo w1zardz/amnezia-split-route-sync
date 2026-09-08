@@ -165,6 +165,18 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
     lines = [
         f"# RU Direct — сборка {counts['built']}",
         "",
+        "## Сначала проверьте подключение",
+        "",
+        "**Amnezia Free: импорт этого JSON не включит раздельное туннелирование по IP.** "
+        "Для этого сценария на серверах Amnezia нужна действующая подписка **Amnezia Premium**. "
+        "Наши списки и скрипты не включают Premium и не снимают ограничение Free.",
+        "",
+        "**Свой сервер (Amnezia Self-hosted): Premium покупать не требуется**, "
+        "но подключение должно поддерживать раздельное туннелирование по IP. "
+        "Бесплатное приложение AmneziaVPN и подключение Amnezia Free — разные вещи. "
+        "Основание: [инструкция Amnezia](https://docs.amnezia.org/ru/documentation/instructions/vpn-split-tunneling/) "
+        "и [условия Self-hosted](https://amnezia.org/ru/self-hosted). Сверено 8 сентября 2026 года.",
+        "",
         "## 👉 Какой файл качать",
         "",
         "### 🪟 Windows и 🤖 Android — `amnezia-ru-direct.json`",
@@ -173,22 +185,20 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
         "",
         "### 🍏 iPhone, iPad, macOS и Linux — `amnezia-ru-direct-ip.json`",
         "",
-        "У этих платформ Amnezia умеет раздельное туннелирование "
-        "[**только по IP-адресам**](https://docs.amnezia.org/ru/documentation/instructions/vpn-split-tunneling/) — "
-        "домены она молча игнорирует. Полный список там не сработает: "
-        f"из {counts['entries']} записей применятся только {counts['ip_entries']}, "
-        "и то не всегда. Поэтому для них собран отдельный файл — "
-        f"**{counts['ip_entries']} сетей IPv4, ни одного домена**.",
+        f"Рекомендуемый файл для этих платформ — **{counts['ip_entries']} готовых сетей IPv4**. "
+        "Он не зависит от преобразования доменных записей в IP самим клиентом. "
+        "Наш macOS-updater использует его по умолчанию. IP-список подходит и для Windows/Android.",
         "",
-        "На Amnezia Free раздельное туннелирование по IP недоступно — нужен обычный AmneziaVPN.",
+        "Один импорт доменов не обеспечивает обновление их IPv4. "
+        "В полном списке для Windows текущие адреса регулярно заполняет наш updater.",
         "",
         "### 🔧 Клиент не умеет split tunneling — `wg-allowed-ips.txt`",
         "",
         f"Готовая строка `AllowedIPs` из {counts['allowed_ips']} префиксов: весь IPv4 "
         "минус российские сети и приватные диапазоны. Вставляется в секцию `[Peer]` "
-        "конфига WireGuard или AmneziaWG вместо `0.0.0.0/0`. Туннель просто не забирает "
-        "российские адреса — раздельное туннелирование работает на уровне конфига, "
-        "без всякой поддержки со стороны клиента.",
+        "конфига WireGuard или AmneziaWG вместо `0.0.0.0/0`. Нужны рабочий доступ к серверу "
+        "и клиент с возможностью редактирования `AllowedIPs`. Для своего конфига Premium "
+        "не требуется; этот файл не снимает ограничения подключения Amnezia Free.",
         "",
         f"`amnezia-ru-direct-lite.json` — запасной вариант для Windows и Android: "
         f"{counts['lite_entries']} записей вместо {counts['entries']}, только самые популярные "
@@ -198,26 +208,32 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
         "",
         "## Как импортировать",
         "",
+        "Сначала выберите совместимое подключение: Premium с активной подпиской или свой сервер. "
+        "Убедитесь, что раздельное туннелирование сайтов доступно.",
+        "",
         "AmneziaVPN → **Настройки → Раздельное туннелирование сайтов** → "
-        "«Адреса из списка не должны открываться через VPN» → ⋮ → "
-        "**Заменить список с сайтами** → выбрать JSON → **переподключить VPN**.",
+        "«Адреса из списка не должны открываться через VPN» → включить функцию → ⋮ → "
+        "**Заменить список с сайтами** → выбрать JSON → **переподключить VPN**. "
+        "Замена удаляет прежний список; для сохранения своих записей выберите добавление к существующим.",
         "",
         "На iPhone сначала сохрани файл в «Файлы» (Safari → «Загрузить»), потом выбирай его оттуда.",
         "",
-        "Проверка: при включённом VPN открой [yandex.ru/internet](https://yandex.ru/internet) — "
-        "должен показать домашний российский IP. Сайты вне списка (2ip.ru и подобные "
-        "зарубежные) продолжат показывать IP сервера, так и задумано.",
+        "Успешный импорт подтверждает чтение файла, а не работу маршрутов. "
+        "Для проверки откройте [yandex.ru/internet](https://yandex.ru/internet): "
+        "при применившемся исключении он покажет IP обычного интернет-подключения. "
+        "Это проверка одного соединения. За пределами России список не создаёт российский IP.",
         "",
         "---",
         "",
         f"**{counts['services']}** сервисов · **{counts['domains']}** доменов · "
         f"**{counts['cidrs']}** сетей IPv4 · покрытие **{counts['addresses']:,}** адресов".replace(",", " "),
         "",
-        "Всё, что открывается только с российского IP, идёт напрямую, остальной трафик — через VPN.",
+        "При включённом режиме исключений адреса из списка идут напрямую, остальной трафик — через VPN.",
         "",
         "| Файл | Кому нужен |",
         "|---|---|",
-        "| **`amnezia-ru-direct.json`** | **всем — это основной файл** |",
+        "| **`amnezia-ru-direct.json`** | Windows/Android: домены + сети |",
+        "| **`amnezia-ru-direct-ip.json`** | iOS/macOS/Linux; также Windows/Android, если нужны только сети |",
         "| `amnezia-ru-direct-lite.json` | слабые и старые устройства |",
         "| `ru-direct-domains.txt` | свои скрипты, AdGuard Home, dnsmasq |",
         "| `ru-direct-ipv4.txt` | роутеры, ipset, свой роутинг |",
@@ -244,7 +260,7 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
         "",
         "Не хочешь возиться с импортом — тот же роутинг в один тап есть у "
         "[MATRIX VPN](https://mtrxvpn.com/happ-ru-direct): профиль ставится по ссылке "
-        "`happ://` за 30 секунд и обновляется сам.",
+        "`happ://` и обновляется сам.",
         "",
     ]
     return "\n".join(lines)
@@ -285,8 +301,7 @@ def main() -> int:
 
         full_entries = import_entries(full_domains + full_cidrs)
         lite_entries = import_entries(lite_domains + lite_cidrs)
-        # iOS/macOS/Linux-клиенты Amnezia принимают в split tunneling только IP-адреса,
-        # домены там молча игнорируются — им нужен список без единого имени хоста.
+        # Экспорт готовых сетей не зависит от DNS-обработки доменных записей клиентом.
         ip_entries = import_entries(full_cidrs)
         allowed_ips = invert_networks(full_cidrs)
         happ = {
