@@ -3,8 +3,8 @@
   "updated": "2026-09-08",
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
-  "prefix_count": 248,
-  "rejected_count": 31266,
+  "prefix_count": 226,
+  "rejected_count": 31307,
   "dropped_by_limit": 0,
   "domain_count": 888,
   "sources": {
@@ -13,7 +13,7 @@
       "parsed": 30228,
       "networks": 30228,
       "domains": 0,
-      "accepted": 290,
+      "accepted": 265,
       "accepted_domains": 0
     },
     "mobile-whitelist-domains": {
@@ -29,7 +29,7 @@
       "parsed": 88,
       "networks": 88,
       "domains": 0,
-      "accepted": 20,
+      "accepted": 18,
       "accepted_domains": 0
     },
     "unrkn-vpn-domains": {
@@ -53,7 +53,7 @@
       "parsed": 7071,
       "networks": 1535,
       "domains": 1954,
-      "accepted": 275,
+      "accepted": 261,
       "accepted_domains": 110
     }
   },
@@ -109,15 +109,6 @@
       "cc": "RU",
       "sources": [
         "lib4u-amnezia"
-      ],
-      "source": "external"
-    },
-    "5.61.232.0/21": {
-      "asn": 47764,
-      "as_name": "VK-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
       ],
       "source": "external"
     },
@@ -424,15 +415,6 @@
       ],
       "source": "external"
     },
-    "46.42.186.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "46.149.164.0/24": {
       "asn": 50340,
       "as_name": "SELECTEL-MSK",
@@ -582,15 +564,6 @@
       ],
       "source": "external"
     },
-    "78.159.252.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "79.137.186.0/23": {
       "asn": 56631,
       "as_name": "ONLANTA-NET",
@@ -606,15 +579,6 @@
       "cc": "RU",
       "sources": [
         "lib4u-amnezia"
-      ],
-      "source": "external"
-    },
-    "79.137.240.0/21": {
-      "asn": 47764,
-      "as_name": "VK-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
       ],
       "source": "external"
     },
@@ -721,15 +685,6 @@
       ],
       "source": "external"
     },
-    "84.252.150.0/23": {
-      "asn": 35237,
-      "as_name": "SBERBANK",
-      "cc": "RU",
-      "sources": [
-        "lib4u-amnezia"
-      ],
-      "source": "external"
-    },
     "85.26.144.0/20": {
       "asn": 25159,
       "as_name": "SONICDUO-AS",
@@ -831,15 +786,6 @@
       ],
       "source": "external"
     },
-    "89.221.228.0/22": {
-      "asn": 47764,
-      "as_name": "VK-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "89.253.192.0/18": {
       "asn": 41535,
       "as_name": "RUSONYX-AS",
@@ -914,31 +860,12 @@
       ],
       "source": "external"
     },
-    "91.230.107.0/24": {
-      "asn": 57073,
-      "as_name": "WILDBERRIES-AS",
-      "cc": "RU",
-      "sources": [
-        "lib4u-amnezia",
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "91.236.48.0/22": {
       "asn": 197482,
       "as_name": "DGIS",
       "cc": "RU",
       "sources": [
         "lib4u-amnezia",
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "91.238.108.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1033,6 +960,15 @@
       ],
       "source": "external"
     },
+    "93.93.88.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "93.93.92.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
@@ -1113,17 +1049,6 @@
       "cc": "RU",
       "sources": [
         "lib4u-amnezia"
-      ],
-      "source": "external"
-    },
-    "95.163.248.0/21": {
-      "asn": 47764,
-      "as_name": "VK-AS",
-      "cc": "RU",
-      "sources": [
-        "lib4u-amnezia",
-        "mobile-whitelist-cidr",
-        "operator-whitelist-cidr"
       ],
       "source": "external"
     },
@@ -1221,88 +1146,6 @@
       ],
       "source": "external"
     },
-    "151.236.64.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "151.236.80.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "lib4u-amnezia",
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "151.236.84.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "151.236.90.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "151.236.94.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "151.236.100.0/24": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "151.236.106.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "151.236.111.0/24": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "151.236.122.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "155.212.176.0/21": {
       "asn": 50340,
       "as_name": "SELECTEL-MSK",
@@ -1349,15 +1192,6 @@
       ],
       "source": "external"
     },
-    "176.112.168.0/21": {
-      "asn": 47764,
-      "as_name": "VK-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "178.176.0.0/19": {
       "asn": 25159,
       "as_name": "SONICDUO-AS",
@@ -1379,15 +1213,6 @@
     "178.210.64.0/20": {
       "asn": 48287,
       "as_name": "RU-CENTER",
-      "cc": "RU",
-      "sources": [
-        "lib4u-amnezia"
-      ],
-      "source": "external"
-    },
-    "178.237.20.0/24": {
-      "asn": 47764,
-      "as_name": "VK-AS",
       "cc": "RU",
       "sources": [
         "lib4u-amnezia"
@@ -1431,16 +1256,6 @@
       ],
       "source": "external"
     },
-    "185.16.148.0/22": {
-      "asn": 47764,
-      "as_name": "VK-AS",
-      "cc": "RU",
-      "sources": [
-        "lib4u-amnezia",
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "185.17.168.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
@@ -1465,15 +1280,6 @@
       "cc": "RU",
       "sources": [
         "lib4u-amnezia"
-      ],
-      "source": "external"
-    },
-    "185.31.112.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
       ],
       "source": "external"
     },
@@ -1576,15 +1382,6 @@
       "sources": [
         "lib4u-amnezia",
         "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "185.130.112.0/22": {
-      "asn": 47764,
-      "as_name": "VK-AS",
-      "cc": "RU",
-      "sources": [
-        "operator-whitelist-cidr"
       ],
       "source": "external"
     },

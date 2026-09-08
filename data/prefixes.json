@@ -2,10 +2,10 @@
   "version": 1,
   "updated": "2026-09-08",
   "source": "Team Cymru bulk whois + RIPEstat announced-prefixes + внешние списки",
-  "prefix_count": 949,
-  "external_count": 248,
+  "prefix_count": 930,
+  "external_count": 226,
   "external_domains": 888,
-  "resolved_domains": 1844,
+  "resolved_domains": 1838,
   "catalog_domains": 1929,
   "prefixes": {
     "5.8.17.0/24": {
@@ -898,16 +898,6 @@
       ],
       "source": "dns"
     },
-    "46.42.186.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "46.61.128.0/17": {
       "asn": 12389,
       "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
@@ -1388,8 +1378,7 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "mobile",
-        "shops"
+        "mobile"
       ],
       "source": "dns"
     },
@@ -1411,16 +1400,6 @@
         "shops"
       ],
       "source": "dns"
-    },
-    "78.159.252.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
     },
     "79.137.139.0/24": {
       "asn": 47541,
@@ -2005,16 +1984,6 @@
         "sber"
       ],
       "source": "asn"
-    },
-    "84.252.150.0/23": {
-      "asn": 35237,
-      "as_name": "SBERBANK",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "lib4u-amnezia"
-      ]
     },
     "84.252.150.0/24": {
       "asn": 35237,
@@ -3066,6 +3035,15 @@
       ],
       "source": "dns"
     },
+    "91.227.52.0/23": {
+      "asn": 56806,
+      "as_name": "ascom4s - JSC Computing Forces, RU",
+      "cc": "RU",
+      "services": [
+        "payments"
+      ],
+      "source": "dns"
+    },
     "91.230.107.0/24": {
       "asn": 57073,
       "as_name": "Wildberries-AS - LLC Wildberries, RU",
@@ -3100,16 +3078,6 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
-    },
-    "91.231.235.0/24": {
-      "asn": 57363,
-      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-domains"
-      ]
     },
     "91.232.6.0/23": {
       "asn": 60343,
@@ -3212,16 +3180,6 @@
       ],
       "source": "dns"
     },
-    "91.238.108.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "91.240.84.0/22": {
       "asn": 29182,
       "as_name": "RU-JSCIOT",
@@ -3230,16 +3188,6 @@
       "source": "external",
       "sources": [
         "operator-whitelist-cidr"
-      ]
-    },
-    "91.240.170.0/24": {
-      "asn": 57363,
-      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-domains"
       ]
     },
     "91.242.32.0/21": {
@@ -3441,6 +3389,15 @@
       "cc": "AE",
       "services": [
         "other-banks"
+      ],
+      "source": "dns"
+    },
+    "93.93.88.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
       ],
       "source": "dns"
     },
@@ -4360,11 +4317,9 @@
     },
     "109.207.9.0/24": {
       "asn": 196747,
-      "as_name": "Electronic-government - PJSC Rostelecom, RU",
+      "as_name": "Электронное правительство (Госуслуги)",
       "cc": "RU",
-      "services": [
-        "gosuslugi"
-      ],
+      "services": [],
       "source": "asn"
     },
     "109.207.10.0/23": {
@@ -4569,147 +4524,6 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
-    },
-    "151.236.64.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "151.236.80.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "lib4u-amnezia",
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "151.236.83.0/24": {
-      "asn": 57363,
-      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-domains"
-      ]
-    },
-    "151.236.84.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "151.236.84.0/24": {
-      "asn": 57363,
-      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-domains"
-      ]
-    },
-    "151.236.90.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "151.236.94.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "151.236.100.0/24": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "151.236.103.0/24": {
-      "asn": 204720,
-      "as_name": "CDNetworks - GLOBAL CLOUD NETWORK LLC, RU",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-domains"
-      ]
-    },
-    "151.236.106.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "151.236.111.0/24": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "151.236.112.0/24": {
-      "asn": 204720,
-      "as_name": "CDNetworks - GLOBAL CLOUD NETWORK LLC, RU",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-domains"
-      ]
-    },
-    "151.236.122.0/23": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "151.236.123.0/24": {
-      "asn": 57363,
-      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-domains"
-      ]
     },
     "153.51.96.0/19": {
       "asn": 200350,
@@ -5186,16 +5000,6 @@
       "services": [],
       "source": "asn"
     },
-    "178.237.20.0/24": {
-      "asn": 47764,
-      "as_name": "VK-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "lib4u-amnezia"
-      ]
-    },
     "178.237.21.0/24": {
       "asn": 28709,
       "as_name": "VK — региональный CDN (раздача видео)",
@@ -5469,16 +5273,6 @@
       "source": "external",
       "sources": [
         "lib4u-amnezia"
-      ]
-    },
-    "185.31.112.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
       ]
     },
     "185.31.164.0/22": {
@@ -6200,20 +5994,20 @@
       "asn": 24823,
       "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
       "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-domains"
-      ]
+      "services": [
+        "vtb"
+      ],
+      "source": "dns"
     },
     "185.179.146.0/24": {
       "asn": 24823,
       "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
       "cc": "RU",
-      "services": [
-        "vtb"
-      ],
-      "source": "dns"
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
     },
     "185.179.226.0/24": {
       "asn": 43740,
@@ -6477,6 +6271,15 @@
       "sources": [
         "mobile-whitelist-cidr"
       ]
+    },
+    "188.127.224.0/20": {
+      "asn": 56694,
+      "as_name": "SmartApe - LLC Smart Ape, RU",
+      "cc": "RU",
+      "services": [
+        "payments"
+      ],
+      "source": "dns"
     },
     "188.162.48.0/20": {
       "asn": 31133,
@@ -6843,15 +6646,6 @@
       "cc": "RU",
       "services": [
         "delivery-extra"
-      ],
-      "source": "dns"
-    },
-    "194.67.71.0/24": {
-      "asn": 197695,
-      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
-      "cc": "RU",
-      "services": [
-        "food"
       ],
       "source": "dns"
     },
@@ -7425,6 +7219,15 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "195.208.65.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
     "195.208.66.0/24": {
       "asn": 34879,
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
@@ -7748,8 +7551,7 @@
       "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
       "cc": "RU",
       "services": [
-        "gov-extra",
-        "mos"
+        "gov-extra"
       ],
       "source": "dns"
     },
