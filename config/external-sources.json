@@ -18,7 +18,7 @@
       "enabled": true,
       "kind": "domains",
       "url": "https://raw.githubusercontent.com/hxehex/russia-mobile-internet-whitelist/main/whitelist.txt",
-      "note": "Домены из того же белого списка. В сборку не идут — попадают в отчёт как кандидаты для data/services."
+      "note": "Домены из того же белого списка. Новые поддомены сервисов каталога дополняют полный список, остальные остаются кандидатами."
     },
     {
       "id": "operator-whitelist-cidr",
@@ -26,6 +26,27 @@
       "kind": "cidr",
       "url": "https://raw.githubusercontent.com/escapingworm/russia-whitelist/main/ru-whitelist-cidr.txt",
       "note": "Агрегированные белые списки операторов связи."
+    },
+    {
+      "id": "unrkn-vpn-domains",
+      "enabled": true,
+      "kind": "domains",
+      "url": "https://raw.githubusercontent.com/UnRKN/ru-blocklist/main/ru-blocklist.txt",
+      "note": "Сервисы, для которых авторы отмечают ограничения VPN. Это кандидаты, а не подтверждение блокировки для каждого сайта."
+    },
+    {
+      "id": "itdog-russia-only",
+      "enabled": true,
+      "kind": "domains",
+      "url": "https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/outside-raw.lst",
+      "note": "Только список ресурсов, доступных из России. Russia/inside-raw.lst имеет обратное назначение и не импортируется."
+    },
+    {
+      "id": "lib4u-amnezia",
+      "enabled": true,
+      "kind": "amnezia",
+      "url": "https://raw.githubusercontent.com/lib4u/amnezia-tunneling-ru/main/amnezia.json",
+      "note": "Домены и их IPv4 из сборщика на основе v2fly/domain-list-community. Все IP проходят наш фильтр ASN; локальные зоны и новые корневые домены в direct автоматически не добавляются."
     }
   ]
 }

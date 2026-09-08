@@ -25,15 +25,16 @@
 
 - [`hxehex/russia-mobile-internet-whitelist`](https://github.com/hxehex/russia-mobile-internet-whitelist) — MIT
 - [`escapingworm/russia-whitelist`](https://github.com/escapingworm/russia-whitelist) — MIT
+- [`UnRKN/ru-blocklist`](https://github.com/UnRKN/ru-blocklist) — кандидаты доменов с ограничениями VPN
+- [`itdoginfo/allow-domains`](https://github.com/itdoginfo/allow-domains) — только `Russia/outside-raw.lst`, ресурсы, доступные из России
+- [`lib4u/amnezia-tunneling-ru`](https://github.com/lib4u/amnezia-tunneling-ru) — домены и IPv4 из `amnezia.json`, сборка на основе `v2fly/domain-list-community`
 
 Их файлы в репозиторий не копируются. В `data/external.json` попадает результат
-собственной проверки: около 2% исходных записей, приведённых к анонсируемым
-BGP-префиксам и сопоставленных с ASN сервисов каталога. Домены из этих
-источников в сборку не включаются вовсе.
-
-Фактические данные (номера AS, IP-префиксы, доменные имена) правовой охране
-авторским правом не подлежат; ASN и границы префиксов принадлежат их
-операторам.
+собственной проверки: CIDR внутри диапазонов IP→ASN сервисов каталога и новые
+поддомены уже проверенных сервисов. Для каждой записи сохраняется происхождение;
+остальные домены перечислены в `data/external-candidates.json` для проверки.
+Код и документация внешних проектов не импортируются. Ссылки выше указывают на
+оригинальные репозитории и их условия использования.
 
 MIT License в этом репозитории относится к исходному коду, каталогу сервисов и
 документации этого проекта.

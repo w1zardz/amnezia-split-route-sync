@@ -254,6 +254,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, default=DIST)
     parser.add_argument("--personal", type=Path, help="личный довесок, в публичный репозиторий не коммитится")
+    parser.add_argument("--no-external", action="store_true", help="без внешних поддоменов и сетей")
     parser.add_argument("--dry-run", action="store_true")
     arguments = parser.parse_args()
 
@@ -262,6 +263,9 @@ def main() -> int:
         prefixes = catalog.load_prefixes()
         if not prefixes:
             raise BuildError("нет data/prefixes.json — сначала запусти tools/refresh_prefixes.py")
+        external_domains = {} if arguments.no_external else catalog.load_external_domains(services)
+        if arguments.no_external:
+            prefixes = {value: meta for value, meta in prefixes.items() if meta.get("source") != "external"}
 
         personal_domains: list[str] = []
         personal_cidrs: list[str] = []
@@ -270,7 +274,8 @@ def main() -> int:
             personal_domains, personal_cidrs, protected = load_personal(arguments.personal)
 
         full_domains, full_cidrs = build(
-            services, prefixes, ("core", "extended"), personal_domains, personal_cidrs
+            services, prefixes, ("core", "extended"),
+            [*personal_domains, *external_domains], personal_cidrs
         )
         lite_domains, lite_cidrs = build(
             services, prefixes, ("core",), personal_domains, personal_cidrs
@@ -305,6 +310,7 @@ def main() -> int:
             "prefix_snapshot": len(prefixes),
             "personal_domains": len(personal_domains),
             "personal_cidrs": len(personal_cidrs),
+            "external_domains": len(external_domains),
         }
 
         if arguments.dry_run:

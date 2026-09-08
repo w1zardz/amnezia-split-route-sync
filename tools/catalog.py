@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SERVICES_DIR = ROOT / "data" / "services"
 PREFIXES_FILE = ROOT / "data" / "prefixes.json"
 EXTERNAL_FILE = ROOT / "data" / "external.json"
+# Полный список дополнительно ограничен 4000 записями в сборщике и апдейтерах.
+MAX_EXTERNAL_DOMAINS = 1500
 
 TIERS = ("core", "extended")
 HOSTNAME = re.compile(
@@ -219,6 +221,42 @@ def domain_owner(services: Iterable[Service]) -> dict[str, list[str]]:
         for domain in service.domains:
             owners.setdefault(domain, []).append(service.id)
     return owners
+
+
+def external_domain_parent(domain: str, trusted: set[str]) -> str | None:
+    """Ближайший родитель из ручного каталога; совпадение только по границе метки."""
+    if domain in trusted:
+        return None
+    labels = domain.split(".")
+    for index in range(1, len(labels) - 1):
+        parent = ".".join(labels[index:])
+        if parent in trusted:
+            return parent
+    return None
+
+
+def load_external_domains(services: Iterable[Service], path: Path = EXTERNAL_FILE) -> dict[str, dict]:
+    """Повторно проверяем привязку импортированных поддоменов к ручному каталогу."""
+    if not path.exists():
+        return {}
+    document = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(document, dict) or document.get("version") != 1:
+        raise CatalogError(f"{path.name}: ожидается объект с version=1")
+    entries = document.get("domains", {})
+    if not isinstance(entries, dict) or len(entries) > MAX_EXTERNAL_DOMAINS:
+        raise CatalogError(f"{path.name}: неверный список внешних доменов или превышен лимит")
+    trusted = set(catalog_domains(services))
+    for domain, meta in entries.items():
+        if normalize_hostname(domain, path.name) != domain or not isinstance(meta, dict):
+            raise CatalogError(f"{path.name}: некорректный внешний домен {domain!r}")
+        parent = external_domain_parent(domain, trusted)
+        if parent is None or meta.get("parent") != parent:
+            raise CatalogError(f"{path.name}: {domain} не является поддоменом сервиса каталога")
+        if not isinstance(meta.get("sources"), list) or not meta["sources"] or not all(
+            isinstance(source, str) and source for source in meta["sources"]
+        ):
+            raise CatalogError(f"{path.name}: нет источников домена {domain}")
+    return entries
 
 
 def load_prefixes(path: Path = PREFIXES_FILE) -> dict[str, dict[str, Any]]:

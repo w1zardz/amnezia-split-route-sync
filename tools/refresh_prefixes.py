@@ -23,6 +23,7 @@ import ipaddress
 import json
 import socket
 import sys
+import time
 from datetime import date
 from pathlib import Path
 from typing import Iterable
@@ -36,6 +37,8 @@ CYMRU_PORT = 43
 CYMRU_CHUNK = 500
 RIPESTAT_URL = "https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS{asn}"
 MAX_RIPESTAT_BYTES = 4_194_304
+RIPESTAT_WORKERS = 4
+MAX_CYMRU_BYTES = 4_194_304
 
 # Политика по ASN и допустимая ширина сети общие с импортом внешних списков.
 DENY_ASN = catalog.DENY_ASN
@@ -83,13 +86,20 @@ def cymru_lookup(addresses: Iterable[str]) -> dict[str, tuple[int, str, str, str
         query = "begin\nverbose\n" + "\n".join(chunk) + "\nend\n"
         try:
             with socket.create_connection((CYMRU_HOST, CYMRU_PORT), timeout=45) as connection:
+                deadline = time.monotonic() + 60
                 connection.sendall(query.encode("ascii"))
                 buffer = bytearray()
                 while True:
+                    remaining = deadline - time.monotonic()
+                    if remaining <= 0:
+                        raise RefreshError("Team Cymru: превышен общий таймаут ответа")
+                    connection.settimeout(min(45, remaining))
                     piece = connection.recv(65536)
                     if not piece:
                         break
                     buffer.extend(piece)
+                    if len(buffer) > MAX_CYMRU_BYTES:
+                        raise RefreshError("Team Cymru: ответ превышает лимит размера")
         except OSError as exc:
             raise RefreshError(f"Team Cymru недоступен: {exc}") from exc
         for line in buffer.decode("utf-8", "replace").splitlines():
@@ -100,7 +110,13 @@ def cymru_lookup(addresses: Iterable[str]) -> dict[str, tuple[int, str, str, str
                 continue
             asn = int(fields[0])
             address, prefix, country, as_name = fields[1], fields[2], fields[3], fields[6]
-            if not prefix or prefix == "NA":
+            if asn <= 0 or address not in chunk or not prefix or prefix == "NA":
+                continue
+            try:
+                network = ipaddress.ip_network(prefix, strict=True)
+                if network.version != 4 or ipaddress.ip_address(address) not in network:
+                    continue
+            except ValueError:
                 continue
             previous = mapping.get(address)
             # Один IP может вернуться под несколькими ASN — берём самый узкий префикс.
@@ -162,8 +178,10 @@ def load_external(path: Path) -> dict[str, dict]:
         asn = meta.get("asn") if isinstance(meta, dict) else None
         if not isinstance(asn, int) or asn in DENY_ASN:
             raise RefreshError(f"{path.name}: {value} — недопустимый ASN {asn!r}")
-        if not (MIN_PREFIXLEN <= network.prefixlen <= MAX_PREFIXLEN) or not network.is_global:
+        if network.version != 4 or not (MIN_PREFIXLEN <= network.prefixlen <= MAX_PREFIXLEN) or not network.is_global:
             raise RefreshError(f"{path.name}: {value} вне допустимого диапазона")
+        if not is_russian(asn, meta.get("cc", ""), meta.get("as_name", "")):
+            raise RefreshError(f"{path.name}: {value} не российская сеть")
         result[str(network)] = meta
     return result
 
@@ -200,6 +218,8 @@ def main() -> int:
     try:
         services = catalog.load_catalog()
         domains = catalog.catalog_domains(services)
+        external_domains = {} if arguments.no_external else catalog.load_external_domains(services, arguments.external)
+        domains = [*domains, *external_domains]
         owners = catalog.domain_owner(services)
         print(f"каталог: {len(services)} сервисов, {len(domains)} доменов")
 
@@ -212,6 +232,8 @@ def main() -> int:
 
         cymru = cymru_lookup(addresses)
         print(f"Cymru: {len(cymru)} IP сопоставлены с BGP-префиксами")
+        if len(cymru) < len(addresses) * 0.8:
+            raise RefreshError("Team Cymru сопоставил меньше 80% IP — неполный снапшот не публикуется")
 
         prefixes: dict[str, dict] = {}
         dropped: dict[str, str] = {}
@@ -228,28 +250,38 @@ def main() -> int:
                 if not is_russian(asn, country, as_name):
                     dropped[prefix] = f"AS{asn} {as_name} — страна {country}"
                     continue
-                if not (MIN_PREFIXLEN <= network.prefixlen <= MAX_PREFIXLEN):
+                if not network.is_global or not (MIN_PREFIXLEN <= network.prefixlen <= MAX_PREFIXLEN):
                     dropped[prefix] = f"префикс /{network.prefixlen} вне допустимого диапазона"
                     continue
                 entry = prefixes.setdefault(
                     str(network),
-                    {"asn": asn, "as_name": as_name, "cc": country, "services": [], "source": "dns"},
+                    {"asn": asn, "as_name": as_name, "cc": country, "services": [],
+                     "source": "external" if domain in external_domains else "dns"},
                 )
+                if domain in external_domains and entry["source"] == "external":
+                    entry["sources"] = sorted(set(entry.get("sources", [])) | set(external_domains[domain]["sources"]))
                 for service_id in owners.get(domain, []):
                     if service_id not in entry["services"]:
                         entry["services"].append(service_id)
 
         expand = {} if arguments.no_expand else load_asn_expand()
+        with concurrent.futures.ThreadPoolExecutor(max_workers=RIPESTAT_WORKERS) as executor:
+            announced = dict(zip(sorted(expand), executor.map(announced_prefixes, sorted(expand))))
         for asn, reason in sorted(expand.items()):
-            values = announced_prefixes(asn)
+            values = announced[asn]
+            if not values:
+                raise RefreshError(f"RIPEstat: у AS{asn} нет допустимых IPv4-префиксов")
             print(f"AS{asn} ({reason}): {len(values)} анонсируемых префиксов")
             for value in values:
                 entry = prefixes.setdefault(
                     value,
                     {"asn": asn, "as_name": reason, "cc": "RU", "services": [], "source": "asn"},
                 )
-                if entry.get("source") == "asn":
-                    entry["asn"] = asn
+                # Явно разрешённый ASN всегда входит в ядро. Новый внешний
+                # поддомен не должен переименовать такой префикс в external
+                # и тем самым случайно убрать его из lite.
+                entry.update(asn=asn, source="asn")
+                entry.pop("sources", None)
 
         external = {} if arguments.no_external else load_external(arguments.external)
         added = 0
@@ -278,6 +310,7 @@ def main() -> int:
             + (" + внешние списки" if external else ""),
             "prefix_count": len(prefixes),
             "external_count": len(external),
+            "external_domains": len(external_domains),
             "resolved_domains": len(resolved),
             "catalog_domains": len(domains),
             "prefixes": dict(
@@ -291,9 +324,9 @@ def main() -> int:
                 print(f"  drop {value}: {reason}")
             return 0
         catalog.atomic_write(arguments.output, catalog.json_bytes(payload))
-        print(f"записан {arguments.output.relative_to(ROOT)}")
+        print(f"записан {arguments.output}")
         return 0
-    except (catalog.CatalogError, RefreshError) as exc:
+    except (catalog.CatalogError, RefreshError, OSError, ValueError) as exc:
         print(f"ОШИБКА: {exc}", file=sys.stderr)
         return 1
 

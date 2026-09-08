@@ -1,0 +1,9352 @@
+{
+  "version": 1,
+  "updated": "2026-09-08",
+  "domains": {
+    "1018213540.rsc.cdn77.org": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "1917live.red": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "1prime.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "21-school.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "24h.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "2gis.ae": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2gis.am": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2gis.az": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "2gis.biz": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2gis.by": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2gis.com.cy": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "2gis.cz": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2gis.ge": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "2gis.io": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2gis.kg": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2gis.kz": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2gis.net": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2gis.qa": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2gis.sa": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2gis.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "2gis.tj": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "2gis.uz": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2ip.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "2w.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "3dnews.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "3ebra.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "4c.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "4epenaxa.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "5post.market": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "a.auth-nsdi.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "a.res-nsdi.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "abonementx5.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "abr.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "accesspoint.uz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "acmvid.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "activate.activation-v2.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "activation-v2.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "activation-v2.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "actualidad-rt.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ad-cdek.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adfox.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "admetrica.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "adriver.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ads-integration.rustore.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.dahlmessenger.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.icq.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.rustore.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.viqeo.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.x5media.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.yandex": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.yango.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adsadvisor.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adsapp.dahlmessenger.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adsapp.stage.telega.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adsapp.telega.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adv.rustore.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adygeya.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adygtelecom.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "agent.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ahilesva.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "aiesa.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "alefbank.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "alfa.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "alfabank.st": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "aliexpress.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "alt-r.my.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "altai.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "altaiobr04.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "amic.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "amur.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ankb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "antiphishing.nl": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "antiphishing.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "anytimeviewru.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "aodahl.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "aoglonass.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "api-eu.carrotquest.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api-eu.carrotquest.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api-js.mindbox.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api-ru.carrotquest.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api-ru.carrotquest.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api-ru.mindbox.cloud": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api-secure.carrotquest.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api-secure.carrottrack.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api-staging.mindbox.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api.carrotquest.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api.carrotquest.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api.carrottrack.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api.dashly.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api.dashlytrack.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api.dobro.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.evotor.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.hrlink.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.lizaalert.org": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.mindbox.cloud": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api.mindbox.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "api.roskachestvo.gov.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "apiauto.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "apiok.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "app.hrlink.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "appmetrica.yango.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "appsmail.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "apptracer.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "apptrackpets.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "apteka-april.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "aptekiplus.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "arabicrt.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "arctic.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "arkhangelsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "armgs.team": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "artel.watch": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "arteldoc.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "arteldoc.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "asia-pay.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "asiangooglenetwork.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "astrakhan.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "asusrouter.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "at.ua": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "atb.su": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "atomyze.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "atomyze.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "attachmail.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "attachmy.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "audiohead.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "autokreditbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "autoru.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "avangard.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "aversbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "aviasales.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "avito.net": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "avitocargo.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "avitopro.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "avitorealty.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "avs.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "avto.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "avtodor-tr.ru": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "avtovokzaly.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "azbukainterneta.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "b.auth-nsdi.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "b.res-nsdi.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "b17.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "b2c-digest.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "b2c-ticket-sentry.onelya.ru": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "b37mrtl.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "babki.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "baltnews.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "baltnews.lt": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bananacall.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bank-arzamas.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bank-credit-suisse-moscow.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bank131.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bankermak.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bankline.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "baranky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bargipsy.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bashkiria.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bbr.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bcs-bank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "beeline.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "beesbfl.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "beescrm.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "beget.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "belgorod.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "belkacar.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "berizaryad.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "best2pay.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "betboom.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "bfa.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bimsaas.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bir.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bitrix.info": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "bizmrg.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bk6bba-resources.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bk6bba-resources.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bkvet.ru": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "blablacar.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "blanc.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bm-bank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "book-catalog.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "book1917.live": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "booking-tec.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "boom.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "boosty.to": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "botmechanic.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bps-sberbank.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "broker.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bryansk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "buryatia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cabconnect.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cabinet.evotor.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "callbackkiller.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cap.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "capitalt.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cardsmobile.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "carrot-mail.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "carrotquest-mail.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "carrotquest.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "carrotquest.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "carrottrack.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cbg.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cbkiller.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cdek.shopping": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cdn-tinkoff.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cdn-vk.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cdn-vk.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "cdn.lemanapro.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cdn1.ozonusercontent.com": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "cdnmail.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cdnvideo.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cdnvideohub.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "centraluniversity.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ceosummit.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cert-gib.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cert-gib.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cesarsmart.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "chel.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "chelyabinsk-sgo-edu-74.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "chelyabinsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "chestnyznak.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "chipcore.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "chipcore.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "chita.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "chizhik.club": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "chukotka.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "chuvashia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cian.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ciangroup.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ciciq.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cikrf.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "citydrive.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "clck.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "clck.yango.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "click.rustore.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cloud.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "cloudru.cn": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "clstorage.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "clubx5.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cm.expert": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cms1.dzvr.ru": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "cnconf.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cnews.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cnewsforum.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "code-class.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "codeseason.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "commerzbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "comss.club": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "comss.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "comss.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "comss.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "comss.news": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "comss.one": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "comss.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "comss.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "comss.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "coolera.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "copymonkey.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "corp.express": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cplsb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "crazedns.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "credistory.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "credit-zenit.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "crimea.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "crl.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "crrintegro.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "csat.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "cu.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cups.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "custody.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cxhub.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "cybercrimecon.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cybersport.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dagestan.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dahl.su": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dahlmessenger.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dashly.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dashly.help": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dashly.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dashly.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dashlytrack.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "data-tscbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "datacloudmy.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dbmoscow.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dbo-dengi.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dc1-cert.ksn.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dc1-file.ksn.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dc1-pp.ksn.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dc1-st.ksn.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dc1.ksn.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "de-rt.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "de-rt.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "de-rtnews.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "de-rtnews.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "delimobil.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "deliveryclub.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "deltacredit.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "depository.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dert.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dert.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dert.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "deutsche-bank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "deutschebank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dev-my.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dev-my.games": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dialogx5.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "digital-wb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "digitalwb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dmir.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dmp.dmpkit.lemanapro.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dnl-00.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-01.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-02.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-03.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-04.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-05.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-06.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-07.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-08.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-09.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-10.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-11.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-12.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-13.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-14.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-15.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-16.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-17.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-18.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dnl-19.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dns-com.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dobro.ru": {
+      "sources": [
+        "mobile-whitelist-domains",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "doctorhead.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dodois.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dodois.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dodopizza.com": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "dodostatic.net": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "dolyame.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "donationalerts.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dostaevsky.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "driveawaytaxi.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "drobbox.pro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "drweb-av.de": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "drweb-av.es": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "drweb-av.it": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "drweb-av.pl": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "drweb.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "drweb.cn": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "drweb.co.jp": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "drweb.com": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "drweb.fr": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "drweb.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "drweb.uz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dumatv.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "durovscode.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dv.team": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "dzeninfra.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "dzvr.ru": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "e.mindbox.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "e5.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "eadaily.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "eadaily.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "eadaily.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "eadaily.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "eadaily.su": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "eaptechka.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ebs.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "edadeal.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "edge.geo.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "edu-74.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "edu.sirius.online": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "edu22.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "efin.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ekat.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ekburg.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "elama.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "electronicsignature.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "eligens.cl": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "eligens.com.br": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "eligens.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "emias.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "enterly.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "envybox.company": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "envybox.family": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "envybox.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "envybox.kg": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "envybox.su": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "envycdp.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "envycdp.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "envycrm.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "envyday.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "eopp-portal.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "epd-portal.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "epicevents.gg": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "epp.genproc.gov.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "era-invest.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "error-tracking.megamarket.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "es-rt.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "esforce.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "esforce.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "esrt.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "esrt.press": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "esrt.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "esrt.space": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "esrt.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "esrt.website": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "etna.ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "etradebook.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "eurasiadaily.su": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "evotor.ru": {
+      "sources": [
+        "mobile-whitelist-domains",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "evrasia.rest": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ewisdom.us.kg": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "expf.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "express.ms": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "f6.dev": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "f6.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "f6.security": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "facct.email": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "facct.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "farmlend.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "fasten.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ferra.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "finambank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "finuslugi.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "fix-price.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "flocktory.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "flomni.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "flowwow-images.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "flowwow.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "fon.bet": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "fon.promo": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "forshtadt.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "forumsdrom.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "foto-planeta.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "freeassange.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "freede.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "freedert.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "freestylediabetes.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "freestylelibre.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "fsb.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "fss.gov.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "funpay.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "future-cs.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "g-ib.ae": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "g-ib.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "g-ib.sg": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "g-ib.us": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "g.mindbox.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gainstech.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gamescup.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gatewaytorussia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gazetarussa.com.br": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gazfond-pn.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gazprom-neft.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "gazprombank.investments": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gb.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "genetic-technologies.am": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "genotek.am": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "genotek.es": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "genotek.eu": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "genotek.health": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "genotek.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "geobasket.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gerwin.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "getsynapse.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gib-global.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gib.sg": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gibdev.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gibtds.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gid.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "giga.chat": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gismeteo.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gismeteo.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gismeteo.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gismeteo.st": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gitverse.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "globaloet.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "glutec.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "gnezdo.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "gogettaxi.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "goicq.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gorodpay.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gorzdrav.spb.ru": {
+      "sources": [
+        "itdog-russia-only",
+        "lib4u-amnezia"
+      ]
+    },
+    "gosdolgi.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gosniias.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "gosuslugi.org": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "goup.ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gov.ru": {
+      "sources": [
+        "itdog-russia-only",
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "gptunnel.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gramotei.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "grandexpress.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "green-box-tv.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "greywallpass.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "grfc.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "group-ib.ae": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "group-ib.co.uk": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "group-ib.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "group-ib.de": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "group-ib.eu": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "group-ib.sg": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "group-ib.us": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "groupib.ae": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "groupib.sg": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "groupib.us": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "grozny.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gw2ru.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "hacksoft.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "haicomdc.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "haicomdc.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "haicomgroup.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "hardware.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "hayya.ae": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "hbrd.io": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "hematonix.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "hh.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "hh.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "hhcdn.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "hiwifi.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "hr-link.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "hrlink.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "hrtek.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "hva.im": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "hybrid.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "i-ola.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ibamoscow.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icancgm.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "icq-download.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq-mobile.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq-online.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq-phone.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq-phone.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq.asia": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq.at": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq.biz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq.com": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "icq.de": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq.eu": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq.fr": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq.im": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "icq.lt": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq.mobi": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq.net": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "icq.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq.sg": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq2mobile.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icq5.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqanywhere.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqbrasil.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqbrazil.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqchat.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqflirting.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqgame.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqgames.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqkids.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqmail.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqmail.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqonline.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqpassword.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqpeople.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqservers.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqservice.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqsupportteam.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqsystem.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqsystems.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqtoday.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqtutor.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "icqvideo.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "id.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ideco.dev": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "idecosoftware.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "idx5.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "iguides.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ilovesakura.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "imgproxy.cdn-tinkoff.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "importx5.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "inappstory.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "inbox.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "inme.store": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "inme.technology": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "inosmi.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "inplat.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "insideok.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "instant.arubanetworks.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "internet.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "irk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "irkutsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "istokmw.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "it-katok.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "it-picnic.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "it-piknik.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "it-territory.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "itirex.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ivanovo.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ivicdn.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ixbt.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ixbt.games": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ixbt.market": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ixbt.media": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ixbt.pro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ixbt.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ixbt.shop": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ixbt.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ixbt.video": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "izbirkom.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "izhevsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jamal.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jar.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jfn.su": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jinrieluosi.cn": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jira-tcsbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivo.chat": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivo.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "jivochat.co.in": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivochat.co.za": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivochat.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivochat.com.br": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivochat.com.co": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivochat.com.pe": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivochat.com.tr": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivochat.de": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivochat.es": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivochat.ng": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivochat.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivosite.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jivosite.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jpmorgan.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jump.taxi": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jumpwork.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "justveryok.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "jx5.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kakpishem.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kalmykia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaluga.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kamchatka.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kanzlerdaddy.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "karelia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "karmahelp.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "karta-banka-rf.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kartaslov.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "karusel.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.be": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.ca": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.co.in": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.co.jp": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.co.kr": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.co.th": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.co.uk": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.co.za": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "kaspersky.com.au": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.com.br": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.com.cn": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.com.hk": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.com.pl": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.com.tr": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.com.tw": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.com.vn": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.cz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.de": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.dk": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.dz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.es": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.fi": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.fr": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.gr": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.it": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.ma": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.my": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.nl": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.pt": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.ro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.rs": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kaspersky.se": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kasperskylab.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "kazan.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kchgov.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kchr.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kemerovo.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "keyboardmen.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "keyx5.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "khabarovsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "khakassia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "khangar.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "khv.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "killercb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kinescopecdn.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kinopoisk-ru.clstorage.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kinopoisk.net": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "kirov.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kis.v2.scr.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "klinikabudzdorov.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "knightspeak.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kod.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "koddobra.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "koenig.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kontur-inc.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kontur.host": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "korona.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "koshelek.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kostroma.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "krasnodar.su": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "krasnoyarsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-cinfo-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-cinfo.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-crypto-info-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-crypto-kas-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-crypto-tcert-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-crypto-url-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-crypto-verdict-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-crypto-wifiplus-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-crypto-wifiplus.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-dc1-cert.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-dc1-file.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-dc1.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-file-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-file.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-info-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-info.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-kas.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-mdr.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-tcert-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-tcert.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-url-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-url.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-verdict-geo.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ksn-verdict.geoksn.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ktech.team": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kuban.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kubankredit.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kurgan.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "kursk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "land.dobro.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "leike.cc": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "lemanapro.ru": {
+      "sources": [
+        "itdog-russia-only",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "lenta.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "lerna.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "libreview.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "lifestyle-tec.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ligadobra.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ligastavok-csr.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ligastavok.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "lipetsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "list.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "lizaalert.org": {
+      "sources": [
+        "mobile-whitelist-domains",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "lm.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "lmcdn.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "local.adguard.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "localhost.ptlogin2.qq.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "localhost.sec.qq.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "lovina.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "lumiflex.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "m-line.expert": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "m.47news.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "m.egafon.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "magadan.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "magnit.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mail-carrotquest.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mail.ua": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mailicq.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "malotogo.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mamadeti.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mari-el.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mari.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "marine.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "markirovka.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "max-tcs.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "maxunread.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mc.yango.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mcc250.pub.3gppnetwork.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mcclinics.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mcs.st": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mdr.ksn.kaspersky-labs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mediumquality.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "medsi-premium.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "medsi.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "medsi.pro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "medtrum.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "megafon.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "megafonpro.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "megamarket.kz": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "megamarket.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "megapteka.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mel.fm": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "melfm.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "memealerts.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "meteofor.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "meteofor.st": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "meteoinfo.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "meteum.ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "metrics.21-school.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "metrics.viqeo.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "metro.spb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mfa.center": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mfk-bank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mfk-t-finance.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mgfn.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mgfoms.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mhcb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mhcbr.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mil.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mind-box.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mindbox-notifications.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mindbox.cloud": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mindbox.group": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mindbox.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mindbox.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mindbox.so": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mintsifry.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mirabilis.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mirandaicq.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mirpayonline.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "miwifi.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mlbootcamp.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mm.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mnogolososya.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mobile-bb.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mobile-icq.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mobile-vk.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mobileicq.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mofoms.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "moi-klass.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mordovia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mos.city": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mosenergosbyt.ru": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "mosgorzdrav.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "moskva.taximaxim.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mosmetro.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mosmetro.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mosreg.ru": {
+      "sources": [
+        "itdog-russia-only",
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "movika.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mp.world": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mpgw-my.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mrgcdn.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mts-ws.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mts.am": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mts.by": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mts.it": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mts.kz": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mts.md": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mts.ua": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mtsdengi.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mtsmedia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "multifactor.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "murmansk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mvideo.edna.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mvk.com": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "mvs-bank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mwscdn.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "my-manager-account.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "my-tbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "my.com": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "my.games": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "my.router": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "myadx.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "myapelsin.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "myenvy.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mymts.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "myoffice.team": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "myspar.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mytopf.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mytrk.link": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "nalchik.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "nalog.xn--p1ai": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "narod.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "naydex.net": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "nbki.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "neon.click": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "netcraze.club": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "netcraze.link": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "netcraze.pro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "netcraze.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "netmonet.co": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "netschool.website": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "nextmobile.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ngenix.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "nic.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "nichost.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "nn.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "noosferabank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "nornik.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "noticias-rt.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "notik.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "notimundo.press": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "nov.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "novosibirsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "nplus1.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "nsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "o-courier.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "o-uchi.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "o3.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "o3t.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "o3team.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "oasisauth.h3c.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "obr03.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ocourier.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "odkl.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "odnoklasniki.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "odnoklasniki.ua": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "odnoklassniki.am": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "odnoklassniki.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "odnoklassniki.co.ee": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "odnoklassniki.eu": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "odnoklassniki.lv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "odnoklassniki.tj": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ognihome.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ok.games": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ok.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "okkoapi.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "okl.lt": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "okmarket.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "oknovrossiu.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "okolo.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "oktech.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "oms.karelia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "omsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "on-media.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "onetarget.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "onf.ru": {
+      "sources": [
+        "mobile-whitelist-domains",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "onlyjobs.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ooc-school.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "opennet.dev": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "opennet.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "orb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "oryol.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "oskelly.co": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "oskelly.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ostin.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "otclick-adv.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "otello.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "otkritie.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ovcl.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "overclock.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "overclocker.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "overclockers.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "overclocking.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "overi.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "oz.by": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozon-credit.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozon-dostavka.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozon-tech.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozon.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozon.by": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozon.com.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozon.com.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozon.de": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozon.dev": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozon.express": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozon.global": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozon.kz": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozon.li": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozon.market": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozon.su": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozon.tech": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozon.tm": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozon.vip": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozoncamp.pro": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozoncard.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozoncloud.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozoncom.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozoncorporate.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozonfinance.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozonglobalevents.com": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozonpartners.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozonpartners.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozonrocet.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozonroket.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozonru.co.il": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozonru.com": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozonru.eu": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozonru.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ozonsport.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozonstatus.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ozonusercontent.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p00.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p01.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p02.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p03.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p04.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p05.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p06.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p07.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p08.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p09.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p10.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p11.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p12.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p13.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p14.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p15.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p16.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p17.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p18.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "p19.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "partners.lemanapro.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "payecom.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "payment.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "paywb.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "paywb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "peiluyou.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "penza.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "perekrestok.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "perm.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pesc.ru": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "phicomm.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "phoenix-ca.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pishi-pravilno.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pixel.rustore.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pixonic.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "planetazdorovo.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "platiecom.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "playfamily.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "plex.direct": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pnp.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "pobeda.page": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pochta-bank.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "poctechcgm.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "poctechcorp.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "podorozhnik.spb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "polyclinika.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "polza.ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ponyexpress.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "popmechanic.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "popmechanic.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "poudobnee.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pravilno-pishem.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "premiumlive.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pressria.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "prim-edu.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "primbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "private-banking.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "prod-my.games": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "prodcontest.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "prodota.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "promodj.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "prvbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "psb-ocenka.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "psb.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "psk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pskb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pskov.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ptcloud.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ptsecurity.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ptz.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "public.express": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pushgrow.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pvubank.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pz.help": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "qms.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "quizlink.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "r01.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rabbitcounter.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rabota.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "radiosputnik.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "raiffeisen-media.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "randomgodbot.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rbcollect.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rbcredit.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rbsgate.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rbsuat.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rbth.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rdrom.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "realtyverif.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "reaviz.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "reaviz.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "receive-sentry.lmru.tech": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "refresh-bkg.activation-v2.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "reg.cloud": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "reg.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "regard.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rencapbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "report-megafon.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "report.ap.yandex-net.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "reso-med.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "reso-med.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "restnproducts.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "restream-media.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "restream.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rf-sim-mobile.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "riafan.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ridus.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rkomi.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rncoluminis.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rnd.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ro-edu.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "robotext.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rocketozon.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "roistat.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "romanovs100.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rosbank-auto.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rosbank-capital.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rosbank-credit.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rosbank-dom.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rosbank-leasing.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "roskachestvo.gov.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "roskazna.gov.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rosselkhozbank.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rosseti.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rossiyasegodnya.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rostaxi.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rostics.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rostik.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "router.asus.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "router.ctc": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "routerlogin.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rrtp.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rskrf.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rsscenter.cloud": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rsscenter.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rt-school.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rt.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rt.rs": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtarabic.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtarabic.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtarabic.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtarabic.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtbcdn.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rtbrasil.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtbrasil.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtcloud.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rtde.agency": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.expert": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.express": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.life": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.live": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.media": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.press": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.team": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.website": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.world": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtde.xyz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtdefree.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtdefree.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtdefree.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtdefree.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtdoc.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtdocumentary.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rteam.dev": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rteam.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtenafrique.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtenfrancais.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtenfrance.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtespanol.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtfestival.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtfrance.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtk.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rtnewsde.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtnewsde.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtnewsde.pro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtnewsde.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtnewsde.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtnewsru.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtrunews.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rttv.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rttv.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rtxv.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ru.ccb.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ru.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ru.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rugpt.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ruhub.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "runewsrt.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ruptly.agency": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ruptly.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ruptly.video": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rurtnews.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rusfinance.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rusfinancebank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "russiabeyond.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "russiaislove.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "russiandesigncup.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "russiatoday.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "russiatoday.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "russiatoday.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "russiatoday.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "russieactuelle.fr": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "russoutdoor.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rustore.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rustore.team": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rustore.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rutube-cdn.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rutube.io": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rutube.sport": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ruwiki.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "rwb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rwbautomation.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rwbautomation.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rwbgeo.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ryazan.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s.mindbox.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s00.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s01.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s02.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s03.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s04.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s05.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s06.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s07.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s08.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s09.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s10.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s11.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s12.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s13.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s14.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s15.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s16.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s17.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s18.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "s19.upd.kaspersky.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "saas-support.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "saby.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "safeliner.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sage-observability.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sakhalin.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "salute.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "samara.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "samokat.tech": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "saratov.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sayeasy.eu": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sbbol.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sber-bank.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sber.online": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sber.pro": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sberauto.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sberbank-insurance.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sberbank-tele.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sberbankaktivno.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sberbankins.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sbercloud.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sberdisk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sberf.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sberfactoring.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sberid.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sberindex.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sberlogistics.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sbermarketing.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sberonline.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sberpb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sberpm.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sbersolutions.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sberspasibo.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sbertroika.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sberuniversity.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sberzvuk.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sbibankllc.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sbpay.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sbrf.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "scartel.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "scripts-for-ucoz.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "seb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "seclab.lat": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "securitylab.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "selcdn.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "selectel.academy": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "selectel.blog": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "selectel.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "selectel.dev": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "selectel.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "selectel.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "selectel.live": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "selectelix.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "selectelpro.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "selkombank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry-ng.g.smailru.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry.dev-my.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry.dev-my.games": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry.kontur.host": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry.mindbox.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry.popmechanic.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry.rustore.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry.sberauto.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry.viqeo.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "servercore.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "servercore.live": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "servernews.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "servicepipe.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "servicepipe.tech": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "setevoygorodkrasnodar.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "setka.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "setmeup.arubanetworks.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sevastopol.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sferum-dev.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sfunpay.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sgcheck.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sgo-egov66.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sgo.tvobr.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sgo12.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sgo171.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sgo41.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sgoedu74.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "shedevrum.ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "shop-rt.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "showip.net": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "simbirsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sinara.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sistema-capital.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sitidrive.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "skbx.pro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "skillbox.pro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "skillfactory.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sky.pro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "slavbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "slavicstar.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "slc.tl": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "smailru.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "smartmed.pro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "smbcr-bank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "smolensk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "smotreshka.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sn-esp.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sochisirius.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sokolov.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sokolov.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "solid.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "soloviev.live": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sourcecraft.dev": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sozvezdie-dobra.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "spasibo.digital": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "spasibo.market": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "spasibobonus.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "spasibosb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "spasibosberbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "spb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "spboms.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sport24.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sputnik.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sputnikglobe.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sputnikimages.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sputnikmediabank.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sputniknews.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "spvb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "srch-telemeter10.g.smailru.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "srv-hub.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ssb.msk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "st-ok-pts.cdn-vk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "st-ok.cdn-vk.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "standoff365.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "static-storage.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "static.lemanapro.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "staticmy.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "stats.dahlmessenger.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "stats.dev.telega.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "stats.rustore.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "stats.telega.info": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "stavropol.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "stoloto.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "storage0.sirius.online": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "stv.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "summerstage.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "summitceo.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "support-uber.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "surgut.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sushiwok.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sweb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "swentr.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "syai.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "syaiofficial.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "sys.refocus.ru": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "t-access.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-bank-app.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-bank-app.su": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-bank.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-bank.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "t-calls.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-capital-funds.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-cdn.net": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "t-cpa.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-dengi.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-finance.group": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-finance.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-human.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-investlab.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-j.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "t-ofp.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-pulse.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-static.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "t-stekovka.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-tech.dev": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-tech.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-tech.team": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-technologies.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t-tolk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t.finance": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "t1.cloud": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tagbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tak-pravilno.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "talantix.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tambov.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tamtam.chat": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tarantool.io": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tarantoolplus.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "target.my.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "targetads.io": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tatarstan.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tatsotsbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "taxiaid.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "taxiguru.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "taxitax.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "taxsee.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tb-esim.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tbank-online.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tbankcloud.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tconf.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tcsbank.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tdev.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tech-mail.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tehnodom.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "telega.info": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "telega.me": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tendawifi.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tetrika-school.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tilda.cc": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tilda.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tilda.ws": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tildaapi.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tildacdn.com": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tildacdn.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "time-messenger.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "timeweb.cloud": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tinkoff-edu.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tinkoff-group.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tinkoff.ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tinkoffbank.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tinkoffcapital.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tinkoffcredit.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tinkofffund.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tinkoffinsurancefuture.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tinkoffjournal.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tinkoffmobile.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tinkoffmobile.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tinsurance.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tinsurancefuture.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tips.tips": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tischenko.su": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tkbbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tmiaf.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tochka-tech.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tok.media": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tokenator.top": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tom.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tomedu.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tomsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tpension.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tplinkwifi.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tplogin.cn": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "trace-flow.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tracing-http.megamarket.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tracker-api.my.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tracker.my.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "travel-tec.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "trbcdn.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "trueconf.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "ts.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tsaritsyn.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tula.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "turbopages.org": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "tusco.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tuva.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tver.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tvigle.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tvoyodbo.online": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "twcstorage.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tyumen.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ubs.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "uchilk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.ae": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.club": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.co": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.co.il": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.co.uk": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.com.br": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.com.ro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.de": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.es": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.fr": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.hu": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.lv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.md": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.org": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.pl": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoz.ua": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucozmail.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucozmedia.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucozmedia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ucoztemplates.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "udm.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "udmurtia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "uguide.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "uguide.su": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ukit.ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ukit.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ukit.group": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ukit.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ukoz.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ukraina.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ulan-ude.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ulyanovsk-sgo-cit73.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "uma.media": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "umschool.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "uni.rest": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "unidraw.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "unirest.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "upravel.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "usedesk.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "userapi.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "usocial.pro": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "uteka.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "uweb.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "uxfeedback.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vamprivet.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vamzakaz.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "velberis.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vigo.tech": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "viju.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vildberis.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vimu.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vipmed.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "viqeo.tv": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "viqeotv.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vitrina.tv": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vitrinatv.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vk-analytics.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vk-apps.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vk-apps.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vk-cdn.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vk-records.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vk-stadium.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vk.class.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vk.design": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vk.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vk.team": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vkbt.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vkcache.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkcdnservice.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkclips.app": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vkcloud-static.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkcloud-static.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkcloud.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkcs.cloud": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkfest.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkgo.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vklanding.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vklive.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkontakte.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkpay.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkpay.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkpay.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkpay.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkplay-arena.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vktech-static.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkuser.net": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vkusercdn.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkuservideo.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vkworkspace.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vl.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vladikavkaz.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vladimir.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vladivostok.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vlb100.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vlg.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vmailru.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vmeste-rf.tv": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "volganet.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "volgograd.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vologda.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "volunteer.lizaalert.org": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "voronezh.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vrn.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vscale.blog": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vscale.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vscale.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vsemrabota.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vtb-direct.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vtb-grants.fut.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vtb-leasing.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vtbcapital.com": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vtbglobalperspectives.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vtbmobile.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vtbonline.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "vyatka.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "waildberies.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "waldberies.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "waldberis.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "walderis.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wallberis.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "warehouse.domains": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "watchingthehawks.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wb-bank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wb-basket.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wb-cloud.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wb-sale.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wb.am": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wb.kg": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wb.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbautomation.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbautomation.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbcontent.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbdubna.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbkids.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbmail.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbmotivator.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbmp.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "wbpay.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbr.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbrep.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbstatic.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbtek.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbwh.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbwh.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wbx.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "webvisor.com": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "webvisor.org": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "weildberries.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "welberris.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "weldberies.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "weldberres.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "weldberric.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wellberes.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wellberies.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "westernunion.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "whiteboxdigital.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "whitesaas.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "whoosh-bike.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wi-fi.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "wibes.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wibes.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "widberri.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "widberris.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wieldberris.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wilberes.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wilberies.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wilberris.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wilberry.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildbaries.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildbarries.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildbeeries.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildberdes.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildberiss.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildberr.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildberries.am": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "wildberries.az": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "wildberries.co.il": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildberries.es": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildberries.eu": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildberries.ge": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "wildberries.kg": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "wildberries.kz": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "wildberries.lt": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildberries.md": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "wildberries.tj": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildberries.tm": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildberries.uz": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "wildberriess.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildberrise.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildbiries.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildbirris.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildbress.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildbries.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildbrris.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildeberies.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wildeberris.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wiliberes.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "willberiess.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "willberis.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "win-line.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "winelab.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wink.am": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "winline.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "winlinebet.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wldberris.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "wolfberries.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "worldcuprussia.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "www.asusrouter.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "www.cikrf.ru": {
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "www.miwifi.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "www.routerlogin.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5.ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5.digital": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5.group": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5.media": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5.team": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5club.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "x5id.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "x5l.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5media.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5paket.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5q.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5static.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "x5w.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xapi.ozon.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xapi.ozon.com.by": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xapi.ozon.com.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xapi.ozon.kz": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xapi.ozonru.me": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xlnk.ms": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xmail.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn-----6kc7adj0c9esa.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn----7sbaba0dc6cdn7cxcj.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn----7sbabae2a0bnvtsfr4loc.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn----7sbbab6bregnh7b8if5b.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn----7sbbamm1bv2bh7i.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn----7sbhmncai5a0arm7c1e.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn----8sbahiqzthbd0bn.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn----8sbaroledu6bi7j.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn----8sbeoy5bze.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn----8sbkfzespdwig.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn----8sbwjbxyd.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn----otbzjdu.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80a9a4b.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80aaafbpzn5blfby1p.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80aaeib8abrryx4k.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80aafgovrgbc7am.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80acbjgmges7ca.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80acbjgsdq2cl.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80acgfbsl1azdqr.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80aglfyfk.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80aglzei.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80aj3b.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80ajghhoc2aj1c8b.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "xn--80aqcf7a6do.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80arpq.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--80asgb.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--90ab.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--90absjljw3g.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--90aifd0az.shop": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--90aifd0azb.xn--p1acf": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--90aijkdmaud0d.xn--p1ai": {
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "xn--90aivcdt6dxbc.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--b1aechhj6bof8g5a.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--b1afabzvcegckfhg.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--b1agatafrepfl.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--b1agpaeoen.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--b1agzk.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--b1agzk9c.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--c1acbl2abdlkab1og.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--d1abkf4ap.fun": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--d1acchc3adyj9k.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--d1acpjx3f.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--d1aqf.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--e1adjldbbpv.xn--90ais": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--e1aigb.xn--p1ai": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xn--h1ao.site": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ya.cc": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yads.tech": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yakutia.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yamal.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yanao.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yandex-bank.net": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex-metrica.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yandex-team.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.aero": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.asia": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yandex.az": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.by": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.co.il": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yandex.com.am": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.com.ge": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.com.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.com.tr": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.com.ua": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yandex.de": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.ee": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.eu": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.fi": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.fr": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.it": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yandex.jobs": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.kg": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.kz": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.lt": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.lv": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.md": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.mobi": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yandex.org": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.pl": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.st": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.sx": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.tj": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.tm": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.tr": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.ua": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandex.uz": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandexadexchange.net": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandexcom.net": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandexgo.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yandexlyceum.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yandexmetrica.com": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandexwebcache.net": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yandexwebcache.org": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yango-ads.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango-b2b.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango-team.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango-tech.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango.africa": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango.ao": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango.bh": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango.co.il": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango.fi": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango.qa": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango.taxi": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yango.tech": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yangofellowship.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yap.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yapfiles.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yaplakal.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yaroslavl.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yastat.net": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yastatic-net.ru": {
+      "sources": [
+        "lib4u-amnezia",
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yccdn.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yclients.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yndx.net": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yoobusiness.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yotagamer.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "youla.io": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yourgood.app": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yula.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yuwellanytime.co.uk": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "yuzhno-sakhalinsk.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "zabedu.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "zdrav10.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "zenit-card.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ziraatbank.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "znanierussia.ru": {
+      "sources": [
+        "unrkn-vpn-domains"
+      ]
+    },
+    "zub.ru": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "zvuk-b2b.com": {
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    }
+  }
+}

@@ -1,26 +1,60 @@
 {
   "version": 1,
-  "updated": "2026-09-07",
+  "updated": "2026-09-08",
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
-  "prefix_count": 191,
-  "rejected_count": 30007,
+  "prefix_count": 248,
+  "rejected_count": 31266,
   "dropped_by_limit": 0,
+  "domain_count": 888,
   "sources": {
     "mobile-whitelist-cidr": {
       "url": "https://raw.githubusercontent.com/hxehex/russia-mobile-internet-whitelist/main/cidrwhitelist.txt",
       "parsed": 30228,
-      "accepted": 288
+      "networks": 30228,
+      "domains": 0,
+      "accepted": 290,
+      "accepted_domains": 0
     },
     "mobile-whitelist-domains": {
       "url": "https://raw.githubusercontent.com/hxehex/russia-mobile-internet-whitelist/main/whitelist.txt",
       "parsed": 910,
-      "accepted": 0
+      "networks": 0,
+      "domains": 910,
+      "accepted": 0,
+      "accepted_domains": 788
     },
     "operator-whitelist-cidr": {
       "url": "https://raw.githubusercontent.com/escapingworm/russia-whitelist/main/ru-whitelist-cidr.txt",
       "parsed": 88,
-      "accepted": 21
+      "networks": 88,
+      "domains": 0,
+      "accepted": 20,
+      "accepted_domains": 0
+    },
+    "unrkn-vpn-domains": {
+      "url": "https://raw.githubusercontent.com/UnRKN/ru-blocklist/main/ru-blocklist.txt",
+      "parsed": 480,
+      "networks": 0,
+      "domains": 480,
+      "accepted": 0,
+      "accepted_domains": 0
+    },
+    "itdog-russia-only": {
+      "url": "https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/outside-raw.lst",
+      "parsed": 39,
+      "networks": 0,
+      "domains": 39,
+      "accepted": 0,
+      "accepted_domains": 6
+    },
+    "lib4u-amnezia": {
+      "url": "https://raw.githubusercontent.com/lib4u/amnezia-tunneling-ru/main/amnezia.json",
+      "parsed": 7071,
+      "networks": 1535,
+      "domains": 1954,
+      "accepted": 275,
+      "accepted_domains": 110
     }
   },
   "prefixes": {
@@ -33,9 +67,54 @@
       ],
       "source": "external"
     },
+    "5.8.28.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "5.8.64.0/24": {
       "asn": 44812,
       "as_name": "IPSERVER-RU-NET Fiord",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.23.48.0/21": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "5.35.0.0/19": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "5.35.88.0/21": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "5.61.232.0/21": {
+      "asn": 47764,
+      "as_name": "VK-AS",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
@@ -57,6 +136,15 @@
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "5.101.152.0/21": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -114,15 +202,6 @@
       ],
       "source": "external"
     },
-    "5.188.112.0/24": {
-      "asn": 50340,
-      "as_name": "SELECTEL-MSK",
-      "cc": "RU",
-      "sources": [
-        "operator-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "5.188.128.0/22": {
       "asn": 50340,
       "as_name": "SELECTEL-MSK",
@@ -173,6 +252,7 @@
       "as_name": "AS-REG",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -183,6 +263,15 @@
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "31.128.48.0/21": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -213,6 +302,24 @@
       ],
       "source": "external"
     },
+    "31.177.76.0/24": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "31.177.80.0/24": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "31.184.212.0/23": {
       "asn": 50340,
       "as_name": "SELECTEL-MSK",
@@ -236,6 +343,7 @@
       "as_name": "AS-REG",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -245,6 +353,7 @@
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ],
@@ -273,13 +382,51 @@
       "as_name": "BEGET-AS",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "45.11.92.0/23": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "45.89.24.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "45.130.40.0/22": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
     "46.17.200.0/21": {
       "asn": 49675,
       "as_name": "SKBKONTUR-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "46.42.186.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
@@ -300,6 +447,7 @@
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ],
@@ -314,11 +462,21 @@
       ],
       "source": "external"
     },
+    "62.148.128.0/19": {
+      "asn": 15468,
+      "as_name": "KLGELECS-AS PJSC Rostelecom. Kaluga branch",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "62.152.39.0/24": {
       "asn": 3175,
       "as_name": "CITYTELECOM-MSK",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -341,7 +499,7 @@
       ],
       "source": "external"
     },
-    "77.79.128.0/21": {
+    "77.79.128.0/20": {
       "asn": 24955,
       "as_name": "UBN-AS",
       "cc": "RU",
@@ -359,7 +517,7 @@
       ],
       "source": "external"
     },
-    "77.79.152.0/24": {
+    "77.79.152.0/22": {
       "asn": 24955,
       "as_name": "UBN-AS",
       "cc": "RU",
@@ -368,12 +526,48 @@
       ],
       "source": "external"
     },
-    "77.79.160.0/23": {
+    "77.79.160.0/19": {
       "asn": 24955,
       "as_name": "UBN-AS",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "77.222.40.0/22": {
+      "asn": 44112,
+      "as_name": "SWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "77.222.44.0/24": {
+      "asn": 44112,
+      "as_name": "SWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "77.222.48.0/20": {
+      "asn": 44112,
+      "as_name": "SWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "77.223.96.0/20": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -382,14 +576,42 @@
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "78.159.252.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
       ],
       "source": "external"
     },
     "79.137.186.0/23": {
       "asn": 56631,
       "as_name": "ONLANTA-NET",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "79.137.208.0/20": {
+      "asn": 12695,
+      "as_name": "DINET-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "79.137.240.0/21": {
+      "asn": 47764,
+      "as_name": "VK-AS",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
@@ -406,16 +628,7 @@
       ],
       "source": "external"
     },
-    "80.67.40.0/22": {
-      "asn": 57629,
-      "as_name": "IVI-",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "80.68.240.0/22": {
+    "80.68.240.0/20": {
       "asn": 20848,
       "as_name": "ROSBUSINESSCONSULTING-AS",
       "cc": "RU",
@@ -424,7 +637,16 @@
       ],
       "source": "external"
     },
-    "80.247.32.0/22": {
+    "80.87.200.0/22": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "80.247.32.0/20": {
       "asn": 25292,
       "as_name": "VGTRK-AS",
       "cc": "RU",
@@ -438,6 +660,7 @@
       "as_name": "SELECTEL-MSK",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ],
@@ -480,12 +703,12 @@
       ],
       "source": "external"
     },
-    "82.202.196.0/24": {
-      "asn": 50340,
-      "as_name": "SELECTEL-MSK",
+    "82.202.188.0/22": {
+      "asn": 209030,
+      "as_name": "KL-KDP",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -498,12 +721,12 @@
       ],
       "source": "external"
     },
-    "84.252.144.0/22": {
+    "84.252.150.0/23": {
       "asn": 35237,
       "as_name": "SBERBANK",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -516,21 +739,49 @@
       ],
       "source": "external"
     },
-    "85.118.176.0/24": {
-      "asn": 35021,
-      "as_name": "E-STOCK-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "85.118.180.0/23": {
       "asn": 35021,
       "as_name": "E-STOCK-AS",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "85.142.18.0/23": {
+      "asn": 3267,
+      "as_name": "NIKS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "85.142.148.0/23": {
+      "asn": 3267,
+      "as_name": "NIKS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "85.198.96.0/21": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "85.233.64.0/20": {
+      "asn": 34887,
+      "as_name": "CIRT-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -539,7 +790,26 @@
       "as_name": "BEGET-AS",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "87.242.104.0/21": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "89.108.80.0/20": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -561,9 +831,9 @@
       ],
       "source": "external"
     },
-    "89.169.92.0/22": {
-      "asn": 48061,
-      "as_name": "UMA-TECH-AS",
+    "89.221.228.0/22": {
+      "asn": 47764,
+      "as_name": "VK-AS",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
@@ -580,12 +850,30 @@
       ],
       "source": "external"
     },
-    "91.207.58.0/23": {
-      "asn": 48061,
-      "as_name": "UMA-TECH-AS",
+    "91.107.120.0/21": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "91.186.196.0/22": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "91.189.114.0/23": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -603,15 +891,7 @@
       "as_name": "DDOS-GUARD",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "91.221.164.0/23": {
-      "asn": 201706,
-      "as_name": "AS-SERVICEPIPE",
-      "cc": "RU",
-      "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -625,9 +905,38 @@
       ],
       "source": "external"
     },
+    "91.223.63.0/24": {
+      "asn": 42231,
+      "as_name": "PRSBM-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "91.230.107.0/24": {
+      "asn": 57073,
+      "as_name": "WILDBERRIES-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
     "91.236.48.0/22": {
       "asn": 197482,
       "as_name": "DGIS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "91.238.108.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
@@ -649,6 +958,15 @@
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "92.53.96.0/22": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -688,24 +1006,6 @@
       ],
       "source": "external"
     },
-    "92.223.64.0/23": {
-      "asn": 210756,
-      "as_name": "EDGECENTERLLC",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "92.223.80.0/24": {
-      "asn": 210756,
-      "as_name": "EDGECENTERLLC",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "92.223.91.0/24": {
       "asn": 210756,
       "as_name": "EDGECENTERLLC",
@@ -724,18 +1024,18 @@
       ],
       "source": "external"
     },
-    "93.93.92.0/23": {
-      "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
+    "92.255.104.0/21": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
-    "93.186.224.0/20": {
-      "asn": 47541,
-      "as_name": "VKONTAKTE-SPB-AS vk.com",
+    "93.93.92.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
@@ -765,6 +1065,7 @@
       "as_name": "HEADHUNTER-AS",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -792,15 +1093,7 @@
       "as_name": "DDOS-GUARD",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "95.129.236.0/23": {
-      "asn": 57724,
-      "as_name": "DDOS-GUARD",
-      "cc": "RU",
-      "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -814,12 +1107,23 @@
       ],
       "source": "external"
     },
-    "95.173.144.0/20": {
-      "asn": 43797,
-      "as_name": "RSNET2-AS RSNET2",
+    "95.163.240.0/21": {
+      "asn": 197695,
+      "as_name": "AS-REG",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "95.163.248.0/21": {
+      "asn": 47764,
+      "as_name": "VK-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-cidr",
+        "operator-whitelist-cidr"
       ],
       "source": "external"
     },
@@ -828,8 +1132,18 @@
       "as_name": "EDGECENTERLLC",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "95.213.212.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -839,6 +1153,15 @@
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "109.70.24.0/21": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -861,11 +1184,21 @@
       ],
       "source": "external"
     },
+    "109.172.4.0/22": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "109.238.90.0/23": {
       "asn": 201706,
       "as_name": "AS-SERVICEPIPE",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -888,6 +1221,106 @@
       ],
       "source": "external"
     },
+    "151.236.64.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "151.236.80.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "151.236.84.0/22": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "151.236.90.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "151.236.94.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "151.236.100.0/24": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "151.236.106.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "151.236.111.0/24": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "151.236.122.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "155.212.176.0/21": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "161.104.32.0/19": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "164.138.102.0/23": {
       "asn": 50340,
       "as_name": "SELECTEL-MSK",
@@ -902,6 +1335,7 @@
       "as_name": "DDOS-GUARD",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -909,6 +1343,15 @@
     "176.109.64.0/21": {
       "asn": 209024,
       "as_name": "MTS-CLOUD-A",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "176.112.168.0/21": {
+      "asn": 47764,
+      "as_name": "VK-AS",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
@@ -933,12 +1376,21 @@
       ],
       "source": "external"
     },
-    "178.248.232.0/21": {
-      "asn": 51115,
-      "as_name": "HLL-AS",
+    "178.210.64.0/20": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
       "cc": "RU",
       "sources": [
-        "operator-whitelist-cidr"
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "178.237.20.0/24": {
+      "asn": 47764,
+      "as_name": "VK-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -979,6 +1431,16 @@
       ],
       "source": "external"
     },
+    "185.16.148.0/22": {
+      "asn": 47764,
+      "as_name": "VK-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
     "185.17.168.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
@@ -991,6 +1453,24 @@
     "185.17.170.0/24": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.30.176.0/22": {
+      "asn": 60476,
+      "as_name": "MYCOM-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "185.31.112.0/22": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
@@ -1029,6 +1509,7 @@
       "as_name": "STORMNETWORKS",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ],
@@ -1079,12 +1560,40 @@
       ],
       "source": "external"
     },
+    "185.114.244.0/22": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "185.129.100.0/22": {
       "asn": 57724,
       "as_name": "DDOS-GUARD",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.130.112.0/22": {
+      "asn": 47764,
+      "as_name": "VK-AS",
+      "cc": "RU",
+      "sources": [
+        "operator-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.137.232.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -1097,11 +1606,30 @@
       ],
       "source": "external"
     },
+    "185.161.64.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "185.163.156.0/22": {
+      "asn": 207104,
+      "as_name": "BIZONE-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "185.169.152.0/22": {
       "asn": 201706,
       "as_name": "AS-SERVICEPIPE",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1111,6 +1639,7 @@
       "as_name": "NSPK-EC-AS",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1147,6 +1676,7 @@
       "as_name": "DDOS-GUARD",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1178,6 +1708,15 @@
       ],
       "source": "external"
     },
+    "185.203.72.0/24": {
+      "asn": 60922,
+      "as_name": "AS_KKM_IT",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "185.225.32.0/22": {
       "asn": 198610,
       "as_name": "BEGET-AS",
@@ -1193,6 +1732,15 @@
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "185.243.84.0/22": {
+      "asn": 213075,
+      "as_name": "STARTRU-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -1250,12 +1798,30 @@
       ],
       "source": "external"
     },
+    "188.170.66.0/23": {
+      "asn": 31213,
+      "as_name": "MF-NWGSM-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "193.0.214.0/23": {
       "asn": 58097,
       "as_name": "TAXCOM-AS",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "193.168.46.0/23": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -1268,30 +1834,21 @@
       ],
       "source": "external"
     },
-    "193.232.148.0/22": {
-      "asn": 48061,
-      "as_name": "UMA-TECH-AS",
+    "193.201.228.0/22": {
+      "asn": 25159,
+      "as_name": "SONICDUO-AS",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
-    "194.9.208.0/22": {
-      "asn": 207986,
-      "as_name": "OZON-BANK-AS",
+    "194.58.96.0/19": {
+      "asn": 197695,
+      "as_name": "AS-REG",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "194.54.14.0/23": {
-      "asn": 35237,
-      "as_name": "SBERBANK",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -1354,6 +1911,7 @@
       "as_name": "RU-CENTER",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1385,25 +1943,7 @@
       ],
       "source": "external"
     },
-    "194.190.76.0/23": {
-      "asn": 48061,
-      "as_name": "UMA-TECH-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "194.190.232.0/21": {
-      "asn": 3267,
-      "as_name": "NIKS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "194.190.240.0/23": {
       "asn": 3267,
       "as_name": "NIKS",
       "cc": "RU",
@@ -1424,15 +1964,6 @@
     "195.16.112.0/20": {
       "asn": 25159,
       "as_name": "SONICDUO-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "195.19.0.0/23": {
-      "asn": 197695,
-      "as_name": "AS-REG",
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
@@ -1466,6 +1997,15 @@
       ],
       "source": "external"
     },
+    "195.24.68.0/23": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "195.42.96.0/23": {
       "asn": 44704,
       "as_name": "X5-RETAIL-GROUP-AS",
@@ -1475,11 +2015,30 @@
       ],
       "source": "external"
     },
+    "195.88.224.0/23": {
+      "asn": 49179,
+      "as_name": "TEND-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "195.133.254.0/23": {
+      "asn": 29226,
+      "as_name": "MASTERTEL-AS Moscow, Russia",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "195.208.64.0/21": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1498,6 +2057,7 @@
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ],
@@ -1517,17 +2077,9 @@
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "195.209.86.0/23": {
-      "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
       ],
       "source": "external"
     },
@@ -1536,6 +2088,7 @@
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1567,6 +2120,15 @@
       ],
       "source": "external"
     },
+    "195.209.200.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "212.11.144.0/23": {
       "asn": 8901,
       "as_name": "Moscow Mayors Office",
@@ -1581,6 +2143,7 @@
       "as_name": "Moscow Mayors Office",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1590,6 +2153,7 @@
       "as_name": "Moscow Mayors Office",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1599,6 +2163,7 @@
       "as_name": "RU-JSCIOT",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1608,7 +2173,17 @@
       "as_name": "RU-JSCIOT",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "212.192.156.0/23": {
+      "asn": 61280,
+      "as_name": "CMU_GRCHC",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -1618,16 +2193,6 @@
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "212.193.156.0/23": {
-      "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr",
-        "operator-whitelist-cidr"
       ],
       "source": "external"
     },
@@ -1654,6 +2219,7 @@
       "as_name": "ALFA-BANK-AS",
       "cc": "RU",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1663,15 +2229,7 @@
       "as_name": "ALFA-BANK-AS",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "217.21.53.0/24": {
-      "asn": 56694,
-      "as_name": "SMARTAPE",
-      "cc": "RU",
-      "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"
@@ -1700,6 +2258,15 @@
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.65.2.0/23": {
+      "asn": 3175,
+      "as_name": "CITYTELECOM-MSK",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -1756,6 +2323,5370 @@
         "mobile-whitelist-cidr"
       ],
       "source": "external"
+    },
+    "217.197.224.0/20": {
+      "asn": 24739,
+      "as_name": "SEVEREN-TELECOM St.Petersburg, Russia",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "217.198.14.0/23": {
+      "asn": 201757,
+      "as_name": "AKBARS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    }
+  },
+  "domains": {
+    "00.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "01.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "02.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "03.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "04.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "05.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "06.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "07.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "08.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "09.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "10.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "11.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "12.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "13.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "14.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "15.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "16.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "17.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "18.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "19.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "1l-api.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "1l-go.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "1l-hit.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "1l-hit.vkplay.ru": {
+      "parent": "vkplay.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "1l-s2s.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "1l-view.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "1l.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "1link.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "20.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "2018.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "2019.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "2020.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "2021.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "21.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "22.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "23.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "23feb.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "24.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "25.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "26.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "27.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "28.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "29.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "30.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "300.ya.ru": {
+      "parent": "ya.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "31.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "32.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "33.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "34.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "3475482542.mc.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "35.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "36.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "37.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "38.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "39.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "40.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "41.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "42.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "43.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "44.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "45.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "46.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "47.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "48.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "49.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "50.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "51.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "52.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "53.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "54.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "55.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "56.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "57.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "58.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "59.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "60.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "61.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "62.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "63.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "64.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "65.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "66.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "67.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "68.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "69.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "70.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "71.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "72.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "73.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "74.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "742231.ms.ok.ru": {
+      "parent": "ok.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "75.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "76.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "77.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "78.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "79.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "80.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "81.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "82.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "83.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "84.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "85.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "86.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "87.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "88.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "89.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "8mar.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "8march.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "90.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "91.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "92.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "93.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "94.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "95.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "96.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "97.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "98.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "99.img.avito.st": {
+      "parent": "img.avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "9may.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "a.mts.ru": {
+      "parent": "mts.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "a.wb.ru": {
+      "parent": "wb.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "aa.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ad.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ad.ozone.ru": {
+      "parent": "ozone.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ad4.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adblogger.vk.com": {
+      "parent": "vk.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adblogger.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adfox.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adfstat.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adm.digital.gov.ru": {
+      "parent": "digital.gov.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "adm.mp.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "admin.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "admin.tau.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ads-gate.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads-media.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.sber.ru": {
+      "parent": "sber.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.x5.ru": {
+      "parent": "x5.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ads.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adsdk.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adv.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "adv.vk.com": {
+      "parent": "vk.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adv.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adv.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "adv.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "advert-api-sandbox.wb.ru": {
+      "parent": "wb.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "advert-api-sandbox.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "advert-api.wb.ru": {
+      "parent": "wb.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "advert-api.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "advert-media-api.wb.ru": {
+      "parent": "wb.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "advert-media-api.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "advk.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "afisha.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "agency-adv.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "agent.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "akashi.vk-portal.net": {
+      "parent": "vk-portal.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "alfa-mobile.alfabank.ru": {
+      "parent": "alfabank.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "alice.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "alicepro.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "alpha3.minigames.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "alpha4.minigames.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "alt-ad.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "amc.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "amigo.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ams2-cdn.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "an.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "an.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "analytics-adv.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "analytics-stage.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "analytics.mobile.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "analytics.predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "analytics.vk.com": {
+      "parent": "vk.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "analytics.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "analytics.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "answer.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "answers.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api-maps.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.2gis.ru": {
+      "parent": "2gis.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.browser.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.browser.yandex.ru": {
+      "parent": "browser.yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.events.plus.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.max.ru": {
+      "parent": "max.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.photo.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.plus.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.reviews.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.s3.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.tau.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "api.uxfeedback.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "appmetrica.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "appmetrica.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "appmetrica.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "apps.research.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "arenda.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "authdl.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "autodiscover.corp.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "autodiscover.ord.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "av.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "avatars.mds.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "aw.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "away.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "away.tau.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "azt.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "b2.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bank.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "banners-website.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "bb.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "bd.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "beginners-adv.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "beko.dom.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "bender.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "beta.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "bfds.sberbank.ru": {
+      "parent": "sberbank.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "bilet.nspk.ru": {
+      "parent": "nspk.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bitva.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "biz.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "blackfriday.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "blog.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "bot.gosuslugi.ru": {
+      "parent": "gosuslugi.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "botapi.max.ru": {
+      "parent": "max.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "bratva-mr.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "bro-bg-store.s3.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "bro-bg-store.s3.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "bro-bg-store.s3.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "brontp-pre.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "browser.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "browser.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "bs.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "bs.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "business.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "calendar.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "capsula.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cargo.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cars.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "catalog.api.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cdn.connect.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cdn.newyear.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cdn.s3.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cdn.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cdnrhkgfkkpupuotntfj.svc.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cf.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "chat-prod.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "chat3.vtb.ru": {
+      "parent": "vtb.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "clck.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "clck.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "clck.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "clickstream.sberbank.ru": {
+      "parent": "sberbank.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cloud.cdn.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloud.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloud.cdn.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloud.vk.com": {
+      "parent": "vk.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloud.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-ams19.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-10.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-12.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-13.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-14.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-15.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-2.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-3.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-4.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-5.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-6.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-7.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cloudcdn-m9-9.cdn.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cms-res-web.online.sberbank.ru": {
+      "parent": "online.sberbank.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cobma.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cobmo.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cobrowsing.tbank.ru": {
+      "parent": "tbank.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "code.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "codefest.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cog.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "collections.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "collections.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "comba.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "combu.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "commba.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "company.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "compute.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "connect.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "contacts.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "contract.gosuslugi.ru": {
+      "parent": "gosuslugi.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "corp.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "counter.yadro.ru": {
+      "parent": "yadro.ru",
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "counter.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "cpg.money.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "crazypanda.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "crowdtest.payment-widget-smarttv.plus.tst.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "crowdtest.payment-widget.plus.tst.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cs.avito.ru": {
+      "parent": "avito.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "csp.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ctlog.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ctlog2023.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ctlog2024.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cto.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "cups.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "d-assets.2gis.ru": {
+      "parent": "2gis.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "da-preprod.biz.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "da.biz.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "data.amigo.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dating.ok.ru": {
+      "parent": "ok.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dev.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dev.max.ru": {
+      "parent": "max.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dev.tau.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dev1.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dev2.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dev3.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "disk.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "disk.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dk.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dl.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dl.marusia.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dn.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dnd.wb.ru": {
+      "parent": "wb.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dobro.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "doc.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dom.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "download.max.ru": {
+      "parent": "max.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dr.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dr2.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "dragonpals.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ds.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "duck.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "edu.tinkoff.ru": {
+      "parent": "tinkoff.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "education.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "education.tbank.ru": {
+      "parent": "tbank.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "egress.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "eh.vk.com": {
+      "parent": "vk.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ekmp-a-51.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "enterprise.api-maps.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "esa-res.online.sberbank.ru": {
+      "parent": "online.sberbank.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "esc.predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "et.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "expert.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "external-api.mediabilling.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "external-api.plus.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "fairplay-proxy.ott.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "favicon.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "favicon.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "favicon.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "favorites.api.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "fe.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "filekeeper-vod.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "finance.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "finance.wb.ru": {
+      "parent": "wb.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "five.predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "foto.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "frontend.vh.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "fw.wb.ru": {
+      "parent": "wb.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "games-bamboo.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "games-fisheye.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "genesis.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "geo-apart.predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "gibdd.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "go.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "golos.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "google-analytics-suite.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "gosweb.gosuslugi.ru": {
+      "parent": "gosuslugi.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "goya.rutube.ru": {
+      "parent": "rutube.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "gpb.finance.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "graphql-web.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "graphql.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "itdog-russia-only",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "guns.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "help.max.ru": {
+      "parent": "max.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "help.mcs.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "horo.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "hrc.tbank.ru": {
+      "parent": "tbank.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "hs.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "http-check-headers.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "i.max.ru": {
+      "parent": "max.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "i0.photo.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "i1.photo.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "i2.photo.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "i3.photo.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "i4.photo.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "i5.photo.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "i6.photo.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "i7.photo.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "i8.photo.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "i9.photo.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "id.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "id.tau.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "imperia.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "informer.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "infra.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "internet.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "invest.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "it.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "jam.api.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "jd.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "jitsi.wb.ru": {
+      "parent": "wb.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "journey.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "juggermobile.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "junior.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "keys.api.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "kicker.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "kiks.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "kiks.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "kingdomrift.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "knights.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "kobma.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "kobmo.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "komba.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "kombo.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "kombu.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "kommba.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "konflikt.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "kz.mcs.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "la.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "landing.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "le.tbank.ru": {
+      "parent": "tbank.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "learning.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "legal.max.ru": {
+      "parent": "max.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "legenda.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "legendofheroes.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "link.max.ru": {
+      "parent": "max.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "link.mp.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "live.ok.ru": {
+      "parent": "ok.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "loa.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "log.dzen.ru": {
+      "parent": "dzen.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "log.strm.yandex.ru": {
+      "parent": "strm.yandex.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "login.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "login.tau.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "lotro.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "love.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "loyalnost-adv.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "m.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "m.tau.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "m.vkvideo.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ma.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mail.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mailer.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mailexpress.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "man.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "map.gosuslugi.ru": {
+      "parent": "gosuslugi.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mapgl.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mapi.learning.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "maps.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "market.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "marketing-info.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "marketplace-sentry.wb.ru": {
+      "parent": "wb.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "marusia.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mc.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mc.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mc.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mcs.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "me.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "media-golos.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "media.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mediafeeds.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mediafeeds.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mediapro.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "merch-cpg.money.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "metrics.alfabank.ru": {
+      "parent": "alfabank.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "metrika.kontur.ru": {
+      "parent": "kontur.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "metrika.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "metrika.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "metrika.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "microapps.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "miniapp.internal.myteam.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "minigames.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mking.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mobfarm.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mobileapp.russianpost.ru": {
+      "parent": "russianpost.ru",
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "money.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mos.transport.vtb.ru": {
+      "parent": "vtb.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "mosqa.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mowar.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mozilla.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "mp.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ms.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ms.dzen.ru": {
+      "parent": "dzen.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ms.vk.com": {
+      "parent": "vk.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "ms.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "msk.t2.ru": {
+      "parent": "t2.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "multitest.ok.ru": {
+      "parent": "ok.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "my.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "myteam.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "nebogame.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "net.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "neuro.translate.yandex.ru": {
+      "parent": "translate.yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "new-adv.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "new.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "newyear.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "newyear2018.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "nonstandard.sales.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "notes.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "novorossiya.gosuslugi.ru": {
+      "parent": "gosuslugi.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "oauth.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "oauth.tau.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "oauth2.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "obs.mts.ru": {
+      "parent": "mts.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "oneclick-payment.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "operator.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ord.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ord.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "otvet.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "otveti.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "otvety.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "owa.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "panzar.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "park.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pay.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pay.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "payment-widget-smarttv.plus.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "payment-widget.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "payment-widget.plus.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pernatsk.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pets.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pic.rutubelist.ru": {
+      "parent": "rutubelist.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pixel.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "pl-res.online.sberbank.ru": {
+      "parent": "online.sberbank.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "platform.ofd.ru": {
+      "parent": "ofd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pms.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pochtabank.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pokerist.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "polis.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pp.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pptest.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "preview.rutube.ru": {
+      "parent": "rutube.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "primeworld.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "privacy-cs.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "prodvizhenie-adv.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "prodvizhenie.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ptd.predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pubg.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "public-api.reviews.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "public.infra.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pulse.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pulse.mp.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "push.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "pw.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "quantum.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "questions-adv.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "queuev4.vk.com": {
+      "parent": "vk.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "quiz.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "r.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "r.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "r0.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "r0.mradx.net": {
+      "parent": "mradx.net",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "r1.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "radar.imgsmail.ru": {
+      "parent": "imgsmail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "radiosputnik.ria.ru": {
+      "parent": "ria.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "rate.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "rebus.calls.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "rebus.octavius.mail.ru": {
+      "parent": "octavius.mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "reklama.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "relap.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "reseach.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "rev.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "riot.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "rl.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "rm.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "rs.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "rt.api.operator.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "s.vtb.ru": {
+      "parent": "vtb.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "s0.bss.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "s1.bss.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "s3.babel.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "s3.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "s3.media-mobs.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "s3.t2.ru": {
+      "parent": "t2.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "s3.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sales.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sangels.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sba.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sba.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sba.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sberpro.vedomosti.ru": {
+      "parent": "vedomosti.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sdk.money.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "secure-cloud.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "secure.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "securepay.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "security.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sentry.iptv.rt.ru": {
+      "parent": "rt.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry.ozon.ru": {
+      "parent": "ozon.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry.wb.ru": {
+      "parent": "wb.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "sentry.x5.ru": {
+      "parent": "x5.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "service.amigo.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sfd.gosuslugi.ru": {
+      "parent": "gosuslugi.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "shadowbound.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sntr.avito.ru": {
+      "parent": "avito.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "socdwar.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sochi-park.predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "souz.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "speller.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sphere.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sport.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sso-app4.vtb.ru": {
+      "parent": "vtb.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sso-app5.vtb.ru": {
+      "parent": "vtb.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sso.auto.ru": {
+      "parent": "auto.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sso.dzen.ru": {
+      "parent": "dzen.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sso.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ssp.rutube.ru": {
+      "parent": "rutube.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "st-im.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "st.avito.ru": {
+      "parent": "avito.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "st.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "st.max.ru": {
+      "parent": "max.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "st.okcdn.ru": {
+      "parent": "okcdn.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "st.ozone.ru": {
+      "parent": "ozone.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "stacks.vk-portal.net": {
+      "parent": "vk-portal.net",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "staging-analytics.predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "staging-esc.predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "staging-sochi-park.predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "stand.aoc.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "stand.bb.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "stand.cb.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "stand.la.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "stand.pw.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "startrek.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "static-mon.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "static.dl.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "static.operator.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "static.rutube.ru": {
+      "parent": "rutube.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "stats.avito.ru": {
+      "parent": "avito.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "stats.vk-portal.net": {
+      "parent": "vk-portal.net",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "status.mcs.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "storage.ape.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "stormriders.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "stream.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "street-combats.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "strm-rad-23.strm.yandex.net": {
+      "parent": "strm.yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "styles.api.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "suggest.dzen.ru": {
+      "parent": "dzen.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "suggest.sso.dzen.ru": {
+      "parent": "dzen.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-13.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-14.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-15.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-16.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-17.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-18.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-19.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-20.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-21.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-22.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-23.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-24.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-25.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-26.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-27.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-28.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-29.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-30.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-47.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-54.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-55.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-56.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-57.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-83.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-84.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-85.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-86.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-87.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-88.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-89.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-90.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-91.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-92.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-93.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-94.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-95.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-96.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-97.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-98.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun1-99.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-10.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-11.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-12.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-13.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-14.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-15.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-16.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-17.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-18.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-19.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-20.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-21.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun2-22.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-10.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-11.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-12.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-13.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-16.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-17.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-18.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-19.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-20.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-21.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-22.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-23.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun3-24.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun4-10.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun4-11.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun4-12.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun4-15.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun4-16.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun4-17.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun4-18.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun4-19.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun4-20.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun4-21.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun4-22.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun6-20.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun6-21.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun6-22.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun6-23.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-12.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-13.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-14.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-15.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-16.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-17.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-18.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-19.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-20.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-21.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-22.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-23.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun7-24.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-10.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-11.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-12.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-13.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-14.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-15.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-16.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-17.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-18.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-19.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-20.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-21.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-22.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-23.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-24.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-25.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-26.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-27.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-28.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-29.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-30.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-31.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-32.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-33.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-34.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-35.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-36.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-37.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-38.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-39.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-40.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-41.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-42.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-43.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-44.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-45.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-46.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-47.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-48.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-49.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-50.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-51.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-52.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-53.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-54.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-55.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-56.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-57.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-58.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-59.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-60.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-61.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-62.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-63.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-64.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-65.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-66.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-67.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-68.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-69.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-70.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-71.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-72.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-73.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-74.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-75.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-76.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-77.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-78.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-79.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-80.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-81.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-82.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-83.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-84.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-85.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-86.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-87.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sun9-88.userapi.com": {
+      "parent": "userapi.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "support.biz.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "support.mcs.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "support.tech.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "surveys.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "sync.browser.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "t.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "tamtam.ok.ru": {
+      "parent": "ok.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "target.vk.com": {
+      "parent": "vk.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "target.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "team.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "team.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tech.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tech.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tera.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tickets.widget.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tidaltrek.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tile0.maps.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tile1.maps.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tile2.maps.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tile3.maps.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tile4.maps.2gis.com": {
+      "parent": "2gis.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tiles.maps.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "tmgame.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "todo.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "top-fwz1.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "top-staging.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "touch.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "townwars.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "travel.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "travel.yastatic.net": {
+      "parent": "yastatic.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "trk.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ttbh.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "typewriter.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "u.corp.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ufo.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ui.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ui.tau.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "user-geo-data.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "uslugi.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "uxfeedback-cdn.s3.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "uxfeedback.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "visor.sberbank.ru": {
+      "parent": "sberbank.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "vk.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "vkdoc.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "vkvideo.cs7777.vk.ru": {
+      "parent": "vk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "voina.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "voter.gosuslugi.ru": {
+      "parent": "gosuslugi.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "vshark.ttk.ru": {
+      "parent": "ttk.ru",
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "vt-1.ozone.ru": {
+      "parent": "ozone.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "wap.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "wap.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "warface.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "warheaven.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "wartune.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "web-analytics.wildberries.ru": {
+      "parent": "wildberries.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "webagent.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "weblink.predict.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "webstore.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "welcome.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "welcome.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "wf.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "wh-cpg.money.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "whatsnew.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "whiteline.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "widevine-proxy.ott.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "widgets.kinopoisk.ru": {
+      "parent": "kinopoisk.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "wok.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "wos.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ws-api.oneme.ru": {
+      "parent": "oneme.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "ws.seller.ozon.ru": {
+      "parent": "seller.ozon.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "www.avito.st": {
+      "parent": "avito.st",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "www.biz.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "www.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "www.mcs.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "www.pubg.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "www.rzd.ru": {
+      "parent": "rzd.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "www.t2.ru": {
+      "parent": "t2.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "www.vtb.ru": {
+      "parent": "vtb.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "www.wf.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "xapi.ozon.com": {
+      "parent": "ozon.com",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "xray.mail.ru": {
+      "parent": "mail.ru",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "yabro-wbplugin.edadeal.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "yabs.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-domains"
+      ]
+    },
+    "zen-yabro-morda.mediascope.mc.yandex.ru": {
+      "parent": "yandex.ru",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "zen.yandex.com": {
+      "parent": "yandex.com",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "zen.yandex.net": {
+      "parent": "yandex.net",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
     }
   }
 }

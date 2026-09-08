@@ -1,11 +1,12 @@
 {
   "version": 1,
-  "updated": "2026-09-07",
+  "updated": "2026-09-08",
   "source": "Team Cymru bulk whois + RIPEstat announced-prefixes + внешние списки",
-  "prefix_count": 876,
-  "external_count": 191,
-  "resolved_domains": 996,
-  "catalog_domains": 1041,
+  "prefix_count": 949,
+  "external_count": 248,
+  "external_domains": 888,
+  "resolved_domains": 1844,
+  "catalog_domains": 1929,
   "prefixes": {
     "5.8.17.0/24": {
       "asn": 8492,
@@ -15,6 +16,16 @@
       "source": "external",
       "sources": [
         "mobile-whitelist-cidr"
+      ]
+    },
+    "5.8.28.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
       ]
     },
     "5.8.64.0/24": {
@@ -36,6 +47,36 @@
       ],
       "source": "dns"
     },
+    "5.23.48.0/21": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "5.35.0.0/19": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "5.35.88.0/21": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "5.45.192.0/18": {
       "asn": 13238,
       "as_name": "YANDEX - YANDEX LLC, RU",
@@ -44,7 +85,7 @@
         "post",
         "yandex"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "5.45.202.0/24": {
       "asn": 13238,
@@ -62,7 +103,7 @@
     },
     "5.45.215.0/24": {
       "asn": 13238,
-      "as_name": "Яндекс — YANDEX LLC",
+      "as_name": "YANDEX - YANDEX LLC, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -74,18 +115,28 @@
       "services": [
         "ok"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "5.61.232.0/21": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
     },
+    "5.101.37.0/24": {
+      "asn": 201589,
+      "as_name": "EdgeAmLLC - _EDGEAM_ LLC, AM",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
     "5.101.40.0/22": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -108,6 +159,16 @@
       "source": "external",
       "sources": [
         "mobile-whitelist-cidr"
+      ]
+    },
+    "5.101.152.0/21": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
       ]
     },
     "5.101.153.0/24": {
@@ -202,16 +263,6 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "5.188.112.0/24": {
-      "asn": 50340,
-      "as_name": "SELECTEL-MSK",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "operator-whitelist-cidr"
-      ]
-    },
     "5.188.118.0/24": {
       "asn": 49505,
       "as_name": "SELECTEL - JSC Selectel, RU",
@@ -248,7 +299,7 @@
       "services": [
         "shops"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "5.188.150.0/24": {
       "asn": 210756,
@@ -310,7 +361,7 @@
       "services": [
         "yandex"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "31.31.192.0/20": {
       "asn": 197695,
@@ -319,6 +370,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -384,6 +436,16 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "31.128.48.0/21": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "31.130.140.0/22": {
       "asn": 207986,
       "as_name": "Ozon Банк",
@@ -405,7 +467,7 @@
       "services": [
         "ozon"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "31.130.149.0/24": {
       "asn": 9123,
@@ -446,6 +508,26 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "31.177.76.0/24": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "31.177.80.0/24": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "31.177.104.0/22": {
       "asn": 47764,
       "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
@@ -484,7 +566,7 @@
     },
     "37.9.64.0/18": {
       "asn": 13238,
-      "as_name": "Яндекс — YANDEX LLC",
+      "as_name": "YANDEX - YANDEX LLC, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -496,7 +578,7 @@
       "services": [
         "yandex"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "37.9.87.0/24": {
       "asn": 13238,
@@ -512,7 +594,7 @@
       "services": [
         "yandex"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "37.18.92.0/23": {
       "asn": 34849,
@@ -522,6 +604,16 @@
         "misc-extra"
       ],
       "source": "dns"
+    },
+    "37.18.108.0/22": {
+      "asn": 208677,
+      "as_name": "CLOUDRU-AS - _Cloud Technologies_ LLC trading as Cloud.ru, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
     },
     "37.130.193.0/24": {
       "asn": 34545,
@@ -569,6 +661,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -588,6 +681,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ]
@@ -674,7 +768,18 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
+      ]
+    },
+    "45.11.92.0/23": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
       ]
     },
     "45.67.58.0/24": {
@@ -692,6 +797,26 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
+    },
+    "45.89.24.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "45.130.40.0/22": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "45.136.20.0/22": {
       "asn": 47764,
@@ -716,6 +841,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -771,6 +897,16 @@
         "misc-extra"
       ],
       "source": "dns"
+    },
+    "46.42.186.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
     },
     "46.61.128.0/17": {
       "asn": 12389,
@@ -841,6 +977,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ]
@@ -929,7 +1066,7 @@
         "game-ru",
         "misc-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "51.250.48.0/24": {
       "asn": 200350,
@@ -938,7 +1075,7 @@
       "services": [
         "avia"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "51.250.50.0/23": {
       "asn": 200350,
@@ -947,7 +1084,7 @@
       "services": [
         "edu-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "51.250.54.0/23": {
       "asn": 200350,
@@ -972,7 +1109,7 @@
         "misc-extra",
         "urban"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "51.250.126.0/24": {
       "asn": 200350,
@@ -981,7 +1118,7 @@
       "services": [
         "yandex-auto"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "62.33.0.0/16": {
       "asn": 20485,
@@ -1017,6 +1154,16 @@
       ],
       "source": "dns"
     },
+    "62.148.128.0/19": {
+      "asn": 15468,
+      "as_name": "KLGELECS-AS PJSC Rostelecom. Kaluga branch",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "62.148.128.0/20": {
       "asn": 15468,
       "as_name": "IDDQD-AS - IDDQD-AS, RU",
@@ -1033,6 +1180,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -1058,12 +1206,12 @@
     },
     "62.217.160.0/20": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
     },
-    "77.79.128.0/21": {
+    "77.79.128.0/20": {
       "asn": 24955,
       "as_name": "UBN-AS",
       "cc": "RU",
@@ -1083,7 +1231,7 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "77.79.152.0/24": {
+    "77.79.152.0/22": {
       "asn": 24955,
       "as_name": "UBN-AS",
       "cc": "RU",
@@ -1093,7 +1241,7 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "77.79.160.0/23": {
+    "77.79.160.0/19": {
       "asn": 24955,
       "as_name": "UBN-AS",
       "cc": "RU",
@@ -1111,7 +1259,7 @@
         "yandex",
         "yandex-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "77.88.8.0/24": {
       "asn": 13238,
@@ -1127,7 +1275,7 @@
       "services": [
         "yandex"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "77.88.55.0/24": {
       "asn": 13238,
@@ -1136,7 +1284,7 @@
       "services": [
         "yandex"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "77.95.128.0/21": {
       "asn": 43226,
@@ -1156,6 +1304,16 @@
       ],
       "source": "dns"
     },
+    "77.222.40.0/22": {
+      "asn": 44112,
+      "as_name": "SWEB-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "77.222.40.0/23": {
       "asn": 44112,
       "as_name": "SWEB-AS - SpaceWeb Ltd, RU",
@@ -1164,6 +1322,36 @@
         "cloud-extra"
       ],
       "source": "dns"
+    },
+    "77.222.44.0/24": {
+      "asn": 44112,
+      "as_name": "SWEB-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "77.222.48.0/20": {
+      "asn": 44112,
+      "as_name": "SWEB-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "77.223.96.0/20": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "77.244.222.0/24": {
       "asn": 49505,
@@ -1190,6 +1378,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ]
@@ -1199,7 +1388,8 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "mobile"
+        "mobile",
+        "shops"
       ],
       "source": "dns"
     },
@@ -1221,6 +1411,16 @@
         "shops"
       ],
       "source": "dns"
+    },
+    "78.159.252.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
     },
     "79.137.139.0/24": {
       "asn": 47541,
@@ -1264,7 +1464,7 @@
       "services": [
         "sferum"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "79.137.186.0/23": {
       "asn": 56631,
@@ -1276,9 +1476,19 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "79.137.208.0/20": {
+      "asn": 12695,
+      "as_name": "DINET-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "79.137.240.0/21": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -1312,16 +1522,6 @@
       ],
       "source": "dns"
     },
-    "80.67.40.0/22": {
-      "asn": 57629,
-      "as_name": "IVI-",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "80.67.40.0/24": {
       "asn": 57629,
       "as_name": "IVI",
@@ -1350,9 +1550,9 @@
       "services": [
         "streaming"
       ],
-      "source": "dns"
+      "source": "asn"
     },
-    "80.68.240.0/22": {
+    "80.68.240.0/20": {
       "asn": 20848,
       "as_name": "ROSBUSINESSCONSULTING-AS",
       "cc": "RU",
@@ -1371,7 +1571,17 @@
       ],
       "source": "dns"
     },
-    "80.247.32.0/22": {
+    "80.87.200.0/22": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "80.247.32.0/20": {
       "asn": 25292,
       "as_name": "VGTRK-AS",
       "cc": "RU",
@@ -1450,6 +1660,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ]
@@ -1567,6 +1778,16 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "82.202.188.0/22": {
+      "asn": 209030,
+      "as_name": "KL-KDP",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "82.202.189.0/24": {
       "asn": 209030,
       "as_name": "KL-KDP - AO Kaspersky Lab, RU",
@@ -1598,16 +1819,6 @@
         "misc-extra"
       ],
       "source": "dns"
-    },
-    "82.202.196.0/24": {
-      "asn": 50340,
-      "as_name": "SELECTEL-MSK",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
     },
     "82.202.213.0/24": {
       "asn": 50340,
@@ -1724,7 +1935,7 @@
       "services": [
         "misc-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "84.201.184.0/22": {
       "asn": 200350,
@@ -1733,7 +1944,7 @@
       "services": [
         "misc-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "84.201.188.0/23": {
       "asn": 200350,
@@ -1757,16 +1968,6 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
-    },
-    "84.252.144.0/22": {
-      "asn": 35237,
-      "as_name": "SBERBANK",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
     },
     "84.252.144.0/24": {
       "asn": 35237,
@@ -1803,7 +2004,17 @@
       "services": [
         "sber"
       ],
-      "source": "dns"
+      "source": "asn"
+    },
+    "84.252.150.0/23": {
+      "asn": 35237,
+      "as_name": "SBERBANK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "84.252.150.0/24": {
       "asn": 35237,
@@ -1814,14 +2025,14 @@
     },
     "84.252.151.0/24": {
       "asn": 35237,
-      "as_name": "Сбербанк",
+      "as_name": "Sberbank - Sberbank of Russia PJSC, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
     },
     "84.252.152.0/24": {
       "asn": 35237,
-      "as_name": "Сбербанк",
+      "as_name": "Sberbank - Sberbank of Russia PJSC, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -1843,16 +2054,6 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "85.118.176.0/24": {
-      "asn": 35021,
-      "as_name": "E-STOCK-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "85.118.180.0/23": {
       "asn": 35021,
       "as_name": "E-STOCK-AS",
@@ -1860,6 +2061,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -1883,6 +2085,16 @@
       ],
       "source": "dns"
     },
+    "85.142.18.0/23": {
+      "asn": 3267,
+      "as_name": "NIKS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "85.142.19.0/24": {
       "asn": 3267,
       "as_name": "IDDQD-AS - IDDQD-AS, RU",
@@ -1898,6 +2110,16 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
+    },
+    "85.142.148.0/23": {
+      "asn": 3267,
+      "as_name": "NIKS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "85.143.112.0/22": {
       "asn": 3267,
@@ -1953,11 +2175,11 @@
       "services": [
         "wildberries"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "85.198.78.0/24": {
       "asn": 57073,
-      "as_name": "Wildberries",
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -1969,7 +2191,17 @@
       "services": [
         "wildberries"
       ],
-      "source": "dns"
+      "source": "asn"
+    },
+    "85.198.96.0/21": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "85.209.149.0/24": {
       "asn": 208677,
@@ -1980,12 +2212,31 @@
       ],
       "source": "dns"
     },
+    "85.233.64.0/20": {
+      "asn": 34887,
+      "as_name": "CIRT-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "85.233.75.0/24": {
       "asn": 34887,
       "as_name": "CIRT-AS - Information Technology Center of the Republic of Tatarstan GUP, RU",
       "cc": "RU",
       "services": [
         "gosuslugi"
+      ],
+      "source": "dns"
+    },
+    "86.109.210.0/24": {
+      "asn": 29648,
+      "as_name": "COMLINE-AS - PJSC MegaFon, RU",
+      "cc": "RU",
+      "services": [
+        "telecom-extra"
       ],
       "source": "dns"
     },
@@ -2007,6 +2258,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -2037,7 +2289,7 @@
         "vk-play",
         "vk-video"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "87.240.166.0/24": {
       "asn": 47542,
@@ -2052,6 +2304,16 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
+    },
+    "87.242.104.0/21": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "87.242.112.0/22": {
       "asn": 47764,
@@ -2079,7 +2341,7 @@
         "yandex",
         "yandex-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "87.250.247.0/24": {
       "asn": 13238,
@@ -2090,7 +2352,7 @@
         "yandex",
         "yandex-auto"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "87.251.65.0/24": {
       "asn": 206980,
@@ -2109,6 +2371,26 @@
         "misc-extra"
       ],
       "source": "dns"
+    },
+    "88.212.201.0/24": {
+      "asn": 39134,
+      "as_name": "UNITEDNET - EDINAYA SET LIMITED LIABILITY COMPANY, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "88.212.202.0/24": {
+      "asn": 39134,
+      "as_name": "UNITEDNET - EDINAYA SET LIMITED LIABILITY COMPANY, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "itdog-russia-only"
+      ]
     },
     "89.20.149.0/24": {
       "asn": 12714,
@@ -2143,6 +2425,16 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
+    },
+    "89.108.80.0/20": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "89.108.96.0/19": {
       "asn": 197695,
@@ -2182,16 +2474,6 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "89.169.92.0/22": {
-      "asn": 48061,
-      "as_name": "UMA-TECH-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "89.169.128.0/18": {
       "asn": 200350,
       "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
@@ -2199,7 +2481,7 @@
       "services": [
         "misc-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "89.175.0.0/16": {
       "asn": 8359,
@@ -2271,7 +2553,7 @@
     },
     "89.221.228.0/22": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -2301,7 +2583,7 @@
         "vk-extra",
         "vk-play"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "89.232.188.0/24": {
       "asn": 200350,
@@ -2382,7 +2664,7 @@
         "vk-cdn",
         "vk-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "90.156.244.0/24": {
       "asn": 215070,
@@ -2391,7 +2673,17 @@
       "services": [
         "wildberries"
       ],
-      "source": "dns"
+      "source": "asn"
+    },
+    "91.107.120.0/21": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "91.109.200.0/21": {
       "asn": 199669,
@@ -2410,6 +2702,26 @@
         "misc-extra"
       ],
       "source": "dns"
+    },
+    "91.186.196.0/22": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "91.189.114.0/23": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "91.194.226.0/23": {
       "asn": 43399,
@@ -2440,6 +2752,16 @@
         "brokers"
       ],
       "source": "dns"
+    },
+    "91.198.98.0/24": {
+      "asn": 43673,
+      "as_name": "MULTICARTA-TECH-AS - _Multicarta_ LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "91.199.80.0/24": {
       "asn": 34485,
@@ -2493,16 +2815,6 @@
       ],
       "source": "dns"
     },
-    "91.207.58.0/23": {
-      "asn": 48061,
-      "as_name": "UMA-TECH-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "91.212.64.0/24": {
       "asn": 44386,
       "as_name": "Ozon — Internet Solutions",
@@ -2547,6 +2859,26 @@
       ],
       "source": "dns"
     },
+    "91.215.37.0/24": {
+      "asn": 49002,
+      "as_name": "RUSPOST - JSC _Russian Post_, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
+    "91.215.38.0/24": {
+      "asn": 49002,
+      "as_name": "RUSPOST - JSC _Russian Post_, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
     "91.215.40.0/22": {
       "asn": 57724,
       "as_name": "DDOS-GUARD",
@@ -2554,6 +2886,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -2657,16 +2990,6 @@
       ],
       "source": "dns"
     },
-    "91.221.164.0/23": {
-      "asn": 201706,
-      "as_name": "AS-SERVICEPIPE",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "91.221.164.0/24": {
       "asn": 201706,
       "as_name": "AS-SERVICEPIPE - SERVICEPIPE LLC, RU",
@@ -2717,6 +3040,16 @@
       ],
       "source": "dns"
     },
+    "91.223.63.0/24": {
+      "asn": 42231,
+      "as_name": "PRSBM-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "91.223.93.0/24": {
       "asn": 44386,
       "as_name": "Ozon — Internet Solutions",
@@ -2733,18 +3066,9 @@
       ],
       "source": "dns"
     },
-    "91.227.52.0/23": {
-      "asn": 56806,
-      "as_name": "ascom4s - JSC Computing Forces, RU",
-      "cc": "RU",
-      "services": [
-        "payments"
-      ],
-      "source": "dns"
-    },
     "91.230.107.0/24": {
       "asn": 57073,
-      "as_name": "Wildberries",
+      "as_name": "Wildberries-AS - LLC Wildberries, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -2776,6 +3100,16 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
+    },
+    "91.231.235.0/24": {
+      "asn": 57363,
+      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
     },
     "91.232.6.0/23": {
       "asn": 60343,
@@ -2856,6 +3190,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -2877,6 +3212,16 @@
       ],
       "source": "dns"
     },
+    "91.238.108.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
     "91.240.84.0/22": {
       "asn": 29182,
       "as_name": "RU-JSCIOT",
@@ -2885,6 +3230,16 @@
       "source": "external",
       "sources": [
         "operator-whitelist-cidr"
+      ]
+    },
+    "91.240.170.0/24": {
+      "asn": 57363,
+      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
       ]
     },
     "91.242.32.0/21": {
@@ -2903,6 +3258,16 @@
       "services": [],
       "source": "asn"
     },
+    "92.38.244.0/23": {
+      "asn": 21051,
+      "as_name": "NIVAL-AS - ASTRUM LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
     "92.39.128.0/21": {
       "asn": 8595,
       "as_name": "WESTCALL-AS",
@@ -2911,6 +3276,16 @@
       "source": "external",
       "sources": [
         "mobile-whitelist-cidr"
+      ]
+    },
+    "92.53.96.0/22": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
       ]
     },
     "92.53.96.0/24": {
@@ -2954,26 +3329,6 @@
       ]
     },
     "92.223.43.0/24": {
-      "asn": 210756,
-      "as_name": "EDGECENTERLLC",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "92.223.64.0/23": {
-      "asn": 210756,
-      "as_name": "EDGECENTERLLC",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "92.223.80.0/24": {
       "asn": 210756,
       "as_name": "EDGECENTERLLC",
       "cc": "RU",
@@ -3031,6 +3386,16 @@
       "services": [],
       "source": "asn"
     },
+    "92.255.104.0/21": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "92.255.112.0/20": {
       "asn": 13238,
       "as_name": "Яндекс — YANDEX LLC",
@@ -3079,15 +3444,6 @@
       ],
       "source": "dns"
     },
-    "93.93.88.0/23": {
-      "asn": 34879,
-      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
-      "cc": "RU",
-      "services": [
-        "shops"
-      ],
-      "source": "dns"
-    },
     "93.93.91.0/24": {
       "asn": 34879,
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
@@ -3124,7 +3480,7 @@
         "yandex",
         "yandex-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "93.158.171.0/24": {
       "asn": 13238,
@@ -3132,16 +3488,6 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
-    },
-    "93.186.224.0/20": {
-      "asn": 47541,
-      "as_name": "VKONTAKTE-SPB-AS vk.com",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
     },
     "93.186.224.0/21": {
       "asn": 47541,
@@ -3152,7 +3498,7 @@
         "vk-play",
         "vk-video"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "93.186.232.0/21": {
       "asn": 47541,
@@ -3162,7 +3508,7 @@
         "vk",
         "vk-messenger"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "93.189.47.0/24": {
       "asn": 41853,
@@ -3234,9 +3580,10 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru"
+        "mailru",
+        "vk-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "94.124.200.0/22": {
       "asn": 47724,
@@ -3245,6 +3592,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -3305,6 +3653,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -3321,16 +3670,6 @@
         "tv"
       ],
       "source": "dns"
-    },
-    "95.129.236.0/23": {
-      "asn": 57724,
-      "as_name": "DDOS-GUARD",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
     },
     "95.129.236.0/24": {
       "asn": 57724,
@@ -3371,7 +3710,7 @@
     },
     "95.142.201.0/24": {
       "asn": 28709,
-      "as_name": "VK — региональный CDN (раздача видео)",
+      "as_name": "VKONTAKTE-REGIONAL-CDN - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -3385,7 +3724,7 @@
     },
     "95.142.203.0/24": {
       "asn": 28709,
-      "as_name": "VK — региональный CDN (раздача видео)",
+      "as_name": "VKONTAKTE-REGIONAL-CDN - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -3397,7 +3736,7 @@
       "services": [
         "vk-cdn"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.142.206.0/24": {
       "asn": 60476,
@@ -3437,7 +3776,7 @@
         "vk-music",
         "vk-play"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.163.133.0/24": {
       "asn": 47764,
@@ -3467,7 +3806,7 @@
       "services": [
         "yandex"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.163.224.0/20": {
       "asn": 197695,
@@ -3488,6 +3827,16 @@
       ],
       "source": "dns"
     },
+    "95.163.240.0/21": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "95.163.244.0/24": {
       "asn": 197695,
       "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
@@ -3501,7 +3850,7 @@
     },
     "95.163.248.0/21": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -3540,7 +3889,7 @@
       "services": [
         "gov-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.173.132.0/22": {
       "asn": 8291,
@@ -3549,7 +3898,7 @@
       "services": [
         "gov-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.173.136.0/23": {
       "asn": 8291,
@@ -3566,7 +3915,7 @@
         "gov-extra",
         "misc-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.173.137.0/24": {
       "asn": 8291,
@@ -3610,16 +3959,6 @@
       "services": [],
       "source": "asn"
     },
-    "95.173.144.0/20": {
-      "asn": 43797,
-      "as_name": "RSNET2-AS RSNET2",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "95.173.144.0/22": {
       "asn": 43797,
       "as_name": "RSNET2 — государственные информсистемы",
@@ -3648,7 +3987,7 @@
       "services": [
         "gov-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.173.147.0/24": {
       "asn": 43797,
@@ -3657,7 +3996,7 @@
       "services": [
         "gov-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.173.148.0/22": {
       "asn": 43797,
@@ -3694,7 +4033,7 @@
       "services": [
         "misc-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.173.152.0/22": {
       "asn": 43797,
@@ -3745,7 +4084,7 @@
       "services": [
         "misc-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.173.157.0/24": {
       "asn": 43797,
@@ -3754,7 +4093,7 @@
       "services": [
         "gov-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.173.158.0/24": {
       "asn": 43797,
@@ -3777,6 +4116,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ]
@@ -3828,7 +4168,7 @@
         "vk",
         "vk-messenger"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "95.213.44.0/24": {
       "asn": 47542,
@@ -3852,6 +4192,16 @@
         "misc-extra"
       ],
       "source": "dns"
+    },
+    "95.213.212.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "95.213.216.0/23": {
       "asn": 49505,
@@ -3897,6 +4247,16 @@
       "services": [],
       "source": "asn"
     },
+    "109.70.24.0/21": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "109.71.8.0/21": {
       "asn": 50340,
       "as_name": "SELECTEL-MSK",
@@ -3941,6 +4301,16 @@
       "services": [],
       "source": "asn"
     },
+    "109.172.4.0/22": {
+      "asn": 29182,
+      "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "109.172.74.0/24": {
       "asn": 43399,
       "as_name": "Т-Банк (TCS)",
@@ -3972,7 +4342,7 @@
         "gosuslugi",
         "gov-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "109.207.2.0/24": {
       "asn": 196747,
@@ -3983,7 +4353,7 @@
     },
     "109.207.8.0/24": {
       "asn": 196747,
-      "as_name": "Электронное правительство (Госуслуги)",
+      "as_name": "Electronic-government - PJSC Rostelecom, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -3995,7 +4365,7 @@
       "services": [
         "gosuslugi"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "109.207.10.0/23": {
       "asn": 196747,
@@ -4053,6 +4423,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -4096,7 +4467,7 @@
     },
     "128.140.168.0/21": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -4199,6 +4570,147 @@
       "services": [],
       "source": "asn"
     },
+    "151.236.64.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
+    "151.236.80.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-cidr"
+      ]
+    },
+    "151.236.83.0/24": {
+      "asn": 57363,
+      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "151.236.84.0/22": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
+    "151.236.84.0/24": {
+      "asn": 57363,
+      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "151.236.90.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
+    "151.236.94.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
+    "151.236.100.0/24": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
+    "151.236.103.0/24": {
+      "asn": 204720,
+      "as_name": "CDNetworks - GLOBAL CLOUD NETWORK LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "151.236.106.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
+    "151.236.111.0/24": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
+    "151.236.112.0/24": {
+      "asn": 204720,
+      "as_name": "CDNetworks - GLOBAL CLOUD NETWORK LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "151.236.122.0/23": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
+    "151.236.123.0/24": {
+      "asn": 57363,
+      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
     "153.51.96.0/19": {
       "asn": 200350,
       "as_name": "Яндекс — Yandex.Cloud",
@@ -4212,6 +4724,16 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
+    },
+    "155.212.176.0/21": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "155.212.191.0/24": {
       "asn": 198610,
@@ -4229,7 +4751,7 @@
       "services": [
         "max"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "155.212.234.0/24": {
       "asn": 201706,
@@ -4260,7 +4782,17 @@
         "booking",
         "news"
       ],
-      "source": "dns"
+      "source": "asn"
+    },
+    "161.104.32.0/19": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "161.104.44.0/22": {
       "asn": 50340,
@@ -4295,6 +4827,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -4333,7 +4866,7 @@
     },
     "176.112.168.0/21": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -4367,7 +4900,7 @@
         "avito",
         "classifieds"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "176.114.121.0/24": {
       "asn": 201012,
@@ -4391,7 +4924,7 @@
         "avito",
         "classifieds"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "176.114.123.0/24": {
       "asn": 201012,
@@ -4422,7 +4955,7 @@
         "avito",
         "classifieds"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "176.114.125.0/24": {
       "asn": 201012,
@@ -4471,7 +5004,7 @@
         "banks-extra",
         "tbank"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "178.130.129.0/24": {
       "asn": 43399,
@@ -4480,7 +5013,7 @@
       "services": [
         "other-banks"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "178.154.128.0/19": {
       "asn": 13238,
@@ -4531,7 +5064,7 @@
       "services": [
         "misc-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "178.154.245.0/24": {
       "asn": 200350,
@@ -4540,7 +5073,7 @@
       "services": [
         "misc-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "178.176.0.0/19": {
       "asn": 25159,
@@ -4562,6 +5095,16 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "178.176.128.0/24": {
+      "asn": 31133,
+      "as_name": "MF-MGSM-AS - PJSC MegaFon, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
     "178.177.0.0/18": {
       "asn": 25159,
       "as_name": "SONICDUO-AS - PJSC MegaFon, RU",
@@ -4579,6 +5122,16 @@
         "mos"
       ],
       "source": "dns"
+    },
+    "178.210.64.0/20": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "178.210.92.0/24": {
       "asn": 48287,
@@ -4600,7 +5153,7 @@
     },
     "178.237.16.0/20": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -4633,6 +5186,16 @@
       "services": [],
       "source": "asn"
     },
+    "178.237.20.0/24": {
+      "asn": 47764,
+      "as_name": "VK-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "178.237.21.0/24": {
       "asn": 28709,
       "as_name": "VK — региональный CDN (раздача видео)",
@@ -4660,16 +5223,6 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
-    },
-    "178.248.232.0/21": {
-      "asn": 51115,
-      "as_name": "HLL-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "operator-whitelist-cidr"
-      ]
     },
     "178.248.232.0/23": {
       "asn": 51115,
@@ -4834,9 +5387,19 @@
       ],
       "source": "dns"
     },
+    "185.16.8.0/22": {
+      "asn": 21051,
+      "as_name": "NIVAL-AS - ASTRUM LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
     "185.16.148.0/22": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -4864,7 +5427,7 @@
     },
     "185.16.247.0/24": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -4898,6 +5461,26 @@
       ],
       "source": "dns"
     },
+    "185.30.176.0/22": {
+      "asn": 60476,
+      "as_name": "MYCOM-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "185.31.112.0/22": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
+    },
     "185.31.164.0/22": {
       "asn": 50340,
       "as_name": "SELECTEL-MSK",
@@ -4929,11 +5512,11 @@
       "services": [
         "vk-cdn"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.32.251.0/24": {
       "asn": 28709,
-      "as_name": "VK — региональный CDN (раздача видео)",
+      "as_name": "VKONTAKTE-REGIONAL-CDN - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -4973,7 +5556,7 @@
       "services": [
         "wildberries"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.62.202.0/24": {
       "asn": 57073,
@@ -4982,7 +5565,7 @@
       "services": [
         "wildberries"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.65.148.0/23": {
       "asn": 51115,
@@ -5031,6 +5614,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ]
@@ -5120,7 +5704,7 @@
         "market-extra",
         "ozon"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.73.194.0/24": {
       "asn": 44386,
@@ -5130,7 +5714,7 @@
         "market-extra",
         "ozon"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.73.195.0/24": {
       "asn": 44386,
@@ -5139,7 +5723,7 @@
       "services": [
         "ozon"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.76.144.0/22": {
       "asn": 48287,
@@ -5242,6 +5826,16 @@
       ],
       "source": "dns"
     },
+    "185.114.244.0/22": {
+      "asn": 9123,
+      "as_name": "TIMEWEB-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "185.129.100.0/22": {
       "asn": 57724,
       "as_name": "DDOS-GUARD",
@@ -5249,6 +5843,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -5283,7 +5878,7 @@
     },
     "185.130.112.0/22": {
       "asn": 47764,
-      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [],
       "source": "asn"
@@ -5312,6 +5907,16 @@
       ],
       "source": "dns"
     },
+    "185.137.232.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "185.138.252.0/22": {
       "asn": 57073,
       "as_name": "Wildberries-AS - LLC Wildberries, RU",
@@ -5319,7 +5924,7 @@
       "services": [
         "wildberries"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.138.252.0/24": {
       "asn": 57073,
@@ -5335,7 +5940,7 @@
       "services": [
         "wildberries"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.138.255.0/24": {
       "asn": 57073,
@@ -5344,7 +5949,7 @@
       "services": [
         "wildberries"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.141.124.0/22": {
       "asn": 3267,
@@ -5393,6 +5998,26 @@
       ],
       "source": "dns"
     },
+    "185.161.64.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "185.163.156.0/22": {
+      "asn": 207104,
+      "as_name": "BIZONE-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "185.163.159.0/24": {
       "asn": 207104,
       "as_name": "BIZONE-AS - _BiZone_ LLC, RU",
@@ -5421,6 +6046,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -5444,7 +6070,18 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
+      ]
+    },
+    "185.170.2.0/24": {
+      "asn": 41185,
+      "as_name": "NSPK-EC-AS - National system of payment cards Joint-stock Society, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
       ]
     },
     "185.170.3.0/24": {
@@ -5512,6 +6149,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -5562,6 +6200,16 @@
       "asn": 24823,
       "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
       "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
+    "185.179.146.0/24": {
+      "asn": 24823,
+      "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
+      "cc": "RU",
       "services": [
         "vtb"
       ],
@@ -5583,7 +6231,7 @@
       "services": [
         "vk-cdn"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.183.174.0/23": {
       "asn": 43797,
@@ -5599,7 +6247,7 @@
       "services": [
         "gov-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.183.175.0/24": {
       "asn": 43797,
@@ -5608,7 +6256,7 @@
       "services": [
         "misc-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "185.186.186.0/24": {
       "asn": 60580,
@@ -5655,6 +6303,16 @@
       ],
       "source": "dns"
     },
+    "185.203.72.0/24": {
+      "asn": 60922,
+      "as_name": "AS_KKM_IT",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "185.206.164.0/22": {
       "asn": 200350,
       "as_name": "Яндекс — Yandex.Cloud",
@@ -5670,6 +6328,16 @@
         "misc-extra"
       ],
       "source": "dns"
+    },
+    "185.216.194.0/23": {
+      "asn": 210656,
+      "as_name": "YACLOUDBMS - Yandex.Cloud LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "185.225.32.0/22": {
       "asn": 198610,
@@ -5705,6 +6373,16 @@
       "services": [],
       "source": "asn"
     },
+    "185.243.84.0/22": {
+      "asn": 213075,
+      "as_name": "STARTRU-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "185.243.86.0/24": {
       "asn": 213075,
       "as_name": "STARTRU-AS - Start.Ru LLC, RU",
@@ -5732,6 +6410,16 @@
       "source": "external",
       "sources": [
         "mobile-whitelist-cidr"
+      ]
+    },
+    "185.253.21.0/24": {
+      "asn": 21030,
+      "as_name": "CDNNOW-AS - Cluster LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
       ]
     },
     "185.253.32.0/22": {
@@ -5790,15 +6478,6 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "188.127.224.0/20": {
-      "asn": 56694,
-      "as_name": "SmartApe - LLC Smart Ape, RU",
-      "cc": "RU",
-      "services": [
-        "payments"
-      ],
-      "source": "dns"
-    },
     "188.162.48.0/20": {
       "asn": 31133,
       "as_name": "MF-MGSM-AS - PJSC MegaFon, RU",
@@ -5807,6 +6486,16 @@
         "mobile"
       ],
       "source": "dns"
+    },
+    "188.170.66.0/23": {
+      "asn": 31213,
+      "as_name": "MF-NWGSM-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "188.170.66.0/24": {
       "asn": 31213,
@@ -5965,7 +6654,7 @@
       "services": [
         "sber"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "193.162.30.0/24": {
       "asn": 212575,
@@ -5985,6 +6674,16 @@
       ],
       "source": "dns"
     },
+    "193.168.46.0/23": {
+      "asn": 198610,
+      "as_name": "BEGET-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "193.200.10.0/24": {
       "asn": 42231,
       "as_name": "PRSBM-AS - PJSC Promsvyazbank, RU",
@@ -6002,6 +6701,16 @@
       "source": "external",
       "sources": [
         "mobile-whitelist-cidr"
+      ]
+    },
+    "193.201.228.0/22": {
+      "asn": 25159,
+      "as_name": "SONICDUO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
       ]
     },
     "193.203.40.0/22": {
@@ -6028,16 +6737,6 @@
         "post"
       ],
       "source": "dns"
-    },
-    "193.232.148.0/22": {
-      "asn": 48061,
-      "as_name": "UMA-TECH-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
     },
     "193.233.63.0/24": {
       "asn": 42745,
@@ -6073,17 +6772,7 @@
       "services": [
         "wildberries"
       ],
-      "source": "dns"
-    },
-    "194.9.208.0/22": {
-      "asn": 207986,
-      "as_name": "OZON-BANK-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
+      "source": "asn"
     },
     "194.9.208.0/24": {
       "asn": 207986,
@@ -6113,17 +6802,7 @@
       "services": [
         "ozon"
       ],
-      "source": "dns"
-    },
-    "194.54.14.0/23": {
-      "asn": 35237,
-      "as_name": "SBERBANK",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
+      "source": "asn"
     },
     "194.54.14.0/24": {
       "asn": 35237,
@@ -6148,12 +6827,31 @@
       ],
       "source": "dns"
     },
+    "194.58.96.0/19": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "194.58.112.0/24": {
       "asn": 197695,
       "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
       "cc": "RU",
       "services": [
         "delivery-extra"
+      ],
+      "source": "dns"
+    },
+    "194.67.71.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
+      "cc": "RU",
+      "services": [
+        "food"
       ],
       "source": "dns"
     },
@@ -6233,6 +6931,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -6351,16 +7050,6 @@
       ],
       "source": "dns"
     },
-    "194.190.76.0/23": {
-      "asn": 48061,
-      "as_name": "UMA-TECH-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "194.190.139.0/24": {
       "asn": 57352,
       "as_name": "ROSSIYA-SEGODNYA - Federal State Unitary Enterprise Rossiya Segodnya International Information Agency, RU",
@@ -6371,16 +7060,6 @@
       "source": "dns"
     },
     "194.190.232.0/21": {
-      "asn": 3267,
-      "as_name": "NIKS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
-    "194.190.240.0/23": {
       "asn": 3267,
       "as_name": "NIKS",
       "cc": "RU",
@@ -6427,7 +7106,7 @@
       "services": [
         "gov-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "194.226.90.0/24": {
       "asn": 43797,
@@ -6444,7 +7123,7 @@
         "avia",
         "gov-extra"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "194.226.92.0/22": {
       "asn": 43797,
@@ -6531,16 +7210,6 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "195.19.0.0/23": {
-      "asn": 197695,
-      "as_name": "AS-REG",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "195.19.12.0/24": {
       "asn": 197695,
       "as_name": "AS-REG",
@@ -6599,6 +7268,16 @@
       ],
       "source": "dns"
     },
+    "195.24.68.0/23": {
+      "asn": 48287,
+      "as_name": "RU-CENTER",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "195.34.20.0/23": {
       "asn": 44386,
       "as_name": "Ozon — Internet Solutions",
@@ -6652,6 +7331,16 @@
       ],
       "source": "dns"
     },
+    "195.88.224.0/23": {
+      "asn": 49179,
+      "as_name": "TEND-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "195.88.224.0/24": {
       "asn": 49179,
       "as_name": "TEND-AS - Tendence LLC, RU",
@@ -6688,6 +7377,16 @@
       ],
       "source": "dns"
     },
+    "195.133.254.0/23": {
+      "asn": 29226,
+      "as_name": "MASTERTEL-AS Moscow, Russia",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "195.161.52.0/23": {
       "asn": 199922,
       "as_name": "PFR-AS - PENSION AND SOCIAL INSURANCE FUND OF THE RUSSIAN FEDERATION, RU",
@@ -6722,17 +7421,9 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
-    },
-    "195.208.65.0/24": {
-      "asn": 34879,
-      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
-      "cc": "RU",
-      "services": [
-        "shops"
-      ],
-      "source": "dns"
     },
     "195.208.66.0/24": {
       "asn": 34879,
@@ -6782,6 +7473,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ]
@@ -6813,6 +7505,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr"
       ]
@@ -6841,16 +7534,6 @@
       ],
       "source": "dns"
     },
-    "195.209.86.0/23": {
-      "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
-    },
     "195.209.86.0/24": {
       "asn": 34879,
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
@@ -6876,6 +7559,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -6927,6 +7611,16 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "195.209.200.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "195.209.208.0/20": {
       "asn": 29226,
       "as_name": "MASTERTEL-AS - JSC Mastertel, RU",
@@ -6942,6 +7636,16 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
+    },
+    "195.211.128.0/22": {
+      "asn": 21051,
+      "as_name": "NIVAL-AS - ASTRUM LLC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
     },
     "195.218.190.0/23": {
       "asn": 47764,
@@ -7024,6 +7728,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -7034,6 +7739,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -7042,7 +7748,8 @@
       "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
       "cc": "RU",
       "services": [
-        "gov-extra"
+        "gov-extra",
+        "mos"
       ],
       "source": "dns"
     },
@@ -7089,6 +7796,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -7108,6 +7816,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -7147,6 +7856,16 @@
         "misc-extra"
       ],
       "source": "dns"
+    },
+    "212.192.156.0/23": {
+      "asn": 61280,
+      "as_name": "CMU_GRCHC",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "212.192.156.0/24": {
       "asn": 61280,
@@ -7201,17 +7920,6 @@
       ],
       "source": "dns"
     },
-    "212.193.156.0/23": {
-      "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr",
-        "operator-whitelist-cidr"
-      ]
-    },
     "212.193.156.0/24": {
       "asn": 34879,
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
@@ -7241,7 +7949,7 @@
       "services": [
         "post"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "212.233.80.0/22": {
       "asn": 43399,
@@ -7345,6 +8053,16 @@
       ],
       "source": "dns"
     },
+    "213.87.44.0/22": {
+      "asn": 13174,
+      "as_name": "MTSNet - MTS PJSC, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "213.130.80.0/21": {
       "asn": 200350,
       "as_name": "Яндекс — Yandex.Cloud",
@@ -7376,7 +8094,7 @@
       "services": [
         "yandex"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "213.165.200.0/21": {
       "asn": 200350,
@@ -7413,7 +8131,7 @@
         "yandex-extra",
         "yandex-music"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "213.180.199.0/24": {
       "asn": 13238,
@@ -7422,7 +8140,7 @@
       "services": [
         "kinopoisk"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "213.184.155.0/24": {
       "asn": 57073,
@@ -7431,7 +8149,7 @@
       "services": [
         "wildberries"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "213.184.156.0/22": {
       "asn": 57073,
@@ -7440,7 +8158,7 @@
       "services": [
         "wildberries"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "213.184.156.0/24": {
       "asn": 57073,
@@ -7473,8 +8191,18 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
+    },
+    "217.12.96.0/24": {
+      "asn": 15632,
+      "as_name": "Alfa-Bank-AS - JSC _Alfa-Bank_, RU",
+      "cc": "RU",
+      "services": [
+        "banks-extra"
+      ],
+      "source": "dns"
     },
     "217.12.98.0/24": {
       "asn": 15632,
@@ -7492,6 +8220,7 @@
       "services": [],
       "source": "external",
       "sources": [
+        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -7529,17 +8258,7 @@
         "ok",
         "vk-cdn"
       ],
-      "source": "dns"
-    },
-    "217.21.53.0/24": {
-      "asn": 56694,
-      "as_name": "SMARTAPE",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ]
+      "source": "asn"
     },
     "217.23.177.0/24": {
       "asn": 28840,
@@ -7587,6 +8306,16 @@
         "mobile-whitelist-cidr"
       ]
     },
+    "217.65.2.0/23": {
+      "asn": 3175,
+      "as_name": "CITYTELECOM-MSK",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
     "217.65.3.0/24": {
       "asn": 3175,
       "as_name": "CITYTELECOM-MSK - Citytelecom LLC, RU",
@@ -7601,10 +8330,9 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru",
-        "vk-extra"
+        "mailru"
       ],
-      "source": "dns"
+      "source": "asn"
     },
     "217.69.132.0/24": {
       "asn": 47541,
@@ -7718,6 +8446,16 @@
       ],
       "source": "dns"
     },
+    "217.150.32.0/19": {
+      "asn": 20485,
+      "as_name": "TRANSTELECOM - Joint Stock Company TransTeleCom, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "itdog-russia-only"
+      ]
+    },
     "217.174.188.0/22": {
       "asn": 47764,
       "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
@@ -7734,6 +8472,16 @@
       ],
       "source": "dns"
     },
+    "217.175.128.0/19": {
+      "asn": 20702,
+      "as_name": "CSSMPS-AS - JSC Russian Railways, RU",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
+    },
     "217.195.86.0/24": {
       "asn": 24913,
       "as_name": "BANKSPB - Bank Saint Petersburg PJSC, RU",
@@ -7742,6 +8490,26 @@
         "other-banks"
       ],
       "source": "dns"
+    },
+    "217.197.224.0/20": {
+      "asn": 24739,
+      "as_name": "SEVEREN-TELECOM St.Petersburg, Russia",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
+    },
+    "217.198.14.0/23": {
+      "asn": 201757,
+      "as_name": "AKBARS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "217.198.15.0/24": {
       "asn": 201757,
