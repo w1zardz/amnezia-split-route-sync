@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "updated": "2026-09-08",
+  "updated": "2026-09-09",
   "source": "Team Cymru bulk whois + RIPEstat announced-prefixes + внешние списки",
   "prefix_count": 930,
-  "external_count": 226,
+  "external_count": 227,
   "external_domains": 888,
-  "resolved_domains": 1838,
+  "resolved_domains": 1839,
   "catalog_domains": 1929,
   "prefixes": {
     "5.8.17.0/24": {
@@ -37,15 +37,6 @@
       "sources": [
         "mobile-whitelist-cidr"
       ]
-    },
-    "5.8.69.0/24": {
-      "asn": 210756,
-      "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
-      "cc": "RU",
-      "services": [
-        "food"
-      ],
-      "source": "dns"
     },
     "5.23.48.0/21": {
       "asn": 9123,
@@ -159,16 +150,6 @@
       "source": "external",
       "sources": [
         "mobile-whitelist-cidr"
-      ]
-    },
-    "5.101.152.0/21": {
-      "asn": 198610,
-      "as_name": "BEGET-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "lib4u-amnezia"
       ]
     },
     "5.101.153.0/24": {
@@ -692,19 +673,7 @@
       "cc": "RU",
       "services": [
         "avia",
-        "brokers",
-        "delivery-extra",
         "mobile"
-      ],
-      "source": "dns"
-    },
-    "37.220.162.0/24": {
-      "asn": 34879,
-      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
-      "cc": "RU",
-      "services": [
-        "health-extra",
-        "misc-extra"
       ],
       "source": "dns"
     },
@@ -988,7 +957,7 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "gosuslugi"
+        "shops"
       ],
       "source": "dns"
     },
@@ -3401,15 +3370,6 @@
       ],
       "source": "dns"
     },
-    "93.93.91.0/24": {
-      "asn": 34879,
-      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
-      "cc": "RU",
-      "services": [
-        "shops"
-      ],
-      "source": "dns"
-    },
     "93.93.92.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
@@ -4317,9 +4277,11 @@
     },
     "109.207.9.0/24": {
       "asn": 196747,
-      "as_name": "Электронное правительство (Госуслуги)",
+      "as_name": "Electronic-government - PJSC Rostelecom, RU",
       "cc": "RU",
-      "services": [],
+      "services": [
+        "gosuslugi"
+      ],
       "source": "asn"
     },
     "109.207.10.0/23": {
@@ -4479,6 +4441,13 @@
       "source": "asn"
     },
     "138.16.240.0/20": {
+      "asn": 47764,
+      "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
+      "cc": "RU",
+      "services": [],
+      "source": "asn"
+    },
+    "138.16.240.0/24": {
       "asn": 47764,
       "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
       "cc": "RU",
@@ -5994,20 +5963,20 @@
       "asn": 24823,
       "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
       "cc": "RU",
-      "services": [
-        "vtb"
-      ],
-      "source": "dns"
-    },
-    "185.179.146.0/24": {
-      "asn": 24823,
-      "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
-      "cc": "RU",
       "services": [],
       "source": "external",
       "sources": [
         "mobile-whitelist-domains"
       ]
+    },
+    "185.179.146.0/24": {
+      "asn": 24823,
+      "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
+      "cc": "RU",
+      "services": [
+        "vtb"
+      ],
+      "source": "dns"
     },
     "185.179.226.0/24": {
       "asn": 43740,
@@ -6532,6 +6501,17 @@
       ],
       "source": "dns"
     },
+    "193.232.39.0/24": {
+      "asn": 35021,
+      "as_name": "E-STOCK-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-cidr"
+      ]
+    },
     "193.232.108.0/24": {
       "asn": 44704,
       "as_name": "X5-RETAIL-GROUP-AS - Perekrestok-2000 LLC, RU",
@@ -6621,15 +6601,6 @@
       "services": [],
       "source": "asn"
     },
-    "194.54.176.0/22": {
-      "asn": 3267,
-      "as_name": "IDDQD-AS - IDDQD-AS, RU",
-      "cc": "RU",
-      "services": [
-        "misc-extra"
-      ],
-      "source": "dns"
-    },
     "194.58.96.0/19": {
       "asn": 197695,
       "as_name": "AS-REG",
@@ -6648,6 +6619,16 @@
         "delivery-extra"
       ],
       "source": "dns"
+    },
+    "194.67.71.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "194.67.72.0/24": {
       "asn": 197695,
@@ -7425,8 +7406,8 @@
       ]
     },
     "195.209.208.0/20": {
-      "asn": 29226,
-      "as_name": "MASTERTEL-AS - JSC Mastertel, RU",
+      "asn": 8595,
+      "as_name": "WESTCALL-AS - OOO WestCall Ltd., RU",
       "cc": "RU",
       "services": [
         "classifieds"
@@ -7551,7 +7532,8 @@
       "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
       "cc": "RU",
       "services": [
-        "gov-extra"
+        "gov-extra",
+        "mos"
       ],
       "source": "dns"
     },
@@ -7696,6 +7678,15 @@
       "sources": [
         "mobile-whitelist-cidr"
       ]
+    },
+    "212.193.146.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
     },
     "212.193.152.0/23": {
       "asn": 204878,
@@ -8061,6 +8052,16 @@
         "vk-cdn"
       ],
       "source": "asn"
+    },
+    "217.21.53.0/24": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-cidr"
+      ]
     },
     "217.23.177.0/24": {
       "asn": 28840,

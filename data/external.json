@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated": "2026-09-08",
+  "updated": "2026-09-09",
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
-  "prefix_count": 226,
-  "rejected_count": 31307,
+  "prefix_count": 227,
+  "rejected_count": 31249,
   "dropped_by_limit": 0,
   "domain_count": 888,
   "sources": {
@@ -13,7 +13,7 @@
       "parsed": 30228,
       "networks": 30228,
       "domains": 0,
-      "accepted": 265,
+      "accepted": 267,
       "accepted_domains": 0
     },
     "mobile-whitelist-domains": {
@@ -50,10 +50,10 @@
     },
     "lib4u-amnezia": {
       "url": "https://raw.githubusercontent.com/lib4u/amnezia-tunneling-ru/main/amnezia.json",
-      "parsed": 7071,
-      "networks": 1535,
+      "parsed": 6648,
+      "networks": 1477,
       "domains": 1954,
-      "accepted": 261,
+      "accepted": 259,
       "accepted_domains": 110
     }
   },
@@ -127,15 +127,6 @@
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "5.101.152.0/21": {
-      "asn": 198610,
-      "as_name": "BEGET-AS",
-      "cc": "RU",
-      "sources": [
-        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -960,15 +951,6 @@
       ],
       "source": "external"
     },
-    "93.93.88.0/23": {
-      "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
-      "cc": "RU",
-      "sources": [
-        "lib4u-amnezia"
-      ],
-      "source": "external"
-    },
     "93.93.92.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
@@ -1640,7 +1622,26 @@
       ],
       "source": "external"
     },
+    "193.232.39.0/24": {
+      "asn": 35021,
+      "as_name": "E-STOCK-AS",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia",
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
     "194.58.96.0/19": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
+    "194.67.71.0/24": {
       "asn": 197695,
       "as_name": "AS-REG",
       "cc": "RU",
@@ -2027,6 +2028,15 @@
       "cc": "RU",
       "sources": [
         "lib4u-amnezia",
+        "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "217.21.53.0/24": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "sources": [
         "mobile-whitelist-cidr"
       ],
       "source": "external"
