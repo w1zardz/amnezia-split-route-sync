@@ -99,6 +99,8 @@ jobs:
           # Сверху — инструкция для обычного пользователя, ниже — техническая сводка сборки.
           sed "s/{{DATE}}/${DAY}/" .github/release-header.md > "${RUNNER_TEMP}/notes.md"
           cat dist/RELEASE_NOTES.md >> "${RUNNER_TEMP}/notes.md"
+          # Установщик в один клик: постоянная ссылка releases/latest/download/install-windows.bat.
+          cp windows/install.bat "${RUNNER_TEMP}/install-windows.bat"
           gh release create "${TAG}" \
             --target "$(git rev-parse HEAD)" --latest \
             --title "Актуальный список российских сайтов для Amnezia VPN (${DAY})" \
@@ -110,7 +112,8 @@ jobs:
             dist/ru-direct-ipv4.txt \
             dist/wg-allowed-ips.txt \
             dist/happ-ru-direct.json \
-            dist/manifest.json
+            dist/manifest.json \
+            "${RUNNER_TEMP}/install-windows.bat"
           # В Releases держим одну актуальную сборку: старые только путают, история
           # остаётся в git (dist/), а /releases/latest/download/<файл> ведёт на свежую.
           gh release list --limit 200 --json tagName --jq '.[].tagName' |

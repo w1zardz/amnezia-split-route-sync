@@ -10,6 +10,7 @@ import struct
 import sys
 import tempfile
 import unittest
+import urllib.parse
 from unittest.mock import patch
 
 import build_ru_direct as builder
@@ -180,6 +181,54 @@ class V2flyTests(unittest.TestCase):
             importer.expand_v2fly(["n0"], lambda names: {name: f"include:n{int(name[1:]) + 1}" for name in names})
         with self.assertRaises(importer.ImportError_):
             importer.expand_v2fly(["a"], lambda names: {name: "include:../secret" for name in names})
+
+
+class RouteBatTests(unittest.TestCase):
+    def test_route_add_masks_and_junk_lines(self):
+        text = "\n".join([
+            "@echo off", "rem route add 1.1.1.0 mask 255.255.255.0 0.0.0.0", ":: comment", "", "pause",
+            "route add 87.240.128.0 mask 255.255.192.0 0.0.0.0",
+            "route ADD 82.202.188.0 MASK 255.255.255.0 0.0.0.0\r",
+            "  route -p add 5.188.150.7 mask 255.255.255.255 0.0.0.0 metric 5",
+            "route add 10.0.0.0 mask 255.0.255.0 0.0.0.0",     # несплошная маска
+            "route add 10.1.0.0 mask 0.0.0.255 0.0.0.0",       # hostmask, не netmask
+            "route add 10.2.0.0 mask 0.0.0.0 0.0.0.0",         # /0
+            "route add 10.3.0.0 mask 255.255.300.0 0.0.0.0",   # битая маска
+            "route add 999.1.1.0 mask 255.255.255.0 0.0.0.0",  # битый адрес
+            "route delete 9.9.9.0 mask 255.255.255.0",
+            "echo route add 8.8.8.0 mask 255.255.255.0 0.0.0.0",
+        ])
+        networks, domains = importer.parse_source(text, "routebat")
+        self.assertEqual(list(map(str, networks)), ["87.240.128.0/18", "82.202.188.0/24", "5.188.150.7/32"])
+        self.assertEqual(domains, [])
+
+    def test_domain_files_and_encoded_paths(self):
+        files = {
+            "vk/vk.bat": b"@echo off\r\nroute add 87.240.128.0 mask 255.255.192.0 0.0.0.0\r\n",
+            "vk/vk_domain": "vk.com\r\n\r\n# comment\nm.vk.com\n*.userapi.com\nмвд.рф\n8.8.8.8\n".encode(),
+            "мвд.рф.bat": "rem \xcf\xf0\xe8\xe2\xe5\xf2\n".encode("latin-1") + b"route add 82.202.190.0 mask 255.255.252.0 0.0.0.0\n",
+        }
+        base = "https://example.com/RU-RU/"
+        requested = []
+
+        def http_get(url, _limit):
+            requested.append(url)
+            return files[urllib.parse.unquote(url[len(base):])]
+
+        source = {"id": "rb", "kind": "routebat", "url": base, "files": list(files)}
+        with patch.object(catalog, "http_get", side_effect=http_get):
+            networks, domains = importer.parse_source(importer.fetch_routebat(source), "routebat")
+        # Адрес с битами хоста нормализуется до сети, как в parse_networks.
+        self.assertEqual(list(map(str, networks)), ["87.240.128.0/18", "82.202.188.0/22"])
+        self.assertEqual(domains, ["vk.com", "m.vk.com", "userapi.com", "xn--b1aew.xn--p1ai"])
+        # Кириллица кодируется, / между каталогом и файлом остаётся.
+        self.assertIn(base + "vk/vk_domain", requested)
+        self.assertIn(base + "%D0%BC%D0%B2%D0%B4.%D1%80%D1%84.bat", requested)
+
+    def test_bad_file_paths_are_rejected(self):
+        for path in ["../secret.bat", "vk/list.txt", "/abs.bat", "a//b.bat", "a\\b.bat", 5]:
+            self.assertFalse(importer.valid_routebat_path(path), path)
+        self.assertTrue(importer.valid_routebat_path("wildberries/wildberries_domain"))
 
 
 class DnsTests(unittest.TestCase):
