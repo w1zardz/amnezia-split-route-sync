@@ -22,6 +22,7 @@ import hashlib
 import ipaddress
 import json
 import sys
+from collections import Counter
 from datetime import date
 from pathlib import Path
 from typing import Any, Iterable
@@ -214,11 +215,174 @@ def invert_networks(cidrs: list[str]) -> list[str]:
     return [str(network) for network in ipaddress.collapse_addresses(remaining)]
 
 
-def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> str:
+REPO_URL = "https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling"
+# Значки категорий каталога (поле category в data/services/*.json). Порядок словаря —
+# порядок строк в таблице релиза; новая категория без записи встанет в конец со значком 📁.
+CATEGORY_ICONS = {
+    "gov": "🏛️",
+    "banks": "🏦",
+    "market": "🛒",
+    "vk": "💬",
+    "yandex": "🔍",
+    "media": "🎬",
+    "travel": "🚆",
+    "telecom": "📱",
+    "delivery": "🚚",
+    "health": "🏥",
+    "edu": "🎓",
+    "gaming": "🎮",
+    "cloud": "☁️",
+    "misc": "🧩",
+}
+
+
+def plural(value: int, one: str, few: str, many: str) -> str:
+    """«1 домен», «3 домена», «11 доменов» — число вместе со словом."""
+    tail = value % 100
+    if 11 <= tail <= 14:
+        word = many
+    elif value % 10 == 1:
+        word = one
+    elif 2 <= value % 10 <= 4:
+        word = few
+    else:
+        word = many
+    return f"{value} {word}"
+
+
+def spaced(value: int) -> str:
+    return f"{value:,}".replace(",", " ")
+
+
+def category_rows(services: list[catalog.Service]) -> list[tuple[str, str, list[catalog.Service], int]]:
+    """(значок, название, сервисы, уникальных доменов) по категориям каталога."""
+    grouped: dict[str, list[catalog.Service]] = {}
+    titles: dict[str, str] = {}
+    for service in services:
+        grouped.setdefault(service.category, []).append(service)
+        titles.setdefault(service.category, service.category_title)
+    order = [category for category in CATEGORY_ICONS if category in grouped]
+    order += [category for category in grouped if category not in CATEGORY_ICONS]
+    return [
+        (
+            CATEGORY_ICONS.get(category, "📁"),
+            titles[category],
+            grouped[category],
+            len({domain for service in grouped[category] for domain in service.domains}),
+        )
+        for category in order
+    ]
+
+
+def release_notes(
+    services: list[catalog.Service], counts: dict[str, Any], sources: dict[str, int] | None = None
+) -> str:
+    sources = sources or {}
+    catalog_domains = len({domain for service in services for domain in service.domains})
+    in_catalog = counts["domains"] - counts.get("external_domains", 0) - counts.get("external_roots", 0)
     lines = [
-        f"# RU Direct — сборка {counts['built']}",
+        f"## 📊 RU Direct — сборка {counts['built']}",
         "",
-        "## Сначала проверьте подключение",
+        f"**{plural(counts['services'], 'сервис', 'сервиса', 'сервисов')}** · "
+        f"**{plural(counts['domains'], 'домен', 'домена', 'доменов')}** · "
+        f"**{plural(counts['cidrs'], 'сеть', 'сети', 'сетей')}** IPv4 · "
+        f"покрытие **{spaced(counts['addresses'])}** адресов",
+        "",
+        "При включённом режиме исключений адреса из списка идут напрямую, остальной трафик — через VPN.",
+        "",
+        "| Файл | Записей | Доменов | Сетей IPv4 |",
+        "|---|---:|---:|---:|",
+        f"| **`amnezia-ru-direct.json`** — полный | {counts['entries']} | {counts['domains']} | {counts['cidrs']} |",
+        f"| **`amnezia-ru-direct-ip.json`** — только сети | {counts['ip_entries']} | — | {counts['ip_entries']} |",
+        f"| `amnezia-ru-direct-lite.json` — ключевые сервисы | {counts['lite_entries']} "
+        f"| {counts['lite_domains']} | {counts['lite_cidrs']} |",
+        f"| `wg-allowed-ips.txt` — строка `AllowedIPs` "
+        f"| {plural(counts['allowed_ips'], 'префикс', 'префикса', 'префиксов')} | — | — |",
+        "",
+        "## 📦 Что вошло",
+        "",
+        "| Категория | Сервисы | Доменов |",
+        "|---|---|---:|",
+    ]
+    rows = category_rows(services)
+    for icon, title, entries, domain_count in rows:
+        names = " · ".join(
+            f"**{service.title}**" if service.tier == "core" else service.title
+            for service in entries
+        ).replace("|", "\\|")
+        lines.append(f"| {icon} **{title}** | {names} | {domain_count} |")
+    lines += [
+        f"| **Итого: {plural(len(rows), 'категория', 'категории', 'категорий')}** "
+        f"| {plural(counts['services'], 'сервис', 'сервиса', 'сервисов')}, "
+        f"из них {counts['core_services']} ключевых | **{catalog_domains}** |",
+        "",
+        "Жирным — ключевые сервисы: они входят и в полный список, и в lite. "
+        "Итог по доменам — без повторов между категориями.",
+        "",
+    ]
+    if counts.get("external_domains") or counts.get("external_roots"):
+        dropped = [
+            plural(counts[key], *words)
+            for key, words in (
+                ("external_domains_dropped", ("поддомен", "поддомена", "поддоменов")),
+                ("external_roots_dropped", ("корневой домен", "корневых домена", "корневых доменов")),
+            )
+            if counts.get(key)
+        ]
+        lines += [
+            f"Доменов в полном списке — **{counts['domains']}**: {in_catalog} из каталога, "
+            f"**{counts.get('external_domains', 0)}** новых поддоменов сервисов каталога и "
+            f"**{counts.get('external_roots', 0)}** корневых доменов вне каталога из внешних списков — "
+            "только тех, у которых все IPv4 российские. В lite внешние домены не входят."
+            + (
+                f" Ещё {' и '.join(dropped)} не влезли в потолок {MAX_FULL_ENTRIES} записей."
+                if dropped
+                else ""
+            ),
+            "",
+        ]
+    lines += [
+        "## 🔗 Источники",
+        "",
+        "| Источник | Что даёт | В этой сборке |",
+        "|---|---|---:|",
+        f"| 📚 [Ручной каталог]({REPO_URL}/tree/master/data/services) | сервисы и их домены по категориям "
+        f"| {plural(counts['services'], 'сервис', 'сервиса', 'сервисов')} · "
+        f"{plural(catalog_domains, 'домен', 'домена', 'доменов')} |",
+    ]
+    if sources.get("dns"):
+        lines.append(
+            "| 🔎 DNS каталога → BGP (Team Cymru) | анонсируемые сети, где сейчас живут домены сервисов "
+            f"| {plural(sources['dns'], 'префикс', 'префикса', 'префиксов')} |"
+        )
+    if sources.get("asn"):
+        lines.append(
+            "| 🛰️ ASN контентных площадок (RIPEstat) | все анонсы сетей VK, Яндекса, маркетплейсов, банков "
+            f"| {plural(sources['asn'], 'префикс', 'префикса', 'префиксов')} |"
+        )
+    if sources.get("lists"):
+        label = f"🧩 Внешние списки — {plural(sources['lists'], 'источник', 'источника', 'источников')}"
+        external_rows = [
+            ("сети, прошедшие проверку по таблице IP→ASN", sources.get("external", 0),
+             ("префикс", "префикса", "префиксов")),
+            ("новые поддомены сервисов каталога", counts.get("external_domains", 0),
+             ("домен", "домена", "доменов")),
+            ("корневые домены, у которых все IPv4 российские", counts.get("external_roots", 0),
+             ("домен", "домена", "доменов")),
+        ]
+        for index, (what, value, words) in enumerate(external_rows):
+            lines.append(f"| {label if index == 0 else ''} | {what} | {plural(value, *words)} |")
+    lines += [
+        "",
+        f"Сети всех слоёв объединяются и схлопываются: префиксов в снимке BGP — {counts['prefix_snapshot']}, "
+        f"сетей IPv4 в полном списке — **{counts['cidrs']}**. Зарубежные адреса и глобальные CDN отсекаются. "
+        f"Что принято из каждого внешнего источника и почему остальное отсеяно — "
+        f"[data/external-report.md]({REPO_URL}/blob/master/data/external-report.md).",
+        "",
+        "<details>",
+        "<summary><b>📄 Подключение, выбор файла и импорт — подробно</b></summary>",
+        "",
+        "### Сначала проверьте подключение",
         "",
         "**Amnezia Free: импорт этого JSON не включит раздельное туннелирование по IP.** "
         "Для этого сценария на серверах Amnezia нужна действующая подписка **Amnezia Premium**. "
@@ -230,17 +394,24 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
         "Основание: [инструкция Amnezia](https://docs.amnezia.org/ru/documentation/instructions/vpn-split-tunneling/) "
         "и [условия Self-hosted](https://amnezia.org/ru/self-hosted). Сверено 8 сентября 2026 года.",
         "",
-        "## 👉 Какой файл качать",
+        "### Какой файл качать",
         "",
-        "### 🪟 Windows и 🤖 Android — `amnezia-ru-direct.json`",
+        "| Файл | Кому нужен | Импорт в Amnezia |",
+        "|---|---|:---:|",
+        "| **`amnezia-ru-direct.json`** | 🪟 Windows и 🤖 Android — полный список: домены + сети | ✅ |",
+        f"| **`amnezia-ru-direct-ip.json`** | 🍏 iPhone, iPad, macOS и Linux — рекомендуемый файл: "
+        f"только готовые сети IPv4 ({counts['ip_entries']}), не зависит от преобразования доменных записей "
+        "в IP самим клиентом. Наш macOS-updater берёт его по умолчанию. Подходит и для Windows/Android | ✅ |",
+        f"| `amnezia-ru-direct-lite.json` | запасной вариант для Windows и Android: "
+        f"{plural(counts['lite_entries'], 'запись', 'записи', 'записей')} вместо {counts['entries']}, "
+        "только самые популярные сервисы. Бери его, если список тормозит интерфейс Amnezia | ✅ |",
+        "| `wg-allowed-ips.txt` | 🔧 клиент не умеет split tunneling — строка для конфига WireGuard/AmneziaWG | — |",
+        "| `ru-direct-domains.txt` | свои скрипты, AdGuard Home, dnsmasq | — |",
+        "| `ru-direct-ipv4.txt` | роутеры, ipset, свой роутинг | — |",
+        "| `happ-ru-direct.json` | профиль маршрутизации Happ | — |",
+        "| `manifest.json` | счётчики и SHA-256 | — |",
         "",
-        "**Для Windows и Android** — полный список: домены + сети.",
-        "",
-        "### 🍏 iPhone, iPad, macOS и Linux — `amnezia-ru-direct-ip.json`",
-        "",
-        f"Рекомендуемый файл для этих платформ — **{counts['ip_entries']} готовых сетей IPv4**. "
-        "Он не зависит от преобразования доменных записей в IP самим клиентом. "
-        "Наш macOS-updater использует его по умолчанию. IP-список подходит и для Windows/Android.",
+        "Остальные файлы для импорта в Amnezia **не нужны** — они для скриптов, Happ и роутеров.",
         "",
         *(
             [
@@ -259,21 +430,13 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
             ]
         ),
         "",
-        "### 🔧 Клиент не умеет split tunneling — `wg-allowed-ips.txt`",
-        "",
-        f"Готовая строка `AllowedIPs` из {counts['allowed_ips']} префиксов: весь IPv4 "
+        f"`wg-allowed-ips.txt` — готовая строка `AllowedIPs` из {counts['allowed_ips']} префиксов: весь IPv4 "
         "минус российские сети и приватные диапазоны. Вставляется в секцию `[Peer]` "
         "конфига WireGuard или AmneziaWG вместо `0.0.0.0/0`. Нужны рабочий доступ к серверу "
         "и клиент с возможностью редактирования `AllowedIPs`. Для своего конфига Premium "
         "не требуется; этот файл не снимает ограничения подключения Amnezia Free.",
         "",
-        f"`amnezia-ru-direct-lite.json` — запасной вариант для Windows и Android: "
-        f"{counts['lite_entries']} записей вместо {counts['entries']}, только самые популярные "
-        "сервисы. Бери его, если список тормозит интерфейс Amnezia.",
-        "",
-        "Остальные файлы для импорта в Amnezia **не нужны** — они для скриптов, Happ и роутеров.",
-        "",
-        "## Как импортировать",
+        "### Как импортировать",
         "",
         "Сначала выберите совместимое подключение: Premium с активной подпиской или свой сервер. "
         "Убедитесь, что раздельное туннелирование сайтов доступно.",
@@ -290,54 +453,7 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
         "при применившемся исключении он покажет IP обычного интернет-подключения. "
         "Это проверка одного соединения. За пределами России список не создаёт российский IP.",
         "",
-        "---",
-        "",
-        f"**{counts['services']}** сервисов · **{counts['domains']}** доменов · "
-        f"**{counts['cidrs']}** сетей IPv4 · покрытие **{counts['addresses']:,}** адресов".replace(",", " "),
-        "",
-        *(
-            [
-                f"Из внешних списков в полный список добавлено **{counts['external_roots']}** "
-                "корневых доменов вне каталога — только те, у которых все IPv4 российские; "
-                "в lite они не входят."
-                + (
-                    f" Ещё {counts['external_roots_dropped']} не влезли в потолок "
-                    f"{MAX_FULL_ENTRIES} записей."
-                    if counts.get("external_roots_dropped")
-                    else ""
-                ),
-                "",
-            ]
-            if counts.get("external_roots")
-            else []
-        ),
-        "При включённом режиме исключений адреса из списка идут напрямую, остальной трафик — через VPN.",
-        "",
-        "| Файл | Кому нужен |",
-        "|---|---|",
-        "| **`amnezia-ru-direct.json`** | Windows/Android: домены + сети |",
-        "| **`amnezia-ru-direct-ip.json`** | iOS/macOS/Linux; также Windows/Android, если нужны только сети |",
-        "| `amnezia-ru-direct-lite.json` | слабые и старые устройства |",
-        "| `ru-direct-domains.txt` | свои скрипты, AdGuard Home, dnsmasq |",
-        "| `ru-direct-ipv4.txt` | роутеры, ipset, свой роутинг |",
-        "| `happ-ru-direct.json` | профиль маршрутизации Happ |",
-        "| `manifest.json` | счётчики и SHA-256 |",
-        "",
-        "## Что вошло",
-        "",
-    ]
-    grouped: dict[str, list[catalog.Service]] = {}
-    for service in services:
-        grouped.setdefault(service.category_title, []).append(service)
-    for title, entries in grouped.items():
-        lines.append(f"### {title}")
-        lines.append("")
-        for service in entries:
-            mark = "★" if service.tier == "core" else "·"
-            lines.append(f"- {mark} **{service.title}** — {len(service.domains)} доменов")
-        lines.append("")
-    lines += [
-        "★ — входит и в полный список, и в lite.",
+        "</details>",
         "",
         "---",
         "",
@@ -347,6 +463,15 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
         "",
     ]
     return "\n".join(lines)
+
+
+def count_external_lists(path: Path = catalog.EXTERNAL_FILE) -> int:
+    """Сколько внешних источников дошло до последнего импорта (data/external.json)."""
+    if not path.exists():
+        return 0
+    document = json.loads(path.read_text(encoding="utf-8"))
+    listed = document.get("sources") if isinstance(document, dict) else None
+    return len(listed) if isinstance(listed, dict) else 0
 
 
 def main() -> int:
@@ -444,7 +569,10 @@ def main() -> int:
             name: hashlib.sha256(payload).hexdigest() for name, payload in outputs.items()
         }
         outputs["manifest.json"] = catalog.json_bytes(counts)
-        outputs["RELEASE_NOTES.md"] = release_notes(services, counts).encode("utf-8")
+        # Разбивка снимка по слоям — только для таблицы «Источники» в описании релиза.
+        sources = dict(Counter(meta.get("source") for meta in prefixes.values()))
+        sources["lists"] = 0 if arguments.no_external else count_external_lists()
+        outputs["RELEASE_NOTES.md"] = release_notes(services, counts, sources).encode("utf-8")
         for name, payload in outputs.items():
             catalog.atomic_write(arguments.output_dir / name, payload)
 

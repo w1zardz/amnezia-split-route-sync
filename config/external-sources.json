@@ -157,17 +157,16 @@
         "eysk.bezformata.com.bat", "gosuslugi.bat", "gov.ru.bat", "habr.com.bat", "ivi.ru.bat",
         "keenetic.ru.bat", "kinopoisk.ru.bat", "kion.ru.bat", "komus.ru.bat", "mail.ru.bat",
         "mos.ru.bat", "mosenergosbyt.ru.bat", "mosreg.ru.bat", "mvideo.ru.bat", "nalog.ru.bat",
-        "okko.ru.bat", "ozon/ozon.bat", "ozon/ozon_domain", "premiere.one.bat",
+        "okko.ru.bat", "ozon/ozon.bat", "premiere.one.bat",
         "rosguard.gov.ru.bat", "rt.ru.bat", "rts-tender.ru.bat", "rutube.ru.bat",
-        "rutube/rutube_domain", "rzd.ru.bat", "sberbank.ru.bat", "seven-sky.net.bat",
+        "rzd.ru.bat", "sberbank.ru.bat", "seven-sky.net.bat",
         "sfr.gov.ru.bat", "skbkontur.bat", "smotreshka.tv.bat", "smotrim.ru.bat",
-        "tinkoff.ru.bat", "viju.ru.bat", "vitrina.tv.bat", "vk/vk.bat", "vk/vk_domain",
-        "vkplay.ru.bat", "vlg-media.ru.bat", "volgaparking.ru.bat", "volgograd-trv.ru.bat",
+        "tinkoff.ru.bat", "viju.ru.bat", "vitrina.tv.bat", "vk/vk.bat",         "vkplay.ru.bat", "vlg-media.ru.bat", "volgaparking.ru.bat", "volgograd-trv.ru.bat",
         "volgograd.ru.bat", "vpravda.ru.bat", "wildberries/wildberries.bat",
-        "wildberries/wildberries_domain", "wink.ru.bat", "yandex.bat", "yandex.ru.bat",
+        "wink.ru.bat", "yandex.bat", "yandex.ru.bat",
         "мвд.рф.bat", "мособлеирц.рф.bat"
       ],
-      "note": "RockBlack-VPN/ip-address, каталог RU-RU: Windows-скрипты route add по сервисам (сеть + маска) и списки доменов *_domain. Пиратские, заблокированные в РФ и служебные файлы (rutracker, rutor, kinozal, kino.pub, hitmos, hitmotop, 4pda, rockblack.su, 2ip.ru) не берутся. Все сети проходят фильтр IP→ASN."
+      "note": "RockBlack-VPN/ip-address, каталог RU-RU: Windows-скрипты route add по сервисам (сеть + маска). Списки доменов *_domain не берутся: 668 поддоменов ozon/wb/vk пробивают лимит внешних поддоменов, а сети этих сервисов и так приходят из .bat. Пиратские, заблокированные в РФ и служебные файлы (rutracker, rutor, kinozal, kino.pub, hitmos, hitmotop, 4pda, rockblack.su, 2ip.ru) не берутся. Все сети проходят фильтр IP→ASN."
     }
   ]
 }
