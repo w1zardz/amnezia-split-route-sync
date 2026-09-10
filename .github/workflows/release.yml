@@ -53,6 +53,12 @@ jobs:
         if: github.event_name == 'schedule' || inputs.refresh_prefixes
         run: python3 tools/refresh_prefixes.py
 
+      # Amnezia не резолвит домены при импорте JSON: AmneziaWG и мобильные клиенты
+      # берут маршруты только из полей ips/ip записи. Снапшот IP кладётся в сборку.
+      - name: Resolve domain IPs
+        if: github.event_name == 'schedule' || inputs.import_external
+        run: python3 tools/resolve_domains.py
+
       - name: Build lists
         run: |
           python3 tools/catalog.py
@@ -74,12 +80,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- data/prefixes.json data/external.json data/external-report.md data/external-candidates.json dist
+          git add -- data/prefixes.json data/external.json data/external-report.md data/external-candidates.json data/domain-ips.json dist
           if git diff --cached --quiet; then
             echo "изменений нет"
           else
             git commit -m "RU Direct: обновление списков $(date -u +%Y-%m-%d)" \
-              -- data/prefixes.json data/external.json data/external-report.md data/external-candidates.json dist
+              -- data/prefixes.json data/external.json data/external-report.md data/external-candidates.json data/domain-ips.json dist
             git push
           fi
 
@@ -89,10 +95,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="ru-direct-$(date -u +%Y-%m-%d)-${GITHUB_RUN_NUMBER}-${GITHUB_RUN_ATTEMPT}"
+          DAY="$(date -u +%d.%m.%Y)"
+          # Сверху — инструкция для обычного пользователя, ниже — техническая сводка сборки.
+          sed "s/{{DATE}}/${DAY}/" .github/release-header.md > "${RUNNER_TEMP}/notes.md"
+          cat dist/RELEASE_NOTES.md >> "${RUNNER_TEMP}/notes.md"
           gh release create "${TAG}" \
             --target "$(git rev-parse HEAD)" --latest \
-            --title "RU Direct — ${TAG#ru-direct-}" \
-            --notes-file dist/RELEASE_NOTES.md \
+            --title "Актуальный список российских сайтов для Amnezia VPN (${DAY})" \
+            --notes-file "${RUNNER_TEMP}/notes.md" \
             dist/amnezia-ru-direct.json \
             dist/amnezia-ru-direct-lite.json \
             dist/amnezia-ru-direct-ip.json \
@@ -101,6 +111,12 @@ jobs:
             dist/wg-allowed-ips.txt \
             dist/happ-ru-direct.json \
             dist/manifest.json
+          # В Releases держим одну актуальную сборку: старые только путают, история
+          # остаётся в git (dist/), а /releases/latest/download/<файл> ведёт на свежую.
+          gh release list --limit 200 --json tagName --jq '.[].tagName' |
+            while read -r old; do
+              [ "${old}" = "${TAG}" ] || gh release delete "${old}" --cleanup-tag --yes
+            done
 
       - name: Record coverage summary
         run: |

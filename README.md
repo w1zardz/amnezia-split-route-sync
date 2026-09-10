@@ -1,13 +1,57 @@
-# Российские сайты напрямую при включённом AmneziaVPN
+# 🇷🇺 Amnezia VPN: автообновляемый список российских сайтов для раздельного туннелирования в РФ
 
-**Установите скрипт для Windows или macOS — российские сайты и приложения из
-списка будут открываться напрямую, остальной трафик останется в VPN.**
-Госуслуги, банки, Ozon, Wildberries, Avito, Яндекс, VK и другие сервисы.
-Скрипт сам применяет маршруты и обновляет список каждые 6 часов.
+[![Сборка списка](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/actions/workflows/release.yml/badge.svg)](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/actions/workflows/release.yml)
+[![Последний релиз](https://img.shields.io/github/v/release/w1zardz/amnezia-vpn-russia-split-tunneling?label=%D1%81%D0%B2%D0%B5%D0%B6%D0%B0%D1%8F%20%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B0)](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/releases/latest)
+[![Звёзды](https://img.shields.io/github/stars/w1zardz/amnezia-vpn-russia-split-tunneling?style=flat)](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/stargazers)
 
-## Установка
+**Готовый автообновляемый список российских сайтов и IP-сетей для раздельного
+туннелирования (split tunneling) в AmneziaVPN и AmneziaWG.** Госуслуги, Сбер,
+Т-Банк, ВТБ, Ozon, Wildberries, Avito, Яндекс, VK Видео, Кинопоиск, РЖД и сотни
+других сервисов России открываются напрямую, а весь остальной трафик идёт через VPN.
 
-Скачайте [проект ZIP-архивом](https://github.com/w1zardz/amnezia-split-route-sync/archive/refs/heads/master.zip)
+- **JSON для импорта в Amnezia за минуту**: Windows, macOS, Linux, Android, iPhone и iPad.
+- **Скрипт для Windows и macOS** сам применяет список и обновляет его каждые 6 часов.
+- **Обновляется каждый день**: ручной каталог сервисов, BGP-сети владельцев,
+  списки [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)
+  и другие открытые источники. Каждая сеть проверяется по IP→ASN, зарубежные
+  адреса и глобальные CDN в список не попадают.
+- **Файлы для Xray, Happ и WireGuard**: домены построчно, CIDR, готовая строка `AllowedIPs`.
+
+## Скачать список для Amnezia
+
+| Файл | Для чего |
+|---|---|
+| [**amnezia-ru-direct.json**](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/releases/latest/download/amnezia-ru-direct.json) | Windows и Android: домены с IP-адресами и сети |
+| [**amnezia-ru-direct-ip.json**](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/releases/latest/download/amnezia-ru-direct-ip.json) | iPhone, iPad, macOS, Linux: только сети IPv4 |
+| [amnezia-ru-direct-lite.json](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/releases/latest/download/amnezia-ru-direct-lite.json) | облегчённый: только ключевые сервисы, для слабых устройств |
+
+Ссылки постоянные, по ним всегда лежит свежая сборка.
+
+### Как добавить список в Amnezia VPN
+
+1. Скачайте JSON из таблицы выше.
+2. Откройте **AmneziaVPN** → **Настройки** → **Раздельное туннелирование сайтов**.
+3. Выберите режим **«Адреса из списка не должны открываться через VPN»**.
+4. Нажмите **⋮** → **«Заменить список с сайтами»** (или «Импорт») → выберите файл.
+5. Включите раздельное туннелирование и **переподключите VPN**.
+
+Российские сайты пойдут напрямую, остальное — через туннель. Функция работает в
+**Amnezia Premium** и на **своём сервере (Self-hosted)**, в Amnezia Free её нет.
+Чтобы не обновлять список руками, поставьте скрипт (ниже).
+
+### Зачем раздельное туннелирование
+
+- **Банки и Госуслуги не блокируют вход.** Сбер, Т-Банк, ВТБ, Госуслуги, ФНС и
+  mos.ru видят ваш обычный российский IP, без капчи и «подозрительного входа».
+- **VK Видео, Кинопоиск, RUTUBE, Wink** грузятся на полной скорости, а VK Клипы
+  заливаются без обрывов.
+- **Трафик VPS-сервера не тратится** на российское видео и маркетплейсы.
+- **VPN можно не выключать**: YouTube, Instagram, ChatGPT и прочий зарубежный
+  интернет идут через туннель, российские сервисы — напрямую.
+
+## Установка скрипта с автообновлением
+
+Скачайте [проект ZIP-архивом](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/archive/refs/heads/master.zip)
 и распакуйте. В AmneziaVPN должно быть уже настроено ваше подключение.
 Команды ниже выполняются **из распакованной папки проекта**, в которой лежат
 папки `windows` и `macos`.
@@ -77,7 +121,7 @@ bash macos/install.sh
 [`dist/`](dist/). Прямая ссылка для скриптов:
 
 ```
-https://raw.githubusercontent.com/w1zardz/amnezia-split-route-sync/master/dist/amnezia-ru-direct.json
+https://raw.githubusercontent.com/w1zardz/amnezia-vpn-russia-split-tunneling/master/dist/amnezia-ru-direct.json
 ```
 
 ### Почему этот список работает, а собранные из /32 — нет
@@ -315,7 +359,7 @@ VPN-клиенте, а не отключение защиты от утечки.
 Забрать свежую сборку и код:
 
 ```powershell
-cd "$env:USERPROFILE\amnezia-split-route-sync"; git pull
+cd "$env:USERPROFILE\amnezia-vpn-russia-split-tunneling"; git pull
 ```
 
 Переустановить updater — обязательный шаг после `git pull`: задача запускает
@@ -463,7 +507,7 @@ python3 "${HOME}/Library/Application Support/AmneziaRouteSync/update_amnezia_rou
 Забрать свежую сборку и код:
 
 ```bash
-cd ~/amnezia-split-route-sync && git pull
+cd ~/amnezia-vpn-russia-split-tunneling && git pull
 ```
 
 Переустановить — обязательный шаг после `git pull`: агент запускает копию из
@@ -660,12 +704,34 @@ python3 tools/build_ru_direct.py --personal ~/private-services.json --output-dir
 
 Да, это основной сценарий списка: домены загрузки и VK CDN идут напрямую.
 
+#### Как настроить раздельное туннелирование в Amnezia VPN?
+
+Скачайте `amnezia-ru-direct.json` (на iPhone — `amnezia-ru-direct-ip.json`) и
+импортируйте в **Настройки → Раздельное туннелирование сайтов** в режиме «Адреса
+из списка не должны открываться через VPN». Пошагово —
+[в начале страницы](#как-добавить-список-в-amnezia-vpn).
+
+#### Почему не работает раздельное туннелирование в Amnezia?
+
+Частые причины: подключение на Amnezia Free (функция доступна в Premium и на своём
+сервере), выбран режим «только адреса из списка через VPN», не переподключён VPN
+после импорта, либо домены в списке без IP-адресов. Amnezia не резолвит домены при
+импорте JSON: для AmneziaWG и мобильных клиентов маршрут строится только из
+адресов, записанных в файле. В этом списке адреса у доменов проставлены.
+
+#### Сбербанк, Т-Банк или Ozon не открываются с VPN — что делать?
+
+Не выключать VPN, а импортировать этот список: банки, маркетплейсы и Госуслуги
+пойдут через обычное подключение, остальной трафик останется в туннеле.
+
 #### Как часто обновляется список?
 
 Проверка источников и пересборка — ежедневно в 03:23 UTC (06:23 МСК; GitHub может
 задержать старт), плюс вручную. Релиз создаётся при изменении маршрутов или ручном
-запуске, получает уникальный тег и указывает на коммит собранного снапшота.
-Предыдущие релизы не удаляются. macOS-агент проверяет обновление каждые 6 часов.
+запуске и указывает на коммит собранного снапшота. В Releases всегда одна
+актуальная сборка: предыдущие удаляются, история остаётся в git (`dist/`).
+Постоянные ссылки вида `releases/latest/download/<файл>` всегда ведут на свежую.
+Windows- и macOS-агенты проверяют обновление каждые 6 часов.
 
 #### Список тормозит Amnezia?
 
@@ -751,6 +817,12 @@ bash -n macos/install.sh macos/uninstall.sh
 
 Источники данных и их лицензионный статус — [NOTICE.md](NOTICE.md). Сообщения об
 уязвимостях — [SECURITY.md](SECURITY.md).
+
+**Ключевые слова:** Amnezia VPN раздельное туннелирование, AmneziaVPN split
+tunneling, AmneziaWG список сайтов, список российских сайтов для VPN, российские
+сайты без VPN, исключения VPN Россия, сайты РФ в обход VPN, JSON для Amnezia,
+Госуслуги не работают с VPN, Сбербанк не открывается через VPN, маршрутизация VPN
+Россия, российские IP-адреса, geosite ru, ru-direct, WireGuard AllowedIPs Россия.
 
 ### Ограничение ответственности
 
