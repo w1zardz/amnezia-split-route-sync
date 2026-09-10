@@ -2,10 +2,10 @@
   "version": 1,
   "updated": "2026-09-10",
   "source": "Team Cymru bulk whois + RIPEstat announced-prefixes + внешние списки",
-  "prefix_count": 1711,
+  "prefix_count": 1717,
   "external_count": 1000,
   "external_domains": 1044,
-  "resolved_domains": 2020,
+  "resolved_domains": 2021,
   "catalog_domains": 2128,
   "prefixes": {
     "2.56.24.0/22": {
@@ -1292,7 +1292,6 @@
       "cc": "RU",
       "services": [
         "avia",
-        "delivery-extra",
         "mobile"
       ],
       "source": "dns"
@@ -3069,16 +3068,6 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
-    },
-    "77.220.220.0/23": {
-      "asn": 207353,
-      "as_name": "RUFORM",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "pincetgore-ip-list"
-      ]
     },
     "77.220.220.0/24": {
       "asn": 207353,
@@ -6968,6 +6957,15 @@
       ],
       "source": "dns"
     },
+    "91.227.52.0/23": {
+      "asn": 56806,
+      "as_name": "ascom4s - JSC Computing Forces, RU",
+      "cc": "RU",
+      "services": [
+        "payments"
+      ],
+      "source": "dns"
+    },
     "91.228.224.0/23": {
       "asn": 29182,
       "as_name": "RU-JSCIOT",
@@ -7179,6 +7177,20 @@
         "kyoresuas-ru-bypass",
         "opencck-iplist",
         "operator-whitelist-cidr"
+      ]
+    },
+    "91.240.168.0/22": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass",
+        "opencck-iplist",
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ]
     },
     "91.242.32.0/21": {
@@ -7910,6 +7922,17 @@
         "rockblack-ru"
       ]
     },
+    "93.93.91.0/24": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "pincetgore-ip-list",
+        "rockblack-ru"
+      ]
+    },
     "93.93.92.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
@@ -8175,8 +8198,7 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru",
-        "vk-extra"
+        "mailru"
       ],
       "source": "asn"
     },
@@ -9054,12 +9076,10 @@
       "asn": 210756,
       "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
       "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "egkodin-ru-sites",
-        "mobile-whitelist-domains"
-      ]
+      "services": [
+        "avito"
+      ],
+      "source": "dns"
     },
     "95.213.0.0/17": {
       "asn": 47541,
@@ -10045,24 +10065,28 @@
         "pvd-dog-no-vpn"
       ]
     },
-    "151.236.81.0/24": {
+    "151.236.72.0/22": {
       "asn": 57363,
-      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
+      "as_name": "CDNVIDEO-AS",
       "cc": "RU",
       "services": [],
       "source": "external",
       "sources": [
-        "jirnobruh-amnezia"
+        "rockblack-ru"
       ]
     },
-    "151.236.83.0/24": {
+    "151.236.84.0/22": {
       "asn": 57363,
-      "as_name": "CDNvideo-AS - CDNvideo LLC, RU",
+      "as_name": "CDNVIDEO-AS",
       "cc": "RU",
-      "services": [
-        "avito"
-      ],
-      "source": "dns"
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-essential",
+        "mobile-whitelist-cidr",
+        "rockblack-ru"
+      ]
     },
     "151.248.112.0/24": {
       "asn": 197695,
@@ -11117,6 +11141,7 @@
         "media-extra",
         "misc-extra",
         "mobile",
+        "news",
         "other-banks",
         "post"
       ],
@@ -11513,6 +11538,22 @@
         "kyoresuas-ru-bypass",
         "lib4u-amnezia",
         "opencck-iplist"
+      ]
+    },
+    "185.31.112.0/22": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "jirnobruh-amnezia",
+        "mobile-whitelist-cidr",
+        "opencck-iplist",
+        "pincetgore-ip-list",
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ]
     },
     "185.31.164.0/22": {
@@ -13411,6 +13452,15 @@
         "pvd-dog-no-vpn"
       ]
     },
+    "188.127.224.0/20": {
+      "asn": 56694,
+      "as_name": "SmartApe - LLC Smart Ape, RU",
+      "cc": "RU",
+      "services": [
+        "payments"
+      ],
+      "source": "dns"
+    },
     "188.162.48.0/20": {
       "asn": 31133,
       "as_name": "MF-MGSM-AS - PJSC MegaFon, RU",
@@ -14157,15 +14207,6 @@
       "sources": [
         "egkodin-ru-sites"
       ]
-    },
-    "194.67.71.0/24": {
-      "asn": 197695,
-      "as_name": "AS-REGRU - _Domain names registrar REG.RU_, Ltd, RU",
-      "cc": "RU",
-      "services": [
-        "food"
-      ],
-      "source": "dns"
     },
     "194.67.72.0/24": {
       "asn": 197695,
@@ -15541,8 +15582,7 @@
       "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
       "cc": "RU",
       "services": [
-        "gov-extra",
-        "mos"
+        "gov-extra"
       ],
       "source": "dns"
     },
@@ -16332,6 +16372,26 @@
       ],
       "source": "dns"
     },
+    "213.176.64.0/22": {
+      "asn": 210644,
+      "as_name": "AEZA-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "kyoresuas-ru-bypass"
+      ]
+    },
+    "213.176.112.0/22": {
+      "asn": 210644,
+      "as_name": "AEZA-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "kyoresuas-ru-bypass"
+      ]
+    },
     "213.180.192.0/19": {
       "asn": 13238,
       "as_name": "YANDEX - YANDEX LLC, RU",
@@ -16411,6 +16471,16 @@
       ]
     },
     "213.219.192.0/20": {
+      "asn": 12695,
+      "as_name": "DINET-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites"
+      ]
+    },
+    "213.219.208.0/22": {
       "asn": 12695,
       "as_name": "DINET-AS",
       "cc": "RU",
@@ -16866,7 +16936,8 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru"
+        "mailru",
+        "vk-extra"
       ],
       "source": "asn"
     },
