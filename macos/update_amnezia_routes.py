@@ -34,7 +34,7 @@ APP_BUNDLE = Path("/Applications/AmneziaVPN.app")
 APP_INFO_PLIST = APP_BUNDLE / "Contents/Info.plist"
 SUPPORTED_APP_MAJOR = 5
 PROTECTED_IPS: set[ipaddress.IPv4Address] = set()
-LIST_BASE = "https://raw.githubusercontent.com/w1zardz/amnezia-split-route-sync/master/dist"
+LIST_BASE = "https://raw.githubusercontent.com/w1zardz/amnezia-vpn-russia-split-tunneling/master/dist"
 # AmneziaVPN на macOS маршрутизирует split tunneling только по IP-адресам,
 # домены в Conf.ExceptSites она молча игнорирует. Поэтому по умолчанию качаем
 # сборку без доменов, а из любого другого источника домены отбрасываем.

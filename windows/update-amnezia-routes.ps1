@@ -47,7 +47,7 @@ if (-not $StateDir) {
     $StateDir = Join-Path $base 'AmneziaRouteSync'
 }
 
-$ListBase = 'https://raw.githubusercontent.com/w1zardz/amnezia-split-route-sync/master/dist'
+$ListBase = 'https://raw.githubusercontent.com/w1zardz/amnezia-vpn-russia-split-tunneling/master/dist'
 $ListFull = "$ListBase/amnezia-ru-direct.json"
 $ListLite = "$ListBase/amnezia-ru-direct-lite.json"
 
