@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TEXT_SUFFIXES = {
     "",
+    ".bat",
     ".md",
     ".py",
     ".ps1",
