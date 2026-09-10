@@ -34,6 +34,7 @@ jobs:
             tools/build_ru_direct.py \
             tools/refresh_prefixes.py \
             tools/import_external.py \
+            tools/resolve_domains.py \
             tools/privacy_scan.py
           bash -n macos/install.sh macos/uninstall.sh
           python3 -m json.tool config/asn-expand.json >/dev/null
