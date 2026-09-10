@@ -4,30 +4,44 @@
 
 ## Источники
 
-| Источник | Уникальных IP/CIDR | Принято IP/CIDR | Домены | Новые поддомены |
-|---|---:|---:|---:|---:|
-| `mobile-whitelist-cidr` | 30228 | 266 | 0 | 0 |
-| `mobile-whitelist-domains` | 0 | 0 | 910 | 784 |
-| `operator-whitelist-cidr` | 88 | 18 | 0 | 0 |
-| `unrkn-vpn-domains` | 0 | 0 | 480 | 0 |
-| `itdog-russia-only` | 0 | 0 | 39 | 6 |
-| `lib4u-amnezia` | 1540 | 260 | 1954 | 106 |
+| Источник | Уникальных IP/CIDR | Принято IP/CIDR | Домены | Новые поддомены | Корни |
+|---|---:|---:|---:|---:|---:|
+| `mobile-whitelist-cidr` | 30228 | 280 | 0 | 0 | 0 |
+| `mobile-whitelist-domains` | 0 | 0 | 910 | 784 | 0 |
+| `operator-whitelist-cidr` | 88 | 18 | 0 | 0 | 0 |
+| `unrkn-vpn-domains` | 0 | 0 | 480 | 0 | 0 |
+| `itdog-russia-only` | 0 | 0 | 39 | 6 | 0 |
+| `lib4u-amnezia` | 1540 | 257 | 1954 | 106 | 1043 |
+| `v2fly-ru` | 0 | 0 | 1741 | 9 | 998 |
+| `jirnobruh-amnezia` | 768 | 144 | 925 | 176 | 305 |
+| `kyoresuas-ru-bypass` | 8800 | 714 | 0 | 0 | 0 |
+| `kyoresuas-essential` | 313 | 76 | 0 | 0 | 0 |
+| `pincetgore-ip-list` | 1373 | 215 | 0 | 0 | 0 |
+| `kozlov-amnezia` | 0 | 0 | 858 | 7 | 19 |
+| `egkodin-ru-sites` | 12843 | 1291 | 1105 | 639 | 87 |
+| `supertico-domains` | 0 | 0 | 2 | 0 | 1 |
+| `pvd-dog-no-vpn` | 1029 | 283 | 0 | 0 | 0 |
+| `opencck-iplist` | 1449 | 260 | 0 | 0 | 0 |
 
-После объединения внутри проверенных диапазонов IP→ASN принято сетей: **228** (потолок 1600).
+После объединения внутри проверенных диапазонов IP→ASN принято сетей: **1000** (потолок 1000).
+
+⚠️ Потолок срезал **461** сетей, прошедших проверку. Подними `--limit`, если Amnezia переваривает список, или сузь источники.
 
 ## Почему отсеяно
 
 | Причина | Сетей |
 |---|---|
-| не российская сеть | 22817 |
-| нет в таблице IP→ASN или сеть не анонсируется | 2671 |
-| ASN не обслуживает ни один сервис каталога | 1530 |
-| адресное пространство оператора связи | 1380 |
-| сеть пересекает разные ASN | 1193 |
-| уже покрыто снапшотом | 919 |
-| глобальный CDN или облако | 802 |
+| не российская сеть | 24333 |
+| ASN не обслуживает ни один сервис каталога | 13302 |
+| нет в таблице IP→ASN или сеть не анонсируется | 5874 |
+| сеть пересекает разные ASN | 4278 |
+| адресное пространство оператора связи | 2833 |
+| уже покрыто снапшотом | 2821 |
+| глобальный CDN или облако | 1426 |
+| не публичная сеть | 18 |
+| шире допустимой /12 | 8 |
 
-Зарубежные сети по странам: US — 5057, GB — 1747, TR — 1718, DE — 1528, FR — 1164, IT — 968, CH — 933, NL — 930, SE — 683, ES — 561, AT — 557, PL — 452. Именно ради этих записей и написан фильтр: попади они в direct, часть трафика ушла бы мимо VPN с домашнего адреса.
+Зарубежные сети по странам: US — 5226, GB — 1881, TR — 1753, DE — 1627, FR — 1197, NL — 1014, IT — 991, CH — 946, SE — 714, ES — 605, AT — 570, PL — 465. Именно ради этих записей и написан фильтр: попади они в direct, часть трафика ушла бы мимо VPN с домашнего адреса.
 
 ## Российские ASN, которых нет в каталоге
 
@@ -35,122 +49,96 @@
 
 | ASN | Имя | Сетей |
 |---|---|---|
-| AS25513 | ASN-MGTS-USPD | 26 |
-| AS204720 | CDNETWORKS | 22 |
-| AS12683 | STATEL-AS PJSC Rostelecom. Stavropol branch | 19 |
-| AS41560 | UT-SVR | 19 |
-| AS210079 | EUROBYTE | 18 |
-| AS5523 | CREDO-TELECOM | 18 |
-| AS20533 | SAKHTEL-AS | 17 |
-| AS47193 | LAN-OPTIC | 17 |
-| AS20632 | PETERSTAR-AS Saint-Petersburg | 17 |
-| AS56340 | UMNYESETI-AS | 16 |
-| AS56981 | TOMSK-AS | 16 |
-| AS25532 | MASTERHOST-AS Moscow, Russia | 16 |
-| AS57363 | CDNVIDEO-AS | 15 |
-| AS38917 | KOMTEL-AS | 15 |
-| AS15974 | VTT-AS ISP, Saratov, Russia. | 15 |
-| AS8402 | CORBINA-AS OJSC Vimpelcom | 14 |
-| AS20807 | CREDOLINK-ASN St.-Petersburg | 14 |
-| AS31163 | MF-KAVKAZ-AS | 13 |
-| AS20597 | ELTEL-AS | 13 |
-| AS30822 | MAGEAL-AS | 13 |
-| AS8752 | ASVT-NETWORK Russia | 13 |
-| AS25490 | STC-AS OJSC Southern Telecommunications Company | 12 |
-| AS3226 | MARK-ITT-AS | 12 |
-| AS13174 | MTSNET Moscow, Russia | 12 |
-| AS31359 | FORATEC-AS Foratec Net | 11 |
-| AS31200 | NTK IPv6 customers | 11 |
-| AS8615 | CNT-AS Moscow, Russia | 11 |
-| AS15868 | NALTEL-AS | 10 |
-| AS3253 | SOVINTEL-EF-AS Uralrelcom Net | 10 |
-| AS200928 | RTTV | 10 |
-| AS31261 | GARS-AS Moscow, Russia | 9 |
-| AS15774 | TTK-RTL Retail | 9 |
-| AS48096 | ITGRAD | 9 |
-| AS41575 | INTERCITY-AS | 9 |
-| AS6789 | CRELCOM-NET | 9 |
-| AS49063 | DTLN | 9 |
-| AS34665 | PINDC-AS | 8 |
-| AS15552 | CK | 8 |
-| AS39238 | OKBPROGRESS Moscow, Russia | 8 |
-| AS61400 | NETRACK-AS | 8 |
+| AS25513 | ASN-MGTS-USPD | 92 |
+| AS49063 | DTLN | 84 |
+| AS25227 | ASN-AVANTEL-MSK Located in Moscow, Russia. | 83 |
+| AS6789 | CRELCOM-NET | 75 |
+| AS8641 | NAUKANET-AS BACKBONE AS of Nauka-Svyaz | 70 |
+| AS56340 | UMNYESETI-AS | 69 |
+| AS5563 | URAL Ural Regional Net | 69 |
+| AS48642 | FOR-AS Russia | 67 |
+| AS48282 | VDSINA-AS | 66 |
+| AS201776 | MIRANDA-AS Miranda-Media LLC | 63 |
+| AS210079 | EUROBYTE | 62 |
+| AS15774 | TTK-RTL Retail | 59 |
+| AS25532 | MASTERHOST-AS Moscow, Russia | 59 |
+| AS39238 | OKBPROGRESS Moscow, Russia | 58 |
+| AS29076 | CITYTELECOM-AS Filanco LTD | 58 |
+| AS48096 | ITGRAD | 51 |
+| AS31363 | MOSCOW-AS | 51 |
+| AS211183 | ADMINVPS | 50 |
+| AS61400 | NETRACK-AS | 49 |
+| AS206805 | T1CLOUD-AS | 49 |
+| AS20632 | PETERSTAR-AS Saint-Petersburg | 49 |
+| AS29124 | ISKRATELECOM-AS SEVEN-SKY | 45 |
+| AS56694 | SMARTAPE | 45 |
+| AS12494 | ASN-POSTLTD | 43 |
+| AS38917 | KOMTEL-AS | 37 |
+| AS51522 | ONLINE | 36 |
+| AS34665 | PINDC-AS | 35 |
+| AS42610 | NCNET-AS OJSC National Cable Networks | 35 |
+| AS15552 | CK | 34 |
+| AS39264 | METROMAX-AS | 34 |
+| AS8732 | COMCOR-AS Moscow | 34 |
+| AS41733 | ZTELECOM-AS | 32 |
+| AS56981 | TOMSK-AS | 32 |
+| AS3226 | MARK-ITT-AS | 31 |
+| AS51219 | K2_INT | 31 |
+| AS204144 | COMFORT-AS | 31 |
+| AS204720 | CDNETWORKS | 30 |
+| AS8402 | CORBINA-AS OJSC Vimpelcom | 30 |
+| AS8369 | INTERSVYAZ-AS 38-B, Komsomolsky prospekt | 30 |
+| AS196695 | NETONERUS | 30 |
 
-## Домены вне каталога — 1840
+## Корневые домены — принято 1206
 
-Новые поддомены сервисов каталога добавлены в полный список автоматически; их источники указаны в `data/external.json`. Ниже — остальные кандидаты для ручной проверки. Полный список без обрезки, с происхождением каждой записи: [`external-candidates.json`](external-candidates.json).
+Домены вне каталога из источников с флагом `roots`. Корень принимается, только если у него есть IPv4 и все адреса российские и не принадлежат глобальным CDN; такие корни идут только в полный список, не в lite. Потолок — 2500. Отказы по каждому домену — в `external-candidates.json`, поле `reason`.
+
+| Причина отказа | Доменов |
+|---|---:|
+| зарубежный адрес | 318 |
+| не резолвится (NXDOMAIN или нет A-записей) | 248 |
+| глобальный CDN или облако | 157 |
+| нет ответа DNS | 13 |
+| не публичный адрес | 6 |
+| адрес вне таблицы IP→ASN | 3 |
+
+## Домены вне каталога — 925
+
+Новые поддомены сервисов каталога и принятые корни добавлены в полный список автоматически; их источники указаны в `data/external.json`. Ниже — остальные кандидаты для ручной проверки. Полный список без обрезки, с происхождением каждой записи: [`external-candidates.json`](external-candidates.json).
 
 ```
 1018213540.rsc.cdn77.org
-1917live.red
-1prime.ru
-21-school.ru
-24h.tv
-2gis.ae
-2gis.am
-2gis.az
+1c-fresh.com
+220volt.ru
 2gis.biz
-2gis.by
 2gis.com.cy
 2gis.cz
-2gis.ge
 2gis.io
-2gis.kg
 2gis.kz
 2gis.net
 2gis.qa
 2gis.sa
 2gis.tech
-2gis.tj
-2gis.uz
 2ip.ru
-2w.ru
-3dnews.ru
-3ebra.net
-4c.ru
-4epenaxa.com
-5post.market
-a.auth-nsdi.ru
-a.res-nsdi.ru
-abonementx5.ru
-abr.ru
+4pda.ru
+4pda.to
+abbyy.com
 accesspoint.uz
-acmvid.com
 activate.activation-v2.kaspersky.com
 activation-v2.geo.kaspersky.com
 activation-v2.kaspersky.com
-actualidad-rt.com
-ad-cdek.ru
 adfox.ru
 admetrica.ru
-adriver.ru
-ads-integration.rustore.ru
 ads.dahlmessenger.com
-ads.icq.com
-ads.rustore.ru
-ads.viqeo.tv
-ads.x5media.ru
 ads.yandex
 ads.yango.com
 adsadvisor.io
 adsapp.dahlmessenger.com
 adsapp.stage.telega.info
-adsapp.telega.info
-adv.rustore.ru
-adygeya.ru
-adygtelecom.com
 agent.ru
-ahilesva.info
-aiesa.ru
-alefbank.com
-alfa.me
-alfabank.st
+akamaized.net
 aliexpress.ru
-alt-r.my.com
-altai.ru
-altaiobr04.ru
-amic.ru
-amur.ru
 ankb.ru
 antiphishing.nl
 antiphishing.ru
@@ -160,15 +148,7 @@ aoglonass.ru
 api-eu.carrotquest.app
 api-eu.carrotquest.io
 api-js.mindbox.ru
-api-ru.carrotquest.app
-api-ru.carrotquest.io
 api-ru.mindbox.cloud
-api-secure.carrotquest.app
-api-secure.carrottrack.app
-api-staging.mindbox.ru
-api.carrotquest.app
-api.carrotquest.io
-api.carrottrack.app
 api.dashly.app
 api.dashlytrack.app
 api.dobro.ru
@@ -176,110 +156,157 @@ api.evotor.ru
 api.hrlink.ru
 api.lizaalert.org
 api.mindbox.cloud
-api.mindbox.ru
+api.perplexity.ai
 api.roskachestvo.gov.ru
-apiauto.ru
-apiok.ru
 app.hrlink.ru
 appmetrica.yango.com
-appsmail.ru
-apptracer.ru
-apptrackpets.com
-apteka-april.ru
-aptekiplus.ru
-arabicrt.ru
-arctic.ru
 arkhangelsk.ru
-armgs.team
-artel.watch
-arteldoc.com
-arteldoc.tv
-asia-pay.ru
 asiangooglenetwork.com
-astrakhan.ru
 asusrouter.com
-at.ua
-atb.su
-atomyze.ru
-atomyze.tech
-attachmail.ru
 attachmy.com
-audiohead.ru
-autokreditbank.ru
-autoru.me
-avangard.ru
-aversbank.ru
+autoscout24.ru
 aviasales.com
 avito.net
 avitocargo.ru
 avitopro.ru
 avitorealty.ru
 avs.io
-avto.ru
 avtodor-tr.ru
-avtovokzaly.ru
-azbukainterneta.ru
-b.auth-nsdi.ru
-b.res-nsdi.ru
-b17.ru
-b2c-digest.ru
 b2c-ticket-sentry.onelya.ru
 b37mrtl.ru
-babki.ru
-baltnews.com
-baltnews.lt
-bananacall.ru
-bank-arzamas.ru
+baikal-electronics.ru
 bank-credit-suisse-moscow.ru
 bank131.com
-bankermak.ru
-bankline.ru
-baranky.com
-bargipsy.com
-bashkiria.ru
-bbr.ru
-bcs-bank.ru
-beeline.tv
-beesbfl.ru
-beescrm.ru
-beget.ru
-belgorod.ru
-belkacar.ru
+beeline-cloud.ru
 berizaryad.ru
-best2pay.net
-betboom.ru
 bfa.ru
-bimsaas.ru
-bir.ru
 bitrix.info
 bizmrg.com
-bk.ru
 bk6bba-resources.com
 bk6bba-resources.ru
 bkvet.ru
-blablacar.ru
-blanc.ru
-bm-bank.ru
-book-catalog.ru
-book1917.live
-booking-tec.ru
-boom.ru
-boosty.to
-botmechanic.io
+blog.perplexity.ai
+booking.com
+bookmate.com
 bps-sberbank.by
-broker.ru
-bryansk.ru
 buryatia.ru
+busuu.com
 cabconnect.org
 cabinet.evotor.ru
-callbackkiller.com
-cap.ru
-capitalt.ru
-cardsmobile.ru
 carrot-mail.io
-carrotquest-mail.io
-carrotquest.app
-carrotquest.io
 carrottrack.app
-… ещё 1640
+cas-bridge.xethub.hf.co
+cdn-lfs-eu-1.hf.co
+cdn-lfs-us-1.hf.co
+cdn-lfs.hf.co
+cdn-lfs.huggingface.co
+cdn-vk.net
+cdn-vk.ru
+cdn1.ozonusercontent.com
+cdnmail.ru
+cert-gib.com
+cert-gib.ru
+cesarsmart.ru
+chat.perplexity.ai
+che.tv
+chelyabinsk-sgo-edu-74.ru
+clck.ru
+clck.yango.com
+cloudru.cn
+clstorage.net
+cms1.dzvr.ru
+coddy.academy
+codeforces.com
+codeseason.by
+codewars.com
+commerzbank.ru
+comss.club
+comss.info
+comss.me
+comss.news
+comss.one
+console.perplexity.ai
+coursera.org
+cplsb.ru
+credit-zenit.ru
+crl.kaspersky.com
+crrintegro.ru
+csat.ru
+cybercrimecon.com
+dahlmessenger.com
+dashly.app
+dashly.help
+dashly.io
+dashly.me
+dashlytrack.app
+datacloudmy.com
+dc1-cert.ksn.kaspersky-labs.com
+dc1-file.ksn.kaspersky-labs.com
+dc1-pp.ksn.kaspersky-labs.com
+dc1-st.ksn.kaspersky-labs.com
+dc1.ksn.kaspersky-labs.com
+deliveryclub.ru
+deltacredit.ru
+dev-my.games
+dnl-00.geo.kaspersky.com
+dnl-01.geo.kaspersky.com
+dnl-02.geo.kaspersky.com
+dnl-03.geo.kaspersky.com
+dnl-04.geo.kaspersky.com
+dnl-05.geo.kaspersky.com
+dnl-06.geo.kaspersky.com
+dnl-07.geo.kaspersky.com
+dnl-08.geo.kaspersky.com
+dnl-09.geo.kaspersky.com
+dnl-10.geo.kaspersky.com
+dnl-11.geo.kaspersky.com
+dnl-12.geo.kaspersky.com
+dnl-13.geo.kaspersky.com
+dnl-14.geo.kaspersky.com
+dnl-15.geo.kaspersky.com
+dnl-16.geo.kaspersky.com
+dnl-17.geo.kaspersky.com
+dnl-18.geo.kaspersky.com
+dnl-19.geo.kaspersky.com
+dns-com.ru
+dobro.ru
+docs.perplexity.ai
+dodois.com
+dodois.io
+dodostatic.net
+dom-kino.tv
+driveawaytaxi.org
+drom.com
+drweb-av.es
+drweb.cn
+drweb.co.jp
+drweb.fr
+drweb.kz
+dumatv.ru
+duolingo.com
+durovscode.com
+dv.team
+dzeninfra.ru
+dzvr.ru
+e.mindbox.ru
+eadaily.org
+edadeal.ru
+edge.geo.kaspersky.com
+edge.perplexity.ai
+edu.sirius.online
+edx.org
+eligens.cl
+eligens.com.br
+eligens.io
+elle.ru
+englishdom.com
+enterprise.perplexity.ai
+eopp-portal.ru
+epam.com
+epd-portal.ru
+epp.genproc.gov.ru
+esforce.ru
+etna.ai
+etp-torgi.ru
+… ещё 725
 ```

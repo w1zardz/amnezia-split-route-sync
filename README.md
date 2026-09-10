@@ -151,10 +151,14 @@ https://raw.githubusercontent.com/w1zardz/amnezia-vpn-russia-split-tunneling/mas
    отправлять нельзя.
 
 Имя домена само по себе не является маршрутом: нужны его текущие IPv4.
-Windows-updater получает их через системный DNS и сохраняет в значениях
-`ExceptSites`. Это необходимо для AmneziaWG: в AmneziaVPN 5.0.1.5 этот протокол
-читает сохранённые IP, а домены с пустым значением не использует.
-Ручной импорт через интерфейс приложения не заменяет регулярное обновление DNS.
+AmneziaVPN при импорте JSON домены **не резолвит** — AmneziaWG и мобильные клиенты
+строят маршруты только из полей `ips`/`ip` записи
+([импорт](https://github.com/amnezia-vpn/amnezia-client/blob/dev/client/core/controllers/ipSplitTunnelingController.cpp),
+[подготовка маршрутов](https://github.com/amnezia-vpn/amnezia-client/blob/dev/client/vpnConnection.cpp)).
+Поэтому каждая сборка резолвит домены ([`tools/resolve_domains.py`](tools/resolve_domains.py),
+DNS-over-HTTPS + Яндекс DNS) и записывает в JSON только российские адреса не из
+глобальных CDN. Windows-updater дополнительно обновляет IP через системный DNS
+каждые 6 часов: адреса в вручную импортированном файле со временем устаревают.
 Подробнее: [документация Amnezia](https://docs.amnezia.org/ru/documentation/instructions/vpn-split-tunneling/)
 и [подготовка списка в клиенте 5.0.1.5](https://github.com/amnezia-vpn/amnezia-client/blob/5.0.1.5/client/vpnConnection.cpp#L461-L485).
 
@@ -199,14 +203,23 @@ Windows-updater получает их через системный DNS и со�
 поэтому новое покрытие получает и IP-список для macOS. В lite внешний слой не
 добавляется. Ограничения остаются общими с апдейтерами: 4000 записей и 1500 сетей.
 
-Новые самостоятельные домены остаются кандидатами: обзор — в
-[`data/external-report.md`](data/external-report.md), полный список с источниками —
-в [`data/external-candidates.json`](data/external-candidates.json). Это материал
-для пополнения каталога, а не доказательство, что каждый сайт блокирует VPN.
+Новые самостоятельные домены из источников с флагом `roots` (v2fly и списки для
+Amnezia) резолвятся и попадают в полный список, только если **все** их IPv4
+российские и не принадлежат глобальному CDN. Корни добавляются, пока полный
+список не дойдёт до 3900 записей; поддомены каталога идут первыми. Отказы с
+причинами — в [`data/external-report.md`](data/external-report.md), остальные
+кандидаты — в [`data/external-candidates.json`](data/external-candidates.json).
 
-Сборщик читает шесть файлов из пяти репозиториев: два исходных белых списка,
-`UnRKN/ru-blocklist`, `itdoginfo/allow-domains` (только `Russia/outside-raw.lst`)
-и `lib4u/amnezia-tunneling-ru`. Загрузки выполняются до четырёх одновременно;
+Источники: белые списки мобильных операторов и операторов связи,
+`UnRKN/ru-blocklist`, `itdoginfo/allow-domains` (только `Russia/outside-raw.lst`),
+[v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)
+(28 российских категорий с разворотом `include:`), `lib4u/amnezia-tunneling-ru`,
+`jirnobruh/Split-Tunneling-Amnezia-for-Russia`, `kyoresuas/amnezia-split-tunneling`,
+`pincetgore/amnezia-app-ru-list`, `kozlovartem20201/amnezia-vpn-russia`,
+`egkodin/ru-split-amneziavpn`, `supertico/linux-split-dns-for-amnezia-ru`,
+`pvd-dog/russia-no-vpn-list` и [iplist.opencck.org](https://russia.iplist.opencck.org/).
+Сторонние списки помечены необязательными: пропавший репозиторий не
+останавливает сборку. Загрузки выполняются до четырёх одновременно;
 одинаковые подсети проверяются один раз, покрытие ищется двоичным поиском.
 При недоступном, пустом или потерявшем больше половины записей источнике бот
 останавливается до публикации. Неполный ответ Team Cymru также блокирует выпуск.
