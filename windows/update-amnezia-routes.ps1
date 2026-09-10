@@ -26,6 +26,7 @@ param(
     [switch]$SelfTest,
     [switch]$Status,
     [switch]$RecoverOnly,
+    [switch]$NoLocalSubnets,
     [ValidateRange(-1, 10000)]
     [int]$ServerIndex = -1,
     [string]$StateDir
@@ -67,6 +68,17 @@ $MaximumAddresses = [uint64]40000000
 $MinimumEntries = 300
 $MaximumEntries = 4000
 $MaxRegistryEntries = 4096
+
+# Локальная подсеть обязана ходить мимо VPN. routeMode=2 отправляет в туннель всё,
+# чего нет в ExceptSites, поэтому 192.168.x.x уезжает в AmneziaWG и соседи по LAN
+# (принтер, SMB, синхронизация буфера) становятся недоступны в обе стороны.
+# Killswitch это не ослабляет: RFC1918 в интернет не маршрутизируется, а дефолт
+# для всего остального трафика остаётся в туннеле.
+$PrivateSubnetRanges = @('10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16')
+$TunnelAdapterPattern = 'wireguard|amnezia|wintun|tap-windows|openvpn|awg'
+$MinLocalSubnetPrefix = 16
+$MaxLocalSubnetPrefix = 30
+$MaxLocalSubnets = 8
 
 $ManagedPath = Join-Path $StateDir 'managed-entries.json'
 $StatusPath = Join-Path $StateDir 'status.json'
@@ -483,6 +495,67 @@ function ConvertFrom-ImportList([string]$Text, [string]$SourceName) {
         Domains = $sortedDomains
         Cidrs   = @($collapsed | ForEach-Object { $_.Text })
     }
+}
+
+# --- локальные подсети ---------------------------------------------------------
+
+function Test-CidrPrivate($Cidr) {
+    foreach ($range in $PrivateSubnetRanges) {
+        $parent = ConvertTo-Cidr $range
+        if ($Cidr.Prefix -ge $parent.Prefix -and ($Cidr.Network -band $parent.Mask) -eq $parent.Network) {
+            return $true
+        }
+    }
+    return $false
+}
+
+# Адаптеры туннелей пропускаем: их адрес — не локальная сеть, и вынос его в
+# ExceptSites увёл бы мимо VPN сам VPN.
+function Get-TunnelAliases {
+    $aliases = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
+    foreach ($adapter in @(Get-NetAdapter -ErrorAction Stop)) {
+        $name = [string]$adapter.Name
+        $description = [string]$adapter.InterfaceDescription
+        if ($name -match $TunnelAdapterPattern -or $description -match $TunnelAdapterPattern) {
+            [void]$aliases.Add($name)
+        }
+    }
+    # Запятая обязательна: пустой HashSet PowerShell разворачивает в $null,
+    # и следующий .Contains() падает — это происходит, когда туннель выключен.
+    return ,$aliases
+}
+
+function Get-LocalSubnetEntries {
+    if ($NoLocalSubnets) { return @() }
+    $tunnelAliases = $null
+    $addresses = @()
+    try {
+        $tunnelAliases = Get-TunnelAliases
+        $addresses = @(Get-NetIPAddress -AddressFamily IPv4 -ErrorAction Stop)
+    } catch {
+        # Отсутствие NetTCPIP не повод ронять обновление списка: просто не трогаем локалку.
+        Write-Warning "Локальные подсети не определены ($($_.Exception.Message)); LAN останется в туннеле."
+        return @()
+    }
+
+    $result = New-Object 'System.Collections.Generic.List[string]'
+    $seen = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
+    foreach ($address in $addresses) {
+        $alias = [string]$address.InterfaceAlias
+        if ($tunnelAliases.Contains($alias)) { continue }
+        $prefix = [int]$address.PrefixLength
+        # /32 на интерфейсе — почерк туннеля, а не локальной подсети.
+        if ($prefix -lt $MinLocalSubnetPrefix -or $prefix -gt $MaxLocalSubnetPrefix) { continue }
+        $number = $null
+        try { $number = ConvertTo-IPv4Number ([string]$address.IPAddress) } catch { continue }
+        $cidr = New-Cidr ($number -band (Get-PrefixMask $prefix)) $prefix
+        if (-not (Test-CidrPrivate $cidr)) { continue }
+        if ($seen.Add($cidr.Text)) { $result.Add($cidr.Text) }
+    }
+    if ($result.Count -gt $MaxLocalSubnets) {
+        throw "локальных подсетей больше ожидаемого: $($result.Count)"
+    }
+    return @($result.ToArray() | Sort-Object -CaseSensitive)
 }
 
 # --- DNS для Windows -----------------------------------------------------------
@@ -1173,6 +1246,47 @@ if ($SelfTest) {
     if ($unaligned.Count -ne 2) { throw 'CIDR unaligned-merge self-test failed.' }
     if (Test-CidrGlobal (ConvertTo-Cidr '10.0.0.0/12')) { throw 'Reserved-range self-test failed.' }
     if (-not (Test-CidrGlobal (ConvertTo-Cidr '5.255.0.0/16'))) { throw 'Global-range self-test failed.' }
+    if (-not (Test-CidrPrivate (ConvertTo-Cidr '192.168.1.0/24'))) { throw 'Private-subnet self-test failed.' }
+    if (-not (Test-CidrPrivate (ConvertTo-Cidr '10.8.1.0/24'))) { throw 'Private-subnet self-test failed (10/8).' }
+    if (Test-CidrPrivate (ConvertTo-Cidr '5.255.0.0/16')) { throw 'Private-subnet self-test failed (global).' }
+
+    # Подставляем перечисление адаптеров: функции перекрывают одноимённые командлеты,
+    # поэтому тест локальных подсетей гоняется и вне Windows.
+    function Get-NetAdapter {
+        @(
+            [pscustomobject]@{ Name = 'Ethernet';   InterfaceDescription = 'Realtek Gaming 2.5GbE' },
+            [pscustomobject]@{ Name = 'AmneziaWG';  InterfaceDescription = 'Wintun Userspace Tunnel' }
+        )
+    }
+    function Get-NetIPAddress {
+        param($AddressFamily, $ErrorAction)
+        @(
+            [pscustomobject]@{ InterfaceAlias = 'Ethernet';  IPAddress = '192.168.1.133'; PrefixLength = 24 },
+            [pscustomobject]@{ InterfaceAlias = 'Ethernet';  IPAddress = '192.168.1.140'; PrefixLength = 24 },
+            [pscustomobject]@{ InterfaceAlias = 'AmneziaWG'; IPAddress = '10.8.1.3';      PrefixLength = 24 },
+            [pscustomobject]@{ InterfaceAlias = 'Ethernet';  IPAddress = '10.8.1.9';      PrefixLength = 32 },
+            [pscustomobject]@{ InterfaceAlias = 'Loopback';  IPAddress = '127.0.0.1';     PrefixLength = 8 },
+            [pscustomobject]@{ InterfaceAlias = 'Ethernet';  IPAddress = '5.255.255.70';  PrefixLength = 24 }
+        )
+    }
+    $localTest = @(Get-LocalSubnetEntries)
+    if (($localTest -join ',') -cne '192.168.1.0/24') {
+        throw "Local-subnet self-test failed: $($localTest -join ',')"
+    }
+
+    # VPN выключен — туннельного адаптера нет вовсе. Пустой список не должен
+    # разворачиваться в $null и ронять перечисление.
+    function Get-NetAdapter {
+        @([pscustomobject]@{ Name = 'Ethernet'; InterfaceDescription = 'Realtek Gaming 2.5GbE' })
+    }
+    function Get-NetIPAddress {
+        param($AddressFamily, $ErrorAction)
+        @([pscustomobject]@{ InterfaceAlias = 'Ethernet'; IPAddress = '192.168.1.133'; PrefixLength = 24 })
+    }
+    $localOffline = @(Get-LocalSubnetEntries)
+    if (($localOffline -join ',') -cne '192.168.1.0/24') {
+        throw "Local-subnet offline self-test failed: $($localOffline -join ',')"
+    }
     if (-not (Test-Hostname 'gosuslugi.ru') -or (Test-Hostname 'GosUslugi.ru') -or (Test-Hostname 'no-dot')) {
         throw 'Hostname self-test failed.'
     }
@@ -1345,8 +1459,14 @@ try {
 
     $text = Get-SourceText $Source
     $list = ConvertFrom-ImportList $text $Source
-    $entries = @($list.Domains) + @($list.Cidrs)
+    $localSubnets = @(Get-LocalSubnetEntries)
+    $entries = @($list.Domains) + @($list.Cidrs) + $localSubnets
     Write-Host "Проверено $($list.Domains.Count) доменов и $($list.Cidrs.Count) сетей IPv4 для AmneziaVPN $appVersion"
+    if ($localSubnets.Count -gt 0) {
+        Write-Host "Локальные подсети мимо VPN: $($localSubnets -join ', ')"
+    } elseif (-not $NoLocalSubnets) {
+        Write-Host 'Локальных подсетей не найдено — LAN останется в туннеле.'
+    }
 
     if ($DryRun) { exit 0 }
 
@@ -1361,6 +1481,7 @@ try {
         source                   = $Source
         domain_count             = $list.Domains.Count
         cidr_count               = $list.Cidrs.Count
+        local_subnets            = @($localSubnets)
         entry_count              = $entries.Count
         manual_entries_preserved = [int]$result.ManualCount
         app_version              = $appVersion
