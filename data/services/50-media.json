@@ -31,9 +31,18 @@
       "domains": [
         "rutube.ru",
         "rutubelist.ru",
-        "www.rutube.ru"
+        "www.rutube.ru",
+        "studio.rutube.ru",
+        "upload.rutube.ru",
+        "bl.rutube.ru",
+        "static.rutube.ru",
+        "video.rutube.ru",
+        "pic.rtbcdn.ru"
       ],
-      "cidrs": []
+      "cidrs": [
+        "195.246.246.0/24",
+        "77.220.220.0/24"
+      ]
     },
     {
       "id": "tv",

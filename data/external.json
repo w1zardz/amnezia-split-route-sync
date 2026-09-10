@@ -4,9 +4,9 @@
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
   "prefix_count": 1000,
-  "rejected_count": 55153,
-  "dropped_by_limit": 466,
-  "domain_count": 1045,
+  "rejected_count": 55205,
+  "dropped_by_limit": 442,
+  "domain_count": 1044,
   "root_count": 1206,
   "roots_dropped": 0,
   "sources": {
@@ -15,7 +15,7 @@
       "parsed": 30228,
       "networks": 30228,
       "domains": 0,
-      "accepted": 280,
+      "accepted": 265,
       "accepted_domains": 0
     },
     "mobile-whitelist-domains": {
@@ -24,7 +24,7 @@
       "networks": 0,
       "domains": 910,
       "accepted": 0,
-      "accepted_domains": 784
+      "accepted_domains": 783
     },
     "operator-whitelist-cidr": {
       "url": "https://raw.githubusercontent.com/escapingworm/russia-whitelist/main/ru-whitelist-cidr.txt",
@@ -55,7 +55,7 @@
       "parsed": 7088,
       "networks": 1540,
       "domains": 1954,
-      "accepted": 257,
+      "accepted": 259,
       "accepted_domains": 106,
       "roots": 1043
     },
@@ -73,7 +73,7 @@
       "parsed": 3126,
       "networks": 768,
       "domains": 925,
-      "accepted": 144,
+      "accepted": 142,
       "accepted_domains": 176,
       "roots": 305
     },
@@ -82,7 +82,7 @@
       "parsed": 8800,
       "networks": 8800,
       "domains": 0,
-      "accepted": 714,
+      "accepted": 712,
       "accepted_domains": 0
     },
     "kyoresuas-essential": {
@@ -90,7 +90,7 @@
       "parsed": 313,
       "networks": 313,
       "domains": 0,
-      "accepted": 76,
+      "accepted": 70,
       "accepted_domains": 0
     },
     "pincetgore-ip-list": {
@@ -115,8 +115,8 @@
       "parsed": 14183,
       "networks": 12843,
       "domains": 1105,
-      "accepted": 1291,
-      "accepted_domains": 639,
+      "accepted": 1281,
+      "accepted_domains": 638,
       "roots": 87
     },
     "supertico-domains": {
@@ -133,7 +133,7 @@
       "parsed": 2058,
       "networks": 1029,
       "domains": 0,
-      "accepted": 283,
+      "accepted": 281,
       "accepted_domains": 0
     },
     "opencck-iplist": {
@@ -141,7 +141,7 @@
       "parsed": 1449,
       "networks": 1449,
       "domains": 0,
-      "accepted": 260,
+      "accepted": 250,
       "accepted_domains": 0
     },
     "rockblack-ru": {
@@ -149,7 +149,7 @@
       "parsed": 417,
       "networks": 334,
       "domains": 0,
-      "accepted": 75,
+      "accepted": 68,
       "accepted_domains": 0
     }
   },
@@ -592,6 +592,15 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass"
+      ],
+      "source": "external"
+    },
+    "5.189.216.0/24": {
+      "asn": 207353,
+      "as_name": "RUFORM",
+      "cc": "RU",
+      "sources": [
+        "pincetgore-ip-list"
       ],
       "source": "external"
     },
@@ -1682,6 +1691,15 @@
       ],
       "source": "external"
     },
+    "46.161.43.0/24": {
+      "asn": 207353,
+      "as_name": "RUFORM",
+      "cc": "RU",
+      "sources": [
+        "pincetgore-ip-list"
+      ],
+      "source": "external"
+    },
     "46.173.16.0/22": {
       "asn": 198610,
       "as_name": "BEGET-AS",
@@ -2200,6 +2218,42 @@
       "cc": "RU",
       "sources": [
         "kyoresuas-ru-bypass"
+      ],
+      "source": "external"
+    },
+    "77.220.216.0/24": {
+      "asn": 207353,
+      "as_name": "RUFORM",
+      "cc": "RU",
+      "sources": [
+        "pincetgore-ip-list"
+      ],
+      "source": "external"
+    },
+    "77.220.218.0/24": {
+      "asn": 207353,
+      "as_name": "RUFORM",
+      "cc": "RU",
+      "sources": [
+        "pincetgore-ip-list"
+      ],
+      "source": "external"
+    },
+    "77.220.220.0/23": {
+      "asn": 207353,
+      "as_name": "RUFORM",
+      "cc": "RU",
+      "sources": [
+        "pincetgore-ip-list"
+      ],
+      "source": "external"
+    },
+    "77.220.223.0/24": {
+      "asn": 207353,
+      "as_name": "RUFORM",
+      "cc": "RU",
+      "sources": [
+        "pincetgore-ip-list"
       ],
       "source": "external"
     },
@@ -4553,19 +4607,6 @@
       ],
       "source": "external"
     },
-    "91.240.168.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites",
-        "kyoresuas-ru-bypass",
-        "opencck-iplist",
-        "pvd-dog-no-vpn",
-        "rockblack-ru"
-      ],
-      "source": "external"
-    },
     "91.243.80.0/24": {
       "asn": 210756,
       "as_name": "EDGECENTERLLC",
@@ -5111,6 +5152,19 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass"
+      ],
+      "source": "external"
+    },
+    "93.93.88.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS NGENIX",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia",
+        "opencck-iplist",
+        "pincetgore-ip-list",
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -6209,27 +6263,6 @@
       ],
       "source": "external"
     },
-    "151.236.72.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "rockblack-ru"
-      ],
-      "source": "external"
-    },
-    "151.236.84.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites",
-        "kyoresuas-essential",
-        "mobile-whitelist-cidr",
-        "rockblack-ru"
-      ],
-      "source": "external"
-    },
     "151.248.112.0/24": {
       "asn": 197695,
       "as_name": "AS-REG",
@@ -6990,21 +7023,6 @@
       ],
       "source": "external"
     },
-    "185.31.112.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites",
-        "jirnobruh-amnezia",
-        "mobile-whitelist-cidr",
-        "opencck-iplist",
-        "pincetgore-ip-list",
-        "pvd-dog-no-vpn",
-        "rockblack-ru"
-      ],
-      "source": "external"
-    },
     "185.31.164.0/22": {
       "asn": 50340,
       "as_name": "SELECTEL-MSK",
@@ -7163,6 +7181,15 @@
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass",
         "pvd-dog-no-vpn"
+      ],
+      "source": "external"
+    },
+    "185.62.100.0/24": {
+      "asn": 207353,
+      "as_name": "RUFORM",
+      "cc": "RU",
+      "sources": [
+        "pincetgore-ip-list"
       ],
       "source": "external"
     },
@@ -9138,6 +9165,15 @@
       ],
       "source": "external"
     },
+    "195.246.246.0/24": {
+      "asn": 207353,
+      "as_name": "RUFORM",
+      "cc": "RU",
+      "sources": [
+        "pincetgore-ip-list"
+      ],
+      "source": "external"
+    },
     "212.5.64.0/18": {
       "asn": 8470,
       "as_name": "MACOMNET",
@@ -9676,24 +9712,6 @@
       ],
       "source": "external"
     },
-    "213.176.64.0/22": {
-      "asn": 210644,
-      "as_name": "AEZA-AS",
-      "cc": "RU",
-      "sources": [
-        "kyoresuas-ru-bypass"
-      ],
-      "source": "external"
-    },
-    "213.176.112.0/22": {
-      "asn": 210644,
-      "as_name": "AEZA-AS",
-      "cc": "RU",
-      "sources": [
-        "kyoresuas-ru-bypass"
-      ],
-      "source": "external"
-    },
     "213.189.201.0/24": {
       "asn": 197695,
       "as_name": "AS-REG",
@@ -9731,26 +9749,7 @@
       ],
       "source": "external"
     },
-    "213.219.208.0/22": {
-      "asn": 12695,
-      "as_name": "DINET-AS",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites"
-      ],
-      "source": "external"
-    },
     "213.219.224.0/20": {
-      "asn": 12695,
-      "as_name": "DINET-AS",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites",
-        "kyoresuas-ru-bypass"
-      ],
-      "source": "external"
-    },
-    "213.219.248.0/22": {
       "asn": 12695,
       "as_name": "DINET-AS",
       "cc": "RU",
@@ -10081,15 +10080,6 @@
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass",
         "opencck-iplist"
-      ],
-      "source": "external"
-    },
-    "217.79.0.0/22": {
-      "asn": 8492,
-      "as_name": "OBIT-AS OBIT Ltd.",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites"
       ],
       "source": "external"
     },
@@ -14766,13 +14756,6 @@
         "mobile-whitelist-domains"
       ]
     },
-    "static.rutube.ru": {
-      "parent": "rutube.ru",
-      "sources": [
-        "egkodin-ru-sites",
-        "mobile-whitelist-domains"
-      ]
-    },
     "stats.avito.ru": {
       "parent": "avito.ru",
       "sources": [
@@ -18810,6 +18793,7 @@
         "v2fly-ru"
       ],
       "asn": [
+        41722,
         49505,
         50340
       ]
@@ -18939,7 +18923,6 @@
         "v2fly-ru"
       ],
       "asn": [
-        12389,
         200928
       ]
     },
@@ -18959,8 +18942,7 @@
         "v2fly-ru"
       ],
       "asn": [
-        12389,
-        200928
+        12389
       ]
     },
     "de-rtnews.net": {
@@ -18969,8 +18951,7 @@
         "v2fly-ru"
       ],
       "asn": [
-        12389,
-        200928
+        12389
       ]
     },
     "delimobil.ru": {
@@ -19560,8 +19541,7 @@
         "v2fly-ru"
       ],
       "asn": [
-        12389,
-        200928
+        31133
       ]
     },
     "esrt.space": {
@@ -19570,8 +19550,7 @@
         "v2fly-ru"
       ],
       "asn": [
-        12389,
-        200928
+        31133
       ]
     },
     "esrt.tech": {
@@ -19590,8 +19569,7 @@
         "v2fly-ru"
       ],
       "asn": [
-        12389,
-        200928
+        31133
       ]
     },
     "etradebook.ru": {
@@ -19816,8 +19794,7 @@
         "v2fly-ru"
       ],
       "asn": [
-        12389,
-        200928
+        12389
       ]
     },
     "freede.tech": {
@@ -19826,7 +19803,6 @@
         "v2fly-ru"
       ],
       "asn": [
-        12389,
         200928
       ]
     },
@@ -22153,7 +22129,6 @@
         "v2fly-ru"
       ],
       "asn": [
-        41722,
         49505,
         50340
       ]
@@ -23877,7 +23852,6 @@
         "v2fly-ru"
       ],
       "asn": [
-        12389,
         57724,
         200928
       ]

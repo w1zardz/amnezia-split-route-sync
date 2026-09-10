@@ -409,6 +409,7 @@ bitva.mail.ru
 biz.mail.ru
 biz.vk.com
 bk.ru
+bl.rutube.ru
 blablacar.ru
 blackfriday.mail.ru
 blanc.ru
@@ -890,15 +891,10 @@ genesis.mail.ru
 genotek.am
 genotek.es
 genotek.eu
-genotek.health
-genotek.ru
 geo-apart.predict.mail.ru
-gerwin.io
-getsynapse.io
 gibdd.mail.ru
 gibdd.ru
 gid.ru
-giga.chat
 gismeteo.ru
 gks.ru
 globexbank.ru
@@ -1453,6 +1449,7 @@ pfr.gov.ru
 pfrf.ru
 pgu.mos.ru
 pgu.spb.ru
+pic.rtbcdn.ru
 pic.rutubelist.ru
 pickpoint.ru
 pikabu.ru
@@ -1912,6 +1909,7 @@ street-combats.mail.ru
 strm-rad-23.strm.yandex.net
 strm.yandex.net
 strm.yandex.ru
+studio.rutube.ru
 stv.ru
 styles.api.2gis.com
 suggest.dzen.ru
@@ -2216,6 +2214,7 @@ ui.tau.vk.ru
 ulan-ude.ru
 unicredit.ru
 unirest.tech
+upload.rutube.ru
 uralairlines.ru
 uralsib.ru
 urent.ru
@@ -2244,6 +2243,7 @@ vidal.ru
 video.mail.ru
 video.ok.ru
 video.oneme.ru
+video.rutube.ru
 videouroki.net
 viju.ru
 vipnet.ru

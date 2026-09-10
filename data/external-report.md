@@ -6,37 +6,37 @@
 
 | Источник | Уникальных IP/CIDR | Принято IP/CIDR | Домены | Новые поддомены | Корни |
 |---|---:|---:|---:|---:|---:|
-| `mobile-whitelist-cidr` | 30228 | 280 | 0 | 0 | 0 |
-| `mobile-whitelist-domains` | 0 | 0 | 910 | 784 | 0 |
+| `mobile-whitelist-cidr` | 30228 | 265 | 0 | 0 | 0 |
+| `mobile-whitelist-domains` | 0 | 0 | 910 | 783 | 0 |
 | `operator-whitelist-cidr` | 88 | 18 | 0 | 0 | 0 |
 | `unrkn-vpn-domains` | 0 | 0 | 480 | 0 | 0 |
 | `itdog-russia-only` | 0 | 0 | 39 | 6 | 0 |
-| `lib4u-amnezia` | 1540 | 257 | 1954 | 106 | 1043 |
+| `lib4u-amnezia` | 1540 | 259 | 1954 | 106 | 1043 |
 | `v2fly-ru` | 0 | 0 | 1741 | 9 | 998 |
-| `jirnobruh-amnezia` | 768 | 144 | 925 | 176 | 305 |
-| `kyoresuas-ru-bypass` | 8800 | 714 | 0 | 0 | 0 |
-| `kyoresuas-essential` | 313 | 76 | 0 | 0 | 0 |
+| `jirnobruh-amnezia` | 768 | 142 | 925 | 176 | 305 |
+| `kyoresuas-ru-bypass` | 8800 | 712 | 0 | 0 | 0 |
+| `kyoresuas-essential` | 313 | 70 | 0 | 0 | 0 |
 | `pincetgore-ip-list` | 1373 | 214 | 0 | 0 | 0 |
 | `kozlov-amnezia` | 0 | 0 | 858 | 7 | 19 |
-| `egkodin-ru-sites` | 12843 | 1291 | 1105 | 639 | 87 |
+| `egkodin-ru-sites` | 12843 | 1281 | 1105 | 638 | 87 |
 | `supertico-domains` | 0 | 0 | 2 | 0 | 1 |
-| `pvd-dog-no-vpn` | 1029 | 283 | 0 | 0 | 0 |
-| `opencck-iplist` | 1449 | 260 | 0 | 0 | 0 |
-| `rockblack-ru` | 334 | 75 | 0 | 0 | 0 |
+| `pvd-dog-no-vpn` | 1029 | 281 | 0 | 0 | 0 |
+| `opencck-iplist` | 1449 | 250 | 0 | 0 | 0 |
+| `rockblack-ru` | 334 | 68 | 0 | 0 | 0 |
 
 После объединения внутри проверенных диапазонов IP→ASN принято сетей: **1000** (потолок 1000).
 
-⚠️ Потолок срезал **466** сетей, прошедших проверку. Подними `--limit`, если Amnezia переваривает список, или сузь источники.
+⚠️ Потолок срезал **442** сетей, прошедших проверку. Подними `--limit`, если Amnezia переваривает список, или сузь источники.
 
 ## Почему отсеяно
 
 | Причина | Сетей |
 |---|---|
 | не российская сеть | 24378 |
-| ASN не обслуживает ни один сервис каталога | 13335 |
+| ASN не обслуживает ни один сервис каталога | 13396 |
 | нет в таблице IP→ASN или сеть не анонсируется | 5894 |
 | сеть пересекает разные ASN | 4296 |
-| уже покрыто снапшотом | 2910 |
+| уже покрыто снапшотом | 2901 |
 | адресное пространство оператора связи | 2860 |
 | глобальный CDN или облако | 1453 |
 | не публичная сеть | 19 |
@@ -61,6 +61,7 @@
 | AS48642 | FOR-AS Russia | 67 |
 | AS201776 | MIRANDA-AS Miranda-Media LLC | 63 |
 | AS210079 | EUROBYTE | 62 |
+| AS57363 | CDNVIDEO-AS | 61 |
 | AS15774 | TTK-RTL Retail | 59 |
 | AS25532 | MASTERHOST-AS Moscow, Russia | 59 |
 | AS39238 | OKBPROGRESS Moscow, Russia | 58 |
@@ -89,7 +90,6 @@
 | AS204144 | COMFORT-AS | 31 |
 | AS8402 | CORBINA-AS OJSC Vimpelcom | 30 |
 | AS8369 | INTERSVYAZ-AS 38-B, Komsomolsky prospekt | 30 |
-| AS196695 | NETONERUS | 30 |
 
 ## Корневые домены — принято 1206
 
