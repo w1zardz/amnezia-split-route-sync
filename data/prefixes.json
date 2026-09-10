@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "updated": "2026-09-09",
+  "updated": "2026-09-10",
   "source": "Team Cymru bulk whois + RIPEstat announced-prefixes + внешние списки",
-  "prefix_count": 930,
-  "external_count": 227,
-  "external_domains": 888,
-  "resolved_domains": 1839,
-  "catalog_domains": 1929,
+  "prefix_count": 929,
+  "external_count": 228,
+  "external_domains": 882,
+  "resolved_domains": 1869,
+  "catalog_domains": 1957,
   "prefixes": {
     "5.8.17.0/24": {
       "asn": 8492,
@@ -115,16 +115,6 @@
       "services": [],
       "source": "asn"
     },
-    "5.101.37.0/24": {
-      "asn": 201589,
-      "as_name": "EdgeAmLLC - _EDGEAM_ LLC, AM",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-domains"
-      ]
-    },
     "5.101.40.0/22": {
       "asn": 47764,
       "as_name": "VK-AS - LLC VK, RU",
@@ -150,6 +140,16 @@
       "source": "external",
       "sources": [
         "mobile-whitelist-cidr"
+      ]
+    },
+    "5.101.71.0/24": {
+      "asn": 201589,
+      "as_name": "EdgeAmLLC - _EDGEAM_ LLC, AM",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
       ]
     },
     "5.101.153.0/24": {
@@ -344,7 +344,7 @@
       ],
       "source": "asn"
     },
-    "31.31.192.0/20": {
+    "31.31.196.0/22": {
       "asn": 197695,
       "as_name": "AS-REG",
       "cc": "RU",
@@ -381,6 +381,16 @@
         "misc-extra"
       ],
       "source": "dns"
+    },
+    "31.31.200.0/21": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "31.31.205.0/24": {
       "asn": 197695,
@@ -557,7 +567,8 @@
       "as_name": "YANDEX - YANDEX LLC, RU",
       "cc": "RU",
       "services": [
-        "yandex"
+        "yandex",
+        "yandex-ads"
       ],
       "source": "asn"
     },
@@ -957,7 +968,7 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "shops"
+        "gosuslugi"
       ],
       "source": "dns"
     },
@@ -1216,7 +1227,7 @@
       "cc": "RU",
       "services": [
         "yandex",
-        "yandex-extra"
+        "yandex-ads"
       ],
       "source": "asn"
     },
@@ -1347,7 +1358,8 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "mobile"
+        "mobile",
+        "shops"
       ],
       "source": "dns"
     },
@@ -1881,7 +1893,8 @@
       "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
       "cc": "RU",
       "services": [
-        "misc-extra"
+        "misc-extra",
+        "yandex"
       ],
       "source": "asn"
     },
@@ -2169,15 +2182,6 @@
       ],
       "source": "dns"
     },
-    "86.109.210.0/24": {
-      "asn": 29648,
-      "as_name": "COMLINE-AS - PJSC MegaFon, RU",
-      "cc": "RU",
-      "services": [
-        "telecom-extra"
-      ],
-      "source": "dns"
-    },
     "87.226.128.0/17": {
       "asn": 12389,
       "as_name": "ROSTELECOM-AS - PJSC Rostelecom, RU",
@@ -2277,6 +2281,7 @@
         "delivery-extra",
         "kinopoisk",
         "yandex",
+        "yandex-ads",
         "yandex-extra"
       ],
       "source": "asn"
@@ -3361,7 +3366,7 @@
       ],
       "source": "dns"
     },
-    "93.93.88.0/23": {
+    "93.93.91.0/24": {
       "asn": 34879,
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
@@ -3395,6 +3400,7 @@
       "cc": "RU",
       "services": [
         "yandex",
+        "yandex-ads",
         "yandex-extra"
       ],
       "source": "asn"
@@ -3610,6 +3616,16 @@
         "misc-extra"
       ],
       "source": "dns"
+    },
+    "95.129.238.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "lib4u-amnezia"
+      ]
     },
     "95.142.192.0/20": {
       "asn": 47541,
@@ -4043,7 +4059,9 @@
       "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
       "cc": "RU",
       "services": [
-        "food"
+        "food",
+        "news",
+        "tv"
       ],
       "source": "dns"
     },
@@ -4055,9 +4073,7 @@
         "classifieds",
         "gov-extra",
         "misc-extra",
-        "news",
-        "sber",
-        "tv"
+        "sber"
       ],
       "source": "dns"
     },
@@ -5963,20 +5979,20 @@
       "asn": 24823,
       "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
       "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "mobile-whitelist-domains"
-      ]
+      "services": [
+        "vtb"
+      ],
+      "source": "dns"
     },
     "185.179.146.0/24": {
       "asn": 24823,
       "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
       "cc": "RU",
-      "services": [
-        "vtb"
-      ],
-      "source": "dns"
+      "services": [],
+      "source": "external",
+      "sources": [
+        "mobile-whitelist-domains"
+      ]
     },
     "185.179.226.0/24": {
       "asn": 43740,
@@ -6078,9 +6094,11 @@
     },
     "185.206.164.0/22": {
       "asn": 200350,
-      "as_name": "Яндекс — Yandex.Cloud",
+      "as_name": "YandexCloud - Yandex.Cloud LLC, RU",
       "cc": "RU",
-      "services": [],
+      "services": [
+        "yandex-extra"
+      ],
       "source": "asn"
     },
     "185.215.4.0/24": {
@@ -6501,17 +6519,6 @@
       ],
       "source": "dns"
     },
-    "193.232.39.0/24": {
-      "asn": 35021,
-      "as_name": "E-STOCK-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "lib4u-amnezia",
-        "mobile-whitelist-cidr"
-      ]
-    },
     "193.232.108.0/24": {
       "asn": 44704,
       "as_name": "X5-RETAIL-GROUP-AS - Perekrestok-2000 LLC, RU",
@@ -6600,6 +6607,15 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
+    },
+    "194.54.176.0/22": {
+      "asn": 3267,
+      "as_name": "IDDQD-AS - IDDQD-AS, RU",
+      "cc": "RU",
+      "services": [
+        "misc-extra"
+      ],
+      "source": "dns"
     },
     "194.58.96.0/19": {
       "asn": 197695,
@@ -7200,15 +7216,6 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "195.208.65.0/24": {
-      "asn": 34879,
-      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
-      "cc": "RU",
-      "services": [
-        "shops"
-      ],
-      "source": "dns"
-    },
     "195.208.66.0/24": {
       "asn": 34879,
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
@@ -7523,7 +7530,6 @@
       "services": [],
       "source": "external",
       "sources": [
-        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ]
     },
@@ -7532,8 +7538,7 @@
       "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
       "cc": "RU",
       "services": [
-        "gov-extra",
-        "mos"
+        "gov-extra"
       ],
       "source": "dns"
     },
@@ -7679,15 +7684,6 @@
         "mobile-whitelist-cidr"
       ]
     },
-    "212.193.146.0/23": {
-      "asn": 34879,
-      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
-      "cc": "RU",
-      "services": [
-        "shops"
-      ],
-      "source": "dns"
-    },
     "212.193.152.0/23": {
       "asn": 204878,
       "as_name": "CCT-M9P1 - OOO _Sovremennye setevye tekhnologii_, RU",
@@ -7718,8 +7714,7 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "delivery-extra",
-        "gosuslugi"
+        "delivery-extra"
       ],
       "source": "dns"
     },
@@ -7920,6 +7915,7 @@
       "cc": "RU",
       "services": [
         "yandex",
+        "yandex-ads",
         "yandex-auto",
         "yandex-extra",
         "yandex-music"

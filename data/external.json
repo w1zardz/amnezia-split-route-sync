@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updated": "2026-09-09",
+  "updated": "2026-09-10",
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
-  "prefix_count": 227,
-  "rejected_count": 31249,
+  "prefix_count": 228,
+  "rejected_count": 31312,
   "dropped_by_limit": 0,
   "domain_count": 882,
   "sources": {
@@ -13,7 +13,7 @@
       "parsed": 30228,
       "networks": 30228,
       "domains": 0,
-      "accepted": 267,
+      "accepted": 266,
       "accepted_domains": 0
     },
     "mobile-whitelist-domains": {
@@ -22,7 +22,7 @@
       "networks": 0,
       "domains": 910,
       "accepted": 0,
-      "accepted_domains": 788
+      "accepted_domains": 784
     },
     "operator-whitelist-cidr": {
       "url": "https://raw.githubusercontent.com/escapingworm/russia-whitelist/main/ru-whitelist-cidr.txt",
@@ -50,11 +50,11 @@
     },
     "lib4u-amnezia": {
       "url": "https://raw.githubusercontent.com/lib4u/amnezia-tunneling-ru/main/amnezia.json",
-      "parsed": 6648,
-      "networks": 1477,
+      "parsed": 7088,
+      "networks": 1540,
       "domains": 1954,
-      "accepted": 259,
-      "accepted_domains": 110
+      "accepted": 260,
+      "accepted_domains": 106
     }
   },
   "prefixes": {
@@ -229,13 +229,22 @@
       ],
       "source": "external"
     },
-    "31.31.192.0/20": {
+    "31.31.196.0/22": {
       "asn": 197695,
       "as_name": "AS-REG",
       "cc": "RU",
       "sources": [
         "lib4u-amnezia",
         "mobile-whitelist-cidr"
+      ],
+      "source": "external"
+    },
+    "31.31.200.0/21": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
       ],
       "source": "external"
     },
@@ -1016,6 +1025,15 @@
       ],
       "source": "external"
     },
+    "95.129.238.0/24": {
+      "asn": 57724,
+      "as_name": "DDOS-GUARD",
+      "cc": "RU",
+      "sources": [
+        "lib4u-amnezia"
+      ],
+      "source": "external"
+    },
     "95.163.224.0/20": {
       "asn": 197695,
       "as_name": "AS-REG",
@@ -1622,16 +1640,6 @@
       ],
       "source": "external"
     },
-    "193.232.39.0/24": {
-      "asn": 35021,
-      "as_name": "E-STOCK-AS",
-      "cc": "RU",
-      "sources": [
-        "lib4u-amnezia",
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
     "194.58.96.0/19": {
       "asn": 197695,
       "as_name": "AS-REG",
@@ -1951,7 +1959,6 @@
       "as_name": "Moscow Mayors Office",
       "cc": "RU",
       "sources": [
-        "lib4u-amnezia",
         "mobile-whitelist-cidr"
       ],
       "source": "external"

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-09",
+  "updated": "2026-09-10",
   "domains": {
     "1018213540.rsc.cdn77.org": {
       "sources": [
@@ -9121,12 +9121,6 @@
         "unrkn-vpn-domains"
       ]
     },
-    "yandexadexchange.net": {
-      "sources": [
-        "lib4u-amnezia",
-        "unrkn-vpn-domains"
-      ]
-    },
     "yandexcom.net": {
       "sources": [
         "lib4u-amnezia",
@@ -9249,12 +9243,6 @@
     "yaroslavl.ru": {
       "sources": [
         "lib4u-amnezia"
-      ]
-    },
-    "yastat.net": {
-      "sources": [
-        "lib4u-amnezia",
-        "unrkn-vpn-domains"
       ]
     },
     "yastatic-net.ru": {
