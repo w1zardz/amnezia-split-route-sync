@@ -4,8 +4,8 @@
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
   "prefix_count": 1000,
-  "rejected_count": 54893,
-  "dropped_by_limit": 461,
+  "rejected_count": 55153,
+  "dropped_by_limit": 466,
   "domain_count": 1045,
   "root_count": 1206,
   "roots_dropped": 0,
@@ -98,7 +98,7 @@
       "parsed": 1373,
       "networks": 1373,
       "domains": 0,
-      "accepted": 215,
+      "accepted": 214,
       "accepted_domains": 0
     },
     "kozlov-amnezia": {
@@ -142,6 +142,14 @@
       "networks": 1449,
       "domains": 0,
       "accepted": 260,
+      "accepted_domains": 0
+    },
+    "rockblack-ru": {
+      "url": "https://raw.githubusercontent.com/RockBlack-VPN/ip-address/main/RU-RU/",
+      "parsed": 417,
+      "networks": 334,
+      "domains": 0,
+      "accepted": 75,
       "accepted_domains": 0
     }
   },
@@ -510,7 +518,8 @@
         "kyoresuas-ru-bypass",
         "mobile-whitelist-cidr",
         "opencck-iplist",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -962,7 +971,8 @@
         "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "opencck-iplist",
-        "operator-whitelist-cidr"
+        "operator-whitelist-cidr",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -1001,6 +1011,15 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass"
+      ],
+      "source": "external"
+    },
+    "37.228.116.0/23": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -1065,7 +1084,8 @@
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites",
-        "kyoresuas-ru-bypass"
+        "kyoresuas-ru-bypass",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -1580,7 +1600,8 @@
         "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -1787,7 +1808,8 @@
         "opencck-iplist",
         "operator-whitelist-cidr",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -1970,7 +1992,8 @@
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites",
-        "opencck-iplist"
+        "opencck-iplist",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -2166,7 +2189,8 @@
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites",
-        "kyoresuas-ru-bypass"
+        "kyoresuas-ru-bypass",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -2229,7 +2253,8 @@
       "sources": [
         "lib4u-amnezia",
         "opencck-iplist",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -2371,7 +2396,8 @@
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "operator-whitelist-cidr",
-        "pincetgore-ip-list"
+        "pincetgore-ip-list",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -2704,7 +2730,8 @@
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -2723,7 +2750,8 @@
       "as_name": "VGTRK-AS",
       "cc": "RU",
       "sources": [
-        "pincetgore-ip-list"
+        "pincetgore-ip-list",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -2734,6 +2762,15 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass"
+      ],
+      "source": "external"
+    },
+    "80.249.148.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -2891,7 +2928,8 @@
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "operator-whitelist-cidr",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -2931,7 +2969,8 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass",
-        "opencck-iplist"
+        "opencck-iplist",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -2954,6 +2993,15 @@
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites"
+      ],
+      "source": "external"
+    },
+    "82.148.16.0/22": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
+      "cc": "RU",
+      "sources": [
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -3034,7 +3082,8 @@
         "lib4u-amnezia",
         "opencck-iplist",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -3062,7 +3111,8 @@
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites",
-        "mobile-whitelist-cidr"
+        "mobile-whitelist-cidr",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -3834,7 +3884,8 @@
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -3890,7 +3941,8 @@
       "as_name": "SKBKONTUR-AS",
       "cc": "RU",
       "sources": [
-        "egkodin-ru-sites"
+        "egkodin-ru-sites",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -4369,7 +4421,8 @@
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -4483,7 +4536,8 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass",
-        "opencck-iplist"
+        "opencck-iplist",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -4507,7 +4561,8 @@
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass",
         "opencck-iplist",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -4528,7 +4583,8 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass",
-        "opencck-iplist"
+        "opencck-iplist",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -4589,7 +4645,8 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass",
-        "opencck-iplist"
+        "opencck-iplist",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -5054,15 +5111,6 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass"
-      ],
-      "source": "external"
-    },
-    "93.93.91.0/24": {
-      "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
-      "cc": "RU",
-      "sources": [
-        "pincetgore-ip-list"
       ],
       "source": "external"
     },
@@ -5564,7 +5612,8 @@
         "opencck-iplist",
         "operator-whitelist-cidr",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -5691,7 +5740,8 @@
         "kyoresuas-ru-bypass",
         "lib4u-amnezia",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -5715,6 +5765,15 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass"
+      ],
+      "source": "external"
+    },
+    "109.73.32.0/21": {
+      "asn": 29226,
+      "as_name": "MASTERTEL-AS Moscow, Russia",
+      "cc": "RU",
+      "sources": [
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -6150,6 +6209,15 @@
       ],
       "source": "external"
     },
+    "151.236.72.0/22": {
+      "asn": 57363,
+      "as_name": "CDNVIDEO-AS",
+      "cc": "RU",
+      "sources": [
+        "rockblack-ru"
+      ],
+      "source": "external"
+    },
     "151.236.84.0/22": {
       "asn": 57363,
       "as_name": "CDNVIDEO-AS",
@@ -6157,7 +6225,8 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-essential",
-        "mobile-whitelist-cidr"
+        "mobile-whitelist-cidr",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -6522,7 +6591,8 @@
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -6771,7 +6841,8 @@
       "sources": [
         "egkodin-ru-sites",
         "kyoresuas-ru-bypass",
-        "opencck-iplist"
+        "opencck-iplist",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -6800,7 +6871,8 @@
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
-        "mobile-whitelist-cidr"
+        "mobile-whitelist-cidr",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -6928,7 +7000,8 @@
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -7139,7 +7212,8 @@
         "opencck-iplist",
         "operator-whitelist-cidr",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -7527,7 +7601,8 @@
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites",
-        "kyoresuas-ru-bypass"
+        "kyoresuas-ru-bypass",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -7560,7 +7635,8 @@
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -7644,7 +7720,8 @@
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -8577,7 +8654,8 @@
         "jirnobruh-amnezia",
         "lib4u-amnezia",
         "mobile-whitelist-cidr",
-        "pincetgore-ip-list"
+        "pincetgore-ip-list",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -8912,7 +8990,8 @@
         "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -8935,7 +9014,8 @@
         "mobile-whitelist-cidr",
         "operator-whitelist-cidr",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -9168,7 +9248,8 @@
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -9524,7 +9605,8 @@
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
-        "pvd-dog-no-vpn"
+        "pvd-dog-no-vpn",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -9533,7 +9615,8 @@
       "as_name": "CCT-AS NGENIX",
       "cc": "RU",
       "sources": [
-        "pincetgore-ip-list"
+        "pincetgore-ip-list",
+        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -10010,15 +10093,6 @@
       ],
       "source": "external"
     },
-    "217.79.12.0/22": {
-      "asn": 8492,
-      "as_name": "OBIT-AS OBIT Ltd.",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites"
-      ],
-      "source": "external"
-    },
     "217.114.0.0/20": {
       "asn": 198610,
       "as_name": "BEGET-AS",
@@ -10045,33 +10119,6 @@
       "cc": "RU",
       "sources": [
         "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "217.115.88.0/22": {
-      "asn": 29648,
-      "as_name": "COMLINE-AS",
-      "cc": "RU",
-      "sources": [
-        "mobile-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "217.144.168.0/22": {
-      "asn": 29226,
-      "as_name": "MASTERTEL-AS Moscow, Russia",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites"
-      ],
-      "source": "external"
-    },
-    "217.144.188.0/22": {
-      "asn": 210644,
-      "as_name": "AEZA-AS",
-      "cc": "RU",
-      "sources": [
-        "kyoresuas-ru-bypass"
       ],
       "source": "external"
     },
@@ -18763,7 +18810,6 @@
         "v2fly-ru"
       ],
       "asn": [
-        41722,
         49505,
         50340
       ]
@@ -18913,6 +18959,7 @@
         "v2fly-ru"
       ],
       "asn": [
+        12389,
         200928
       ]
     },
@@ -18922,6 +18969,7 @@
         "v2fly-ru"
       ],
       "asn": [
+        12389,
         200928
       ]
     },
@@ -23609,7 +23657,7 @@
         "v2fly-ru"
       ],
       "asn": [
-        12389,
+        57724,
         200928
       ]
     },
@@ -23830,7 +23878,8 @@
       ],
       "asn": [
         12389,
-        57724
+        57724,
+        200928
       ]
     },
     "rtdocumentary.online": {
@@ -24105,8 +24154,8 @@
         "kozlov-amnezia"
       ],
       "asn": [
-        12389,
-        57724
+        57724,
+        200928
       ]
     },
     "russiandesigncup.ru": {
