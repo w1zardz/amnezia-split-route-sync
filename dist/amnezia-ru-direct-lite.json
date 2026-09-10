@@ -260,6 +260,10 @@
     "ip": ""
   },
   {
+    "hostname": "captcha.yandex.net",
+    "ip": ""
+  },
+  {
     "hostname": "carprice.ru",
     "ip": ""
   },
@@ -489,6 +493,10 @@
   },
   {
     "hostname": "exist.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ext.captcha.yandex.net",
     "ip": ""
   },
   {
@@ -1853,6 +1861,10 @@
   },
   {
     "hostname": "smartavia.com",
+    "ip": ""
+  },
+  {
+    "hostname": "smartcaptcha.cloud.yandex.ru",
     "ip": ""
   },
   {

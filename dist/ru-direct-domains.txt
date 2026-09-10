@@ -349,6 +349,7 @@ business.yandex.ru
 calendar.mail.ru
 capsula.mail.ru
 captcha-api.yandex.ru
+captcha.yandex.net
 cargo.rzd.ru
 carprice.ru
 cars.mail.ru
@@ -570,6 +571,7 @@ eximbank.ru
 exist.ru
 expert.vk.ru
 expobank.ru
+ext.captcha.yandex.net
 external-api.mediabilling.kinopoisk.ru
 external-api.plus.kinopoisk.ru
 fa.ru
@@ -1425,6 +1427,7 @@ skylink.ru
 sledcom.ru
 sm-clinic.ru
 smartavia.com
+smartcaptcha.cloud.yandex.ru
 smartcaptcha.yandexcloud.net
 smotrim.ru
 snob.ru

@@ -1404,6 +1404,10 @@
     "ip": ""
   },
   {
+    "hostname": "captcha.yandex.net",
+    "ip": ""
+  },
+  {
     "hostname": "cargo.rzd.ru",
     "ip": ""
   },
@@ -2285,6 +2289,10 @@
   },
   {
     "hostname": "expobank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ext.captcha.yandex.net",
     "ip": ""
   },
   {
@@ -5705,6 +5713,10 @@
   },
   {
     "hostname": "smartavia.com",
+    "ip": ""
+  },
+  {
+    "hostname": "smartcaptcha.cloud.yandex.ru",
     "ip": ""
   },
   {
