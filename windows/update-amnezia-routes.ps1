@@ -558,6 +558,72 @@ function Get-LocalSubnetEntries {
     return @($result.ToArray() | Sort-Object -CaseSensitive)
 }
 
+# --- IPv6 -----------------------------------------------------------------------
+
+# AmneziaVPN исключает из туннеля только IPv4: в конфиге AllowedIPs = 0.0.0.0/0, ::/0,
+# а ExceptSites разбирается регуляркой по IPv4-адресам. Весь IPv6 всегда уходит в VPN.
+# Если у провайдера IPv6 есть, а внутри туннеля он не работает, браузер всё равно
+# пробует AAAA — и страницы вроде оплаты Яндекс Директа (trust.yandex.ru) не грузятся.
+$IPv6ProbeAddress = '2a02:6b8::347'   # trust.yandex.ru, платёжная форма Яндекса
+$IPv6ProbePort = 443
+$IPv6ProbeTimeoutMs = 4000
+
+function Test-IPv6Reachable {
+    $client = $null
+    try {
+        $client = New-Object Net.Sockets.TcpClient([Net.Sockets.AddressFamily]::InterNetworkV6)
+        $async = $client.BeginConnect($IPv6ProbeAddress, $IPv6ProbePort, $null, $null)
+        if (-not $async.AsyncWaitHandle.WaitOne($IPv6ProbeTimeoutMs, $false)) { return $false }
+        $client.EndConnect($async)
+        return $true
+    } catch {
+        return $false
+    } finally {
+        if ($client) { try { $client.Close() } catch { } }
+    }
+}
+
+function Write-IPv6TunnelWarning {
+    $tunnelAliases = $null
+    $routes = @()
+    $addresses = @()
+    try {
+        $tunnelAliases = Get-TunnelAliases
+        $routes = @(Get-NetRoute -AddressFamily IPv6 -ErrorAction Stop |
+            Where-Object { $_.DestinationPrefix -in @('::/0', '::/1') })
+        $addresses = @(Get-NetIPAddress -AddressFamily IPv6 -ErrorAction Stop)
+    } catch {
+        # Диагностика необязательна: нет NetTCPIP — просто молчим.
+        return
+    }
+
+    $tunnelRoutes = @($routes | Where-Object { $tunnelAliases.Contains([string]$_.InterfaceAlias) })
+    if ($tunnelRoutes.Count -eq 0) { return }
+
+    # Глобальный IPv6 (2000::/3) на обычном адаптере: значит провайдер IPv6 выдал.
+    $nativeAliases = New-Object 'System.Collections.Generic.List[string]'
+    foreach ($address in $addresses) {
+        $alias = [string]$address.InterfaceAlias
+        if ($tunnelAliases.Contains($alias)) { continue }
+        $value = [string]$address.IPAddress
+        if ($value -notmatch '^[23]') { continue }
+        if (-not $nativeAliases.Contains($alias)) { $nativeAliases.Add($alias) }
+    }
+    if ($nativeAliases.Count -eq 0) { return }
+    if (Test-IPv6Reachable) { return }
+
+    $tunnelNames = @($tunnelRoutes | ForEach-Object { [string]$_.InterfaceAlias } | Sort-Object -Unique)
+    $adapter = $nativeAliases[0]
+    Write-Warning "IPv6 уходит в туннель ($($tunnelNames -join ', ')) и там не работает: соединение с [$IPv6ProbeAddress]:$IPv6ProbePort не установилось."
+    Write-Host '  Список RU Direct это не лечит: AmneziaVPN исключает из VPN только IPv4.'
+    Write-Host '  Сайты с AAAA (Яндекс Директ и его оплата, trust.yandex.ru, pay.yandex.ru, yandex.ru)'
+    Write-Host '  браузер пробует по IPv6 через VPN — страницы и платёжные формы виснут или не грузятся.'
+    Write-Host "  Отключите IPv6 на адаптере (PowerShell от администратора):"
+    Write-Host "    Disable-NetAdapterBinding -Name `"$adapter`" -ComponentID ms_tcpip6"
+    Write-Host "  Вернуть обратно:"
+    Write-Host "    Enable-NetAdapterBinding -Name `"$adapter`" -ComponentID ms_tcpip6"
+}
+
 # --- DNS для Windows -----------------------------------------------------------
 
 # AmneziaWG использует IP из значений ExceptSites; сам ключ-домен не резолвит.
@@ -1315,6 +1381,7 @@ if ($SelfTest) {
 # --- диагностика ----------------------------------------------------------------
 
 if ($Status) {
+    Write-IPv6TunnelWarning
     $sites = Read-ExceptSites
     $scalars = Read-RoutingScalars
     $managed = @(Read-ManagedEntries)
@@ -1432,6 +1499,7 @@ try {
     }
 
     Assert-QtCodec
+    Write-IPv6TunnelWarning
     if (-not $DryRun) { [IO.Directory]::CreateDirectory($StateDir) | Out-Null }
 
     $exePath = $null

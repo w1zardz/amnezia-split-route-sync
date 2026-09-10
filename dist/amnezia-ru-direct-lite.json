@@ -32,6 +32,14 @@
     "ip": ""
   },
   {
+    "hostname": "adfox.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "ads.adfox.ru",
+    "ip": ""
+  },
+  {
     "hostname": "ads.vk.com",
     "ip": ""
   },
@@ -76,6 +84,10 @@
     "ip": ""
   },
   {
+    "hostname": "an.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "anywayanyday.com",
     "ip": ""
   },
@@ -117,6 +129,10 @@
   },
   {
     "hostname": "auchan.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "audience.yandex.ru",
     "ip": ""
   },
   {
@@ -176,7 +192,15 @@
     "ip": ""
   },
   {
+    "hostname": "balance.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "bank.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "banners.adfox.ru",
     "ip": ""
   },
   {
@@ -225,6 +249,14 @@
   },
   {
     "hostname": "business.tbank.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "business.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "captcha-api.yandex.ru",
     "ip": ""
   },
   {
@@ -321,6 +353,22 @@
   },
   {
     "hostname": "dev.vk.com",
+    "ip": ""
+  },
+  {
+    "hostname": "diehard.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "direct.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "direct.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "direct.yastatic.net",
     "ip": ""
   },
   {
@@ -477,6 +525,10 @@
   },
   {
     "hostname": "forbes.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "forms.yandex.ru",
     "ip": ""
   },
   {
@@ -864,6 +916,10 @@
     "ip": ""
   },
   {
+    "hostname": "mc.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "megafon.ru",
     "ip": ""
   },
@@ -873,6 +929,10 @@
   },
   {
     "hostname": "megogo.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "metrika.yandex.ru",
     "ip": ""
   },
   {
@@ -1125,6 +1185,10 @@
   },
   {
     "hostname": "ozone.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "partner.yandex.ru",
     "ip": ""
   },
   {
@@ -1792,6 +1856,10 @@
     "ip": ""
   },
   {
+    "hostname": "smartcaptcha.yandexcloud.net",
+    "ip": ""
+  },
+  {
     "hostname": "smotrim.ru",
     "ip": ""
   },
@@ -1833,6 +1901,10 @@
   },
   {
     "hostname": "spsr.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sso.passport.yandex.ru",
     "ip": ""
   },
   {
@@ -1916,6 +1988,10 @@
     "ip": ""
   },
   {
+    "hostname": "surveys.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "sutochno.ru",
     "ip": ""
   },
@@ -1993,6 +2069,10 @@
   },
   {
     "hostname": "travel.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "trust.yandex.ru",
     "ip": ""
   },
   {
@@ -2228,6 +2308,10 @@
     "ip": ""
   },
   {
+    "hostname": "webmaster.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "webmoney.ru",
     "ip": ""
   },
@@ -2249,6 +2333,10 @@
   },
   {
     "hostname": "wink.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wordstat.yandex.ru",
     "ip": ""
   },
   {
@@ -2352,7 +2440,15 @@
     "ip": ""
   },
   {
+    "hostname": "yandexadexchange.net",
+    "ip": ""
+  },
+  {
     "hostname": "yandexcloud.net",
+    "ip": ""
+  },
+  {
+    "hostname": "yastat.net",
     "ip": ""
   },
   {

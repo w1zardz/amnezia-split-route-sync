@@ -656,6 +656,10 @@
     "ip": ""
   },
   {
+    "hostname": "ads.adfox.ru",
+    "ip": ""
+  },
+  {
     "hostname": "ads.sber.ru",
     "ip": ""
   },
@@ -1040,6 +1044,10 @@
     "ip": ""
   },
   {
+    "hostname": "audience.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "auth.mail.ru",
     "ip": ""
   },
@@ -1148,6 +1156,10 @@
     "ip": ""
   },
   {
+    "hostname": "balance.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "bank.ozon.ru",
     "ip": ""
   },
@@ -1165,6 +1177,10 @@
   },
   {
     "hostname": "banners-website.wildberries.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "banners.adfox.ru",
     "ip": ""
   },
   {
@@ -1372,11 +1388,19 @@
     "ip": ""
   },
   {
+    "hostname": "business.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "calendar.mail.ru",
     "ip": ""
   },
   {
     "hostname": "capsula.mail.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "captcha-api.yandex.ru",
     "ip": ""
   },
   {
@@ -1680,6 +1704,10 @@
     "ip": ""
   },
   {
+    "hostname": "console.cloud.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "consultant.ru",
     "ip": ""
   },
@@ -1816,6 +1844,10 @@
     "ip": ""
   },
   {
+    "hostname": "datalens.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "dating.ok.ru",
     "ip": ""
   },
@@ -1884,7 +1916,23 @@
     "ip": ""
   },
   {
+    "hostname": "diehard.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "digital.gov.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "direct.yandex.com",
+    "ip": ""
+  },
+  {
+    "hostname": "direct.yandex.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "direct.yastatic.net",
     "ip": ""
   },
   {
@@ -2360,6 +2408,10 @@
     "ip": ""
   },
   {
+    "hostname": "forms.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "foto.mail.ru",
     "ip": ""
   },
@@ -2425,6 +2477,10 @@
   },
   {
     "hostname": "games.vk.com",
+    "ip": ""
+  },
+  {
+    "hostname": "games.yandex.ru",
     "ip": ""
   },
   {
@@ -4260,6 +4316,10 @@
     "ip": ""
   },
   {
+    "hostname": "partner.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "partners.gosuslugi.ru",
     "ip": ""
   },
@@ -4641,6 +4701,10 @@
   },
   {
     "hostname": "ranepa.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "rasp.yandex.ru",
     "ip": ""
   },
   {
@@ -5540,6 +5604,10 @@
     "ip": ""
   },
   {
+    "hostname": "seller.market.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "seller.ozon.ru",
     "ip": ""
   },
@@ -5637,6 +5705,10 @@
   },
   {
     "hostname": "smartavia.com",
+    "ip": ""
+  },
+  {
+    "hostname": "smartcaptcha.yandexcloud.net",
     "ip": ""
   },
   {
@@ -5740,6 +5812,10 @@
     "ip": ""
   },
   {
+    "hostname": "sprav.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "spsr.ru",
     "ip": ""
   },
@@ -5769,6 +5845,10 @@
   },
   {
     "hostname": "sso.kinopoisk.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "sso.passport.yandex.ru",
     "ip": ""
   },
   {
@@ -6796,6 +6876,10 @@
     "ip": ""
   },
   {
+    "hostname": "telemost.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "tensor.ru",
     "ip": ""
   },
@@ -6892,6 +6976,10 @@
     "ip": ""
   },
   {
+    "hostname": "toloka.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "top-fwz1.mail.ru",
     "ip": ""
   },
@@ -6925,6 +7013,10 @@
   },
   {
     "hostname": "track24.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "tracker.yandex.ru",
     "ip": ""
   },
   {
@@ -6965,6 +7057,10 @@
   },
   {
     "hostname": "trk.mail.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "trust.yandex.ru",
     "ip": ""
   },
   {
@@ -7400,6 +7496,10 @@
     "ip": ""
   },
   {
+    "hostname": "webmaster.yandex.ru",
+    "ip": ""
+  },
+  {
     "hostname": "webmoney.ru",
     "ip": ""
   },
@@ -7465,6 +7565,10 @@
   },
   {
     "hostname": "wok.mail.ru",
+    "ip": ""
+  },
+  {
+    "hostname": "wordstat.yandex.ru",
     "ip": ""
   },
   {
@@ -7644,7 +7748,15 @@
     "ip": ""
   },
   {
+    "hostname": "yandexadexchange.net",
+    "ip": ""
+  },
+  {
     "hostname": "yandexcloud.net",
+    "ip": ""
+  },
+  {
+    "hostname": "yastat.net",
     "ip": ""
   },
   {

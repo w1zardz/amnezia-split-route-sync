@@ -6,7 +6,7 @@
   "prefix_count": 227,
   "rejected_count": 31249,
   "dropped_by_limit": 0,
-  "domain_count": 888,
+  "domain_count": 882,
   "sources": {
     "mobile-whitelist-cidr": {
       "url": "https://raw.githubusercontent.com/hxehex/russia-mobile-internet-whitelist/main/cidrwhitelist.txt",
@@ -2447,7 +2447,7 @@
       ]
     },
     "3475482542.mc.yandex.ru": {
-      "parent": "yandex.ru",
+      "parent": "mc.yandex.ru",
       "sources": [
         "mobile-whitelist-domains"
       ]
@@ -2914,12 +2914,6 @@
         "lib4u-amnezia"
       ]
     },
-    "adfox.yandex.ru": {
-      "parent": "yandex.ru",
-      "sources": [
-        "lib4u-amnezia"
-      ]
-    },
     "adfstat.yandex.ru": {
       "parent": "yandex.ru",
       "sources": [
@@ -3153,13 +3147,6 @@
       "parent": "mail.ru",
       "sources": [
         "lib4u-amnezia"
-      ]
-    },
-    "an.yandex.ru": {
-      "parent": "yandex.ru",
-      "sources": [
-        "lib4u-amnezia",
-        "mobile-whitelist-domains"
       ]
     },
     "analytics-adv.ozon.ru": {
@@ -4841,13 +4828,6 @@
         "lib4u-amnezia"
       ]
     },
-    "mc.yandex.ru": {
-      "parent": "yandex.ru",
-      "sources": [
-        "lib4u-amnezia",
-        "mobile-whitelist-domains"
-      ]
-    },
     "mcs.mail.ru": {
       "parent": "mail.ru",
       "sources": [
@@ -4916,12 +4896,6 @@
     },
     "metrika.yandex.net": {
       "parent": "yandex.net",
-      "sources": [
-        "lib4u-amnezia"
-      ]
-    },
-    "metrika.yandex.ru": {
-      "parent": "yandex.ru",
       "sources": [
         "lib4u-amnezia"
       ]
@@ -6994,12 +6968,6 @@
         "mobile-whitelist-domains"
       ]
     },
-    "surveys.yandex.ru": {
-      "parent": "yandex.ru",
-      "sources": [
-        "mobile-whitelist-domains"
-      ]
-    },
     "sync.browser.yandex.net": {
       "parent": "yandex.net",
       "sources": [
@@ -7202,12 +7170,6 @@
     },
     "user-geo-data.wildberries.ru": {
       "parent": "wildberries.ru",
-      "sources": [
-        "mobile-whitelist-domains"
-      ]
-    },
-    "uslugi.yandex.ru": {
-      "parent": "yandex.ru",
       "sources": [
         "mobile-whitelist-domains"
       ]
@@ -7478,7 +7440,7 @@
       ]
     },
     "zen-yabro-morda.mediascope.mc.yandex.ru": {
-      "parent": "yandex.ru",
+      "parent": "mc.yandex.ru",
       "sources": [
         "mobile-whitelist-domains"
       ]

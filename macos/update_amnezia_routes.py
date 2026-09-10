@@ -19,6 +19,7 @@ import ipaddress
 import json
 import os
 import plistlib
+import socket
 import subprocess
 import sys
 import tempfile
@@ -626,6 +627,109 @@ def download_list(source: str) -> tuple[list[str], list[str]]:
     return domains, [str(network) for network in collapsed]
 
 
+# Amnezia исключает из туннеля только IPv4 (в её конфиге AllowedIPs = 0.0.0.0/0, ::/0,
+# а ExceptSites разбирается регуляркой по IPv4). Значит весь IPv6 уходит в VPN всегда.
+# Если у провайдера IPv6 есть, а внутри туннеля он не работает, браузер всё равно
+# пробует AAAA — и сайты вроде trust.yandex.ru (платёжная форма Яндекса) виснут.
+IPV6_PROBE = ("2a02:6b8::347", 443)  # trust.yandex.ru, платёжная форма Яндекса
+IPV6_PROBE_TIMEOUT = 4.0
+
+
+def command_output(argv: list[str], timeout: float = 5.0) -> str:
+    try:
+        process = subprocess.run(
+            argv, check=False, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, timeout=timeout
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return ""
+    return process.stdout.decode("utf-8", "replace")
+
+
+def ipv6_default_interfaces() -> set[str]:
+    """Интерфейсы, на которые смотрит дефолт IPv6 (default, ::/0, ::/1)."""
+    interfaces: set[str] = set()
+    for line in command_output(["/usr/sbin/netstat", "-rn", "-f", "inet6"]).splitlines():
+        columns = line.split()
+        if len(columns) < 4 or columns[0] not in {"default", "::/0", "::/1"}:
+            continue
+        # Флаг I — маршрут через link-local шлюз самого интерфейса: такие строки
+        # netstat печатает для каждого спящего utun, дефолтом они не являются.
+        if "I" in columns[2]:
+            continue
+        interfaces.add(columns[-1])
+    return interfaces
+
+
+def native_ipv6_devices() -> set[str]:
+    """Физические интерфейсы с глобальным IPv6-адресом (2000::/3)."""
+    devices: set[str] = set()
+    device = ""
+    for line in command_output(["/sbin/ifconfig", "-a"]).splitlines():
+        if line and not line[0].isspace():
+            device = line.split(":", 1)[0]
+            continue
+        stripped = line.strip()
+        if not stripped.startswith("inet6 ") or device.startswith("utun"):
+            continue
+        address = stripped.split()[1].split("%", 1)[0]
+        try:
+            parsed = ipaddress.IPv6Address(address)
+        except ValueError:
+            continue
+        if parsed in ipaddress.IPv6Network("2000::/3"):
+            devices.add(device)
+    return devices
+
+
+def ipv6_reachable() -> bool:
+    try:
+        with socket.socket(socket.AF_INET6, socket.SOCK_STREAM) as probe:
+            probe.settimeout(IPV6_PROBE_TIMEOUT)
+            probe.connect(IPV6_PROBE)
+        return True
+    except OSError:
+        return False
+
+
+def network_service_for(devices: Iterable[str]) -> str:
+    """Имя сетевого сервиса («Wi-Fi») для устройства из networksetup."""
+    wanted = set(devices)
+    service = ""
+    for line in command_output(["/usr/sbin/networksetup", "-listnetworkserviceorder"]).splitlines():
+        stripped = line.strip()
+        if stripped.startswith("(") and ")" in stripped and "Hardware Port" not in stripped:
+            service = stripped.split(")", 1)[1].strip()
+            continue
+        if "Device:" in stripped:
+            device = stripped.rsplit("Device:", 1)[1].strip(" )")
+            if device in wanted and service:
+                return service
+    return "Wi-Fi"
+
+
+def warn_broken_ipv6() -> None:
+    """Печатает предупреждение, если IPv6 уходит в туннель и там не работает."""
+    tunnels = {name for name in ipv6_default_interfaces() if name.startswith("utun")}
+    if not tunnels:
+        return
+    devices = native_ipv6_devices()
+    if not devices:
+        return
+    if ipv6_reachable():
+        return
+    service = network_service_for(devices)
+    print(
+        "ВНИМАНИЕ: IPv6 уходит в туннель ("
+        + ", ".join(sorted(tunnels))
+        + f") и там не работает: соединение с [{IPV6_PROBE[0]}]:{IPV6_PROBE[1]} не установилось.\n"
+        "  Список RU Direct это не лечит: AmneziaVPN исключает из VPN только IPv4.\n"
+        "  Сайты с AAAA (Яндекс Директ и его оплата, trust.yandex.ru, pay.yandex.ru, yandex.ru)\n"
+        "  браузер пробует по IPv6 через VPN — страницы и платёжные формы виснут или не грузятся.\n"
+        f'  Отключите IPv6 на активном сетевом сервисе:  sudo networksetup -setv6off "{service}"\n'
+        f'  Вернуть обратно:                             sudo networksetup -setv6automatic "{service}"'
+    )
+
+
 def update(
     dry_run: bool = False,
     recover_only: bool = False,
@@ -656,6 +760,8 @@ def update(
         return 0
     app_version = verify_app_version()
     load_protected_ips(Path(__file__).with_name(PROTECTED_IPS_FILENAME))
+
+    warn_broken_ipv6()
 
     if dry_run:
         domains, cidrs = download_list(source)

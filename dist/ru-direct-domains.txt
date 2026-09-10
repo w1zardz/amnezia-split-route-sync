@@ -162,6 +162,7 @@ admin.cs7777.vk.ru
 admin.tau.vk.ru
 ads-gate.wildberries.ru
 ads-media.wildberries.ru
+ads.adfox.ru
 ads.sber.ru
 ads.vk.com
 ads.vk.ru
@@ -258,6 +259,7 @@ asna.ru
 astral.ru
 astralinux.ru
 auchan.ru
+audience.yandex.ru
 auth.mail.ru
 authdl.mail.ru
 auto.mail.ru
@@ -285,11 +287,13 @@ away.tau.vk.ru
 azimuth.aero
 azt.mail.ru
 b2.mail.ru
+balance.yandex.ru
 bank.ozon.ru
 bank.yandex.ru
 banki.ru
 bankrot.fedresurs.ru
 banners-website.wildberries.ru
+banners.adfox.ru
 base.garant.ru
 basealt.ru
 basket-01.wbbasket.ru
@@ -341,8 +345,10 @@ bspb.ru
 burgerking.ru
 business.tbank.ru
 business.vk.ru
+business.yandex.ru
 calendar.mail.ru
 capsula.mail.ru
+captcha-api.yandex.ru
 cargo.rzd.ru
 carprice.ru
 cars.mail.ru
@@ -418,6 +424,7 @@ company.rzd.ru
 compute.mail.ru
 connect.cs7777.vk.ru
 connect.ok.ru
+console.cloud.yandex.ru
 consultant.ru
 contacts.rzd.ru
 continent.ru
@@ -452,6 +459,7 @@ d-assets.2gis.ru
 da-preprod.biz.mail.ru
 da.biz.mail.ru
 data.amigo.mail.ru
+datalens.yandex.ru
 dating.ok.ru
 decathlon.ru
 delivery-club.ru
@@ -469,7 +477,11 @@ dev3.mail.ru
 dhl.ru
 diadoc.ru
 diasoft.ru
+diehard.yandex.ru
 digital.gov.ru
+direct.yandex.com
+direct.yandex.ru
+direct.yastatic.net
 disk.2gis.com
 disk.rzd.ru
 disk.yandex.ru
@@ -588,6 +600,7 @@ fl.ru
 fom.ru
 fontanka.ru
 forbes.ru
+forms.yandex.ru
 foto.mail.ru
 foxford.ru
 freelance.ru
@@ -605,6 +618,7 @@ games-bamboo.mail.ru
 games-fisheye.mail.ru
 games.mail.ru
 games.vk.com
+games.yandex.ru
 garant.ru
 gazeta.ru
 gazgroup.ru
@@ -1063,6 +1077,7 @@ ozone.ru
 p7-office.ru
 panzar.mail.ru
 park.mail.ru
+partner.yandex.ru
 partners.gosuslugi.ru
 pass.rzd.ru
 passport.yandex.ru
@@ -1159,6 +1174,7 @@ raiffeisen.ru
 rambler.ru
 randewoo.ru
 ranepa.ru
+rasp.yandex.ru
 rate.mail.ru
 rbc.ru
 rbk.ru
@@ -1383,6 +1399,7 @@ secure.rzd.ru
 securepay.ozon.ru
 security.mail.ru
 selectel.ru
+seller.market.yandex.ru
 seller.ozon.ru
 seller.wildberries.ru
 sentry.iptv.rt.ru
@@ -1408,6 +1425,7 @@ skylink.ru
 sledcom.ru
 sm-clinic.ru
 smartavia.com
+smartcaptcha.yandexcloud.net
 smotrim.ru
 snob.ru
 sntr.avito.ru
@@ -1433,6 +1451,7 @@ sportbox.ru
 sportmail.ru
 sportmaster.ru
 sports.ru
+sprav.yandex.ru
 spsr.ru
 sravni.ru
 ssau.ru
@@ -1441,6 +1460,7 @@ sso-app5.vtb.ru
 sso.auto.ru
 sso.dzen.ru
 sso.kinopoisk.ru
+sso.passport.yandex.ru
 ssp.rutube.ru
 st-im.kinopoisk.ru
 st.avito.ru
@@ -1697,6 +1717,7 @@ tech.mail.ru
 tech.vk.ru
 technopark.ru
 tele2.ru
+telemost.yandex.ru
 tensor.ru
 tera.mail.ru
 thebell.io
@@ -1721,6 +1742,7 @@ tmk.ru
 tnt-online.ru
 tochka.com
 todo.mail.ru
+toloka.yandex.ru
 top-fwz1.mail.ru
 top-staging.mail.ru
 torg.mail.ru
@@ -1730,6 +1752,7 @@ touch.mail.ru
 townwars.mail.ru
 tpu.ru
 track24.ru
+tracker.yandex.ru
 trackitonline.ru
 translate.yandex.ru
 transneft.ru
@@ -1740,6 +1763,7 @@ travel.yandex.ru
 travel.yastatic.net
 tricolor.tv
 trk.mail.ru
+trust.yandex.ru
 tsu.ru
 ttbh.mail.ru
 ttk.ru
@@ -1848,6 +1872,7 @@ web.max.ru
 web.sferum.ru
 webagent.mail.ru
 weblink.predict.mail.ru
+webmaster.yandex.ru
 webmoney.ru
 webstore.mail.ru
 welcome.mail.ru
@@ -1865,6 +1890,7 @@ wildberries.by
 wildberries.ru
 wink.ru
 wok.mail.ru
+wordstat.yandex.ru
 wos.mail.ru
 ws-api.oneme.ru
 ws.seller.ozon.ru
@@ -1909,7 +1935,9 @@ yandex.cloud
 yandex.com
 yandex.net
 yandex.ru
+yandexadexchange.net
 yandexcloud.net
+yastat.net
 yastatic.net
 yoomoney.ru
 yota.ru
