@@ -143,6 +143,31 @@
       "optional": true,
       "url": "https://russia.iplist.opencck.org/?format=amnezia&data=cidr4&site=2gis.ru&site=alfabank.ru&site=avito.ru&site=avtodor-tr.ru&site=beeline.ru&site=bestbenefits.ru&site=bitrix24.ru&site=cdek.ru&site=detmir.ru&site=fssp.gov.ru&site=gazprombank.ru&site=genotek.ru&site=gosuslugi.ru&site=habr.com&site=hh.ru&site=invitro.ru&site=lamoda.ru&site=leroymerlin.ru&site=magnit.ru&site=medsi.ru&site=megafon.ru&site=mos.ru&site=mosenergosbyt.ru&site=mosobleirc.ru&site=mosreg.ru&site=mts.ru&site=mvd.ru&site=myspar.ru&site=nalog.ru&site=onepricecoffee.com&site=ozon.ru&site=pochta.ru&site=rendez-vous.ru&site=reso.ru&site=rosreestr.gov.ru&site=roszdravnadzor.gov.ru&site=rutube.ru&site=rzd.ru&site=saby.ru&site=sberbank.ru&site=t2.ru&site=tbank.ru&site=tenderplan.ru&site=twinby.ru&site=vkusnoitochka.ru&site=vkusvill.ru&site=vtb.ru&site=wb.ru&site=x5.ru&site=yandex.ru&site=yandex%40alice&site=yandex%40auto.ru&site=yandex%40business&site=yandex%40cdn&site=yandex%40cloud&site=yandex%40disk&site=yandex%40kinopoisk.ru&site=yandex%40mail&site=yandex%40maps&site=yandex%40market&site=yandex%40media&site=yandex%40other&site=yandex%40smartcaptcha&site=yandex%40tools&site=yandex%40web&site=aliexpress.ru&site=cian.ru&site=dzen.ru&site=gb.ru&site=mail.ru&site=mailru%40cloud.mail.ru&site=mailru%40news.mail.ru&site=mailru%40other&site=mailru%40otvet.mail.ru&site=max.ru&site=ok.ru&site=rustore.ru&site=sferum.ru&site=skillbox.ru&site=skillfactory.ru&site=tamtam.chat&site=tetrika-school.ru&site=uchi.ru&site=vk.com&site=vk%40vkplay.ru&site=vk%40vkvideo.ru&site=youla.ru",
       "note": "iplist.opencck.org: сети сервисов РФ, собранные резолвом их доменов. В сыром виде содержит AWS, Akamai, Google и 11.0.0.0/8, поэтому идёт только через фильтр IP→ASN."
+    },
+    {
+      "id": "rockblack-ru",
+      "enabled": true,
+      "kind": "routebat",
+      "roots": true,
+      "optional": true,
+      "base_url": "https://raw.githubusercontent.com/RockBlack-VPN/ip-address/main/RU-RU/",
+      "files": [
+        "aeroflot.ru.bat", "arb.ru.bat", "belparking.ru.bat", "cbr.ru.bat", "cian.ru.bat",
+        "cwer.ru.bat", "dom.ru.bat", "dzen.ru.bat", "energosale34.ru.bat", "etm.ru.bat",
+        "eysk.bezformata.com.bat", "gosuslugi.bat", "gov.ru.bat", "habr.com.bat", "ivi.ru.bat",
+        "keenetic.ru.bat", "kinopoisk.ru.bat", "kion.ru.bat", "komus.ru.bat", "mail.ru.bat",
+        "mos.ru.bat", "mosenergosbyt.ru.bat", "mosreg.ru.bat", "mvideo.ru.bat", "nalog.ru.bat",
+        "okko.ru.bat", "ozon/ozon.bat", "ozon/ozon_domain", "premiere.one.bat",
+        "rosguard.gov.ru.bat", "rt.ru.bat", "rts-tender.ru.bat", "rutube.ru.bat",
+        "rutube/rutube_domain", "rzd.ru.bat", "sberbank.ru.bat", "seven-sky.net.bat",
+        "sfr.gov.ru.bat", "skbkontur.bat", "smotreshka.tv.bat", "smotrim.ru.bat",
+        "tinkoff.ru.bat", "viju.ru.bat", "vitrina.tv.bat", "vk/vk.bat", "vk/vk_domain",
+        "vkplay.ru.bat", "vlg-media.ru.bat", "volgaparking.ru.bat", "volgograd-trv.ru.bat",
+        "volgograd.ru.bat", "vpravda.ru.bat", "wildberries/wildberries.bat",
+        "wildberries/wildberries_domain", "wink.ru.bat", "yandex.bat", "yandex.ru.bat",
+        "мвд.рф.bat", "мособлеирц.рф.bat"
+      ],
+      "note": "RockBlack-VPN/ip-address, каталог RU-RU: Windows-скрипты route add по сервисам (сеть + маска) и списки доменов *_domain. Пиратские, заблокированные в РФ и служебные файлы (rutracker, rutor, kinozal, kino.pub, hitmos, hitmotop, 4pda, rockblack.su, 2ip.ru) не берутся. Все сети проходят фильтр IP→ASN."
     }
   ]
 }

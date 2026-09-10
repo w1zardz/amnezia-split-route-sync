@@ -53,11 +53,17 @@ REPORT_FILE = ROOT / "data" / "external-report.md"
 CANDIDATES_FILE = ROOT / "data" / "external-candidates.json"
 MAX_SOURCE_BYTES = 8_388_608
 DOWNLOAD_WORKERS = 4
-KINDS = ("cidr", "domains", "amnezia", "v2fly")
+KINDS = ("cidr", "domains", "amnezia", "v2fly", "routebat")
+# Виды источников, у которых вместо одного url — каталог base_url и список файлов.
+MULTI_FILE_KINDS = ("v2fly", "routebat")
 # v2fly/domain-list-community: include разворачивается рекурсивно, category-ru
 # тянет за собой десятки файлов. Потолок — страховка от цикла и разрастания.
 V2FLY_MAX_FILES = 200
 V2FLY_NAME = re.compile(r"[a-z0-9][a-z0-9!._-]{0,80}")
+# routebat: Windows-скрипты `route add <сеть> mask <маска> <шлюз>` (сети) и
+# файлы *_domain (домены построчно) из одного каталога репозитория.
+ROUTEBAT_MAX_FILES = 200
+ROUTEBAT_ROUTE = re.compile(r"\s*route\s+(?:-p\s+)?add\s+(\S+)\s+mask\s+(\S+)", re.IGNORECASE)
 # Amnezia начинает подтормаживать на нескольких тысячах записей, а внешних
 # кандидатов приходит больше, чем нужно: держим потолок и пишем в отчёт, что
 # именно не влезло. Потолок завязан на MAX_ROUTES=1500 сборщика и апдейтеров:
@@ -131,8 +137,8 @@ def load_sources() -> tuple[str, list[dict[str, Any]]]:
             raise ImportError_("config/external-sources.json: источник должен быть объектом")
         identifier = entry.get("id")
         kind = entry.get("kind")
-        # У v2fly вместо одного файла — каталог и список категорий.
-        url = entry.get("base_url") if kind == "v2fly" else entry.get("url")
+        # У v2fly и routebat вместо одного файла — каталог и список имён в нём.
+        url = entry.get("base_url") if kind in MULTI_FILE_KINDS else entry.get("url")
         if not isinstance(identifier, str) or identifier in seen:
             raise ImportError_(f"config/external-sources.json: некорректный id {identifier!r}")
         seen.add(identifier)
@@ -154,6 +160,16 @@ def load_sources() -> tuple[str, list[dict[str, Any]]]:
             ):
                 raise ImportError_(f"{identifier}: для v2fly нужны base_url с / на конце и categories")
             source["categories"] = categories
+        if kind == "routebat":
+            files = entry.get("files")
+            if not url.endswith("/") or not isinstance(files, list) or not files or len(files) > ROUTEBAT_MAX_FILES or len(set(map(str, files))) != len(files) or not all(
+                valid_routebat_path(path) for path in files
+            ):
+                raise ImportError_(
+                    f"{identifier}: для routebat нужны base_url с / на конце и files — "
+                    f"до {ROUTEBAT_MAX_FILES} разных путей *.bat или *_domain"
+                )
+            source["files"] = files
         if entry.get("enabled") is False:
             continue
         sources.append(source)
@@ -266,24 +282,84 @@ def expand_v2fly(categories: list[str], fetch_many: Callable[[list[str]], dict[s
     return rules
 
 
+def fetch_files(base: str, names: list[str], errors: str = "strict") -> dict[str, str]:
+    """Файлы одного каталога: до четырёх запросов сразу, лимит размера на каждый.
+
+    Сбой любого файла поднимает исключение — источник целиком считается
+    не загрузившимся, как и одиночный url.
+    """
+    with concurrent.futures.ThreadPoolExecutor(max_workers=DOWNLOAD_WORKERS) as executor:
+        payloads = executor.map(
+            lambda name: catalog.http_get(base + urllib.parse.quote(name), MAX_SOURCE_BYTES),
+            names,
+        )
+        return {name: payload.decode("utf-8-sig", errors) for name, payload in zip(names, payloads)}
+
+
 def fetch_v2fly(source: dict[str, Any]) -> str:
-    base = source["url"]
+    return "\n".join(expand_v2fly(source["categories"], lambda names: fetch_files(source["url"], names)))
 
-    def fetch_many(names: list[str]) -> dict[str, str]:
-        with concurrent.futures.ThreadPoolExecutor(max_workers=DOWNLOAD_WORKERS) as executor:
-            payloads = executor.map(
-                lambda name: catalog.http_get(base + urllib.parse.quote(name), MAX_SOURCE_BYTES),
-                names,
-            )
-            return {name: payload.decode("utf-8-sig") for name, payload in zip(names, payloads)}
 
-    return "\n".join(expand_v2fly(source["categories"], fetch_many))
+def valid_routebat_path(path: object) -> bool:
+    """Путь относительно base_url без выхода из каталога."""
+    if not isinstance(path, str) or not path.endswith((".bat", "_domain")) or "\\" in path:
+        return False
+    return all(part not in ("", ".", "..") for part in path.split("/"))
+
+
+def fetch_routebat(source: dict[str, Any]) -> str:
+    """Склеивает .bat как есть, а строки файлов *_domain помечает префиксом domain:."""
+    # Комментарии в .bat бывают в cp866/cp1251: нужны только ASCII-строки route
+    # add, поэтому битые байты заменяются, а не роняют весь источник.
+    texts = fetch_files(source["url"], source["files"], errors="replace")
+    chunks = []
+    for path in source["files"]:
+        if path.endswith(".bat"):
+            chunks.append(texts[path])
+        else:
+            chunks.extend("domain:" + line.strip() for line in texts[path].splitlines() if line.strip())
+    return "\n".join(chunks)
 
 
 def fetch_source(source: dict[str, Any]) -> str:
     if source.get("kind") == "v2fly":
         return fetch_v2fly(source)
+    if source.get("kind") == "routebat":
+        return fetch_routebat(source)
     return catalog.http_get(source["url"], MAX_SOURCE_BYTES).decode("utf-8-sig")
+
+
+def parse_route_mask(mask: str) -> int | None:
+    """Длина префикса по маске вида 255.255.192.0; несплошная или /0 — None."""
+    try:
+        value = int(ipaddress.IPv4Address(mask))
+    except ValueError:
+        return None
+    length = bin(value).count("1")
+    if length == 0 or value != (0xFFFFFFFF << (32 - length)) & 0xFFFFFFFF:
+        return None
+    return length
+
+
+def parse_routebat(text: str) -> tuple[list[ipaddress.IPv4Network], list[str]]:
+    """Текст fetch_routebat → (сети из route add, домены из строк domain:)."""
+    networks: list[ipaddress.IPv4Network] = []
+    domain_lines: list[str] = []
+    for line in text.splitlines():
+        if line.startswith("domain:"):
+            domain_lines.append(line)
+            continue
+        match = ROUTEBAT_ROUTE.match(line)
+        if not match:
+            continue  # @echo, rem, ::, pause и прочая обвязка скрипта
+        length = parse_route_mask(match.group(2))
+        if length is None:
+            continue
+        try:
+            networks.append(ipaddress.IPv4Network(f"{match.group(1)}/{length}", strict=False))
+        except ValueError:
+            continue
+    return networks, parse_domains("\n".join(domain_lines))
 
 
 def parse_source(text: str, kind: str) -> tuple[list, list[str]]:
@@ -292,6 +368,8 @@ def parse_source(text: str, kind: str) -> tuple[list, list[str]]:
     if kind in ("domains", "v2fly"):
         # fetch_v2fly уже развернул include и выбросил regexp/keyword/@ads.
         return [], parse_domains(text)
+    if kind == "routebat":
+        return parse_routebat(text)
     document = json.loads(text)
     if not isinstance(document, list):
         raise ImportError_("Amnezia: ожидается JSON-массив")
