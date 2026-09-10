@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "comment": "Внешние списки как источник КАНДИДАТОВ, а не готовых данных. Чужой CIDR никогда не попадает в сборку напрямую: tools/import_external.py проверяет каждую сеть по таблице IP→ASN и принимает только те, что принадлежат ASN, уже известным по каталогу. Так мы добираем префиксы сервисов, которых не видно в DNS, и не тащим ни глобальные CDN, ни адресное пространство региональных провайдеров.",
+  "comment": "Внешние списки как источник КАНДИДАТОВ, а не готовых данных. Чужой CIDR никогда не попадает в сборку напрямую: tools/import_external.py проверяет каждую сеть по таблице IP→ASN и принимает только те, что принадлежат ASN, уже известным по каталогу. Так мы добираем префиксы сервисов, которых не видно в DNS, и не тащим ни глобальные CDN, ни адресное пространство региональных провайдеров. roots: true — домены вне каталога из этого источника резолвятся и принимаются корнями, только если все их IPv4 российские и не принадлежат глобальным CDN. optional: true — мелкий сторонний репозиторий: его сбой или пустой файл даёт предупреждение в отчёте, импорт продолжается без него.",
   "asn_table": {
     "url": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
     "note": "IP→ASN+страна, обновляется несколько раз в сутки, без ключей и лимитов"
@@ -45,8 +45,104 @@
       "id": "lib4u-amnezia",
       "enabled": true,
       "kind": "amnezia",
+      "roots": true,
       "url": "https://raw.githubusercontent.com/lib4u/amnezia-tunneling-ru/main/amnezia.json",
-      "note": "Домены и их IPv4 из сборщика на основе v2fly/domain-list-community. Все IP проходят наш фильтр ASN; локальные зоны и новые корневые домены в direct автоматически не добавляются."
+      "note": "Домены и их IPv4 из сборщика на основе v2fly/domain-list-community. Все IP проходят наш фильтр ASN; корни вне каталога принимаются только с полностью российскими адресами."
+    },
+    {
+      "id": "v2fly-ru",
+      "enabled": true,
+      "kind": "v2fly",
+      "roots": true,
+      "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/",
+      "categories": [
+        "vk", "kinopoisk", "aviasales", "drweb", "wildberries", "rutube", "ozon", "wink",
+        "2gis", "kaspersky", "ok", "yandex", "okko", "avito", "mosmetro", "dzen", "mailru",
+        "mailru-group", "category-travel-ru", "x5", "category-gov-ru",
+        "category-entertainment-ru", "category-retail-ru", "category-medicine-ru",
+        "category-media-ru", "category-ecommerce-ru", "category-ru", "category-bank-ru"
+      ],
+      "note": "v2fly/domain-list-community: категории российских сервисов с рекурсивным include. Берутся domain:/full:/голые правила; regexp:, keyword: и записи @ads пропускаются."
+    },
+    {
+      "id": "jirnobruh-amnezia",
+      "enabled": true,
+      "kind": "amnezia",
+      "roots": true,
+      "optional": true,
+      "url": "https://raw.githubusercontent.com/jirnobruh/Split-Tunneling-Amnezia-for-Russia/master/amnezia_split_ru_full.json",
+      "note": "Готовый импорт Amnezia: домены с IPv4 и немного сетей (включая приватные — их отсекает фильтр)."
+    },
+    {
+      "id": "kyoresuas-ru-bypass",
+      "enabled": true,
+      "kind": "amnezia",
+      "roots": true,
+      "optional": true,
+      "url": "https://raw.githubusercontent.com/kyoresuas/amnezia-split-tunneling/main/lists/ru-bypass.json",
+      "note": "Импорт Amnezia из одних CIDR, собранный по ASN российских сервисов и зон; обновляется ежедневно."
+    },
+    {
+      "id": "kyoresuas-essential",
+      "enabled": true,
+      "kind": "amnezia",
+      "roots": true,
+      "optional": true,
+      "url": "https://raw.githubusercontent.com/kyoresuas/amnezia-split-tunneling/main/lists/ru-essential-bypass.json",
+      "note": "Короткий вариант того же сборщика: только ключевые сервисы."
+    },
+    {
+      "id": "pincetgore-ip-list",
+      "enabled": true,
+      "kind": "amnezia",
+      "roots": true,
+      "optional": true,
+      "url": "https://github.com/pincetgore/amnezia-app-ru-list/releases/download/latest/ip-list.json",
+      "note": "В дереве репозитория списков нет: ip-list.json публикуется ассетом релиза latest, который пересоздаётся ежедневно — поэтому источник необязательный."
+    },
+    {
+      "id": "kozlov-amnezia",
+      "enabled": true,
+      "kind": "amnezia",
+      "roots": true,
+      "optional": true,
+      "url": "https://raw.githubusercontent.com/kozlovartem20201/amnezia-vpn-russia/main/tunneling-list.json",
+      "note": "Импорт Amnezia из одних доменов российских сайтов."
+    },
+    {
+      "id": "egkodin-ru-sites",
+      "enabled": true,
+      "kind": "amnezia",
+      "roots": true,
+      "optional": true,
+      "url": "https://raw.githubusercontent.com/egkodin/ru-split-amneziavpn/main/ru_sites.json",
+      "note": "Крупный импорт Amnezia: домены с IPv4 и отдельные адреса."
+    },
+    {
+      "id": "supertico-domains",
+      "enabled": true,
+      "kind": "domains",
+      "roots": true,
+      "optional": true,
+      "url": "https://raw.githubusercontent.com/supertico/linux-split-dns-for-amnezia-ru/main/z_russian_websites.txt",
+      "note": "Короткий список доменов вне зон .ru/.рф для split DNS на Linux."
+    },
+    {
+      "id": "pvd-dog-no-vpn",
+      "enabled": true,
+      "kind": "amnezia",
+      "roots": true,
+      "optional": true,
+      "url": "https://raw.githubusercontent.com/pvd-dog/russia-no-vpn-list/main/russia-no-vpn-list_by_%40pvd_dog.json",
+      "note": "Импорт Amnezia из сетей /24 сервисов, не работающих через VPN."
+    },
+    {
+      "id": "opencck-iplist",
+      "enabled": true,
+      "kind": "amnezia",
+      "optional": true,
+      "url": "https://russia.iplist.opencck.org/?format=amnezia&data=cidr4&site=2gis.ru&site=alfabank.ru&site=avito.ru&site=avtodor-tr.ru&site=beeline.ru&site=bestbenefits.ru&site=bitrix24.ru&site=cdek.ru&site=detmir.ru&site=fssp.gov.ru&site=gazprombank.ru&site=genotek.ru&site=gosuslugi.ru&site=habr.com&site=hh.ru&site=invitro.ru&site=lamoda.ru&site=leroymerlin.ru&site=magnit.ru&site=medsi.ru&site=megafon.ru&site=mos.ru&site=mosenergosbyt.ru&site=mosobleirc.ru&site=mosreg.ru&site=mts.ru&site=mvd.ru&site=myspar.ru&site=nalog.ru&site=onepricecoffee.com&site=ozon.ru&site=pochta.ru&site=rendez-vous.ru&site=reso.ru&site=rosreestr.gov.ru&site=roszdravnadzor.gov.ru&site=rutube.ru&site=rzd.ru&site=saby.ru&site=sberbank.ru&site=t2.ru&site=tbank.ru&site=tenderplan.ru&site=twinby.ru&site=vkusnoitochka.ru&site=vkusvill.ru&site=vtb.ru&site=wb.ru&site=x5.ru&site=yandex.ru&site=yandex%40alice&site=yandex%40auto.ru&site=yandex%40business&site=yandex%40cdn&site=yandex%40cloud&site=yandex%40disk&site=yandex%40kinopoisk.ru&site=yandex%40mail&site=yandex%40maps&site=yandex%40market&site=yandex%40media&site=yandex%40other&site=yandex%40smartcaptcha&site=yandex%40tools&site=yandex%40web&site=aliexpress.ru&site=cian.ru&site=dzen.ru&site=gb.ru&site=mail.ru&site=mailru%40cloud.mail.ru&site=mailru%40news.mail.ru&site=mailru%40other&site=mailru%40otvet.mail.ru&site=max.ru&site=ok.ru&site=rustore.ru&site=sferum.ru&site=skillbox.ru&site=skillfactory.ru&site=tamtam.chat&site=tetrika-school.ru&site=uchi.ru&site=vk.com&site=vk%40vkplay.ru&site=vk%40vkvideo.ru&site=youla.ru",
+      "note": "iplist.opencck.org: сети сервисов РФ, собранные резолвом их доменов. В сыром виде содержит AWS, Akamai, Google и 11.0.0.0/8, поэтому идёт только через фильтр IP→ASN."
     }
   ]
 }

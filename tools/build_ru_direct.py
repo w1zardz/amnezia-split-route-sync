@@ -9,6 +9,10 @@
   happ-ru-direct.json          — фрагмент профиля маршрутизации Happ
   manifest.json                — счётчики, sha256, разбивка по сервисам
   RELEASE_NOTES.md             — что вошло в сборку, по категориям
+
+Доменные записи несут снимок IPv4 из data/domain-ips.json (tools/resolve_domains.py):
+Amnezia при импорте JSON домены не резолвит, AmneziaWG и мобильные клиенты строят
+маршруты только из полей ips/ip. Сама сборка сеть не трогает.
 """
 
 from __future__ import annotations
@@ -29,6 +33,9 @@ DIST = ROOT / "dist"
 # Amnezia переваривает несколько тысяч записей, но UI начинает подтормаживать —
 # держим потолок, чтобы список оставался быстрым.
 MAX_ENTRIES = 4_000
+# 4000 зашито в уже установленные апдейтеры (MAX_TOTAL_ENTRIES / $MaximumEntries):
+# список больше просто перестанет у них применяться. Полный список держим с запасом.
+MAX_FULL_ENTRIES = 3_900
 MIN_ENTRIES = 300
 # Столько же маршрутов принимают установленные апдейтеры Windows и macOS
 # ($MaximumRoutes / MAX_TOTAL_ROUTES). Список, который они отвергнут, нельзя
@@ -40,8 +47,52 @@ class BuildError(RuntimeError):
     pass
 
 
-def import_entries(values: Iterable[str]) -> list[dict[str, str]]:
-    return [{"hostname": value, "ip": ""} for value in values]
+def import_entries(
+    domains: Iterable[str], cidrs: Iterable[str] = (), ips: dict[str, list[str]] | None = None
+) -> list[dict[str, Any]]:
+    """Записи импорта Amnezia. С ips домен несёт снимок адресов, иначе ip пустой."""
+    entries: list[dict[str, Any]] = []
+    for domain in domains:
+        if ips is None:
+            entries.append({"hostname": domain, "ip": ""})
+            continue
+        addresses = ips.get(domain, [])
+        entries.append({"hostname": domain, "ips": addresses, "ip": addresses[0] if addresses else ""})
+    entries.extend({"hostname": value, "ip": ""} for value in cidrs)
+    return entries
+
+
+def rank_external(entries: dict[str, dict]) -> list[str]:
+    """Больше источников — выше; при равенстве по алфавиту, чтобы обрезка была детерминированной."""
+    return sorted(entries, key=lambda domain: (-len(entries[domain].get("sources", [])), domain))
+
+
+def fit_full_list(
+    base_domains: list[str],
+    cidrs: list[str],
+    external_domains: dict[str, dict],
+    roots: dict[str, dict],
+    limit: int = MAX_FULL_ENTRIES,
+) -> tuple[list[str], list[str], list[str], int, int]:
+    """Сперва поддомены каталога, затем корни — пока полный список не упрётся в потолок.
+
+    → (домены, принятые поддомены, принятые корни, срезано поддоменов, срезано корней)
+    """
+    present = set(base_domains)
+    room = limit - len(present) - len(cidrs)
+    if room < 0:
+        raise BuildError(f"полный список без внешних доменов уже {len(present) + len(cidrs)} записей — больше {limit}")
+    subdomains = [domain for domain in rank_external(external_domains) if domain not in present]
+    kept_subdomains = subdomains[:room]
+    present.update(kept_subdomains)
+    room -= len(kept_subdomains)
+    candidates = [domain for domain in rank_external(roots) if domain not in present]
+    kept_roots = candidates[:room]
+    present.update(kept_roots)
+    return (
+        sorted(present), kept_subdomains, kept_roots,
+        len(subdomains) - len(kept_subdomains), len(candidates) - len(kept_roots),
+    )
 
 
 def sort_networks(values: Iterable[str]) -> list[str]:
@@ -107,9 +158,11 @@ def build(
     return domains, collapsed
 
 
-def guard(domains: list[str], cidrs: list[str], protected: Iterable[str], label: str) -> None:
+def guard(
+    domains: list[str], cidrs: list[str], protected: Iterable[str], label: str, limit: int = MAX_ENTRIES
+) -> None:
     total = len(domains) + len(cidrs)
-    if not MIN_ENTRIES <= total <= MAX_ENTRIES:
+    if not MIN_ENTRIES <= total <= min(limit, MAX_ENTRIES):
         raise BuildError(f"{label}: {total} записей вне допустимого диапазона")
     if len(cidrs) > MAX_ROUTES:
         raise BuildError(
@@ -189,8 +242,22 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
         "Он не зависит от преобразования доменных записей в IP самим клиентом. "
         "Наш macOS-updater использует его по умолчанию. IP-список подходит и для Windows/Android.",
         "",
-        "Один импорт доменов не обеспечивает обновление их IPv4. "
-        "В полном списке для Windows текущие адреса регулярно заполняет наш updater.",
+        *(
+            [
+                f"Доменные записи несут снимок IPv4 на день сборки (поля `ips` и `ip`): "
+                f"адреса есть у **{counts['domains_with_ips']}** из {counts['domains']} доменов "
+                f"полного списка и у {counts['lite_domains_with_ips']} из {counts['lite_domains']} в lite, "
+                "только российские сети. Amnezia при импорте домены не резолвит, поэтому без этого "
+                "снимка доменная запись не дала бы маршрута в AmneziaWG и на мобильных клиентах. "
+                "Адреса между сборками меняются; в полном списке для Windows их регулярно "
+                "обновляет наш updater.",
+            ]
+            if counts.get("domains_with_ips")
+            else [
+                "Один импорт доменов не обеспечивает обновление их IPv4. "
+                "В полном списке для Windows текущие адреса регулярно заполняет наш updater.",
+            ]
+        ),
         "",
         "### 🔧 Клиент не умеет split tunneling — `wg-allowed-ips.txt`",
         "",
@@ -228,6 +295,22 @@ def release_notes(services: list[catalog.Service], counts: dict[str, Any]) -> st
         f"**{counts['services']}** сервисов · **{counts['domains']}** доменов · "
         f"**{counts['cidrs']}** сетей IPv4 · покрытие **{counts['addresses']:,}** адресов".replace(",", " "),
         "",
+        *(
+            [
+                f"Из внешних списков в полный список добавлено **{counts['external_roots']}** "
+                "корневых доменов вне каталога — только те, у которых все IPv4 российские; "
+                "в lite они не входят."
+                + (
+                    f" Ещё {counts['external_roots_dropped']} не влезли в потолок "
+                    f"{MAX_FULL_ENTRIES} записей."
+                    if counts.get("external_roots_dropped")
+                    else ""
+                ),
+                "",
+            ]
+            if counts.get("external_roots")
+            else []
+        ),
         "При включённом режиме исключений адреса из списка идут напрямую, остальной трафик — через VPN.",
         "",
         "| Файл | Кому нужен |",
@@ -270,7 +353,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, default=DIST)
     parser.add_argument("--personal", type=Path, help="личный довесок, в публичный репозиторий не коммитится")
-    parser.add_argument("--no-external", action="store_true", help="без внешних поддоменов и сетей")
+    parser.add_argument("--no-external", action="store_true", help="без внешних поддоменов, корней и сетей")
+    parser.add_argument("--no-ips", action="store_true", help="доменные записи без снимка IPv4 (ip пустой)")
+    parser.add_argument("--domain-ips", type=Path, default=catalog.DOMAIN_IPS_FILE)
     parser.add_argument("--dry-run", action="store_true")
     arguments = parser.parse_args()
 
@@ -280,8 +365,14 @@ def main() -> int:
         if not prefixes:
             raise BuildError("нет data/prefixes.json — сначала запусти tools/refresh_prefixes.py")
         external_domains = {} if arguments.no_external else catalog.load_external_domains(services)
+        external_roots = {} if arguments.no_external else catalog.load_external_roots(services)
         if arguments.no_external:
             prefixes = {value: meta for value, meta in prefixes.items() if meta.get("source") != "external"}
+        # Нет снимка — доменные записи как раньше, с пустым ip; лишние домены снимка не нужны.
+        domain_ips = (
+            None if arguments.no_ips or not arguments.domain_ips.exists()
+            else catalog.load_domain_ips(arguments.domain_ips)
+        )
 
         personal_domains: list[str] = []
         personal_cidrs: list[str] = []
@@ -289,20 +380,23 @@ def main() -> int:
         if arguments.personal:
             personal_domains, personal_cidrs, protected = load_personal(arguments.personal)
 
-        full_domains, full_cidrs = build(
-            services, prefixes, ("core", "extended"),
-            [*personal_domains, *external_domains], personal_cidrs
+        base_domains, full_cidrs = build(
+            services, prefixes, ("core", "extended"), personal_domains, personal_cidrs
+        )
+        full_domains, kept_subdomains, kept_roots, subdomains_dropped, roots_dropped = fit_full_list(
+            base_domains, full_cidrs, external_domains, external_roots
         )
         lite_domains, lite_cidrs = build(
             services, prefixes, ("core",), personal_domains, personal_cidrs
         )
-        guard(full_domains, full_cidrs, protected, "полный список")
+        guard(full_domains, full_cidrs, protected, "полный список", MAX_FULL_ENTRIES)
         guard(lite_domains, lite_cidrs, protected, "lite-список")
 
-        full_entries = import_entries(full_domains + full_cidrs)
-        lite_entries = import_entries(lite_domains + lite_cidrs)
+        full_entries = import_entries(full_domains, full_cidrs, domain_ips)
+        lite_entries = import_entries(lite_domains, lite_cidrs, domain_ips)
         # Экспорт готовых сетей не зависит от DNS-обработки доменных записей клиентом.
-        ip_entries = import_entries(full_cidrs)
+        ip_entries = import_entries((), full_cidrs)
+        with_ips = domain_ips or {}
         allowed_ips = invert_networks(full_cidrs)
         happ = {
             "DirectSites": [f"domain:{domain}" for domain in full_domains],
@@ -325,7 +419,12 @@ def main() -> int:
             "prefix_snapshot": len(prefixes),
             "personal_domains": len(personal_domains),
             "personal_cidrs": len(personal_cidrs),
-            "external_domains": len(external_domains),
+            "external_domains": len(kept_subdomains),
+            "external_domains_dropped": subdomains_dropped,
+            "external_roots": len(kept_roots),
+            "external_roots_dropped": roots_dropped,
+            "domains_with_ips": sum(1 for domain in full_domains if with_ips.get(domain)),
+            "lite_domains_with_ips": sum(1 for domain in lite_domains if with_ips.get(domain)),
         }
 
         if arguments.dry_run:

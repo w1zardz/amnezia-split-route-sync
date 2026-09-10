@@ -3,6 +3,9 @@
 
 from __future__ import annotations
 
+import bisect
+import gzip
+import io
 import ipaddress
 import json
 import re
@@ -15,8 +18,19 @@ ROOT = Path(__file__).resolve().parent.parent
 SERVICES_DIR = ROOT / "data" / "services"
 PREFIXES_FILE = ROOT / "data" / "prefixes.json"
 EXTERNAL_FILE = ROOT / "data" / "external.json"
-# Полный список дополнительно ограничен 4000 записями в сборщике и апдейтерах.
+DOMAIN_IPS_FILE = ROOT / "data" / "domain-ips.json"
+SOURCES_FILE = ROOT / "config" / "external-sources.json"
+# Полный список дополнительно ограничен 3900 записями в сборщике (апдейтеры — 4000).
 MAX_EXTERNAL_DOMAINS = 1500
+MAX_EXTERNAL_ROOTS = 2500
+# Столько IPv4 кладём в поле ips одной доменной записи.
+MAX_DOMAIN_IPS = 8
+MAX_TABLE_BYTES = 33_554_432
+MAX_TABLE_UNPACKED_BYTES = 134_217_728
+# Локальные и служебные зоны: в чужих списках встречаются, в direct им не место.
+LOCAL_SUFFIXES = (
+    ".arpa", ".local", ".localhost", ".lan", ".internal", ".home", ".invalid", ".test", ".example",
+)
 
 TIERS = ("core", "extended")
 HOSTNAME = re.compile(
@@ -96,6 +110,100 @@ def http_get(url: str, max_bytes: int, timeout: int = 70) -> bytes:
     if len(process.stdout) > max_bytes:
         raise CatalogError(f"ответ {url} больше лимита {max_bytes} байт")
     return process.stdout
+
+
+class AsnTable:
+    """IP→(ASN, страна, имя AS) по диапазонам из ip2asn-v4."""
+
+    __slots__ = ("_starts", "_rows", "announced")
+
+    def __init__(self, rows: list[tuple[int, int, int, str, str]]) -> None:
+        ordered = sorted(rows)
+        self._starts = [row[0] for row in ordered]
+        self._rows = ordered
+        # Сколько адресов анонсирует каждый ASN — по этому размеру отличаем
+        # контентную площадку от оператора связи.
+        self.announced: dict[int, int] = {}
+        for start, end, asn, _country, _name in ordered:
+            self.announced[asn] = self.announced.get(asn, 0) + (end - start + 1)
+        if any(left[1] >= right[0] for left, right in zip(ordered, ordered[1:])):
+            raise CatalogError("таблица IP→ASN содержит перекрывающиеся диапазоны")
+
+    def __len__(self) -> int:
+        return len(self._rows)
+
+    @classmethod
+    def from_tsv(cls, text: str) -> "AsnTable":
+        rows: list[tuple[int, int, int, str, str]] = []
+        for line in text.splitlines():
+            fields = line.split("\t")
+            if len(fields) < 5:
+                continue
+            try:
+                start = int(ipaddress.IPv4Address(fields[0]))
+                end = int(ipaddress.IPv4Address(fields[1]))
+            except (ipaddress.AddressValueError, ValueError):
+                continue
+            if end < start or not fields[2].isdigit():
+                continue
+            rows.append((start, end, int(fields[2]), fields[3].strip(), fields[4].strip()))
+        if len(rows) < 100_000:
+            raise CatalogError(f"таблица IP→ASN подозрительно мала: {len(rows)} строк")
+        return cls(rows)
+
+    def lookup(self, address: int) -> tuple[int, int, int, str, str] | None:
+        """(начало диапазона, конец, ASN, страна, имя AS) для адреса."""
+        index = bisect.bisect_right(self._starts, address) - 1
+        if index < 0:
+            return None
+        row = self._rows[index]
+        if not row[0] <= address <= row[1] or row[2] == 0:
+            return None
+        return row
+
+    def covering_rows(self, network: ipaddress.IPv4Network) -> list[tuple]:
+        """Все диапазоны сети; пустой результат при любом пробеле в таблице."""
+        cursor, end = int(network.network_address), int(network.broadcast_address)
+        index = bisect.bisect_right(self._starts, cursor) - 1
+        rows = []
+        while cursor <= end:
+            if index < 0 or index >= len(self._rows):
+                return []
+            row = self._rows[index]
+            if not row[0] <= cursor <= row[1] or row[2] == 0:
+                return []
+            rows.append(row)
+            cursor = row[1] + 1
+            index += 1
+        return rows
+
+
+def unpack_asn_table(payload: bytes) -> AsnTable:
+    """ip2asn-v4.tsv или .tsv.gz → таблица, с потолком на распакованный размер."""
+    if len(payload) > MAX_TABLE_UNPACKED_BYTES:
+        raise CatalogError("таблица IP→ASN превышает лимит размера")
+    if payload[:2] == b"\x1f\x8b":
+        with gzip.GzipFile(fileobj=io.BytesIO(payload)) as stream:
+            payload = stream.read(MAX_TABLE_UNPACKED_BYTES + 1)
+        if len(payload) > MAX_TABLE_UNPACKED_BYTES:
+            raise CatalogError("распакованная таблица IP→ASN превышает лимит размера")
+    return AsnTable.from_tsv(payload.decode("utf-8"))
+
+
+def asn_table_url(path: Path = SOURCES_FILE) -> str:
+    try:
+        document = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise CatalogError(f"{path.name}: не читается ({exc})") from exc
+    table = document.get("asn_table") if isinstance(document, dict) else None
+    if not isinstance(table, dict) or not isinstance(table.get("url"), str):
+        raise CatalogError(f"{path.name}: нет asn_table.url")
+    return table["url"]
+
+
+def load_asn_table(url: str, local: Path | None = None) -> AsnTable:
+    payload = local.read_bytes() if local else http_get(url, MAX_TABLE_BYTES, 120)
+    return unpack_asn_table(payload)
 
 
 class Service:
@@ -257,6 +365,73 @@ def load_external_domains(services: Iterable[Service], path: Path = EXTERNAL_FIL
         ):
             raise CatalogError(f"{path.name}: нет источников домена {domain}")
     return entries
+
+
+def load_external_roots(services: Iterable[Service], path: Path = EXTERNAL_FILE) -> dict[str, dict]:
+    """Корневые домены из внешних списков: вне каталога, все IP уже проверены по ASN."""
+    if not path.exists():
+        return {}
+    document = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(document, dict) or document.get("version") != 1:
+        raise CatalogError(f"{path.name}: ожидается объект с version=1")
+    entries = document.get("roots", {})
+    if not isinstance(entries, dict) or len(entries) > MAX_EXTERNAL_ROOTS:
+        raise CatalogError(f"{path.name}: неверный список корневых доменов или превышен лимит")
+    trusted = set(catalog_domains(services))
+    for domain, meta in entries.items():
+        if normalize_hostname(domain, path.name) != domain or not isinstance(meta, dict):
+            raise CatalogError(f"{path.name}: некорректный корневой домен {domain!r}")
+        if domain.endswith(LOCAL_SUFFIXES):
+            raise CatalogError(f"{path.name}: {domain} — локальная зона")
+        # Поддомен каталога живёт в domains с привязкой к родителю, а не здесь.
+        if domain in trusted or external_domain_parent(domain, trusted) is not None:
+            raise CatalogError(f"{path.name}: {domain} уже покрыт каталогом")
+        sources = meta.get("sources")
+        if not isinstance(sources, list) or not sources or not all(
+            isinstance(source, str) and source for source in sources
+        ):
+            raise CatalogError(f"{path.name}: нет источников корня {domain}")
+        asns = meta.get("asn")
+        if not isinstance(asns, list) or not asns or not all(
+            isinstance(asn, int) and not isinstance(asn, bool) and asn not in DENY_ASN
+            for asn in asns
+        ):
+            raise CatalogError(f"{path.name}: недопустимые ASN у корня {domain}")
+    return entries
+
+
+def load_domain_ips(path: Path = DOMAIN_IPS_FILE) -> dict[str, list[str]]:
+    """Снимок A-записей доменов (tools/resolve_domains.py); нет файла — пустой."""
+    if not path.exists():
+        return {}
+    try:
+        document = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise CatalogError(f"{path.name}: не читается ({exc})") from exc
+    if not isinstance(document, dict) or document.get("version") != 1:
+        raise CatalogError(f"{path.name}: ожидается объект с version=1")
+    entries = document.get("domains")
+    if not isinstance(entries, dict):
+        raise CatalogError(f"{path.name}: нет объекта domains")
+    result: dict[str, list[str]] = {}
+    for domain, addresses in entries.items():
+        if not isinstance(domain, str) or normalize_hostname(domain, path.name) != domain:
+            raise CatalogError(f"{path.name}: некорректный домен {domain!r}")
+        if not isinstance(addresses, list) or len(addresses) > MAX_DOMAIN_IPS:
+            raise CatalogError(f"{path.name}: {domain} — ожидается список до {MAX_DOMAIN_IPS} IP")
+        parsed = []
+        for value in addresses:
+            try:
+                address = ipaddress.IPv4Address(value)
+            except (ipaddress.AddressValueError, ValueError, TypeError) as exc:
+                raise CatalogError(f"{path.name}: {domain} — некорректный IPv4 {value!r}") from exc
+            if not address.is_global or str(address) != value:
+                raise CatalogError(f"{path.name}: {domain} — {value} не публичный IPv4")
+            parsed.append(value)
+        if len(set(parsed)) != len(parsed):
+            raise CatalogError(f"{path.name}: {domain} — повторяющиеся IP")
+        result[domain] = sorted(parsed, key=ipaddress.IPv4Address)
+    return result
 
 
 def load_prefixes(path: Path = PREFIXES_FILE) -> dict[str, dict[str, Any]]:

@@ -19,8 +19,14 @@
 адресное пространство региональных провайдеров — иначе мимо VPN уехал бы весь
 Ростелеком, ровно как при развороте ASN операторов связи.
 
-Новые поддомены сервисов ручного каталога дополняют полный список. Остальные
-домены сохраняются с источниками в отчёт кандидатов для ручной проверки.
+Новые поддомены сервисов ручного каталога дополняют полный список. Домены вне
+каталога из источников с флагом "roots" резолвятся: корень принимается, только
+если у него есть IPv4 и все его адреса российские и не принадлежат глобальным
+CDN. Остальные домены сохраняются с источниками (и причиной отказа) в отчёт
+кандидатов для ручной проверки.
+
+Источник с флагом "optional" — мелкий сторонний репозиторий: его сбой или
+пустой файл даёт предупреждение и строку в отчёте, импорт идёт без него.
 """
 
 from __future__ import annotations
@@ -28,29 +34,37 @@ from __future__ import annotations
 import argparse
 import bisect
 import concurrent.futures
-import gzip
-import io
 import ipaddress
 import json
+import re
 import sys
+import urllib.parse
 from datetime import date
 from pathlib import Path
+from typing import Any, Callable
 
 import catalog
+import resolve_domains
 
 ROOT = catalog.ROOT
-SOURCES_FILE = ROOT / "config" / "external-sources.json"
+SOURCES_FILE = catalog.SOURCES_FILE
 ASN_EXPAND_FILE = ROOT / "config" / "asn-expand.json"
 REPORT_FILE = ROOT / "data" / "external-report.md"
 CANDIDATES_FILE = ROOT / "data" / "external-candidates.json"
 MAX_SOURCE_BYTES = 8_388_608
-MAX_TABLE_BYTES = 33_554_432
-MAX_TABLE_UNPACKED_BYTES = 134_217_728
 DOWNLOAD_WORKERS = 4
+KINDS = ("cidr", "domains", "amnezia", "v2fly")
+# v2fly/domain-list-community: include разворачивается рекурсивно, category-ru
+# тянет за собой десятки файлов. Потолок — страховка от цикла и разрастания.
+V2FLY_MAX_FILES = 200
+V2FLY_NAME = re.compile(r"[a-z0-9][a-z0-9!._-]{0,80}")
 # Amnezia начинает подтормаживать на нескольких тысячах записей, а внешних
 # кандидатов приходит больше, чем нужно: держим потолок и пишем в отчёт, что
-# именно не влезло.
-DEFAULT_LIMIT = 1600
+# именно не влезло. Потолок завязан на MAX_ROUTES=1500 сборщика и апдейтеров:
+# замер 2026-09-10 — 1000 внешних сетей дают 1356 маршрутов после схлопывания,
+# 1200 уже 1526 и ломают сборку. Каждая лишняя сеть к тому же вытесняет корень
+# из полного списка (потолок 3900 записей).
+DEFAULT_LIMIT = 1000
 REPORT_ASN_LIMIT = 40
 REPORT_DOMAIN_LIMIT = 200
 # Граница между контентной площадкой и оператором связи, проведённая по размеру
@@ -68,70 +82,8 @@ class ImportError_(RuntimeError):
     pass
 
 
-class AsnTable:
-    """IP→(ASN, страна, имя AS) по диапазонам из ip2asn-v4."""
-
-    __slots__ = ("_starts", "_rows", "announced")
-
-    def __init__(self, rows: list[tuple[int, int, int, str, str]]) -> None:
-        ordered = sorted(rows)
-        self._starts = [row[0] for row in ordered]
-        self._rows = ordered
-        # Сколько адресов анонсирует каждый ASN — по этому размеру отличаем
-        # контентную площадку от оператора связи.
-        self.announced: dict[int, int] = {}
-        for start, end, asn, _country, _name in ordered:
-            self.announced[asn] = self.announced.get(asn, 0) + (end - start + 1)
-        if any(left[1] >= right[0] for left, right in zip(ordered, ordered[1:])):
-            raise ImportError_("таблица IP→ASN содержит перекрывающиеся диапазоны")
-
-    def __len__(self) -> int:
-        return len(self._rows)
-
-    @classmethod
-    def from_tsv(cls, text: str) -> "AsnTable":
-        rows: list[tuple[int, int, int, str, str]] = []
-        for line in text.splitlines():
-            fields = line.split("\t")
-            if len(fields) < 5:
-                continue
-            try:
-                start = int(ipaddress.IPv4Address(fields[0]))
-                end = int(ipaddress.IPv4Address(fields[1]))
-            except (ipaddress.AddressValueError, ValueError):
-                continue
-            if end < start or not fields[2].isdigit():
-                continue
-            rows.append((start, end, int(fields[2]), fields[3].strip(), fields[4].strip()))
-        if len(rows) < 100_000:
-            raise ImportError_(f"таблица IP→ASN подозрительно мала: {len(rows)} строк")
-        return cls(rows)
-
-    def lookup(self, address: int) -> tuple[int, int, int, str, str] | None:
-        """(начало диапазона, конец, ASN, страна, имя AS) для адреса."""
-        index = bisect.bisect_right(self._starts, address) - 1
-        if index < 0:
-            return None
-        row = self._rows[index]
-        if not row[0] <= address <= row[1] or row[2] == 0:
-            return None
-        return row
-
-    def covering_rows(self, network: ipaddress.IPv4Network) -> list[tuple]:
-        """Все диапазоны сети; пустой результат при любом пробеле в таблице."""
-        cursor, end = int(network.network_address), int(network.broadcast_address)
-        index = bisect.bisect_right(self._starts, cursor) - 1
-        rows = []
-        while cursor <= end:
-            if index < 0 or index >= len(self._rows):
-                return []
-            row = self._rows[index]
-            if not row[0] <= cursor <= row[1] or row[2] == 0:
-                return []
-            rows.append(row)
-            cursor = row[1] + 1
-            index += 1
-        return rows
+# Таблица общая с tools/resolve_domains.py и живёт в catalog.
+AsnTable = catalog.AsnTable
 
 
 class NetworkIndex:
@@ -160,7 +112,7 @@ def covering_prefix(row: tuple[int, int, int, str, str], address: int) -> ipaddr
     return ipaddress.ip_network(f"{host}/{catalog.MAX_PREFIXLEN}", strict=False)
 
 
-def load_sources() -> tuple[str, list[dict[str, str]]]:
+def load_sources() -> tuple[str, list[dict[str, Any]]]:
     if not SOURCES_FILE.exists():
         raise ImportError_(f"нет {SOURCES_FILE.relative_to(ROOT)}")
     document = json.loads(SOURCES_FILE.read_text(encoding="utf-8"))
@@ -172,24 +124,39 @@ def load_sources() -> tuple[str, list[dict[str, str]]]:
     entries = document.get("sources")
     if not isinstance(entries, list) or not entries:
         raise ImportError_("config/external-sources.json: пустой список sources")
-    sources: list[dict[str, str]] = []
+    sources: list[dict[str, Any]] = []
     seen: set[str] = set()
     for entry in entries:
         if not isinstance(entry, dict):
             raise ImportError_("config/external-sources.json: источник должен быть объектом")
         identifier = entry.get("id")
-        url = entry.get("url")
         kind = entry.get("kind")
+        # У v2fly вместо одного файла — каталог и список категорий.
+        url = entry.get("base_url") if kind == "v2fly" else entry.get("url")
         if not isinstance(identifier, str) or identifier in seen:
             raise ImportError_(f"config/external-sources.json: некорректный id {identifier!r}")
         seen.add(identifier)
         if not isinstance(url, str) or not url.startswith("https://"):
             raise ImportError_(f"{identifier}: url должен быть https")
-        if kind not in ("cidr", "domains", "amnezia"):
-            raise ImportError_(f"{identifier}: kind должен быть cidr, domains или amnezia")
+        if kind not in KINDS:
+            raise ImportError_(f"{identifier}: kind должен быть одним из {', '.join(KINDS)}")
+        for flag in ("enabled", "roots", "optional"):
+            if not isinstance(entry.get(flag, False), bool):
+                raise ImportError_(f"{identifier}: {flag} должен быть true или false")
+        source: dict[str, Any] = {
+            "id": identifier, "url": url, "kind": kind, "note": entry.get("note", ""),
+            "roots": entry.get("roots", False), "optional": entry.get("optional", False),
+        }
+        if kind == "v2fly":
+            categories = entry.get("categories")
+            if not url.endswith("/") or not isinstance(categories, list) or not categories or not all(
+                isinstance(name, str) and V2FLY_NAME.fullmatch(name) for name in categories
+            ):
+                raise ImportError_(f"{identifier}: для v2fly нужны base_url с / на конце и categories")
+            source["categories"] = categories
         if entry.get("enabled") is False:
             continue
-        sources.append({"id": identifier, "url": url, "kind": kind, "note": entry.get("note", "")})
+        sources.append(source)
     if not sources:
         raise ImportError_("все источники отключены")
     return table["url"], sources
@@ -240,7 +207,7 @@ def parse_domains(text: str) -> list[str]:
             continue
         try:
             domain = catalog.normalize_hostname(value, "внешний источник")
-            if domain.endswith((".arpa", ".local", ".localhost", ".lan", ".internal", ".home", ".invalid", ".test", ".example")):
+            if domain.endswith(catalog.LOCAL_SUFFIXES):
                 continue
             domains.append(domain)
         except catalog.CatalogError:
@@ -248,10 +215,82 @@ def parse_domains(text: str) -> list[str]:
     return domains
 
 
+def parse_v2fly(text: str) -> tuple[list[str], list[str]]:
+    """Файл domain-list-community → (доменные правила, имена из include:)."""
+    rules: list[str] = []
+    includes: list[str] = []
+    for line in text.splitlines():
+        tokens = line.split("#", 1)[0].split()
+        if not tokens:
+            continue
+        rule = tokens[0]
+        # @ads — рекламные и трекинговые домены: в direct их не несём, как и
+        # include, отбирающий только их. Прочие атрибуты (@cn, @!cn) отрезаем.
+        if "@ads" in tokens[1:]:
+            continue
+        if rule.startswith("include:"):
+            includes.append(rule[len("include:"):])
+            continue
+        for prefix in ("domain:", "full:"):
+            if rule.startswith(prefix):
+                rule = rule[len(prefix):]
+                break
+        else:
+            if ":" in rule:
+                continue  # regexp:, keyword: и неизвестные типы правил
+        rules.append(rule)
+    return rules, includes
+
+
+def expand_v2fly(categories: list[str], fetch_many: Callable[[list[str]], dict[str, str]]) -> list[str]:
+    """Рекурсивно разворачивает include:X по уровням; каждый файл читается один раз."""
+    seen: set[str] = set()
+    pending = list(categories)
+    rules: list[str] = []
+    while pending:
+        batch = sorted(set(pending) - seen)
+        pending = []
+        if not batch:
+            break
+        for name in batch:
+            if not V2FLY_NAME.fullmatch(name):
+                raise ImportError_(f"v2fly: некорректное имя списка {name!r}")
+        seen.update(batch)
+        if len(seen) > V2FLY_MAX_FILES:
+            raise ImportError_(f"v2fly: include разворачивается больше чем в {V2FLY_MAX_FILES} файлов")
+        texts = fetch_many(batch)
+        for name in batch:
+            found, includes = parse_v2fly(texts[name])
+            rules.extend(found)
+            pending.extend(includes)
+    return rules
+
+
+def fetch_v2fly(source: dict[str, Any]) -> str:
+    base = source["url"]
+
+    def fetch_many(names: list[str]) -> dict[str, str]:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=DOWNLOAD_WORKERS) as executor:
+            payloads = executor.map(
+                lambda name: catalog.http_get(base + urllib.parse.quote(name), MAX_SOURCE_BYTES),
+                names,
+            )
+            return {name: payload.decode("utf-8-sig") for name, payload in zip(names, payloads)}
+
+    return "\n".join(expand_v2fly(source["categories"], fetch_many))
+
+
+def fetch_source(source: dict[str, Any]) -> str:
+    if source.get("kind") == "v2fly":
+        return fetch_v2fly(source)
+    return catalog.http_get(source["url"], MAX_SOURCE_BYTES).decode("utf-8-sig")
+
+
 def parse_source(text: str, kind: str) -> tuple[list, list[str]]:
     if kind == "cidr":
         return parse_networks(text), []
-    if kind == "domains":
+    if kind in ("domains", "v2fly"):
+        # fetch_v2fly уже развернул include и выбросил regexp/keyword/@ads.
         return [], parse_domains(text)
     document = json.loads(text)
     if not isinstance(document, list):
@@ -277,26 +316,31 @@ def parse_source(text: str, kind: str) -> tuple[list, list[str]]:
     return networks, domains
 
 
-def download_inputs(table_url: str, sources: list[dict], local_table: Path | None) -> tuple[bytes, dict]:
-    """До четырёх HTTPS-запросов одновременно; сбой любого источника останавливает импорт."""
+def download_inputs(
+    table_url: str, sources: list[dict], local_table: Path | None
+) -> tuple[bytes, dict[str, str | None], dict[str, str]]:
+    """До четырёх HTTPS-запросов одновременно.
+
+    Сбой обязательного источника останавливает импорт; optional-источник
+    получает текст None и причину в третьем словаре.
+    """
     with concurrent.futures.ThreadPoolExecutor(max_workers=DOWNLOAD_WORKERS) as executor:
         table = None if local_table else executor.submit(
-            catalog.http_get, table_url, MAX_TABLE_BYTES, 120
+            catalog.http_get, table_url, catalog.MAX_TABLE_BYTES, 120
         )
-        pending = {
-            source["id"]: executor.submit(catalog.http_get, source["url"], MAX_SOURCE_BYTES)
-            for source in sources
-        }
+        pending = {source["id"]: executor.submit(fetch_source, source) for source in sources}
         payload = local_table.read_bytes() if local_table else table.result()
-        texts = {key: future.result().decode("utf-8-sig") for key, future in pending.items()}
-    if len(payload) > MAX_TABLE_UNPACKED_BYTES:
-        raise ImportError_("таблица IP→ASN превышает лимит размера")
-    if payload[:2] == b"\x1f\x8b":
-        with gzip.GzipFile(fileobj=io.BytesIO(payload)) as stream:
-            payload = stream.read(MAX_TABLE_UNPACKED_BYTES + 1)
-        if len(payload) > MAX_TABLE_UNPACKED_BYTES:
-            raise ImportError_("распакованная таблица IP→ASN превышает лимит размера")
-    return payload, texts
+        texts: dict[str, str | None] = {}
+        failures: dict[str, str] = {}
+        for source in sources:
+            try:
+                texts[source["id"]] = pending[source["id"]].result()
+            except (catalog.CatalogError, ImportError_, UnicodeError) as exc:
+                if not source.get("optional"):
+                    raise
+                texts[source["id"]] = None
+                failures[source["id"]] = f"не загрузился: {exc}"[:300]
+    return payload, texts, failures
 
 
 def widen_to_minimum(network: ipaddress.IPv4Network) -> ipaddress.IPv4Network:
@@ -344,9 +388,68 @@ def classify(
     return ACCEPT, first
 
 
+ROOT_NO_ANSWER = "нет ответа DNS"
+ROOT_UNRESOLVED = "не резолвится (NXDOMAIN или нет A-записей)"
+ROOT_LIMIT = f"не влез в потолок {catalog.MAX_EXTERNAL_ROOTS} корней"
+
+
+def root_verdict(answer: resolve_domains.Answer, table: AsnTable) -> tuple[str, list[int]]:
+    """ACCEPT и ASN корня, либо причина отказа и ASN проблемных адресов."""
+    if answer.status == resolve_domains.FAIL:
+        return ROOT_NO_ANSWER, []
+    if not answer.addresses:
+        return ROOT_UNRESOLVED, []
+    good: set[int] = set()
+    bad: dict[str, set[int]] = {}
+    for address in answer.addresses:
+        verdict, record = resolve_domains.address_verdict(address, table)
+        if verdict == resolve_domains.ACCEPT:
+            good.add(record[2])
+        else:
+            bad.setdefault(verdict, set()).update([record[2]] if record else [])
+    # Корень целиком мимо VPN — значит, мимо VPN все его адреса. Один зарубежный
+    # IP в ротации — и часть соединений ушла бы с домашнего адреса за границу.
+    if bad:
+        reason = min(bad, key=resolve_domains.REASON_ORDER.index)
+        return reason, sorted(bad[reason])
+    return ACCEPT, sorted(good)
+
+
+def select_roots(
+    candidates: dict[str, set[str]], table: AsnTable, previous: dict[str, dict]
+) -> tuple[dict[str, dict], dict[str, tuple[str, list[int]]], int]:
+    """(принятые корни, отказы с причинами, сколько срезано потолком)."""
+    if not candidates:
+        return {}, {}, 0
+    answers = resolve_domains.resolve_many(candidates)
+    answered = sum(1 for answer in answers.values() if answer.status != resolve_domains.FAIL)
+    print(f"корни: {len(candidates)} кандидатов, DNS ответил по {answered}")
+    if answered < len(candidates) * resolve_domains.MIN_RESOLVED_SHARE:
+        raise ImportError_("DNS ответил меньше чем по 60% кандидатов в корни — похоже на троттлинг")
+    accepted: dict[str, dict] = {}
+    rejected: dict[str, tuple[str, list[int]]] = {}
+    for domain in sorted(candidates):
+        sources = sorted(candidates[domain])
+        answer = answers.get(domain, resolve_domains.Answer(resolve_domains.FAIL, ()))
+        if answer.status == resolve_domains.FAIL and domain in previous:
+            # Резолверы промолчали — не выкидываем корень, принятый вчера.
+            accepted[domain] = {"sources": sources, "asn": previous[domain]["asn"]}
+            continue
+        verdict, asns = root_verdict(answer, table)
+        if verdict == ACCEPT:
+            accepted[domain] = {"sources": sources, "asn": asns}
+        else:
+            rejected[domain] = (verdict, asns)
+    ordered = sorted(accepted, key=lambda domain: (-len(accepted[domain]["sources"]), domain))
+    for domain in ordered[catalog.MAX_EXTERNAL_ROOTS:]:
+        rejected[domain] = (ROOT_LIMIT, [])
+    kept = {domain: accepted[domain] for domain in sorted(ordered[: catalog.MAX_EXTERNAL_ROOTS])}
+    return kept, rejected, max(0, len(ordered) - catalog.MAX_EXTERNAL_ROOTS)
+
+
 def build_report(
-    sources: list[dict[str, str]],
-    stats: dict[str, dict[str, int]],
+    sources: list[dict[str, Any]],
+    stats: dict[str, dict[str, Any]],
     rejected: dict[str, int],
     unknown_asn: dict[tuple[int, str], int],
     foreign: dict[str, int],
@@ -354,7 +457,12 @@ def build_report(
     accepted: int,
     dropped_by_limit: int,
     limit: int,
+    roots: dict[str, dict] | None = None,
+    root_rejected: dict[str, tuple[str, list[int]]] | None = None,
+    roots_dropped: int = 0,
 ) -> str:
+    roots = roots or {}
+    root_rejected = root_rejected or {}
     lines = [
         "# Внешние источники — отчёт импорта",
         "",
@@ -363,15 +471,28 @@ def build_report(
         "",
         "## Источники",
         "",
-        "| Источник | Уникальных IP/CIDR | Принято IP/CIDR | Домены | Новые поддомены |",
-        "|---|---:|---:|---:|---:|",
+        "| Источник | Уникальных IP/CIDR | Принято IP/CIDR | Домены | Новые поддомены | Корни |",
+        "|---|---:|---:|---:|---:|---:|",
     ]
+    skipped = []
     for source in sources:
         entry = stats.get(source["id"], {})
+        if entry.get("skipped"):
+            skipped.append(f"- ⚠️ `{source['id']}` пропущен: {entry['skipped']}")
+            lines.append(f"| `{source['id']}` | — | — | — | — | — |")
+            continue
         lines.append(
             f"| `{source['id']}` | {entry.get('networks', 0)} | {entry.get('accepted', 0)} "
-            f"| {entry.get('domains', 0)} | {entry.get('accepted_domains', 0)} |"
+            f"| {entry.get('domains', 0)} | {entry.get('accepted_domains', 0)} "
+            f"| {entry.get('roots', 0)} |"
         )
+    if skipped:
+        lines += [
+            "",
+            "Необязательные источники, не давшие данных в этот раз (импорт прошёл без них):",
+            "",
+            *skipped,
+        ]
     lines += [
         "",
         f"После объединения внутри проверенных диапазонов IP→ASN принято сетей: **{accepted}** "
@@ -417,14 +538,35 @@ def build_report(
         :REPORT_ASN_LIMIT
     ]:
         lines.append(f"| AS{asn} | {name} | {count} |")
+    reasons: dict[str, int] = {}
+    for reason, _asns in root_rejected.values():
+        reasons[reason] = reasons.get(reason, 0) + 1
+    lines += [
+        "",
+        f"## Корневые домены — принято {len(roots)}",
+        "",
+        "Домены вне каталога из источников с флагом `roots`. Корень принимается, "
+        "только если у него есть IPv4 и все адреса российские и не принадлежат "
+        "глобальным CDN; такие корни идут только в полный список, не в lite. "
+        f"Потолок — {catalog.MAX_EXTERNAL_ROOTS}"
+        + (f", срезано **{roots_dropped}**" if roots_dropped else "")
+        + ". Отказы по каждому домену — в `external-candidates.json`, поле `reason`.",
+        "",
+        "| Причина отказа | Доменов |",
+        "|---|---:|",
+    ]
+    for reason, count in sorted(reasons.items(), key=lambda item: (-item[1], item[0])):
+        lines.append(f"| {reason} | {count} |")
+    if not reasons:
+        lines.append("| — | 0 |")
     lines += [
         "",
         f"## Домены вне каталога — {len(new_domains)}",
         "",
-        "Новые поддомены сервисов каталога добавлены в полный список автоматически; "
-        "их источники указаны в `data/external.json`. Ниже — остальные кандидаты "
-        "для ручной проверки. Полный список без обрезки, с происхождением каждой "
-        "записи: [`external-candidates.json`](external-candidates.json).",
+        "Новые поддомены сервисов каталога и принятые корни добавлены в полный список "
+        "автоматически; их источники указаны в `data/external.json`. Ниже — остальные "
+        "кандидаты для ручной проверки. Полный список без обрезки, с происхождением "
+        "каждой записи: [`external-candidates.json`](external-candidates.json).",
         "",
     ]
     if new_domains:
@@ -458,8 +600,8 @@ def main() -> int:
             raise ImportError_("нет data/prefixes.json — сначала запусти tools/refresh_prefixes.py")
         print(f"каталог знает {len(weight)} ASN, из них {len(expand)} разворачиваются целиком")
 
-        payload, texts = download_inputs(table_url, sources, arguments.asn_table)
-        table = AsnTable.from_tsv(payload.decode("utf-8"))
+        payload, texts, failures = download_inputs(table_url, sources, arguments.asn_table)
+        table = catalog.unpack_asn_table(payload)
         print(f"таблица IP→ASN: {len(table)} диапазонов")
 
         # Сверяемся только с тем, что снапшот добыл сам: прошлый импорт уже лежит
@@ -470,29 +612,54 @@ def main() -> int:
             for value, meta in catalog.load_prefixes().items()
             if meta.get("source") != "external"
         ])
-        catalog_domains = set(catalog.catalog_domains(catalog.load_catalog()))
+        services = catalog.load_catalog()
+        catalog_domains = set(catalog.catalog_domains(services))
 
-        stats: dict[str, dict[str, int]] = {}
+        stats: dict[str, dict[str, Any]] = {}
         previous_sources = {}
+        previous_roots: dict[str, dict] = {}
         if arguments.output.exists():
             previous_sources = json.loads(arguments.output.read_text(encoding="utf-8")).get("sources", {})
+            try:
+                previous_roots = catalog.load_external_roots(services, arguments.output)
+            except catalog.CatalogError:
+                previous_roots = {}  # битый прошлый снапшот не должен блокировать импорт
         rejected: dict[str, int] = {}
         unknown_asn: dict[tuple[int, str], int] = {}
         foreign: dict[str, int] = {}
         candidates: dict[str, dict] = {}
         external_domains: dict[str, set[str]] = {}
         imported_domains: dict[str, dict] = {}
+        root_candidates: dict[str, set[str]] = {}
         classified: dict[ipaddress.IPv4Network, tuple] = {}
 
         for source in sources:
-            raw_networks, raw_domains = parse_source(texts[source["id"]], source["kind"])
+            previous = previous_sources.get(source["id"], {})
+            problem = failures.get(source["id"])
+            raw_networks, raw_domains = [], []
+            if problem is None:
+                try:
+                    raw_networks, raw_domains = parse_source(texts[source["id"]], source["kind"])
+                except (ImportError_, ValueError) as exc:
+                    if not source.get("optional"):
+                        raise
+                    problem = f"формат не распознан: {exc}"[:300]
             networks = sorted(set(raw_networks))
             domains = sorted(set(raw_domains))
-            if not networks and not domains:
-                raise ImportError_(f"{source['id']}: источник пуст или формат изменился")
-            previous = previous_sources.get(source["id"], {})
-            if previous.get("url") == source["url"] and len(raw_networks) + len(raw_domains) < previous.get("parsed", 0) * 0.5:
-                raise ImportError_(f"{source['id']}: источник потерял больше половины записей")
+            if problem is None and not networks and not domains:
+                problem = "источник пуст или формат изменился"
+            if problem is None and previous.get("url") == source["url"] and len(raw_networks) + len(raw_domains) < previous.get("parsed", 0) * 0.5:
+                problem = "источник потерял больше половины записей"
+            if problem is not None:
+                if not source.get("optional"):
+                    raise ImportError_(f"{source['id']}: {problem}")
+                print(f"ПРЕДУПРЕЖДЕНИЕ: {source['id']} пропущен — {problem}", file=sys.stderr)
+                # Прошлый parsed храним, чтобы проверка «потерял половину» не обнулилась.
+                stats[source["id"]] = {
+                    "skipped": problem,
+                    "parsed": previous.get("parsed", 0) if previous.get("url") == source["url"] else 0,
+                }
+                continue
             accepted_domains = 0
             for domain in domains:
                 external_domains.setdefault(domain, set()).add(source["id"])
@@ -500,6 +667,8 @@ def main() -> int:
                 if parent:
                     imported_domains.setdefault(domain, {"parent": parent, "sources": []})["sources"].append(source["id"])
                     accepted_domains += 1
+                elif source.get("roots") and domain not in catalog_domains:
+                    root_candidates.setdefault(domain, set()).add(source["id"])
             accepted_here = 0
             for network in networks:
                 network = widen_to_minimum(network)
@@ -553,6 +722,13 @@ def main() -> int:
         print(f"классифицировано {len(classified)} уникальных сетей; "
               f"новых поддоменов {len(imported_domains)}")
 
+        roots, root_rejected, roots_dropped = select_roots(root_candidates, table, previous_roots)
+        for meta in roots.values():
+            for identifier in meta["sources"]:
+                stats[identifier]["roots"] = stats[identifier].get("roots", 0) + 1
+        print(f"корни: принято {len(roots)}, отклонено {len(root_rejected)}"
+              + (f", срезано потолком {roots_dropped}" if roots_dropped else ""))
+
         # Ранжируем перед обрезкой: сперва контентные ASN из asn-expand, затем те,
         # за которыми в снапшоте больше префиксов, затем более широкие сети.
         ordered = sorted(
@@ -581,7 +757,7 @@ def main() -> int:
             + (f", срезано потолком {dropped_by_limit}" if dropped_by_limit else "")
         )
 
-        new_domains = sorted(set(external_domains) - catalog_domains - set(imported_domains))
+        new_domains = sorted(set(external_domains) - catalog_domains - set(imported_domains) - set(roots))
         payload_document = {
             "version": 1,
             "updated": date.today().isoformat(),
@@ -591,21 +767,39 @@ def main() -> int:
             "rejected_count": sum(rejected.values()),
             "dropped_by_limit": dropped_by_limit,
             "domain_count": len(imported_domains),
+            "root_count": len(roots),
+            "roots_dropped": roots_dropped,
             "sources": {
                 source["id"]: {"url": source["url"], **stats.get(source["id"], {})}
                 for source in sources
             },
             "prefixes": kept,
             "domains": imported_domains,
+            "roots": roots,
         }
         report = build_report(
             sources, stats, rejected, unknown_asn, foreign, new_domains,
             len(kept), dropped_by_limit, arguments.limit,
+            roots=roots, root_rejected=root_rejected, roots_dropped=roots_dropped,
         )
+
+        def candidate(domain: str) -> dict[str, Any]:
+            entry: dict[str, Any] = {"sources": sorted(external_domains[domain])}
+            if domain in root_rejected:
+                reason, asns = root_rejected[domain]
+                entry["reason"] = reason
+                if asns:
+                    entry["asn"] = asns
+            return entry
 
         if arguments.dry_run:
             for reason, count in sorted(rejected.items(), key=lambda item: -item[1])[:10]:
                 print(f"  drop {count}: {reason}")
+            reasons: dict[str, int] = {}
+            for reason, _asns in root_rejected.values():
+                reasons[reason] = reasons.get(reason, 0) + 1
+            for reason, count in sorted(reasons.items(), key=lambda item: -item[1]):
+                print(f"  корень drop {count}: {reason}")
             print(f"  доменов вне каталога: {len(new_domains)}")
             return 0
 
@@ -613,13 +807,13 @@ def main() -> int:
         catalog.atomic_write(arguments.report, report.encode("utf-8"))
         catalog.atomic_write(arguments.candidates, catalog.json_bytes({
             "version": 1, "updated": date.today().isoformat(),
-            "domains": {domain: {"sources": sorted(external_domains[domain])} for domain in new_domains},
+            "domains": {domain: candidate(domain) for domain in new_domains},
         }))
         print(
             f"записаны {arguments.output}, {arguments.report} и {arguments.candidates}"
         )
         return 0
-    except (catalog.CatalogError, ImportError_, OSError, ValueError, EOFError) as exc:
+    except (catalog.CatalogError, ImportError_, resolve_domains.ResolveError, OSError, ValueError, EOFError) as exc:
         print(f"ОШИБКА: {exc}", file=sys.stderr)
         return 1
 
