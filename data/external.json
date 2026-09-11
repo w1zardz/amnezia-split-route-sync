@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated": "2026-09-10",
+  "updated": "2026-09-11",
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
   "prefix_count": 1000,
-  "rejected_count": 55151,
-  "dropped_by_limit": 460,
+  "rejected_count": 55155,
+  "dropped_by_limit": 461,
   "domain_count": 1044,
-  "root_count": 1207,
+  "root_count": 1206,
   "roots_dropped": 0,
   "sources": {
     "mobile-whitelist-cidr": {
@@ -15,7 +15,7 @@
       "parsed": 30228,
       "networks": 30228,
       "domains": 0,
-      "accepted": 280,
+      "accepted": 266,
       "accepted_domains": 0
     },
     "mobile-whitelist-domains": {
@@ -52,12 +52,12 @@
     },
     "lib4u-amnezia": {
       "url": "https://raw.githubusercontent.com/lib4u/amnezia-tunneling-ru/main/amnezia.json",
-      "parsed": 7088,
-      "networks": 1540,
+      "parsed": 6632,
+      "networks": 1494,
       "domains": 1954,
-      "accepted": 260,
+      "accepted": 264,
       "accepted_domains": 106,
-      "roots": 1043
+      "roots": 1042
     },
     "v2fly-ru": {
       "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/",
@@ -66,14 +66,14 @@
       "domains": 1741,
       "accepted": 0,
       "accepted_domains": 9,
-      "roots": 998
+      "roots": 997
     },
     "jirnobruh-amnezia": {
       "url": "https://raw.githubusercontent.com/jirnobruh/Split-Tunneling-Amnezia-for-Russia/master/amnezia_split_ru_full.json",
       "parsed": 3126,
       "networks": 768,
       "domains": 925,
-      "accepted": 144,
+      "accepted": 142,
       "accepted_domains": 176,
       "roots": 305
     },
@@ -82,7 +82,7 @@
       "parsed": 8800,
       "networks": 8800,
       "domains": 0,
-      "accepted": 714,
+      "accepted": 725,
       "accepted_domains": 0
     },
     "kyoresuas-essential": {
@@ -90,15 +90,15 @@
       "parsed": 313,
       "networks": 313,
       "domains": 0,
-      "accepted": 76,
+      "accepted": 70,
       "accepted_domains": 0
     },
     "pincetgore-ip-list": {
       "url": "https://github.com/pincetgore/amnezia-app-ru-list/releases/download/latest/ip-list.json",
-      "parsed": 1373,
-      "networks": 1373,
+      "parsed": 1424,
+      "networks": 1424,
       "domains": 0,
-      "accepted": 208,
+      "accepted": 224,
       "accepted_domains": 0
     },
     "kozlov-amnezia": {
@@ -115,7 +115,7 @@
       "parsed": 14183,
       "networks": 12843,
       "domains": 1105,
-      "accepted": 1291,
+      "accepted": 1298,
       "accepted_domains": 638,
       "roots": 88
     },
@@ -133,7 +133,7 @@
       "parsed": 2058,
       "networks": 1029,
       "domains": 0,
-      "accepted": 284,
+      "accepted": 288,
       "accepted_domains": 0
     },
     "opencck-iplist": {
@@ -141,7 +141,7 @@
       "parsed": 1449,
       "networks": 1449,
       "domains": 0,
-      "accepted": 261,
+      "accepted": 251,
       "accepted_domains": 0
     },
     "rockblack-ru": {
@@ -149,7 +149,7 @@
       "parsed": 417,
       "networks": 334,
       "domains": 0,
-      "accepted": 78,
+      "accepted": 69,
       "accepted_domains": 0
     }
   },
@@ -633,9 +633,9 @@
       ],
       "source": "external"
     },
-    "23.111.32.0/21": {
-      "asn": 39134,
-      "as_name": "UNITEDNET",
+    "23.111.37.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
       "cc": "RU",
       "sources": [
         "jirnobruh-amnezia",
@@ -794,6 +794,16 @@
       "cc": "RU",
       "sources": [
         "lib4u-amnezia",
+        "pvd-dog-no-vpn"
+      ],
+      "source": "external"
+    },
+    "31.177.108.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "sources": [
+        "egkodin-ru-sites",
         "pvd-dog-no-vpn"
       ],
       "source": "external"
@@ -2114,6 +2124,7 @@
       "sources": [
         "egkodin-ru-sites",
         "opencck-iplist",
+        "pincetgore-ip-list",
         "pvd-dog-no-vpn"
       ],
       "source": "external"
@@ -3333,6 +3344,7 @@
       "sources": [
         "jirnobruh-amnezia",
         "lib4u-amnezia",
+        "pincetgore-ip-list",
         "pvd-dog-no-vpn"
       ],
       "source": "external"
@@ -3434,7 +3446,8 @@
       "as_name": "RU-JSCIOT",
       "cc": "RU",
       "sources": [
-        "egkodin-ru-sites"
+        "egkodin-ru-sites",
+        "pincetgore-ip-list"
       ],
       "source": "external"
     },
@@ -4426,6 +4439,16 @@
       ],
       "source": "external"
     },
+    "91.219.148.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
+      ],
+      "source": "external"
+    },
     "91.219.188.0/22": {
       "asn": 50340,
       "as_name": "SELECTEL-MSK",
@@ -4550,19 +4573,6 @@
         "kyoresuas-ru-bypass",
         "opencck-iplist",
         "operator-whitelist-cidr"
-      ],
-      "source": "external"
-    },
-    "91.240.168.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites",
-        "kyoresuas-ru-bypass",
-        "opencck-iplist",
-        "pvd-dog-no-vpn",
-        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -5330,6 +5340,16 @@
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites"
+      ],
+      "source": "external"
+    },
+    "94.198.52.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
       ],
       "source": "external"
     },
@@ -6232,27 +6252,6 @@
       ],
       "source": "external"
     },
-    "151.236.72.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "rockblack-ru"
-      ],
-      "source": "external"
-    },
-    "151.236.84.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites",
-        "kyoresuas-essential",
-        "mobile-whitelist-cidr",
-        "rockblack-ru"
-      ],
-      "source": "external"
-    },
     "151.248.112.0/24": {
       "asn": 197695,
       "as_name": "AS-REG",
@@ -6287,6 +6286,16 @@
       "cc": "RU",
       "sources": [
         "pvd-dog-no-vpn"
+      ],
+      "source": "external"
+    },
+    "152.89.216.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
       ],
       "source": "external"
     },
@@ -6805,6 +6814,16 @@
       ],
       "source": "external"
     },
+    "185.9.144.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
+      ],
+      "source": "external"
+    },
     "185.9.228.0/22": {
       "asn": 199599,
       "as_name": "CIREX",
@@ -7010,21 +7029,6 @@
         "kyoresuas-ru-bypass",
         "lib4u-amnezia",
         "opencck-iplist"
-      ],
-      "source": "external"
-    },
-    "185.31.112.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites",
-        "jirnobruh-amnezia",
-        "mobile-whitelist-cidr",
-        "opencck-iplist",
-        "pincetgore-ip-list",
-        "pvd-dog-no-vpn",
-        "rockblack-ru"
       ],
       "source": "external"
     },
@@ -7451,6 +7455,16 @@
         "opencck-iplist",
         "pincetgore-ip-list",
         "pvd-dog-no-vpn"
+      ],
+      "source": "external"
+    },
+    "185.130.248.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
       ],
       "source": "external"
     },
@@ -8155,6 +8169,26 @@
       ],
       "source": "external"
     },
+    "188.127.240.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
+      ],
+      "source": "external"
+    },
+    "188.127.248.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
+      ],
+      "source": "external"
+    },
     "188.170.0.0/19": {
       "asn": 25159,
       "as_name": "SONICDUO-AS",
@@ -8551,6 +8585,17 @@
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites"
+      ],
+      "source": "external"
+    },
+    "194.67.71.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "sources": [
+        "egkodin-ru-sites",
+        "lib4u-amnezia",
+        "opencck-iplist"
       ],
       "source": "external"
     },
@@ -9267,7 +9312,6 @@
       "cc": "RU",
       "sources": [
         "kyoresuas-essential",
-        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
@@ -9284,6 +9328,7 @@
         "egkodin-ru-sites",
         "jirnobruh-amnezia",
         "kyoresuas-essential",
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
@@ -9429,15 +9474,6 @@
       ],
       "source": "external"
     },
-    "212.48.236.0/22": {
-      "asn": 56864,
-      "as_name": "WELLSERVER-AS",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites"
-      ],
-      "source": "external"
-    },
     "212.57.115.0/24": {
       "asn": 29182,
       "as_name": "RU-JSCIOT",
@@ -9479,15 +9515,6 @@
     "212.57.124.0/22": {
       "asn": 29182,
       "as_name": "RU-JSCIOT",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites"
-      ],
-      "source": "external"
-    },
-    "212.59.112.0/22": {
-      "asn": 24739,
-      "as_name": "SEVEREN-TELECOM St.Petersburg, Russia",
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites"
@@ -9672,15 +9699,6 @@
       ],
       "source": "external"
     },
-    "213.165.40.0/22": {
-      "asn": 210644,
-      "as_name": "AEZA-AS",
-      "cc": "RU",
-      "sources": [
-        "kyoresuas-ru-bypass"
-      ],
-      "source": "external"
-    },
     "213.171.8.0/23": {
       "asn": 9123,
       "as_name": "TIMEWEB-AS",
@@ -9690,30 +9708,21 @@
       ],
       "source": "external"
     },
-    "213.171.24.0/21": {
-      "asn": 208677,
-      "as_name": "CLOUDRU-AS",
+    "213.171.16.0/21": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites"
       ],
       "source": "external"
     },
-    "213.176.64.0/22": {
-      "asn": 210644,
-      "as_name": "AEZA-AS",
+    "213.171.24.0/21": {
+      "asn": 208677,
+      "as_name": "CLOUDRU-AS",
       "cc": "RU",
       "sources": [
-        "kyoresuas-ru-bypass"
-      ],
-      "source": "external"
-    },
-    "213.176.112.0/22": {
-      "asn": 210644,
-      "as_name": "AEZA-AS",
-      "cc": "RU",
-      "sources": [
-        "kyoresuas-ru-bypass"
+        "egkodin-ru-sites"
       ],
       "source": "external"
     },
@@ -9746,15 +9755,6 @@
       "source": "external"
     },
     "213.219.192.0/20": {
-      "asn": 12695,
-      "as_name": "DINET-AS",
-      "cc": "RU",
-      "sources": [
-        "egkodin-ru-sites"
-      ],
-      "source": "external"
-    },
-    "213.219.208.0/22": {
       "asn": 12695,
       "as_name": "DINET-AS",
       "cc": "RU",
@@ -17348,15 +17348,6 @@
         51115
       ]
     },
-    "3ebra.net": {
-      "sources": [
-        "lib4u-amnezia",
-        "v2fly-ru"
-      ],
-      "asn": [
-        29182
-      ]
-    },
     "4c.ru": {
       "sources": [
         "lib4u-amnezia",
@@ -22516,7 +22507,7 @@
         "jirnobruh-amnezia"
       ],
       "asn": [
-        39134
+        50340
       ]
     },
     "onlyjobs.ru": {
@@ -23660,7 +23651,6 @@
         "v2fly-ru"
       ],
       "asn": [
-        12389,
         57724,
         200928
       ]
@@ -23881,8 +23871,7 @@
         "v2fly-ru"
       ],
       "asn": [
-        57724,
-        200928
+        57724
       ]
     },
     "rtdocumentary.online": {
@@ -24157,7 +24146,6 @@
         "kozlov-amnezia"
       ],
       "asn": [
-        12389,
         57724
       ]
     },
@@ -25084,7 +25072,6 @@
         "v2fly-ru"
       ],
       "asn": [
-        47541,
         47764
       ]
     },
@@ -25095,7 +25082,6 @@
         "v2fly-ru"
       ],
       "asn": [
-        47541,
         47764
       ]
     },
@@ -27442,7 +27428,7 @@
         "jirnobruh-amnezia"
       ],
       "asn": [
-        39134
+        50340
       ]
     },
     "www.pecom.ru": {

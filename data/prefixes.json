@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "updated": "2026-09-10",
+  "updated": "2026-09-11",
   "source": "Team Cymru bulk whois + RIPEstat announced-prefixes + внешние списки",
-  "prefix_count": 1717,
+  "prefix_count": 1715,
   "external_count": 1000,
   "external_domains": 1044,
   "resolved_domains": 2021,
@@ -707,9 +707,9 @@
         "egkodin-ru-sites"
       ]
     },
-    "23.111.32.0/21": {
-      "asn": 39134,
-      "as_name": "UNITEDNET",
+    "23.111.37.0/24": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
       "cc": "RU",
       "services": [],
       "source": "external",
@@ -978,6 +978,17 @@
       "cc": "RU",
       "services": [],
       "source": "asn"
+    },
+    "31.177.108.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "pvd-dog-no-vpn"
+      ]
     },
     "31.184.204.0/23": {
       "asn": 210756,
@@ -2905,6 +2916,7 @@
       "sources": [
         "egkodin-ru-sites",
         "opencck-iplist",
+        "pincetgore-ip-list",
         "pvd-dog-no-vpn"
       ]
     },
@@ -4892,6 +4904,7 @@
       "sources": [
         "jirnobruh-amnezia",
         "lib4u-amnezia",
+        "pincetgore-ip-list",
         "pvd-dog-no-vpn"
       ]
     },
@@ -5092,7 +5105,8 @@
       "services": [],
       "source": "external",
       "sources": [
-        "egkodin-ru-sites"
+        "egkodin-ru-sites",
+        "pincetgore-ip-list"
       ]
     },
     "85.209.149.0/24": {
@@ -6834,6 +6848,17 @@
       ],
       "source": "dns"
     },
+    "91.219.148.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
+      ]
+    },
     "91.219.188.0/22": {
       "asn": 50340,
       "as_name": "SELECTEL-MSK",
@@ -7177,20 +7202,6 @@
         "kyoresuas-ru-bypass",
         "opencck-iplist",
         "operator-whitelist-cidr"
-      ]
-    },
-    "91.240.168.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "egkodin-ru-sites",
-        "kyoresuas-ru-bypass",
-        "opencck-iplist",
-        "pvd-dog-no-vpn",
-        "rockblack-ru"
       ]
     },
     "91.242.32.0/21": {
@@ -7924,14 +7935,12 @@
     },
     "93.93.91.0/24": {
       "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "pincetgore-ip-list",
-        "rockblack-ru"
-      ]
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
     },
     "93.93.92.0/23": {
       "asn": 34879,
@@ -8198,7 +8207,8 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru"
+        "mailru",
+        "vk-extra"
       ],
       "source": "asn"
     },
@@ -8271,6 +8281,17 @@
       "source": "external",
       "sources": [
         "egkodin-ru-sites"
+      ]
+    },
+    "94.198.52.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
       ]
     },
     "94.198.104.0/21": {
@@ -9076,10 +9097,12 @@
       "asn": 210756,
       "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
       "cc": "RU",
-      "services": [
-        "avito"
-      ],
-      "source": "dns"
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "mobile-whitelist-domains"
+      ]
     },
     "95.213.0.0/17": {
       "asn": 47541,
@@ -10065,29 +10088,6 @@
         "pvd-dog-no-vpn"
       ]
     },
-    "151.236.72.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "rockblack-ru"
-      ]
-    },
-    "151.236.84.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "egkodin-ru-sites",
-        "kyoresuas-essential",
-        "mobile-whitelist-cidr",
-        "rockblack-ru"
-      ]
-    },
     "151.248.112.0/24": {
       "asn": 197695,
       "as_name": "AS-REG",
@@ -10127,6 +10127,17 @@
       "source": "external",
       "sources": [
         "pvd-dog-no-vpn"
+      ]
+    },
+    "152.89.216.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
       ]
     },
     "153.51.96.0/19": {
@@ -11201,6 +11212,17 @@
         "kyoresuas-ru-bypass"
       ]
     },
+    "185.9.144.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
+      ]
+    },
     "185.9.228.0/22": {
       "asn": 199599,
       "as_name": "CIREX",
@@ -11538,22 +11560,6 @@
         "kyoresuas-ru-bypass",
         "lib4u-amnezia",
         "opencck-iplist"
-      ]
-    },
-    "185.31.112.0/22": {
-      "asn": 57363,
-      "as_name": "CDNVIDEO-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "egkodin-ru-sites",
-        "jirnobruh-amnezia",
-        "mobile-whitelist-cidr",
-        "opencck-iplist",
-        "pincetgore-ip-list",
-        "pvd-dog-no-vpn",
-        "rockblack-ru"
       ]
     },
     "185.31.164.0/22": {
@@ -12318,6 +12324,17 @@
       "services": [],
       "source": "asn"
     },
+    "185.130.248.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
+      ]
+    },
     "185.131.68.0/22": {
       "asn": 47764,
       "as_name": "VK — VK-AS (Mail.ru, OK, MAX, Сферум)",
@@ -12372,13 +12389,6 @@
       "services": [
         "wildberries"
       ],
-      "source": "asn"
-    },
-    "185.138.252.0/24": {
-      "asn": 57073,
-      "as_name": "Wildberries",
-      "cc": "RU",
-      "services": [],
       "source": "asn"
     },
     "185.138.253.0/24": {
@@ -12870,21 +12880,21 @@
       "asn": 24823,
       "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
       "cc": "RU",
+      "services": [
+        "vtb"
+      ],
+      "source": "dns"
+    },
+    "185.179.146.0/24": {
+      "asn": 24823,
+      "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
+      "cc": "RU",
       "services": [],
       "source": "external",
       "sources": [
         "egkodin-ru-sites",
         "mobile-whitelist-domains"
       ]
-    },
-    "185.179.146.0/24": {
-      "asn": 24823,
-      "as_name": "VTB-BANK-AS - VTB Bank (Public Joint-Stock Company), RU",
-      "cc": "RU",
-      "services": [
-        "vtb"
-      ],
-      "source": "dns"
     },
     "185.179.224.0/22": {
       "asn": 43740,
@@ -13460,6 +13470,28 @@
         "payments"
       ],
       "source": "dns"
+    },
+    "188.127.240.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
+      ]
+    },
+    "188.127.248.0/22": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "kyoresuas-ru-bypass"
+      ]
     },
     "188.162.48.0/20": {
       "asn": 31133,
@@ -14206,6 +14238,18 @@
       "source": "external",
       "sources": [
         "egkodin-ru-sites"
+      ]
+    },
+    "194.67.71.0/24": {
+      "asn": 197695,
+      "as_name": "AS-REG",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites",
+        "lib4u-amnezia",
+        "opencck-iplist"
       ]
     },
     "194.67.72.0/24": {
@@ -15553,7 +15597,6 @@
       "source": "external",
       "sources": [
         "kyoresuas-essential",
-        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
@@ -15571,6 +15614,7 @@
         "egkodin-ru-sites",
         "jirnobruh-amnezia",
         "kyoresuas-essential",
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
@@ -15757,16 +15801,6 @@
       ],
       "source": "dns"
     },
-    "212.48.236.0/22": {
-      "asn": 56864,
-      "as_name": "WELLSERVER-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "egkodin-ru-sites"
-      ]
-    },
     "212.57.115.0/24": {
       "asn": 29182,
       "as_name": "RU-JSCIOT",
@@ -15812,16 +15846,6 @@
     "212.57.124.0/22": {
       "asn": 29182,
       "as_name": "RU-JSCIOT",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "egkodin-ru-sites"
-      ]
-    },
-    "212.59.112.0/22": {
-      "asn": 24739,
-      "as_name": "SEVEREN-TELECOM St.Petersburg, Russia",
       "cc": "RU",
       "services": [],
       "source": "external",
@@ -16064,15 +16088,6 @@
         "rockblack-ru"
       ]
     },
-    "212.193.146.0/23": {
-      "asn": 34879,
-      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
-      "cc": "RU",
-      "services": [
-        "shops"
-      ],
-      "source": "dns"
-    },
     "212.193.152.0/23": {
       "asn": 204878,
       "as_name": "CCT-M9P1 - OOO _Sovremennye setevye tekhnologii_, RU",
@@ -16083,6 +16098,7 @@
         "gosuslugi",
         "mobile",
         "nalog",
+        "shops",
         "streaming"
       ],
       "source": "dns"
@@ -16301,16 +16317,6 @@
         "kyoresuas-ru-bypass"
       ]
     },
-    "213.165.40.0/22": {
-      "asn": 210644,
-      "as_name": "AEZA-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "kyoresuas-ru-bypass"
-      ]
-    },
     "213.165.192.0/19": {
       "asn": 200350,
       "as_name": "Яндекс — Yandex.Cloud",
@@ -16353,6 +16359,16 @@
         "opencck-iplist"
       ]
     },
+    "213.171.16.0/21": {
+      "asn": 56694,
+      "as_name": "SMARTAPE",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites"
+      ]
+    },
     "213.171.24.0/21": {
       "asn": 208677,
       "as_name": "CLOUDRU-AS",
@@ -16371,26 +16387,6 @@
         "other-banks"
       ],
       "source": "dns"
-    },
-    "213.176.64.0/22": {
-      "asn": 210644,
-      "as_name": "AEZA-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "kyoresuas-ru-bypass"
-      ]
-    },
-    "213.176.112.0/22": {
-      "asn": 210644,
-      "as_name": "AEZA-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "kyoresuas-ru-bypass"
-      ]
     },
     "213.180.192.0/19": {
       "asn": 13238,
@@ -16471,16 +16467,6 @@
       ]
     },
     "213.219.192.0/20": {
-      "asn": 12695,
-      "as_name": "DINET-AS",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "egkodin-ru-sites"
-      ]
-    },
-    "213.219.208.0/22": {
       "asn": 12695,
       "as_name": "DINET-AS",
       "cc": "RU",
@@ -16936,8 +16922,7 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru",
-        "vk-extra"
+        "mailru"
       ],
       "source": "asn"
     },

@@ -81,7 +81,6 @@
 38.img.avito.st
 39.img.avito.st
 3dnews.ru
-3ebra.net
 40.img.avito.st
 41.img.avito.st
 42.img.avito.st
@@ -873,7 +872,9 @@ games-fisheye.mail.ru
 games.mail.ru
 games.vk.com
 games.yandex.ru
+gamescup.ru
 garant.ru
+gatewaytorussia.ru
 gazeta.ru
 gazgroup.ru
 gazprom.ru
