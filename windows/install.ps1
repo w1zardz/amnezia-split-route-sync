@@ -105,8 +105,14 @@ try {
     if ($updaterArgumentText) { $taskArgumentText = "$taskArgumentText $updaterArgumentText" }
     $action = New-ScheduledTaskAction -Execute $PowerShellExe -Argument $taskArgumentText -WorkingDirectory $InstallDir
     $user = $identity.Name
+    # Без задержки задача стартует одновременно с автозапуском самой AmneziaVPN и
+    # перезапускает AmneziaVPN-service прямо посреди её подключения: приложение
+    # остаётся в трее с бесконечным «подключением». Три минуты дают Amnezia
+    # подняться и подключиться до того, как updater тронет службу.
+    $logonTrigger = New-ScheduledTaskTrigger -AtLogOn -User $user
+    $logonTrigger.Delay = 'PT3M'
     $triggers = @(
-        (New-ScheduledTaskTrigger -AtLogOn -User $user),
+        $logonTrigger,
         (New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(5) `
             -RepetitionInterval (New-TimeSpan -Hours 6) -RepetitionDuration (New-TimeSpan -Days 3650))
     )

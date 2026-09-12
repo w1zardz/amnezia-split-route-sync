@@ -1122,6 +1122,48 @@ function Start-AmneziaDaemon {
     }
 }
 
+# Scheduled Task работает с повышенными правами, и запущенная из неё AmneziaVPN.exe
+# наследует admin-токен. Такой экземпляр перестаёт открываться из трея и из меню
+# «Пуск»: Windows не пропускает оконные сообщения от обычного процесса к
+# привилегированному (UIPI), поэтому вместо окна стартует второй экземпляр и висит
+# на бесконечном «подключении». Поднимаем GUI разовой задачей от текущего
+# пользователя с RunLevel Limited; cmd /c start отвязывает процесс от задачи, чтобы
+# Task Scheduler не убил его вместе с ней.
+function Start-AmneziaGui([string]$ExePath, [string[]]$Arguments) {
+    if (-not (Test-Elevated)) {
+        if ($Arguments.Count -gt 0) {
+            Start-Process -FilePath $ExePath -ArgumentList $Arguments -WindowStyle Minimized | Out-Null
+        } else {
+            Start-Process -FilePath $ExePath -WindowStyle Minimized | Out-Null
+        }
+        return
+    }
+
+    $cmdExe = "$env:SystemRoot\System32\cmd.exe"
+    if (-not (Test-Path -LiteralPath $cmdExe -PathType Leaf)) { throw "Не найден $cmdExe" }
+    foreach ($argument in $Arguments) {
+        if ($argument -match '["\r\n]') { throw 'Недопустимый аргумент запуска AmneziaVPN.' }
+    }
+    $argumentText = "/c start `"`" /min `"$ExePath`""
+    if ($Arguments.Count -gt 0) { $argumentText = "$argumentText $($Arguments -join ' ')" }
+
+    $taskName = "Amnezia-Route-Sync-Launch-$PID"
+    $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $action = New-ScheduledTaskAction -Execute $cmdExe -Argument $argumentText
+    $principal = New-ScheduledTaskPrincipal -UserId $identity.Name -LogonType Interactive -RunLevel Limited
+    $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries `
+        -ExecutionTimeLimit (New-TimeSpan -Minutes 5)
+    try {
+        Register-ScheduledTask -TaskName $taskName -Action $action -Principal $principal `
+            -Settings $settings -Force | Out-Null
+        Start-ScheduledTask -TaskName $taskName
+        $deadline = [DateTime]::UtcNow.AddSeconds(20)
+        while ([DateTime]::UtcNow -lt $deadline -and -not (Test-GuiRunning)) { Start-Sleep -Milliseconds 250 }
+    } finally {
+        Unregister-ScheduledTask -TaskName $taskName -Confirm:$false -ErrorAction SilentlyContinue
+    }
+}
+
 function Restore-AmneziaSession($Session, [string]$ExePath) {
     if ($Session.Connected) { Start-AmneziaDaemon }
     if (-not $Session.GuiRunning -and -not $Session.Connected) { return }
@@ -1136,11 +1178,7 @@ function Restore-AmneziaSession($Session, [string]$ExePath) {
         $arguments = @('--autostart')
     }
     if (-not (Test-GuiRunning)) {
-        if ($arguments.Count -gt 0) {
-            Start-Process -FilePath $ExePath -ArgumentList $arguments -WindowStyle Hidden | Out-Null
-        } else {
-            Start-Process -FilePath $ExePath -WindowStyle Hidden | Out-Null
-        }
+        Start-AmneziaGui $ExePath $arguments
     }
     $deadline = [DateTime]::UtcNow.AddSeconds(20)
     while ([DateTime]::UtcNow -lt $deadline -and -not (Test-GuiRunning)) { Start-Sleep -Milliseconds 250 }
