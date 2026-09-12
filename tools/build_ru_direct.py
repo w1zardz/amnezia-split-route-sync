@@ -324,6 +324,17 @@ def release_notes(
         "",
         "При включённом режиме исключений адреса из списка идут напрямую, остальной трафик — через VPN.",
         "",
+        "### Установка скриптом на Windows и macOS",
+        "",
+        f"**Windows:** [install-windows.bat]({REPO_URL}/releases/latest/download/install-windows.bat). "
+        f"**macOS:** [install-macos.zip]({REPO_URL}/releases/latest/download/install-macos.zip), "
+        "распакуйте и запустите `install-macos.command`.",
+        "Скрипт сам добавляет список и обновляет его каждые 6 часов, сохраняя ручные записи. "
+        "При изменении списка VPN переподключается. Для своего сервера подписка Premium не нужна. "
+        f"[Пошаговая установка]({REPO_URL}#установка-скрипта-с-автообновлением).",
+        "",
+        "### Состав файлов, которые используют скрипты",
+        "",
         "| Файл | Записей | Доменов | Сетей IPv4 |",
         "|---|---:|---:|---:|",
         f"| **`amnezia-ru-direct.json`** — полный | {counts['entries']} | {counts['domains']} | {counts['cidrs']} |",
@@ -414,7 +425,7 @@ def release_notes(
         f"[data/external-report.md]({REPO_URL}/blob/master/data/external-report.md).",
         "",
         "<details>",
-        "<summary><b>📄 Подключение, выбор файла и импорт — подробно</b></summary>",
+        "<summary><b>📱 Ручной импорт на Android, iPhone, iPad и Linux — подробно</b></summary>",
         "",
         "### Сначала проверьте подключение",
         "",
@@ -432,11 +443,11 @@ def release_notes(
         "",
         "| Файл | Кому нужен | Импорт в Amnezia |",
         "|---|---|:---:|",
-        "| **`amnezia-ru-direct.json`** | 🪟 Windows и 🤖 Android — полный список: домены + сети | ✅ |",
-        f"| **`amnezia-ru-direct-ip.json`** | 🍏 iPhone, iPad, macOS и Linux — рекомендуемый файл: "
+        "| **`amnezia-ru-direct.json`** | источник Windows-скрипта: домены с IP + сети | ✅ |",
+        f"| **`amnezia-ru-direct-ip.json`** | Android, iPhone, iPad и Linux — ручной импорт: "
         f"только готовые сети IPv4 ({counts['ip_entries']}), не зависит от преобразования доменных записей "
         "в IP самим клиентом. Наш macOS-updater берёт его по умолчанию. Подходит и для Windows/Android | ✅ |",
-        f"| `amnezia-ru-direct-lite.json` | запасной вариант для Windows и Android: "
+        f"| `amnezia-ru-direct-lite.json` | только ключевые сервисы: "
         f"{plural(counts['lite_entries'], 'запись', 'записи', 'записей')} вместо {counts['entries']}, "
         "только самые популярные сервисы. Бери его, если список тормозит интерфейс Amnezia | ✅ |",
         "| `wg-allowed-ips.txt` | 🔧 клиент не умеет split tunneling — строка для конфига WireGuard/AmneziaWG | — |",
@@ -477,8 +488,8 @@ def release_notes(
         "",
         "AmneziaVPN → **Настройки → Раздельное туннелирование сайтов** → "
         "«Адреса из списка не должны открываться через VPN» → включить функцию → ⋮ → "
-        "**Заменить список с сайтами** → выбрать JSON → **переподключить VPN**. "
-        "Замена удаляет прежний список; для сохранения своих записей выберите добавление к существующим.",
+        "**Добавить импортированные сайты к существующим** → выбрать JSON → **переподключить VPN**. "
+        "Пункт «Заменить список с сайтами» удаляет прежние записи; для сохранения своих записей его не используйте.",
         "",
         "На iPhone сначала сохрани файл в «Файлы» (Safari → «Загрузить»), потом выбирай его оттуда.",
         "",
