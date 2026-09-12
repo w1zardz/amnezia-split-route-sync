@@ -1,7 +1,15 @@
 name: release
 
-# Ежедневная проверка источников; релиз — при изменении маршрутов или по ручному запуску.
+# Push публикует уже проверенный снимок из репозитория; ежедневный запуск обновляет источники.
 on:
+  push:
+    branches: [master]
+    paths:
+      - "dist/**"
+      - "windows/**"
+      - "macos/**"
+      - ".github/release-header.md"
+      - ".github/workflows/release.yml"
   schedule:
     - cron: "23 3 * * *"
   workflow_dispatch:
@@ -46,6 +54,7 @@ jobs:
       # Amnezia не резолвит домены при импорте JSON: AmneziaWG и мобильные клиенты
       # берут маршруты только из полей ips/ip записи. Снапшот IP кладётся в сборку.
       - name: Resolve domain IPs
+        if: github.event_name != 'push'
         run: python3 tools/resolve_domains.py --no-external
 
       - name: Build lists
@@ -53,6 +62,27 @@ jobs:
           python3 tools/catalog.py
           python3 tools/build_ru_direct.py --no-external
           python3 -m unittest discover -s tools -p test_collectors.py -v
+
+      - name: Verify committed routing assets
+        if: github.event_name == 'push'
+        run: |
+          # Push не должен незаметно заменить проверенные маршруты новым снимком DNS.
+          git diff --exit-code -- dist/amnezia-ru-direct.json dist/amnezia-ru-direct-lite.json \
+            dist/amnezia-ru-direct-ip.json dist/ru-direct-domains.txt dist/ru-direct-ipv4.txt \
+            dist/wg-allowed-ips.txt dist/happ-ru-direct.json
+
+      - name: Verify release manifest
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, pathlib
+          dist = pathlib.Path("dist")
+          manifest = json.loads((dist / "manifest.json").read_text())
+          assert manifest["selection_policy"] == "reviewed-catalog"
+          assert manifest["external_domains"] == manifest["external_roots"] == 0
+          assert manifest["routing"]["full"]["compacted"] <= 1000
+          for name, digest in manifest["sha256"].items():
+              assert hashlib.sha256((dist / name).read_bytes()).hexdigest() == digest, name
+          PY
 
       - name: Detect changed routing assets
         id: changes
@@ -66,6 +96,7 @@ jobs:
           fi
 
       - name: Commit updated snapshot
+        if: github.event_name != 'push'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -79,7 +110,7 @@ jobs:
           fi
 
       - name: Publish release
-        if: steps.changes.outputs.routes == 'true' || github.event_name == 'workflow_dispatch'
+        if: steps.changes.outputs.routes == 'true' || github.event_name == 'workflow_dispatch' || github.event_name == 'push'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -108,12 +139,14 @@ jobs:
             dist/manifest.json \
             "${RUNNER_TEMP}/install-windows.bat" \
             "${RUNNER_TEMP}/install-macos.zip"
-          # В Releases держим одну актуальную сборку: старые только путают, история
-          # остаётся в git (dist/), а /releases/latest/download/<файл> ведёт на свежую.
-          gh release list --limit 200 --json tagName --jq '.[].tagName' |
-            while read -r old; do
-              [ "${old}" = "${TAG}" ] || gh release delete "${old}" --cleanup-tag --yes
-            done
+          # При push сохраняем предыдущий выпуск для отката. Ежедневный и ручной
+          # запуск сохраняют прежнюю политику очистки истории Releases.
+          if [ "${GITHUB_EVENT_NAME}" != "push" ]; then
+            gh release list --limit 200 --json tagName --jq '.[].tagName' |
+              while read -r old; do
+                [ "${old}" = "${TAG}" ] || gh release delete "${old}" --cleanup-tag --yes
+              done
+          fi
 
       - name: Record coverage summary
         run: |
