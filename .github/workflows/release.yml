@@ -101,6 +101,10 @@ jobs:
           cat dist/RELEASE_NOTES.md >> "${RUNNER_TEMP}/notes.md"
           # Установщик в один клик: постоянная ссылка releases/latest/download/install-windows.bat.
           cp windows/install.bat "${RUNNER_TEMP}/install-windows.bat"
+          # macOS: .command отдаётся в ZIP — иначе браузер теряет бит +x и Finder
+          # отказывается запускать файл по двойному клику.
+          install -m 755 macos/install-macos.command "${RUNNER_TEMP}/install-macos.command"
+          (cd "${RUNNER_TEMP}" && zip -qj install-macos.zip install-macos.command)
           gh release create "${TAG}" \
             --target "$(git rev-parse HEAD)" --latest \
             --title "Актуальный список российских сайтов для Amnezia VPN (${DAY})" \
@@ -113,7 +117,8 @@ jobs:
             dist/wg-allowed-ips.txt \
             dist/happ-ru-direct.json \
             dist/manifest.json \
-            "${RUNNER_TEMP}/install-windows.bat"
+            "${RUNNER_TEMP}/install-windows.bat" \
+            "${RUNNER_TEMP}/install-macos.zip"
           # В Releases держим одну актуальную сборку: старые только путают, история
           # остаётся в git (dist/), а /releases/latest/download/<файл> ведёт на свежую.
           gh release list --limit 200 --json tagName --jq '.[].tagName' |

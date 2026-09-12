@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TEXT_SUFFIXES = {
     "",
     ".bat",
+    ".command",
     ".md",
     ".py",
     ".ps1",

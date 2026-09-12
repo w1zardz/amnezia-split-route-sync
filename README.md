@@ -3,6 +3,7 @@
 [![Сборка списка](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/actions/workflows/release.yml/badge.svg)](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/actions/workflows/release.yml)
 [![Обновлено](https://img.shields.io/github/last-commit/w1zardz/amnezia-vpn-russia-split-tunneling?label=%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BE&color=brightgreen)](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/releases/latest)
 [![Установщик для Windows](https://img.shields.io/badge/Windows-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%B2%20%D0%BE%D0%B4%D0%B8%D0%BD%20%D0%BA%D0%BB%D0%B8%D0%BA-0078D6)](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/releases/latest/download/install-windows.bat)
+[![Установщик для macOS](https://img.shields.io/badge/macOS-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%B2%20%D0%BE%D0%B4%D0%B8%D0%BD%20%D0%BA%D0%BB%D0%B8%D0%BA-000000)](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/releases/latest/download/install-macos.zip)
 [![Звёзды](https://img.shields.io/github/stars/w1zardz/amnezia-vpn-russia-split-tunneling?style=flat)](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/stargazers)
 
 **Готовый автообновляемый список российских сайтов и IP-сетей для раздельного
@@ -130,17 +131,41 @@ powershell -NoProfile -ExecutionPolicy Bypass -File windows\install.ps1
 
 </details>
 
-#### 🍏 macOS
+#### 🍏 macOS — в один клик
+
+1. Скачайте **[install-macos.zip](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/releases/latest/download/install-macos.zip)**
+   и дважды щёлкните по архиву — рядом появится файл `install-macos.command`.
+2. Щёлкните по нему **правой кнопкой → «Открыть»** и подтвердите «Открыть» в окне
+   macOS. Обычный двойной клик сработает только со второго раза: Gatekeeper
+   блокирует любой скачанный скрипт без подписи, код установщика открыт —
+   [`macos/install-macos.command`](macos/install-macos.command).
+3. Дождитесь в Терминале надписи «Готово».
+
+Установщик сам скачает свежую версию проекта с GitHub и поставит автообновление.
+Если на Mac ещё нет инструментов разработчика Apple (Command Line Tools), он
+откроет окно установки и дождётся её конца — это несколько минут и пара гигабайт
+загрузки, они нужны для сборки хелпера. Права администратора не запрашиваются:
+агент ставится в домашнюю папку.
+
+Если macOS всё же не пускает файл (Sequoia и новее), то же самое делает одна
+команда в **Терминале**:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/w1zardz/amnezia-vpn-russia-split-tunneling/master/macos/install-macos.command | bash
+```
+
+<details>
+<summary>Установка вручную из исходников</summary>
 
 Скачайте [проект ZIP-архивом](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/archive/refs/heads/master.zip)
 и распакуйте. Откройте **Терминал**, перейдите в распакованную папку проекта и выполните:
 
 ```bash
+xcode-select --install   # если Command Line Tools ещё не стоят
 bash macos/install.sh
 ```
 
-Если ещё не установлены инструменты Apple Command Line Tools, сначала выполните
-`xcode-select --install`, дождитесь завершения установки и повторите команду выше.
+</details>
 
 После успешной установки скрипт сам применит список и переподключит AmneziaVPN.
 Вручную импортировать JSON не нужно. Дальше обновления выполняются автоматически
@@ -498,6 +523,11 @@ Xcode Command Line Tools, подключение Premium или свой сер�
 xcode-select --install   # если Command Line Tools ещё не стоят
 bash macos/install.sh
 ```
+
+Без Терминала то же самое делает
+[`install-macos.zip`](https://github.com/w1zardz/amnezia-vpn-russia-split-tunneling/releases/latest/download/install-macos.zip):
+внутри `install-macos.command`, он сам ставит Command Line Tools, скачивает
+проект и запускает `macos/install.sh` — см. [быстрый старт](#-macos--в-один-клик).
 
 Что делает installer: собирает Swift-helper, прогоняет dry-run и только после
 успешной проверки ставит пользовательский LaunchAgent

@@ -36,7 +36,7 @@ jobs:
             tools/import_external.py \
             tools/resolve_domains.py \
             tools/privacy_scan.py
-          bash -n macos/install.sh macos/uninstall.sh
+          bash -n macos/install.sh macos/uninstall.sh macos/install-macos.command
           python3 -m json.tool config/asn-expand.json >/dev/null
           python3 -m json.tool config/external-sources.json >/dev/null
           python3 -m json.tool config/protected-ips.example.json >/dev/null
