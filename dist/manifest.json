@@ -10,6 +10,20 @@
   "lite_cidrs": 354,
   "lite_entries": 985,
   "ip_entries": 1363,
+  "routing": {
+    "full": {
+      "candidates": 4398,
+      "unique": 3139,
+      "compacted": 1518,
+      "redundant": 2880
+    },
+    "lite": {
+      "candidates": 1174,
+      "unique": 924,
+      "compacted": 365,
+      "redundant": 809
+    }
+  },
   "allowed_ips": 6794,
   "prefix_snapshot": 1716,
   "personal_domains": 0,

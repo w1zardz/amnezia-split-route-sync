@@ -50,6 +50,49 @@ try {
     Assert-True ((@(Get-PublicIPv4Values @('10.0.0.1','127.0.0.1','::1','1.1.1.1')) -join ',') -ceq '1.1.1.1') 'DNS accepted non-public addresses'
     Write-Host 'PASS: DNS rotation, fallback, manual entries, reserved addresses'
 
+    # End-to-end migration from domain keys to a minimal union of actual routes.
+    $routeList = [pscustomobject]@{
+        Domains = @('inside.example','same.example','adjacent.example','lost.example','snapshot.example','missing.example')
+        Cidrs = @('5.255.0.0/16')
+        DomainAddresses = @{'snapshot.example'=@('9.9.9.9'); 'inside.example'=@('4.4.4.4')}
+    }
+    $routeDns = [pscustomobject]@{
+        Addresses = @{'inside.example'=@('5.255.1.1'); 'same.example'=@('1.1.1.0'); 'adjacent.example'=@('1.1.1.0','1.1.1.1')}
+        PreviousAddresses = @{'lost.example'=@('8.8.8.8'); 'removed.example'=@('4.4.4.4')}
+    }
+    $oldSites = @{'manual.example'=@('7.7.7.7'); 'lost.example'=@('8.8.4.4'); 'snapshot.example'=@(); 'inside.example'=@('4.4.4.4')}
+    $plan = Get-ManagedRoutePlan $routeList $routeDns $oldSites $routeList.Domains
+    Assert-True (($plan.Entries -join ',') -ceq '1.1.1.0/31,5.255.0.0/16,8.8.8.8/32,9.9.9.9/32') 'Compaction changed coverage or retained stale/removed DNS'
+    Assert-True ($plan.UnresolvedDomainCount -eq 1 -and $plan.RemovedRouteCount -eq 3) 'Compaction accounting failed'
+    $migrated = Get-DesiredSites $oldSites $routeList.Domains $plan.Entries
+    Assert-True ($migrated.Count -eq 5 -and $migrated['manual.example'][0] -eq '7.7.7.7') 'Migration lost manual settings'
+    Assert-True (-not $migrated.ContainsKey('inside.example') -and -not $migrated.ContainsKey('missing.example')) 'Migration left domain keys or empty routes'
+    # DNS churn inside a covered prefix no longer restarts the VPN.
+    $routeDns.Addresses['inside.example'] = @('5.255.2.2')
+    $plan2 = Get-ManagedRoutePlan $routeList $routeDns $migrated $plan.Entries
+    Assert-True (Test-SitesEqual $migrated (Get-DesiredSites $migrated $plan.Entries $plan2.Entries)) 'Equivalent DNS coverage changed settings'
+    $routeLimit = $MaximumEffectiveRoutes
+    $MaximumEffectiveRoutes = 3
+    Assert-Throws { Get-ManagedRoutePlan $routeList $routeDns $oldSites $routeList.Domains } 'Effective route budget was not enforced'
+    $MaximumEffectiveRoutes = $routeLimit
+    # Test both import fields, invalid addresses, and empty-registry fallback.
+    $fixtureEntries = @(0..299 | ForEach-Object { @{hostname="5.255.$([int]($_ / 256)).$($_ % 256)/32";ip=''} })
+    $fixtureEntries += @{hostname='snapshot.example';ip='1.1.1.1';ips=@('9.9.9.9','10.1.2.3','::1','invalid')}
+    $minimumRoutesBefore = $MinimumRoutes
+    $MinimumRoutes = 1
+    $imported = ConvertFrom-ImportList (ConvertTo-Json -InputObject $fixtureEntries -Depth 5) 'fixture'
+    $MinimumRoutes = $minimumRoutesBefore
+    Assert-True (($imported.DomainAddresses['snapshot.example'] -join ',') -ceq '1.1.1.1,9.9.9.9') 'Snapshot validation failed'
+    $localEntries = @(Get-LocalSubnetEntries)
+    foreach ($hostRoute in @('172.20.15.255/32','172.29.239.255/32','192.168.90.255/32','10.42.0.1/32')) {
+        $combined = @(Compress-Cidrs @(@($localEntries | ForEach-Object { ConvertTo-Cidr $_ }) + (ConvertTo-Cidr $hostRoute)))
+        Assert-True ($combined.Count -eq 3) 'LAN policy missed a subnet created after login'
+    }
+    $NoLocalSubnets = $true
+    Assert-True (@(Get-LocalSubnetEntries).Count -eq 0) 'Private tunnel opt-out failed'
+    $NoLocalSubnets = $false
+    Write-Host 'PASS: route coverage, migration, DNS churn, snapshots, route budget, stable LAN'
+
     $originalLookup = ${function:Start-DomainLookup}
     $script:lookupCount = 0
     function Start-DomainLookup([string]$Hostname) {
@@ -69,6 +112,14 @@ try {
     Assert-True ($cached.Cached -and $script:lookupCount -eq 2) 'Fresh cache triggered DNS requests'
     $empty = Resolve-ManagedDomains @()
     Assert-True ($empty.Addresses.Count -eq 0) 'IP-only list needs no DNS'
+    # Even multiple failed refreshes keep last-known IPs after domain keys have
+    # been removed from Registry. They never count as fresh successful answers.
+    Write-JsonAtomic $DnsCachePath ([ordered]@{
+        version=1; updated_at=[DateTime]::UtcNow.AddHours(-5).ToString('o')
+        domains=@('fail.example'); addresses=@{}; last_known_addresses=@{'fail.example'=@('9.9.9.9')}
+    })
+    $failedAgain = Resolve-ManagedDomains @('fail.example')
+    Assert-True ($failedAgain.Addresses.Count -eq 0 -and $failedAgain.PreviousAddresses['fail.example'][0] -eq '9.9.9.9') 'Failed refresh lost last-known DNS or marked it fresh'
     Remove-Item -LiteralPath $DnsCachePath -Force
     $script:lookupCount = 0
     function Start-DomainLookup([string]$Hostname) {
@@ -177,7 +228,9 @@ try {
 
     Remove-Item function:Start-Process -ErrorAction SilentlyContinue
     ${function:Start-AmneziaGui} = $startGui
-    if (Test-Elevated) {
+    # Test-Elevated is mocked above; ask the real token before registering a task.
+    $realAdmin = ([Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    if ($realAdmin) {
         # Настоящая регистрация разовой задачи: проверяем, что RunLevel Limited проходит
         # в обеих оболочках и временная задача убирается за собой.
         $launchTask = "Amnezia-Route-Sync-Launch-$PID"

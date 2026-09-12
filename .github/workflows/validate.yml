@@ -35,6 +35,7 @@ jobs:
             tools/refresh_prefixes.py \
             tools/import_external.py \
             tools/resolve_domains.py \
+            tools/analyze_amnezia_log.py \
             tools/privacy_scan.py
           bash -n macos/install.sh macos/uninstall.sh macos/install-macos.command
           python3 -m json.tool config/asn-expand.json >/dev/null

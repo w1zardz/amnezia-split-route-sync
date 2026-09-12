@@ -16,6 +16,7 @@
 param(
     [switch]$Lite,
     [switch]$ReplaceAll,
+    [switch]$NoLocalSubnets,
     [ValidateRange(-1, 10000)]
     [int]$ServerIndex = -1,
     [string]$Source
@@ -55,6 +56,7 @@ if ($Source) {
 $updaterArguments = New-Object 'System.Collections.Generic.List[string]'
 if ($Lite) { [void]$updaterArguments.Add('-Lite') }
 if ($ReplaceAll) { [void]$updaterArguments.Add('-ReplaceAll') }
+if ($NoLocalSubnets) { [void]$updaterArguments.Add('-NoLocalSubnets') }
 if ($Source) { [void]$updaterArguments.Add("-Source `"$Source`"") }
 if ($ServerIndex -ge 0) { [void]$updaterArguments.Add("-ServerIndex $ServerIndex") }
 $updaterArgumentText = ($updaterArguments -join ' ')
@@ -78,8 +80,26 @@ try {
     & $PowerShellExe -NoProfile -ExecutionPolicy Bypass -File $stagedScript -SelfTest
     if ($LASTEXITCODE -ne 0) { throw 'Self-test updater завершился ошибкой; ничего не установлено.' }
 
+    # Старый экземпляр не должен держать mutex и применять прежнюю политику
+    # параллельно с переустановкой. Если он был прерван во время записи, сначала
+    # восстанавливаем его journal, ещё до сетевых запросов и замены файлов.
+    $runningTasks = @(Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue |
+        Where-Object { $_.State -eq 'Running' })
+    if ($runningTasks.Count -gt 0) {
+        Stop-ScheduledTask -TaskName $TaskName -ErrorAction Stop
+        $stopDeadline = [DateTime]::UtcNow.AddSeconds(20)
+        do {
+            Start-Sleep -Milliseconds 250
+            $stillRunning = (Get-ScheduledTask -TaskName $TaskName -ErrorAction Stop).State -eq 'Running'
+        } while ($stillRunning -and [DateTime]::UtcNow -lt $stopDeadline)
+        if ($stillRunning) { throw 'Предыдущий updater не остановился за 20 секунд; переустановка отменена.' }
+    }
+    & $PowerShellExe -NoProfile -ExecutionPolicy Bypass -File $stagedScript -RecoverOnly
+    if ($LASTEXITCODE -ne 0) { throw 'Не удалось восстановить предыдущую транзакцию; переустановка отменена.' }
+
     $dryRunArguments = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $stagedScript, '-DryRun')
     if ($Lite) { $dryRunArguments += '-Lite' }
+    if ($NoLocalSubnets) { $dryRunArguments += '-NoLocalSubnets' }
     if ($Source) { $dryRunArguments += @('-Source', $Source) }
     & $PowerShellExe @dryRunArguments
     if ($LASTEXITCODE -ne 0) { throw 'Dry-run updater завершился ошибкой; ничего не установлено.' }
@@ -129,7 +149,18 @@ try {
     if ($registeredTasks.Count -ne 1) { throw 'Task Scheduler не сохранил задачу.' }
 
     $installComplete = $true
-    Start-ScheduledTask -TaskName $TaskName
+    # Первый запуск синхронный: установщик сообщает об успехе только после
+    # применения и восстановления VPN, а ошибки не теряются в фоновой задаче.
+    $initialArguments = @('-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-File', $InstalledScript)
+    if ($Lite) { $initialArguments += '-Lite' }
+    if ($ReplaceAll) { $initialArguments += '-ReplaceAll' }
+    if ($NoLocalSubnets) { $initialArguments += '-NoLocalSubnets' }
+    if ($Source) { $initialArguments += @('-Source', $Source) }
+    if ($ServerIndex -ge 0) { $initialArguments += @('-ServerIndex', [string]$ServerIndex) }
+    & $PowerShellExe @initialArguments
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Скрипт и задача установлены, но первичное применение не завершилось. Исправьте ошибку выше и повторите установку; журнал восстановления сохранён, если он был создан.'
+    }
 
     Write-Host "Установлено: $InstalledScript"
     Write-Host 'Обновление: при входе в Windows и каждые 6 часов.'
@@ -157,6 +188,15 @@ try {
     }
     throw
 } finally {
-    Remove-Item -LiteralPath $stagingDir -Recurse -Force -ErrorAction SilentlyContinue
-    if (-not $keepBackup) { Remove-Item -LiteralPath $backupDir -Recurse -Force -ErrorAction SilentlyContinue }
+    $cleanupDirs = @($stagingDir)
+    if (-not $keepBackup) { $cleanupDirs += $backupDir }
+    $tempParent = [IO.Path]::GetFullPath($env:TEMP).TrimEnd('\') + '\'
+    foreach ($cleanupDir in $cleanupDirs) {
+        $resolvedCleanup = [IO.Path]::GetFullPath($cleanupDir)
+        if (-not $resolvedCleanup.StartsWith($tempParent, [StringComparison]::OrdinalIgnoreCase) -or
+            (Split-Path -Leaf $resolvedCleanup) -notmatch '^amnezia-route-(stage|backup)-[0-9a-f]{32}$') {
+            throw 'Небезопасный путь очистки временных файлов установщика.'
+        }
+        Remove-Item -LiteralPath $resolvedCleanup -Recurse -Force -ErrorAction SilentlyContinue
+    }
 }

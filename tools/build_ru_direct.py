@@ -42,6 +42,7 @@ MIN_ENTRIES = 300
 # ($MaximumRoutes / MAX_TOTAL_ROUTES). Список, который они отвергнут, нельзя
 # публиковать: у пользователя обновление просто перестанет применяться.
 MAX_ROUTES = 1_500
+MAX_EFFECTIVE_ROUTES = 2_000
 
 
 class BuildError(RuntimeError):
@@ -104,6 +105,19 @@ def sort_networks(values: Iterable[str]) -> list[str]:
             key=lambda item: (int(item.network_address), item.prefixlen),
         )
     ]
+
+
+def route_metrics(domains: Iterable[str], cidrs: Iterable[str], ips: dict[str, list[str]]) -> dict[str, int]:
+    """Count actual routes, including repeated DNS answers, not just JSON rows."""
+    networks = [ipaddress.ip_network(value) for value in cidrs]
+    networks.extend(ipaddress.ip_network(ip) for domain in domains for ip in ips.get(domain, []))
+    compacted = list(ipaddress.collapse_addresses(networks))
+    return {
+        "candidates": len(networks),
+        "unique": len(set(networks)),
+        "compacted": len(compacted),
+        "redundant": len(networks) - len(compacted),
+    }
 
 
 def load_personal(path: Path) -> tuple[list[str], list[str], list[str]]:
@@ -522,6 +536,13 @@ def main() -> int:
         # Экспорт готовых сетей не зависит от DNS-обработки доменных записей клиентом.
         ip_entries = import_entries((), full_cidrs)
         with_ips = domain_ips or {}
+        routing = {
+            "full": route_metrics(full_domains, full_cidrs, with_ips),
+            "lite": route_metrics(lite_domains, lite_cidrs, with_ips),
+        }
+        for label, metrics in routing.items():
+            if metrics["compacted"] > MAX_EFFECTIVE_ROUTES:
+                raise BuildError(f"{label}: после DNS {metrics['compacted']} маршрутов, лимит {MAX_EFFECTIVE_ROUTES}")
         allowed_ips = invert_networks(full_cidrs)
         happ = {
             "DirectSites": [f"domain:{domain}" for domain in full_domains],
@@ -540,6 +561,7 @@ def main() -> int:
             "lite_cidrs": len(lite_cidrs),
             "lite_entries": len(lite_entries),
             "ip_entries": len(ip_entries),
+            "routing": routing,
             "allowed_ips": len(allowed_ips),
             "prefix_snapshot": len(prefixes),
             "personal_domains": len(personal_domains),

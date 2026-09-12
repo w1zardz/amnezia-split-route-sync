@@ -18,6 +18,39 @@ import catalog
 import import_external as importer
 import refresh_prefixes as refresh
 import resolve_domains as resolver
+import analyze_amnezia_log as log_analyzer
+
+
+class RouteLoadTests(unittest.TestCase):
+    def test_dns_duplicates_and_contained_hosts_share_one_route(self):
+        metrics = builder.route_metrics(
+            ['a.example', 'b.example'], ['5.255.0.0/16'],
+            {'a.example': ['5.255.1.1', '1.1.1.0'], 'b.example': ['1.1.1.0', '1.1.1.1']},
+        )
+        self.assertEqual(metrics, {'candidates': 5, 'unique': 4, 'compacted': 2, 'redundant': 3})
+
+    def test_log_summary_separates_server_handshake_from_gui_delay(self):
+        lines = [
+            '[2026-01-01 00:00:00.000Z] Trying to connect to VPN, server id is hidden',
+            '[2026-01-01 00:00:01.000Z] Startup complete',
+            '[2026-01-01 00:00:02.000Z] Received handshake response',
+            '[2026-01-01 00:00:03.000Z] WindowsRouteMonitor : Adding exclusion route for 5.255.0.0/16',
+            '[2026-01-01 00:00:03.001Z] WindowsRouteMonitor : Adding exclusion route for 5.255.1.1/32',
+            '[2026-01-01 00:00:03.002Z] WindowsRouteMonitor : Adding exclusion route for /999999',
+            '[2026-01-01 00:00:04.000Z] WindowsRouteMonitor : Capturing route to 172.20.15.255/32',
+            '[2026-01-01 00:00:04.001Z] WindowsRouteMonitor : Failed to update route: 5010',
+            '[2026-01-01 00:00:04.002Z] WindowsRouteMonitor : Routes changed',
+            '[2026-01-01 00:00:20.000Z] Parse command: connected',
+        ]
+        report = log_analyzer.analyze(reversed(lines))
+        self.assertEqual(report['first_connection_seconds'], 20)
+        self.assertEqual(report['first_handshake_to_connected_seconds'], 18)
+        self.assertEqual(report['route_update_errors'], {'5010': 1})
+        self.assertEqual(report['route_change_notifications'], 1)
+        self.assertEqual(report['compacted_routes'], 1)
+        self.assertEqual(report['invalid_route_additions'], 1)
+        self.assertNotIn('hidden', json.dumps(report))
+        self.assertIsNone(log_analyzer.analyze([])['first_connection_seconds'])
 
 
 def row(first, last, asn=64501, country="RU"):

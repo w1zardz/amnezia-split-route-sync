@@ -64,21 +64,19 @@ $MaxListBytes = 4194304
 $MinimumPrefix = 12
 $MinimumRoutes = 40
 $MaximumRoutes = 1500
+# Лимит уже развёрнутых и схлопнутых маршрутов, включая DNS, а не строк JSON.
+$MaximumEffectiveRoutes = 2000
 $MaximumAddresses = [uint64]40000000
 $MinimumEntries = 300
 $MaximumEntries = 4000
 $MaxRegistryEntries = 4096
 
-# Локальная подсеть обязана ходить мимо VPN. routeMode=2 отправляет в туннель всё,
-# чего нет в ExceptSites, поэтому 192.168.x.x уезжает в AmneziaWG и соседи по LAN
-# (принтер, SMB, синхронизация буфера) становятся недоступны в обе стороны.
-# Killswitch это не ослабляет: RFC1918 в интернет не маршрутизируется, а дефолт
-# для всего остального трафика остаётся в туннеле.
+# Стабильные RFC1918-исключения нужны ДО старта VPN. Hyper-V/WSL может сменить
+# подсеть после перезагрузки или создать её уже после входа. Снимок интерфейсов
+# устаревает, и WindowsRouteMonitor Amnezia 5.0.1.5 начинает захватывать локальные
+# broadcast-маршруты с тысячами ошибок 5010. -NoLocalSubnets отключает эту политику
+# для пользователей, которым приватные адреса нужны именно внутри Amnezia.
 $PrivateSubnetRanges = @('10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16')
-$TunnelAdapterPattern = 'wireguard|amnezia|wintun|tap-windows|openvpn|awg'
-$MinLocalSubnetPrefix = 16
-$MaxLocalSubnetPrefix = 30
-$MaxLocalSubnets = 8
 
 $ManagedPath = Join-Path $StateDir 'managed-entries.json'
 $StatusPath = Join-Path $StateDir 'status.json'
@@ -453,6 +451,7 @@ function ConvertFrom-ImportList([string]$Text, [string]$SourceName) {
 
     $domains = New-Object 'System.Collections.Generic.List[string]'
     $networks = New-Object 'System.Collections.Generic.List[object]'
+    $snapshotAddresses = @{}
     $seen = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
     $index = -1
     foreach ($entry in $entries) {
@@ -475,6 +474,11 @@ function ConvertFrom-ImportList([string]$Text, [string]$SourceName) {
         }
         if (-not (Test-Hostname $value)) { throw "${SourceName}: некорректный домен $value" }
         $domains.Add($value)
+        $values = @()
+        if ($entry.PSObject.Properties.Name -contains 'ips') { $values += @($entry.ips) }
+        if ($entry.PSObject.Properties.Name -contains 'ip') { $values += @($entry.ip) }
+        $ips = @(Get-PublicIPv4Values $values | Sort-Object -Unique)
+        if ($ips.Count -gt 0) { $snapshotAddresses[$value] = $ips }
     }
 
     $total = $domains.Count + $networks.Count
@@ -494,6 +498,7 @@ function ConvertFrom-ImportList([string]$Text, [string]$SourceName) {
     return [pscustomobject]@{
         Domains = $sortedDomains
         Cidrs   = @($collapsed | ForEach-Object { $_.Text })
+        DomainAddresses = $snapshotAddresses
     }
 }
 
@@ -509,53 +514,9 @@ function Test-CidrPrivate($Cidr) {
     return $false
 }
 
-# Адаптеры туннелей пропускаем: их адрес — не локальная сеть, и вынос его в
-# ExceptSites увёл бы мимо VPN сам VPN.
-function Get-TunnelAliases {
-    $aliases = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
-    foreach ($adapter in @(Get-NetAdapter -ErrorAction Stop)) {
-        $name = [string]$adapter.Name
-        $description = [string]$adapter.InterfaceDescription
-        if ($name -match $TunnelAdapterPattern -or $description -match $TunnelAdapterPattern) {
-            [void]$aliases.Add($name)
-        }
-    }
-    # Запятая обязательна: пустой HashSet PowerShell разворачивает в $null,
-    # и следующий .Contains() падает — это происходит, когда туннель выключен.
-    return ,$aliases
-}
-
 function Get-LocalSubnetEntries {
     if ($NoLocalSubnets) { return @() }
-    $tunnelAliases = $null
-    $addresses = @()
-    try {
-        $tunnelAliases = Get-TunnelAliases
-        $addresses = @(Get-NetIPAddress -AddressFamily IPv4 -ErrorAction Stop)
-    } catch {
-        # Отсутствие NetTCPIP не повод ронять обновление списка: просто не трогаем локалку.
-        Write-Warning "Локальные подсети не определены ($($_.Exception.Message)); LAN останется в туннеле."
-        return @()
-    }
-
-    $result = New-Object 'System.Collections.Generic.List[string]'
-    $seen = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
-    foreach ($address in $addresses) {
-        $alias = [string]$address.InterfaceAlias
-        if ($tunnelAliases.Contains($alias)) { continue }
-        $prefix = [int]$address.PrefixLength
-        # /32 на интерфейсе — почерк туннеля, а не локальной подсети.
-        if ($prefix -lt $MinLocalSubnetPrefix -or $prefix -gt $MaxLocalSubnetPrefix) { continue }
-        $number = $null
-        try { $number = ConvertTo-IPv4Number ([string]$address.IPAddress) } catch { continue }
-        $cidr = New-Cidr ($number -band (Get-PrefixMask $prefix)) $prefix
-        if (-not (Test-CidrPrivate $cidr)) { continue }
-        if ($seen.Add($cidr.Text)) { $result.Add($cidr.Text) }
-    }
-    if ($result.Count -gt $MaxLocalSubnets) {
-        throw "локальных подсетей больше ожидаемого: $($result.Count)"
-    }
-    return @($result.ToArray() | Sort-Object -CaseSensitive)
+    return @($PrivateSubnetRanges)
 }
 
 # --- IPv6 -----------------------------------------------------------------------
@@ -646,8 +607,9 @@ function Get-PublicIPv4Values($Values) {
 
 function Resolve-ManagedDomains([string[]]$Domains, [int]$TimeoutSeconds = 45, [int]$Concurrency = 24) {
     $addresses = @{}
+    $previousAddresses = @{}
     if ($Domains.Count -eq 0) {
-        return [pscustomobject]@{ Addresses = $addresses; Cached = $false
+        return [pscustomobject]@{ Addresses = $addresses; PreviousAddresses = $previousAddresses; Cached = $false
             Cache = [ordered]@{ version = 1; updated_at = [DateTime]::UtcNow.ToString('o'); domains = @(); addresses = @{} } }
     }
     $cached = $null
@@ -655,6 +617,16 @@ function Resolve-ManagedDomains([string[]]$Domains, [int]$TimeoutSeconds = 45, [
     if ($null -ne $cached) {
         try {
             if ($cached.version -ne 1) { throw 'Unknown DNS cache version' }
+            # После перехода на CIDR в реестре больше нет имён доменов. Храним
+            # последние рабочие IP отдельно от свежих ответов, включая старый кэш v1.
+            $previous = $cached.addresses
+            if ($cached.PSObject.Properties.Name -contains 'last_known_addresses') {
+                $previous = $cached.last_known_addresses
+            }
+            foreach ($entry in $previous.PSObject.Properties) {
+                $ips = @(Get-PublicIPv4Values $entry.Value | Sort-Object -Unique)
+                if ($ips.Count -gt 0) { $previousAddresses[$entry.Name] = $ips }
+            }
             # PowerShell 7.5+ автоматически превращает ISO-время из JSON в DateTime.
             $updated = if ($cached.updated_at -is [DateTime]) { $cached.updated_at }
                        else { [DateTime]::Parse([string]$cached.updated_at, [Globalization.CultureInfo]::InvariantCulture, [Globalization.DateTimeStyles]::RoundtripKind) }
@@ -666,7 +638,7 @@ function Resolve-ManagedDomains([string[]]$Domains, [int]$TimeoutSeconds = 45, [
                     $ips = @(Get-PublicIPv4Values $entry.Value | Sort-Object -Unique)
                     if ($ips.Count -gt 0) { $addresses[$entry.Name] = $ips }
                 }
-                return [pscustomobject]@{ Addresses = $addresses; Cache = $cached; Cached = $true }
+                return [pscustomobject]@{ Addresses = $addresses; PreviousAddresses = $previousAddresses; Cache = $cached; Cached = $true }
             }
         } catch { Write-Warning 'Кэш DNS несовместим; обновляю его.' }
     }
@@ -691,11 +663,49 @@ function Resolve-ManagedDomains([string[]]$Domains, [int]$TimeoutSeconds = 45, [
         if ($pending.Count -gt 0) { Start-Sleep -Milliseconds 25 }
     }
     $failed = $Domains.Count - $addresses.Count
-    # Кэш содержит только свежие ответы. Fallback берётся из реестра отдельно,
-    # чтобы не выдавать старые IP за результат успешного DNS-обновления.
+    # addresses содержит только свежие ответы; fallback учитывается отдельно.
     $cache = [ordered]@{ version = 1; updated_at = [DateTime]::UtcNow.ToString('o'); domains = @($Domains); addresses = $addresses.Clone() }
     if ($failed -gt 0) { Write-Warning "DNS: для $failed из $($Domains.Count) доменов нет свежего публичного IPv4; сохранены прежние IP, если они были." }
-    return [pscustomobject]@{ Addresses = $addresses; Cache = $cache; Cached = $false }
+    return [pscustomobject]@{ Addresses = $addresses; PreviousAddresses = $previousAddresses; Cache = $cache; Cached = $false }
+}
+
+function Get-ManagedRoutePlan($List, $Dns, $Current, [string[]]$PreviousManaged) {
+    $networks = New-Object 'System.Collections.Generic.List[object]'
+    foreach ($value in $List.Cidrs) { $networks.Add((ConvertTo-Cidr $value)) }
+    $owned = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
+    foreach ($value in $PreviousManaged) { [void]$owned.Add($value) }
+    $domainAddresses = @{}
+    $unresolved = 0
+    foreach ($domain in $List.Domains) {
+        $sources = @($Dns.Addresses, $Dns.PreviousAddresses)
+        if ($owned.Contains($domain)) { $sources += $Current }
+        $sources += $List.DomainAddresses
+        $ips = @()
+        foreach ($sourceAddresses in $sources) {
+            if (-not $sourceAddresses.ContainsKey($domain)) { continue }
+            $ips = @(Get-PublicIPv4Values $sourceAddresses[$domain] | Sort-Object -Unique)
+            if ($ips.Count -gt 0) { break }
+        }
+        if ($ips.Count -eq 0) { $unresolved++; continue }
+        $domainAddresses[$domain] = $ips
+        foreach ($ip in $ips) { $networks.Add((ConvertTo-Cidr $ip)) }
+    }
+    # Сжимаем всё объединение: одинаковые IP разных доменов, /32 внутри BGP-сети
+    # и смежные сети. Имена и пустые IP не передаём в демон (там они дают /999999).
+    $collapsed = @(Compress-Cidrs $networks.ToArray())
+    if ($collapsed.Count -gt $MaximumEffectiveRoutes) {
+        throw "После DNS осталось $($collapsed.Count) маршрутов (лимит $MaximumEffectiveRoutes). Используйте -Lite; настройки не изменены."
+    }
+    $covered = [uint64]0
+    foreach ($cidr in $collapsed) { $covered += $cidr.Count }
+    if ($covered -gt $MaximumAddresses) { throw "DNS-список покрывает слишком много IPv4: $covered" }
+    return [pscustomobject]@{
+        Entries = @($collapsed | ForEach-Object { $_.Text })
+        DomainAddresses = $domainAddresses
+        InputRouteCount = $networks.Count
+        RemovedRouteCount = $networks.Count - $collapsed.Count
+        UnresolvedDomainCount = $unresolved
+    }
 }
 
 # --- реестр -------------------------------------------------------------------
@@ -844,7 +854,7 @@ function Get-DesiredSites($Current, [string[]]$PreviousManaged, [string[]]$Entri
         elseif ((Test-Hostname $entry) -and $Current.ContainsKey($entry)) {
             $desired[$entry] = @(Get-PublicIPv4Values $Current[$entry] | Sort-Object -Unique)
         }
-        elseif ($Current.ContainsKey($entry)) { $desired[$entry] = @($Current[$entry]) }
+        elseif ($Current.ContainsKey($entry) -and -not $entry.Contains('/')) { $desired[$entry] = @($Current[$entry]) }
         else { $desired[$entry] = @() }
     }
     if ($desired.Count -gt $MaxRegistryEntries) {
@@ -1354,43 +1364,16 @@ if ($SelfTest) {
     if (-not (Test-CidrPrivate (ConvertTo-Cidr '10.8.1.0/24'))) { throw 'Private-subnet self-test failed (10/8).' }
     if (Test-CidrPrivate (ConvertTo-Cidr '5.255.0.0/16')) { throw 'Private-subnet self-test failed (global).' }
 
-    # Подставляем перечисление адаптеров: функции перекрывают одноимённые командлеты,
-    # поэтому тест локальных подсетей гоняется и вне Windows.
-    function Get-NetAdapter {
-        @(
-            [pscustomobject]@{ Name = 'Ethernet';   InterfaceDescription = 'Realtek Gaming 2.5GbE' },
-            [pscustomobject]@{ Name = 'AmneziaWG';  InterfaceDescription = 'Wintun Userspace Tunnel' }
-        )
-    }
-    function Get-NetIPAddress {
-        param($AddressFamily, $ErrorAction)
-        @(
-            [pscustomobject]@{ InterfaceAlias = 'Ethernet';  IPAddress = '192.168.1.133'; PrefixLength = 24 },
-            [pscustomobject]@{ InterfaceAlias = 'Ethernet';  IPAddress = '192.168.1.140'; PrefixLength = 24 },
-            [pscustomobject]@{ InterfaceAlias = 'AmneziaWG'; IPAddress = '10.8.1.3';      PrefixLength = 24 },
-            [pscustomobject]@{ InterfaceAlias = 'Ethernet';  IPAddress = '10.8.1.9';      PrefixLength = 32 },
-            [pscustomobject]@{ InterfaceAlias = 'Loopback';  IPAddress = '127.0.0.1';     PrefixLength = 8 },
-            [pscustomobject]@{ InterfaceAlias = 'Ethernet';  IPAddress = '5.255.255.70';  PrefixLength = 24 }
-        )
-    }
+    # Политика не зависит от того, успел ли Hyper-V создать интерфейс.
+    function Get-NetAdapter { throw 'LAN policy must not enumerate adapters' }
+    function Get-NetIPAddress { throw 'LAN policy must not snapshot dynamic subnets' }
     $localTest = @(Get-LocalSubnetEntries)
-    if (($localTest -join ',') -cne '192.168.1.0/24') {
+    if (($localTest -join ',') -cne '10.0.0.0/8,172.16.0.0/12,192.168.0.0/16') {
         throw "Local-subnet self-test failed: $($localTest -join ',')"
     }
-
-    # VPN выключен — туннельного адаптера нет вовсе. Пустой список не должен
-    # разворачиваться в $null и ронять перечисление.
-    function Get-NetAdapter {
-        @([pscustomobject]@{ Name = 'Ethernet'; InterfaceDescription = 'Realtek Gaming 2.5GbE' })
-    }
-    function Get-NetIPAddress {
-        param($AddressFamily, $ErrorAction)
-        @([pscustomobject]@{ InterfaceAlias = 'Ethernet'; IPAddress = '192.168.1.133'; PrefixLength = 24 })
-    }
-    $localOffline = @(Get-LocalSubnetEntries)
-    if (($localOffline -join ',') -cne '192.168.1.0/24') {
-        throw "Local-subnet offline self-test failed: $($localOffline -join ',')"
-    }
+    $NoLocalSubnets = $true
+    if (@(Get-LocalSubnetEntries).Count -ne 0) { throw 'Local-subnet opt-out failed.' }
+    $NoLocalSubnets = $false
     if (-not (Test-Hostname 'gosuslugi.ru') -or (Test-Hostname 'GosUslugi.ru') -or (Test-Hostname 'no-dot')) {
         throw 'Hostname self-test failed.'
     }
@@ -1437,13 +1420,18 @@ if ($Status) {
             # Присваивание из if разворачивает пустой массив в $null, поэтому @() отдельно.
             $values = @()
             if ($sites.ContainsKey($probe)) { $values = @($sites[$probe] | Where-Object { $_ }) }
-            $present = if ($sites.ContainsKey($probe)) { 'есть' } else { 'НЕТ' }
+            $present = if ($sites.ContainsKey($probe)) { 'есть' } else { 'отдельного ключа нет; адрес может покрываться CIDR' }
             $resolved = if ($values.Count -gt 0) { " (значения: $($values -join ', '))" } else { ' (значения пусты)' }
             Write-Host "  $probe в списке: $present$resolved"
         }
         $networkKeys = @($sites.Keys | Where-Object { $_ -like '*/*' })
         $domainKeys = @($sites.Keys | Where-Object { $_ -notlike '*/*' })
         Write-Host "Ключей-сетей: $($networkKeys.Count), ключей-доменов: $($domainKeys.Count)"
+        Write-Host 'В компактном списке имена доменов заменены объединением их IPv4 и готовых сетей.'
+        $missingPrivate = @($PrivateSubnetRanges | Where-Object { -not $sites.ContainsKey($_) })
+        if (-not $NoLocalSubnets -and $missingPrivate.Count -gt 0) {
+            Write-Warning 'Нет полного набора стабильных LAN-исключений: обновите updater. Снимок подсетей Hyper-V может устареть после перезагрузки.'
+        }
         $resolvedDomains = @($domainKeys | Where-Object { @(Get-PublicIPv4Values $sites[$_]).Count -gt 0 }).Count
         Write-Host "Доменов с сохранёнными публичными IPv4: $resolvedDomains из $($domainKeys.Count)"
         if ($resolvedDomains -lt $domainKeys.Count) {
@@ -1532,6 +1520,7 @@ $hasLock = $false
 try {
     try { $hasLock = $mutex.WaitOne(0) } catch [Threading.AbandonedMutexException] { $hasLock = $true }
     if (-not $hasLock) {
+        if ($DryRun -or $RecoverOnly) { throw 'Другой updater уже работает; проверка/восстановление не выполнены. Дождитесь его завершения.' }
         Write-Host 'Другой updater уже работает, пропускаю запуск.'
         exit 0
     }
@@ -1566,7 +1555,6 @@ try {
     $text = Get-SourceText $Source
     $list = ConvertFrom-ImportList $text $Source
     $localSubnets = @(Get-LocalSubnetEntries)
-    $entries = @($list.Domains) + @($list.Cidrs) + $localSubnets
     Write-Host "Проверено $($list.Domains.Count) доменов и $($list.Cidrs.Count) сетей IPv4 для AmneziaVPN $appVersion"
     if ($localSubnets.Count -gt 0) {
         Write-Host "Локальные подсети мимо VPN: $($localSubnets -join ', ')"
@@ -1574,12 +1562,23 @@ try {
         Write-Host 'Локальных подсетей не найдено — LAN останется в туннеле.'
     }
 
-    if ($DryRun) { exit 0 }
-
     $dns = Resolve-ManagedDomains $list.Domains
     Write-Host "DNS: $($dns.Addresses.Count) из $($list.Domains.Count) доменов с публичными IPv4; кэш: $($dns.Cached)"
-    $result = Invoke-RoutingTransaction $entries $exePath $dns.Addresses
-    Write-JsonAtomic $DnsCachePath $dns.Cache
+    $plan = Get-ManagedRoutePlan $list $dns (Read-ExceptSites) @(Read-ManagedEntries)
+    $entries = @($plan.Entries) + $localSubnets
+    Write-Host "Маршруты после DNS: $($plan.InputRouteCount) -> $($plan.Entries.Count); убрано повторов и перекрытий: $($plan.RemovedRouteCount)"
+    if ($plan.UnresolvedDomainCount -gt 0) {
+        Write-Warning "$($plan.UnresolvedDomainCount) доменов без известных IPv4 пропущены; их готовые BGP-сети сохранены."
+    }
+    if ($DryRun) { exit 0 }
+
+    # Сохраняем привязку имён ДО записи CIDR: даже сбой при восстановлении VPN
+    # не должен лишить следующую попытку fallback при недоступном DNS.
+    Write-JsonAtomic $DnsCachePath ([ordered]@{
+        version = 1; updated_at = $dns.Cache.updated_at; domains = @($list.Domains)
+        addresses = $dns.Addresses; last_known_addresses = $plan.DomainAddresses
+    })
+    $result = Invoke-RoutingTransaction $entries $exePath
 
     Write-TextAtomic $ImportPath $text
     Write-JsonAtomic $StatusPath ([ordered]@{
@@ -1587,6 +1586,10 @@ try {
         source                   = $Source
         domain_count             = $list.Domains.Count
         cidr_count               = $list.Cidrs.Count
+        effective_route_count    = $plan.Entries.Count
+        routes_before_compaction = $plan.InputRouteCount
+        redundant_routes_removed = $plan.RemovedRouteCount
+        unresolved_domain_count  = $plan.UnresolvedDomainCount
         local_subnets            = @($localSubnets)
         entry_count              = $entries.Count
         manual_entries_preserved = [int]$result.ManualCount
