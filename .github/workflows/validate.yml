@@ -107,6 +107,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Verify list replacement and rollback
+        run: python3 -m unittest discover -s macos -p test_updater.py -v
       - name: Compile Swift helper and lint LaunchAgent
         run: |
           xcrun swiftc -warnings-as-errors -O macos/set-amnezia-routes.swift -o "${RUNNER_TEMP}/set-amnezia-routes"
