@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "updated": "2026-09-11",
+  "updated": "2026-09-12",
   "source": "Team Cymru bulk whois + RIPEstat announced-prefixes + внешние списки",
-  "prefix_count": 1715,
+  "prefix_count": 1716,
   "external_count": 1000,
   "external_domains": 1044,
-  "resolved_domains": 2021,
+  "resolved_domains": 2020,
   "catalog_domains": 2128,
   "prefixes": {
     "2.56.24.0/22": {
@@ -718,9 +718,9 @@
         "pincetgore-ip-list"
       ]
     },
-    "23.111.216.0/22": {
-      "asn": 39134,
-      "as_name": "UNITEDNET",
+    "23.111.216.0/23": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
       "cc": "RU",
       "services": [],
       "source": "external",
@@ -1312,7 +1312,6 @@
       "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
       "cc": "RU",
       "services": [
-        "avia",
         "mobile"
       ],
       "source": "dns"
@@ -7933,15 +7932,6 @@
         "rockblack-ru"
       ]
     },
-    "93.93.91.0/24": {
-      "asn": 34879,
-      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
-      "cc": "RU",
-      "services": [
-        "shops"
-      ],
-      "source": "dns"
-    },
     "93.93.92.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
@@ -8207,8 +8197,7 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru",
-        "vk-extra"
+        "mailru"
       ],
       "source": "asn"
     },
@@ -9097,12 +9086,10 @@
       "asn": 210756,
       "as_name": "EdgeCenterLLC - EdgeCenter LLC, RU",
       "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "egkodin-ru-sites",
-        "mobile-whitelist-domains"
-      ]
+      "services": [
+        "avito"
+      ],
+      "source": "dns"
     },
     "95.213.0.0/17": {
       "asn": 47541,
@@ -15511,18 +15498,7 @@
         "kyoresuas-ru-bypass"
       ]
     },
-    "212.11.129.0/24": {
-      "asn": 8901,
-      "as_name": "Moscow Mayors Office",
-      "cc": "RU",
-      "services": [],
-      "source": "external",
-      "sources": [
-        "kyoresuas-essential",
-        "pincetgore-ip-list"
-      ]
-    },
-    "212.11.130.0/23": {
+    "212.11.128.0/22": {
       "asn": 8901,
       "as_name": "Moscow Mayors Office",
       "cc": "RU",
@@ -15597,6 +15573,7 @@
       "source": "external",
       "sources": [
         "kyoresuas-essential",
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
@@ -15614,7 +15591,6 @@
         "egkodin-ru-sites",
         "jirnobruh-amnezia",
         "kyoresuas-essential",
-        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
@@ -15626,7 +15602,8 @@
       "as_name": "UNSPECIFIED - GKU _Mosgortelecom_, RU",
       "cc": "RU",
       "services": [
-        "gov-extra"
+        "gov-extra",
+        "mos"
       ],
       "source": "dns"
     },
@@ -15801,6 +15778,16 @@
       ],
       "source": "dns"
     },
+    "212.48.236.0/22": {
+      "asn": 56864,
+      "as_name": "WELLSERVER-AS",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites"
+      ]
+    },
     "212.57.115.0/24": {
       "asn": 29182,
       "as_name": "RU-JSCIOT",
@@ -15846,6 +15833,16 @@
     "212.57.124.0/22": {
       "asn": 29182,
       "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "services": [],
+      "source": "external",
+      "sources": [
+        "egkodin-ru-sites"
+      ]
+    },
+    "212.59.112.0/22": {
+      "asn": 24739,
+      "as_name": "SEVEREN-TELECOM St.Petersburg, Russia",
       "cc": "RU",
       "services": [],
       "source": "external",
@@ -16088,6 +16085,15 @@
         "rockblack-ru"
       ]
     },
+    "212.193.146.0/23": {
+      "asn": 34879,
+      "as_name": "CCT-AS - OOO _Sovremennye setevye tekhnologii_, RU",
+      "cc": "RU",
+      "services": [
+        "shops"
+      ],
+      "source": "dns"
+    },
     "212.193.152.0/23": {
       "asn": 204878,
       "as_name": "CCT-M9P1 - OOO _Sovremennye setevye tekhnologii_, RU",
@@ -16098,7 +16104,6 @@
         "gosuslugi",
         "mobile",
         "nalog",
-        "shops",
         "streaming"
       ],
       "source": "dns"
@@ -16922,7 +16927,8 @@
       "as_name": "VK-AS - LLC VK, RU",
       "cc": "RU",
       "services": [
-        "mailru"
+        "mailru",
+        "vk-extra"
       ],
       "source": "asn"
     },

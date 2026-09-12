@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updated": "2026-09-11",
+  "updated": "2026-09-12",
   "source": "внешние списки, проверенные по таблице IP→ASN",
   "asn_table": "https://iptoasn.com/data/ip2asn-v4.tsv.gz",
   "prefix_count": 1000,
-  "rejected_count": 55155,
-  "dropped_by_limit": 461,
+  "rejected_count": 55186,
+  "dropped_by_limit": 459,
   "domain_count": 1044,
-  "root_count": 1206,
+  "root_count": 1205,
   "roots_dropped": 0,
   "sources": {
     "mobile-whitelist-cidr": {
@@ -52,12 +52,12 @@
     },
     "lib4u-amnezia": {
       "url": "https://raw.githubusercontent.com/lib4u/amnezia-tunneling-ru/main/amnezia.json",
-      "parsed": 6632,
-      "networks": 1494,
+      "parsed": 7083,
+      "networks": 1532,
       "domains": 1954,
-      "accepted": 264,
+      "accepted": 262,
       "accepted_domains": 106,
-      "roots": 1042
+      "roots": 1041
     },
     "v2fly-ru": {
       "url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/",
@@ -66,7 +66,7 @@
       "domains": 1741,
       "accepted": 0,
       "accepted_domains": 9,
-      "roots": 997
+      "roots": 996
     },
     "jirnobruh-amnezia": {
       "url": "https://raw.githubusercontent.com/jirnobruh/Split-Tunneling-Amnezia-for-Russia/master/amnezia_split_ru_full.json",
@@ -79,26 +79,26 @@
     },
     "kyoresuas-ru-bypass": {
       "url": "https://raw.githubusercontent.com/kyoresuas/amnezia-split-tunneling/main/lists/ru-bypass.json",
-      "parsed": 8800,
-      "networks": 8800,
+      "parsed": 8799,
+      "networks": 8799,
       "domains": 0,
       "accepted": 725,
       "accepted_domains": 0
     },
     "kyoresuas-essential": {
       "url": "https://raw.githubusercontent.com/kyoresuas/amnezia-split-tunneling/main/lists/ru-essential-bypass.json",
-      "parsed": 313,
-      "networks": 313,
+      "parsed": 311,
+      "networks": 311,
       "domains": 0,
       "accepted": 70,
       "accepted_domains": 0
     },
     "pincetgore-ip-list": {
       "url": "https://github.com/pincetgore/amnezia-app-ru-list/releases/download/latest/ip-list.json",
-      "parsed": 1424,
-      "networks": 1424,
+      "parsed": 1416,
+      "networks": 1416,
       "domains": 0,
-      "accepted": 224,
+      "accepted": 223,
       "accepted_domains": 0
     },
     "kozlov-amnezia": {
@@ -149,7 +149,7 @@
       "parsed": 417,
       "networks": 334,
       "domains": 0,
-      "accepted": 69,
+      "accepted": 68,
       "accepted_domains": 0
     }
   },
@@ -643,9 +643,9 @@
       ],
       "source": "external"
     },
-    "23.111.216.0/22": {
-      "asn": 39134,
-      "as_name": "UNITEDNET",
+    "23.111.216.0/23": {
+      "asn": 50340,
+      "as_name": "SELECTEL-MSK",
       "cc": "RU",
       "sources": [
         "pvd-dog-no-vpn"
@@ -5137,16 +5137,6 @@
       ],
       "source": "external"
     },
-    "93.93.91.0/24": {
-      "asn": 34879,
-      "as_name": "CCT-AS NGENIX",
-      "cc": "RU",
-      "sources": [
-        "pincetgore-ip-list",
-        "rockblack-ru"
-      ],
-      "source": "external"
-    },
     "93.93.92.0/23": {
       "asn": 34879,
       "as_name": "CCT-AS NGENIX",
@@ -9235,17 +9225,7 @@
       ],
       "source": "external"
     },
-    "212.11.129.0/24": {
-      "asn": 8901,
-      "as_name": "Moscow Mayors Office",
-      "cc": "RU",
-      "sources": [
-        "kyoresuas-essential",
-        "pincetgore-ip-list"
-      ],
-      "source": "external"
-    },
-    "212.11.130.0/23": {
+    "212.11.128.0/22": {
       "asn": 8901,
       "as_name": "Moscow Mayors Office",
       "cc": "RU",
@@ -9312,6 +9292,7 @@
       "cc": "RU",
       "sources": [
         "kyoresuas-essential",
+        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
@@ -9328,7 +9309,6 @@
         "egkodin-ru-sites",
         "jirnobruh-amnezia",
         "kyoresuas-essential",
-        "lib4u-amnezia",
         "mobile-whitelist-cidr",
         "opencck-iplist",
         "pincetgore-ip-list",
@@ -9474,6 +9454,15 @@
       ],
       "source": "external"
     },
+    "212.48.236.0/22": {
+      "asn": 56864,
+      "as_name": "WELLSERVER-AS",
+      "cc": "RU",
+      "sources": [
+        "egkodin-ru-sites"
+      ],
+      "source": "external"
+    },
     "212.57.115.0/24": {
       "asn": 29182,
       "as_name": "RU-JSCIOT",
@@ -9515,6 +9504,15 @@
     "212.57.124.0/22": {
       "asn": 29182,
       "as_name": "RU-JSCIOT",
+      "cc": "RU",
+      "sources": [
+        "egkodin-ru-sites"
+      ],
+      "source": "external"
+    },
+    "212.59.112.0/22": {
+      "asn": 24739,
+      "as_name": "SEVEREN-TELECOM St.Petersburg, Russia",
       "cc": "RU",
       "sources": [
         "egkodin-ru-sites"
@@ -22392,15 +22390,6 @@
         47764
       ]
     },
-    "odnoklassniki.eu": {
-      "sources": [
-        "lib4u-amnezia",
-        "v2fly-ru"
-      ],
-      "asn": [
-        47764
-      ]
-    },
     "odnoklassniki.lv": {
       "sources": [
         "lib4u-amnezia",
@@ -23651,6 +23640,7 @@
         "v2fly-ru"
       ],
       "asn": [
+        12389,
         57724,
         200928
       ]
@@ -23871,7 +23861,9 @@
         "v2fly-ru"
       ],
       "asn": [
-        57724
+        12389,
+        57724,
+        200928
       ]
     },
     "rtdocumentary.online": {
@@ -24146,6 +24138,7 @@
         "kozlov-amnezia"
       ],
       "asn": [
+        12389,
         57724
       ]
     },
@@ -25072,6 +25065,7 @@
         "v2fly-ru"
       ],
       "asn": [
+        47541,
         47764
       ]
     },
@@ -25082,6 +25076,7 @@
         "v2fly-ru"
       ],
       "asn": [
+        47541,
         47764
       ]
     },
