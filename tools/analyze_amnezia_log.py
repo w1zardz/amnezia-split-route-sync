@@ -23,7 +23,7 @@ CAPTURE = re.compile(r"Capturing route to\s+(\S+)")
 ERROR = re.compile(r"Failed to update route:\s*(\d+)")
 
 
-def analyze(lines: Iterable[str]) -> dict:
+def analyze(lines: Iterable[str], since: datetime | None = None) -> dict:
     events: dict[str, list[datetime]] = {}
     routes: list[ipaddress.IPv4Network] = []
     captures: Counter[str] = Counter()
@@ -37,6 +37,8 @@ def analyze(lines: Iterable[str]) -> dict:
         try:
             stamp = datetime.fromisoformat(match[1].replace("Z", "+00:00"))
         except ValueError:
+            continue
+        if since is not None and stamp < since:
             continue
         for event, marker in (
             ("connection_started", "Trying to connect to VPN"),
@@ -90,9 +92,30 @@ def analyze(lines: Iterable[str]) -> dict:
     }
 
 
+def compare_state(report: dict, state: dict) -> dict:
+    """Counts can reveal a stale client; equal counts cannot prove equal routes."""
+    started = report.get("events", {}).get("connection_started", {}).get("first")
+    expected = state.get("entry_count")
+    if not started or not isinstance(expected, int) or state.get("manual_entries_preserved", 0):
+        return {"status": "unavailable", "reason": "need a connection log and a plan without manual domain entries"}
+    if datetime.fromisoformat(started) < datetime.fromisoformat(state["updated_at"].replace("Z", "+00:00")):
+        return {"status": "unavailable", "reason": "connection log predates the saved plan"}
+    observed = report["unique_routes"] + report["invalid_route_additions"]
+    return {
+        "status": "excess_routes" if observed > expected else "counts_match" if observed == expected else "incomplete_or_different_routes",
+        "expected_entries": expected,
+        "observed_unique_exclusions": observed,
+        "active_routes_verified": False,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("logs", nargs="+", type=Path)
+    period = parser.add_mutually_exclusive_group()
+    period.add_argument("--since", type=datetime.fromisoformat, help="UTC ISO timestamp, e.g. 2026-01-01T12:00:00+00:00")
+    period.add_argument("--latest-connection", action="store_true", help="ignore earlier attempts")
+    parser.add_argument("--state", type=Path, help="compare with updater status.json (read only)")
     args = parser.parse_args()
 
     def lines():
@@ -101,8 +124,25 @@ def main() -> int:
                 yield from stream
 
     try:
-        print(json.dumps(analyze(lines()), ensure_ascii=False, indent=2))
-    except OSError as exc:
+        since = args.since
+        if since is not None and since.tzinfo is None:
+            parser.error("--since must include a timezone")
+        if args.latest_connection:
+            starts = []
+            for line in lines():
+                if "Trying to connect to VPN" in line and (match := STAMP.match(line)):
+                    try:
+                        starts.append(datetime.fromisoformat(match[1].replace("Z", "+00:00")))
+                    except ValueError:
+                        pass
+            if not starts:
+                parser.exit(1, "No connection start in these logs\n")
+            since = max(starts)
+        report = analyze(lines(), since)
+        if args.state:
+            report["plan_comparison"] = compare_state(report, json.loads(args.state.read_text(encoding="utf-8-sig")))
+        print(json.dumps(report, ensure_ascii=False, indent=2))
+    except (OSError, ValueError, KeyError) as exc:
         parser.exit(1, f"Cannot read log: {exc}\n")
     return 0
 

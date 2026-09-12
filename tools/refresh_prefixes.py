@@ -5,11 +5,11 @@
   1. резолвим все домены каталога (A-записи);
   2. один bulk-запрос в Team Cymru (whois.cymru.com:43) отдаёт ASN, страну
      и реальный анонсируемый префикс для каждого IP;
-  3. оставляем только RU-префиксы (плюс явный allow-list ASN), выкидывая
-     глобальные CDN — иначе мимо VPN уехал бы весь Cloudflare;
+  3. проверяем весь диапазон по IP→ASN: страна RU и ожидаемый владелец;
+     на общем хостинге оставляем /32, глобальные CDN исключаем;
   4. по желанию разворачиваем целые ASN из config/asn-expand.json через RIPEstat;
-  5. подмешиваем data/external.json — сети из внешних списков, уже проверенные
-     по таблице IP→ASN в tools/import_external.py.
+  5. только с --with-external подмешиваем проверенные внешние кандидаты;
+     в обычной сборке и ежедневном workflow они отключены.
 
 Смысл: Amnezia резолвит импортированные домены один раз, а VK/Яндекс/WB крутят
 CDN — поэтому в список едут не /32 из локального DNS, а сети целиком.
@@ -206,12 +206,21 @@ def load_asn_expand() -> dict[int, str]:
     return result
 
 
+def reviewed_ru_prefix(value: str, asn: int, table: catalog.AsnTable) -> bool:
+    """Check every range, not just the first/last IP or an ASN's legal country."""
+    rows = table.covering_rows(ipaddress.ip_network(value))
+    return bool(rows) and all(record[2] == asn and record[3] == "RU" for record in rows)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=catalog.PREFIXES_FILE)
     parser.add_argument("--external", type=Path, default=catalog.EXTERNAL_FILE)
     parser.add_argument("--no-expand", action="store_true", help="без разворота ASN через RIPEstat")
-    parser.add_argument("--no-external", action="store_true", help="без сетей из внешних списков")
+    external_group = parser.add_mutually_exclusive_group()
+    external_group.add_argument("--no-external", dest="no_external", action="store_true", default=True)
+    external_group.add_argument("--with-external", dest="no_external", action="store_false")
+    parser.add_argument("--asn-table", type=Path, help="локальный ip2asn-v4.tsv(.gz)")
     parser.add_argument("--dry-run", action="store_true")
     arguments = parser.parse_args()
 
@@ -235,6 +244,9 @@ def main() -> int:
         if len(cymru) < len(addresses) * 0.8:
             raise RefreshError("Team Cymru сопоставил меньше 80% IP — неполный снапшот не публикуется")
 
+        expand = {} if arguments.no_expand else load_asn_expand()
+        table = catalog.load_asn_table(catalog.asn_table_url(), arguments.asn_table)
+
         prefixes: dict[str, dict] = {}
         dropped: dict[str, str] = {}
         for domain, ips in resolved.items():
@@ -247,11 +259,18 @@ def main() -> int:
                 if asn in DENY_ASN:
                     dropped[prefix] = f"AS{asn} {as_name} — глобальный CDN"
                     continue
-                if not is_russian(asn, country, as_name):
+                if country != "RU":
                     dropped[prefix] = f"AS{asn} {as_name} — страна {country}"
                     continue
-                if not network.is_global or not (MIN_PREFIXLEN <= network.prefixlen <= MAX_PREFIXLEN):
+                # A bank on shared hosting authorizes its IP, not every tenant
+                # of that provider. Only reviewed service ASNs expand to BGP.
+                if asn not in expand:
+                    network = ipaddress.ip_network(address + "/32")
+                if not network.is_global or not (MIN_PREFIXLEN <= network.prefixlen <= 32):
                     dropped[prefix] = f"префикс /{network.prefixlen} вне допустимого диапазона"
+                    continue
+                if not reviewed_ru_prefix(str(network), asn, table):
+                    dropped[prefix] = "весь диапазон не подтверждён как RU у этого ASN"
                     continue
                 entry = prefixes.setdefault(
                     str(network),
@@ -264,7 +283,6 @@ def main() -> int:
                     if service_id not in entry["services"]:
                         entry["services"].append(service_id)
 
-        expand = {} if arguments.no_expand else load_asn_expand()
         with concurrent.futures.ThreadPoolExecutor(max_workers=RIPESTAT_WORKERS) as executor:
             announced = dict(zip(sorted(expand), executor.map(announced_prefixes, sorted(expand))))
         for asn, reason in sorted(expand.items()):
@@ -273,6 +291,9 @@ def main() -> int:
                 raise RefreshError(f"RIPEstat: у AS{asn} нет допустимых IPv4-префиксов")
             print(f"AS{asn} ({reason}): {len(values)} анонсируемых префиксов")
             for value in values:
+                if not reviewed_ru_prefix(value, asn, table):
+                    dropped[value] = "ASN: зарубежный, смешанный или неизвестный диапазон"
+                    continue
                 entry = prefixes.setdefault(
                     value,
                     {"asn": asn, "as_name": reason, "cc": "RU", "services": [], "source": "asn"},

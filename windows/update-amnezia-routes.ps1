@@ -632,9 +632,14 @@ function Resolve-ManagedDomains([string[]]$Domains, [int]$TimeoutSeconds = 45, [
                        else { [DateTime]::Parse([string]$cached.updated_at, [Globalization.CultureInfo]::InvariantCulture, [Globalization.DateTimeStyles]::RoundtripKind) }
             $age = [DateTime]::UtcNow - $updated.ToUniversalTime()
             $known = @($cached.domains)
+            $requested = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
+            foreach ($domain in $Domains) { [void]$requested.Add($domain) }
+            $knownSet = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
+            foreach ($domain in $known) { [void]$knownSet.Add([string]$domain) }
             if ($age.TotalHours -ge 0 -and $age.TotalHours -lt 4 -and
-                (@(Compare-Object @($Domains | Sort-Object) @($known | Sort-Object))).Count -eq 0) {
+                $requested.IsSubsetOf($knownSet)) {
                 foreach ($entry in $cached.addresses.PSObject.Properties) {
+                    if (-not $requested.Contains($entry.Name)) { continue }
                     $ips = @(Get-PublicIPv4Values $entry.Value | Sort-Object -Unique)
                     if ($ips.Count -gt 0) { $addresses[$entry.Name] = $ips }
                 }
@@ -949,9 +954,33 @@ function Test-TunnelReady {
     $tunnel = Get-TunnelService
     if ($null -ne $tunnel) {
         $tunnel.Refresh()
-        return ($tunnel.Status -eq [ServiceProcess.ServiceControllerStatus]::Running -and (Test-VpnAdapterUp))
+        return ($tunnel.Status -eq [ServiceProcess.ServiceControllerStatus]::Running -and (Test-VpnAdapterUp) -and (Test-DaemonHandshake))
     }
     return ((Test-VpnAdapterUp) -or (Test-AmneziaUserspaceTunnel))
+}
+
+function Test-DaemonHandshake {
+    # Служба и адаптер появляются ДО рукопожатия. Тот же status, который читает
+    # GUI: date заполняется демоном только после полученного handshake.
+    $pipe = New-Object IO.Pipes.NamedPipeClientStream('.', 'amneziavpn', [IO.Pipes.PipeDirection]::InOut, [IO.Pipes.PipeOptions]::Asynchronous)
+    $reader = $null
+    try {
+        $pipe.Connect(500)
+        $request = [Text.Encoding]::UTF8.GetBytes('{"type":"status"}' + "`n")
+        $pipe.Write($request, 0, $request.Length)
+        $pipe.Flush()
+        $reader = New-Object IO.StreamReader($pipe)
+        $reply = $reader.ReadLineAsync()
+        if (-not $reply.Wait(1500)) { return $false }
+        $statusReply = $reply.GetAwaiter().GetResult() | ConvertFrom-Json
+        return ($statusReply.type -eq 'status' -and $statusReply.connected -eq $true -and
+            $statusReply.PSObject.Properties.Name -contains 'date' -and
+            -not [string]::IsNullOrWhiteSpace([string]$statusReply.date))
+    } catch { return $false }
+    finally {
+        if ($null -ne $reader) { $reader.Dispose() }
+        $pipe.Dispose()
+    }
 }
 
 function Get-AmneziaExePath {
@@ -1587,6 +1616,7 @@ try {
         domain_count             = $list.Domains.Count
         cidr_count               = $list.Cidrs.Count
         effective_route_count    = $plan.Entries.Count
+        active_routes_verified   = $false
         routes_before_compaction = $plan.InputRouteCount
         redundant_routes_removed = $plan.RemovedRouteCount
         unresolved_domain_count  = $plan.UnresolvedDomainCount
@@ -1600,9 +1630,9 @@ try {
 
     if ($result.Changed) {
         Write-Host ("AmneziaVPN обновлена: $($entries.Count) записей, сохранено ручных записей: $($result.ManualCount). " +
-                    'Настройки проверены; исходное состояние подключения восстановлено.')
+                    'Запись настроек проверена; это не подтверждает загрузку нового списка клиентом. Сравните свежий журнал с планом.')
     } else {
-        Write-Host "AmneziaVPN уже содержит актуальные $($entries.Count) записей."
+        Write-Host "В реестре уже записан план из $($entries.Count) записей; активные маршруты отдельно не проверялись."
     }
 } finally {
     if ($hasLock) { [void]$mutex.ReleaseMutex() }

@@ -110,6 +110,8 @@ try {
     Write-JsonAtomic $DnsCachePath $dns.Cache
     $cached = Resolve-ManagedDomains @('fail.example','ok.example')
     Assert-True ($cached.Cached -and $script:lookupCount -eq 2) 'Fresh cache triggered DNS requests'
+    $subset = Resolve-ManagedDomains @('ok.example')
+    Assert-True ($subset.Cached -and $subset.Addresses.Count -eq 1 -and $script:lookupCount -eq 2) 'Catalog reduction unnecessarily repeated DNS'
     $empty = Resolve-ManagedDomains @()
     Assert-True ($empty.Addresses.Count -eq 0) 'IP-only list needs no DNS'
     # Even multiple failed refreshes keep last-known IPs after domain keys have
@@ -139,6 +141,8 @@ try {
         Assert-True (-not (Test-AmneziaAdapter ([pscustomobject]@{Name=$name;Description=$name;OperationalStatus=$up}))) 'Other VPN mistaken for Amnezia'
     }
     $getTunnel = ${function:Get-TunnelService}
+    $daemonHandshake = ${function:Test-DaemonHandshake}
+    function Test-DaemonHandshake { return $true }
     $adapterUp = ${function:Test-VpnAdapterUp}
     function Get-TunnelService {
         $mockService = [pscustomobject]@{Status=[ServiceProcess.ServiceControllerStatus]::Running}
@@ -149,6 +153,9 @@ try {
     Assert-True (-not (Test-TunnelReady)) 'Running service with no adapter reported a restored VPN'
     function Test-VpnAdapterUp { return $true }
     Assert-True (Test-TunnelReady) 'Running tunnel and adapter not ready'
+    function Test-DaemonHandshake { return $false }
+    Assert-True (-not (Test-TunnelReady)) 'Interface without handshake reported a ready VPN'
+    ${function:Test-DaemonHandshake} = $daemonHandshake
     ${function:Get-TunnelService} = $getTunnel
     ${function:Test-VpnAdapterUp} = $adapterUp
     Write-Host 'PASS: adapter ownership'

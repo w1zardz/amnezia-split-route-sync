@@ -10,10 +10,6 @@ on:
         description: "Обновить BGP-префиксы перед сборкой (DNS + Team Cymru + RIPEstat)"
         type: boolean
         default: true
-      import_external:
-        description: "Перепроверить внешние списки российских сетей"
-        type: boolean
-        default: true
 
 permissions:
   contents: read
@@ -43,26 +39,19 @@ jobs:
           python3 tools/privacy_scan.py
           python3 -m unittest discover -s tools -p test_collectors.py -v
 
-      # Внешние списки перепроверяются до обновления префиксов: импорт сверяется
-      # с набором ASN из прошлого снапшота, а refresh уже подмешивает результат.
-      - name: Import external sources
-        if: github.event_name == 'schedule' || inputs.import_external
-        run: python3 tools/import_external.py
-
       - name: Refresh BGP prefixes
         if: github.event_name == 'schedule' || inputs.refresh_prefixes
-        run: python3 tools/refresh_prefixes.py
+        run: python3 tools/refresh_prefixes.py --no-external
 
       # Amnezia не резолвит домены при импорте JSON: AmneziaWG и мобильные клиенты
       # берут маршруты только из полей ips/ip записи. Снапшот IP кладётся в сборку.
       - name: Resolve domain IPs
-        if: github.event_name == 'schedule' || inputs.import_external
-        run: python3 tools/resolve_domains.py
+        run: python3 tools/resolve_domains.py --no-external
 
       - name: Build lists
         run: |
           python3 tools/catalog.py
-          python3 tools/build_ru_direct.py
+          python3 tools/build_ru_direct.py --no-external
           python3 -m unittest discover -s tools -p test_collectors.py -v
 
       - name: Detect changed routing assets
@@ -131,11 +120,11 @@ jobs:
           python3 - <<'PY'
           import json, os, pathlib
           manifest = json.loads(pathlib.Path("dist/manifest.json").read_text())
-          external = json.loads(pathlib.Path("data/external.json").read_text())
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
               summary.write(f"Domains: {manifest['domains']}; IPv4 routes: {manifest['cidrs']}; "
                             f"lite entries: {manifest['lite_entries']}\n\n")
-              summary.write(f"Sources: {len(external['sources'])}; "
-                            f"external subdomains: {external.get('domain_count', 0)}; "
-                            f"external prefixes: {external['prefix_count']}\n")
+              assert manifest['selection_policy'] == 'reviewed-catalog'
+              assert manifest['external_domains'] == manifest['external_roots'] == 0
+              summary.write(f"Policy: reviewed catalog only; "
+                            f"effective routes: {manifest['routing']['full']['compacted']}\n")
           PY

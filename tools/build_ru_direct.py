@@ -28,6 +28,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import catalog
+import refresh_prefixes
 
 ROOT = catalog.ROOT
 DIST = ROOT / "dist"
@@ -42,7 +43,26 @@ MIN_ENTRIES = 300
 # ($MaximumRoutes / MAX_TOTAL_ROUTES). Список, который они отвергнут, нельзя
 # публиковать: у пользователя обновление просто перестанет применяться.
 MAX_ROUTES = 1_500
-MAX_EFFECTIVE_ROUTES = 2_000
+MAX_EFFECTIVE_ROUTES = 1_000
+
+
+def curated_prefixes(prefixes: dict[str, dict], reviewed: set[int]) -> dict[str, dict]:
+    """Published routes come from reviewed service ASNs or individual RU hosts.
+
+    Old snapshots may contain whole shared-hosting networks learned from a
+    single DNS answer. Only their validated host addresses belong in the list.
+    """
+    return {
+        value: meta for value, meta in prefixes.items()
+        if meta.get("source") != "external" and meta.get("cc") == "RU"
+        and (meta.get("asn") in reviewed or ipaddress.ip_network(value).prefixlen == 32)
+    }
+
+
+def snapshot_routes(domains: Iterable[str], cidrs: Iterable[str], ips: dict[str, list[str]]) -> list[str]:
+    networks = [ipaddress.ip_network(value) for value in cidrs]
+    networks.extend(ipaddress.ip_network(ip) for domain in domains for ip in ips.get(domain, []))
+    return [str(network) for network in ipaddress.collapse_addresses(networks)]
 
 
 class BuildError(RuntimeError):
@@ -492,7 +512,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, default=DIST)
     parser.add_argument("--personal", type=Path, help="личный довесок, в публичный репозиторий не коммитится")
-    parser.add_argument("--no-external", action="store_true", help="без внешних поддоменов, корней и сетей")
+    external_group = parser.add_mutually_exclusive_group()
+    external_group.add_argument("--no-external", dest="no_external", action="store_true", default=True,
+                                help="только ручной каталог (по умолчанию)")
+    external_group.add_argument("--with-external", dest="no_external", action="store_false",
+                                help="экспериментальная сборка с внешними кандидатами; не для релиза")
     parser.add_argument("--no-ips", action="store_true", help="доменные записи без снимка IPv4 (ip пустой)")
     parser.add_argument("--domain-ips", type=Path, default=catalog.DOMAIN_IPS_FILE)
     parser.add_argument("--dry-run", action="store_true")
@@ -506,7 +530,7 @@ def main() -> int:
         external_domains = {} if arguments.no_external else catalog.load_external_domains(services)
         external_roots = {} if arguments.no_external else catalog.load_external_roots(services)
         if arguments.no_external:
-            prefixes = {value: meta for value, meta in prefixes.items() if meta.get("source") != "external"}
+            prefixes = curated_prefixes(prefixes, set(refresh_prefixes.load_asn_expand()))
         # Нет снимка — доменные записи как раньше, с пустым ip; лишние домены снимка не нужны.
         domain_ips = (
             None if arguments.no_ips or not arguments.domain_ips.exists()
@@ -528,6 +552,11 @@ def main() -> int:
         lite_domains, lite_cidrs = build(
             services, prefixes, ("core",), personal_domains, personal_cidrs
         )
+        # Shared hosting contributes exact validated A records, never its whole
+        # BGP prefix. Every client, including the IP-only/macOS importer, gets
+        # the same compact union of routes.
+        full_cidrs = snapshot_routes(full_domains, full_cidrs, domain_ips or {})
+        lite_cidrs = snapshot_routes(lite_domains, lite_cidrs, domain_ips or {})
         guard(full_domains, full_cidrs, protected, "полный список", MAX_FULL_ENTRIES)
         guard(lite_domains, lite_cidrs, protected, "lite-список")
 
@@ -541,8 +570,9 @@ def main() -> int:
             "lite": route_metrics(lite_domains, lite_cidrs, with_ips),
         }
         for label, metrics in routing.items():
-            if metrics["compacted"] > MAX_EFFECTIVE_ROUTES:
-                raise BuildError(f"{label}: после DNS {metrics['compacted']} маршрутов, лимит {MAX_EFFECTIVE_ROUTES}")
+            route_limit = MAX_EFFECTIVE_ROUTES if arguments.no_external else 2_000
+            if metrics["compacted"] > route_limit:
+                raise BuildError(f"{label}: после DNS {metrics['compacted']} маршрутов, лимит {route_limit}")
         allowed_ips = invert_networks(full_cidrs)
         happ = {
             "DirectSites": [f"domain:{domain}" for domain in full_domains],
@@ -551,6 +581,7 @@ def main() -> int:
         addresses = sum(ipaddress.ip_network(value).num_addresses for value in full_cidrs)
         counts = {
             "built": date.today().isoformat(),
+            "selection_policy": "reviewed-catalog" if arguments.no_external else "experimental-external",
             "services": len(services),
             "core_services": sum(1 for service in services if service.tier == "core"),
             "domains": len(full_domains),
@@ -609,7 +640,7 @@ def main() -> int:
                 f"{counts['personal_cidrs']} сетей"
             )
         return 0
-    except (catalog.CatalogError, BuildError, OSError, json.JSONDecodeError) as exc:
+    except (catalog.CatalogError, refresh_prefixes.RefreshError, BuildError, OSError, json.JSONDecodeError) as exc:
         print(f"ОШИБКА: {exc}", file=sys.stderr)
         return 1
 

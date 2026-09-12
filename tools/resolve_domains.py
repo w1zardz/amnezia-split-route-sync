@@ -8,7 +8,7 @@
 шаг, а tools/build_ru_direct.py лишь читает готовый снимок.
 
 Механика:
-  1. домены = каталог (core + extended) + внешние поддомены + принятые корни;
+  1. домены = ручной каталог (core + extended); внешние — только с --with-external;
   2. каждый домен спрашиваем у Google и Cloudflare по DoH (всегда) и у Яндекса
      по UDP/53 (по возможности), по два запроса на резолвер — балансировщики
      отдают разные адреса из пула;
@@ -356,7 +356,7 @@ def address_verdict(address: str, table: catalog.AsnTable) -> tuple[str, tuple |
         return NO_ROW, None
     if record[2] in catalog.DENY_ASN:
         return GLOBAL_CDN, record
-    if not catalog.is_russian(record[2], record[3], record[4]):
+    if record[3] != "RU":
         return FOREIGN, record
     return ACCEPT, record
 
@@ -366,8 +366,10 @@ def ru_addresses(addresses: Iterable[str], table: catalog.AsnTable) -> list[str]
     return sorted(accepted, key=ipaddress.IPv4Address)[: catalog.MAX_DOMAIN_IPS]
 
 
-def full_list_domains(services: list[catalog.Service]) -> list[str]:
+def full_list_domains(services: list[catalog.Service], with_external: bool = False) -> list[str]:
     """Те же домены, что попадают в полный список: каталог, поддомены, корни."""
+    if not with_external:
+        return catalog.catalog_domains(services)
     return sorted(
         set(catalog.catalog_domains(services))
         | set(catalog.load_external_domains(services))
@@ -379,6 +381,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=catalog.DOMAIN_IPS_FILE)
     parser.add_argument("--asn-table", type=Path, help="локальный ip2asn-v4.tsv(.gz) вместо загрузки")
+    external_group = parser.add_mutually_exclusive_group()
+    external_group.add_argument("--no-external", dest="with_external", action="store_false", default=False)
+    external_group.add_argument("--with-external", dest="with_external", action="store_true")
     parser.add_argument("--limit", type=int, help="только первые N доменов — для отладки")
     parser.add_argument("--dry-run", action="store_true")
     arguments = parser.parse_args()
@@ -387,7 +392,7 @@ def main() -> int:
         if arguments.limit is not None and arguments.limit < 1:
             raise ResolveError("--limit должен быть положительным")
         services = catalog.load_catalog()
-        domains = full_list_domains(services)
+        domains = full_list_domains(services, arguments.with_external)
         if arguments.limit:
             domains = domains[: arguments.limit]
         try:

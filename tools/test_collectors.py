@@ -1,6 +1,7 @@
 """Regression tests for source filtering and the shared Windows/macOS artifacts."""
 
 import contextlib
+from datetime import datetime
 import importlib.util
 import io
 import ipaddress
@@ -22,6 +23,59 @@ import analyze_amnezia_log as log_analyzer
 
 
 class RouteLoadTests(unittest.TestCase):
+    def test_manual_catalog_routes_survive_external_and_country_filters(self):
+        manual = catalog.Service(id='manual', title='Manual', tier='core', category='custom',
+                                 category_title='Custom', domains=['custom.example'],
+                                 cidrs=['8.8.8.8/32'], notes='User-maintained routes')
+        rejected = builder.curated_prefixes({'9.9.9.0/24': {'source': 'external', 'asn': 64501, 'cc': 'US'}}, set())
+        domains, routes = builder.build([manual], rejected, ('core', 'extended'))
+        self.assertEqual(domains, ['custom.example'])
+        self.assertEqual(routes, ['8.8.8.8/32'])
+
+    def test_new_connection_exposes_old_routes_despite_successful_registry_write(self):
+        lines = [
+            '[2026-01-01 00:00:00.000Z] Trying to connect to VPN',
+            '[2026-01-01 00:00:01.000Z] Adding exclusion route for 8.8.8.0/24',
+            '[2026-01-01 01:00:00.000Z] Trying to connect to VPN',
+            '[2026-01-01 01:00:01.000Z] Adding exclusion route for 5.255.0.0/16',
+            '[2026-01-01 01:00:02.000Z] Adding exclusion route for /999999',
+        ]
+        report = log_analyzer.analyze(lines, datetime.fromisoformat('2026-01-01T01:00:00+00:00'))
+        self.assertEqual(report['route_candidates'], 1)
+        state = {'entry_count': 1, 'updated_at': '2026-01-01T00:30:00Z', 'manual_entries_preserved': 0}
+        self.assertEqual(log_analyzer.compare_state(report, state)['status'], 'excess_routes')
+        state['entry_count'] = 2
+        self.assertEqual(log_analyzer.compare_state(report, state)['status'], 'counts_match')
+        self.assertFalse(log_analyzer.compare_state(report, state)['active_routes_verified'])
+        state['updated_at'] = '2026-01-01T02:00:00Z'
+        self.assertEqual(log_analyzer.compare_state(report, state)['status'], 'unavailable')
+
+    def test_curated_snapshot_rejects_external_shared_hosting_and_foreign_ranges(self):
+        entries = {
+            '8.8.8.0/24': {'source': 'asn', 'asn': 64501, 'cc': 'RU'},
+            '8.8.9.0/24': {'source': 'external', 'asn': 64501, 'cc': 'RU'},
+            '8.8.10.0/24': {'source': 'dns', 'asn': 64502, 'cc': 'RU'},
+            '8.8.11.0/24': {'source': 'asn', 'asn': 64501, 'cc': 'US'},
+            '8.8.12.1/32': {'source': 'dns', 'asn': 64502, 'cc': 'RU'},
+        }
+        self.assertEqual(set(builder.curated_prefixes(entries, {64501})), {'8.8.8.0/24', '8.8.12.1/32'})
+
+    def test_ip_export_keeps_exact_hosts_without_expanding_shared_provider(self):
+        self.assertEqual(builder.snapshot_routes(['bank.ru'], ['5.255.0.0/16'],
+                         {'bank.ru': ['5.255.1.1', '95.213.1.1']}),
+                         ['5.255.0.0/16', '95.213.1.1/32'])
+
+    def test_default_domain_selection_does_not_load_external_candidates(self):
+        with patch.object(catalog, 'load_external_domains', side_effect=AssertionError('external loaded')):
+            self.assertEqual(resolver.full_list_domains(catalog.load_catalog()),
+                             catalog.catalog_domains(catalog.load_catalog()))
+
+    def test_announced_asn_cannot_label_foreign_ranges_as_russian(self):
+        table = catalog.AsnTable([row('8.8.8.0', '8.8.8.127', 64501),
+                                  row('8.8.8.128', '8.8.8.255', 64501, 'US')])
+        self.assertFalse(refresh.reviewed_ru_prefix('8.8.8.0/24', 64501, table))
+        self.assertTrue(refresh.reviewed_ru_prefix('8.8.8.0/25', 64501, table))
+
     def test_dns_duplicates_and_contained_hosts_share_one_route(self):
         metrics = builder.route_metrics(
             ['a.example', 'b.example'], ['5.255.0.0/16'],
@@ -146,7 +200,7 @@ class ArtifactTests(unittest.TestCase):
     def test_announced_asn_keeps_external_dns_prefix_in_lite(self):
         with tempfile.TemporaryDirectory() as temporary:
             path = Path(temporary) / "prefixes.json"
-            with patch.object(sys, "argv", ["refresh", "--output", str(path)]), patch.object(catalog, "catalog_domains", return_value=["base.ru"]), patch.object(catalog, "load_external_domains", return_value={"new.base.ru": {"sources": ["test"]}}), patch.object(refresh, "resolve_all", return_value={"base.ru": ["1.1.1.1"], "new.base.ru": ["8.8.8.8"]}), patch.object(refresh, "cymru_lookup", return_value={"1.1.1.1": (13335, "1.1.1.0/24", "US", "Cloudflare"), "8.8.8.8": (64501, "8.8.8.0/24", "RU", "Test")}), patch.object(refresh, "load_asn_expand", return_value={64501: "Test"}), patch.object(refresh, "announced_prefixes", return_value=["8.8.8.0/24"]), patch.object(refresh, "load_external", return_value={}), contextlib.redirect_stdout(io.StringIO()):
+            with patch.object(sys, "argv", ["refresh", "--with-external", "--output", str(path)]), patch.object(catalog, "load_asn_table", return_value=catalog.AsnTable([row("8.8.8.0", "8.8.8.255")])), patch.object(catalog, "catalog_domains", return_value=["base.ru"]), patch.object(catalog, "load_external_domains", return_value={"new.base.ru": {"sources": ["test"]}}), patch.object(refresh, "resolve_all", return_value={"base.ru": ["1.1.1.1"], "new.base.ru": ["8.8.8.8"]}), patch.object(refresh, "cymru_lookup", return_value={"1.1.1.1": (13335, "1.1.1.0/24", "US", "Cloudflare"), "8.8.8.8": (64501, "8.8.8.0/24", "RU", "Test")}), patch.object(refresh, "load_asn_expand", return_value={64501: "Test"}), patch.object(refresh, "announced_prefixes", return_value=["8.8.8.0/24"]), patch.object(refresh, "load_external", return_value={}), contextlib.redirect_stdout(io.StringIO()):
                 self.assertEqual(refresh.main(), 0)
             prefixes = json.loads(path.read_text(encoding="utf-8"))["prefixes"]
             self.assertEqual(builder.build([], prefixes, ("core",))[1], ["8.8.8.0/24"])
@@ -409,7 +463,7 @@ class DomainIpBuildTests(unittest.TestCase):
         core = catalog.catalog_domains(services, ("core",))[0]
         snapshot = {core: ["95.213.0.1", "95.213.0.2"], "rootone-test.ru": ["95.213.0.3"], "not-in-list.ru": ["95.213.0.9"]}
         with tempfile.TemporaryDirectory() as temporary:
-            self.assertEqual(self.build(temporary, snapshot), 0)
+            self.assertEqual(self.build(temporary, snapshot, "--with-external"), 0)
             dist = Path(temporary)
             full = {entry["hostname"]: entry for entry in json.loads((dist / "amnezia-ru-direct.json").read_text(encoding="utf-8"))}
             lite = {entry["hostname"]: entry for entry in json.loads((dist / "amnezia-ru-direct-lite.json").read_text(encoding="utf-8"))}
