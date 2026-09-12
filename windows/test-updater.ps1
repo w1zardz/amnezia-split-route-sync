@@ -162,14 +162,33 @@ try {
     function Test-GuiRunning { return $script:started }
     function Test-TunnelRunning { return $script:started }
     function Test-TunnelReady { return $script:started }
-    function Start-Process($FilePath, $ArgumentList, $WindowStyle) {
-        Assert-True ($WindowStyle -ceq 'Hidden') 'Background restore is not hidden'
+    # Прямой Start-Process из updater запустил бы AmneziaVPN с токеном задачи, то есть
+    # с правами администратора: такое окно не открывается из трея (UIPI).
+    function Start-Process { throw 'GUI must not inherit the updater token' }
+    $startGui = ${function:Start-AmneziaGui}
+    function Start-AmneziaGui([string]$ExePath, [string[]]$Arguments) {
+        Assert-True ($ExePath -ceq 'mock.exe') 'Restore launched another executable'
         $script:started = $true
-        $script:startArguments = @($ArgumentList)
+        $script:startArguments = @($Arguments)
     }
     Restore-AmneziaSession ([pscustomobject]@{GuiRunning=$false;Connected=$true;AutoConnect=$false;ServerIndex=2}) 'mock.exe'
     Assert-True ($script:started -and ($script:startArguments -join ' ') -ceq '--connect 2') 'Connected session with no GUI was not restored'
     Write-Host 'PASS: session preservation and server selection guards'
+
+    Remove-Item function:Start-Process -ErrorAction SilentlyContinue
+    ${function:Start-AmneziaGui} = $startGui
+    if (Test-Elevated) {
+        # Настоящая регистрация разовой задачи: проверяем, что RunLevel Limited проходит
+        # в обеих оболочках и временная задача убирается за собой.
+        $launchTask = "Amnezia-Route-Sync-Launch-$PID"
+        function Test-GuiRunning { return $true }
+        Start-AmneziaGui "$env:SystemRoot\System32\cmd.exe" @('/c', 'exit')
+        Assert-True (-not (Get-ScheduledTask -TaskName $launchTask -ErrorAction SilentlyContinue)) `
+            'Temporary launch task was left registered'
+        Write-Host 'PASS: unelevated GUI launch task'
+    } else {
+        Write-Host 'SKIP: unelevated GUI launch task (нужны права администратора)'
+    }
     Write-Host 'Windows regression tests: OK'
 } finally {
     if (-not $testRegistry.StartsWith('Software\AmneziaRouteSync-Tests\')) { throw 'Unsafe registry cleanup target' }
